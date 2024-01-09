@@ -2,8 +2,8 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
-const allowedDomains = ['toscrape.com'];
-const startUrl = 'http://books.toscrape.com/';
+const allowedDomains = ['plymouth.ac.uk'];
+const startUrl = 'https://www.plymouth.ac.uk/courses/';
 
 async function crawl() {
   const queue = [startUrl];
