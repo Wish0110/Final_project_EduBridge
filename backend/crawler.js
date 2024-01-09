@@ -6,10 +6,10 @@ const allowedDomains = ['plymouth.ac.uk'];
 const startUrl = 'https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-artificial-intelligence/';
 
 async function crawl() {
-  const queue = [startUrl];
-  const visited = new Set();
+ const queue = [startUrl];
+ const visited = new Set();
 
-  while (queue.length > 0) {
+ while (queue.length > 0) {
     const url = queue.shift();
 
     if (!visited.has(url)) {
@@ -19,21 +19,17 @@ async function crawl() {
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
 
-        const items = [];
-        $('.product_pod').each((index, element) => {
-          const itemUrl = $(element).find('a').attr('href');
-          if (itemUrl && allowedDomains.some(domain => itemUrl.startsWith(domain))) {
-            queue.push(itemUrl);
-          } else {
-            const title = $(element).find('h3 a').text().trim();
-            const price = $(element).find('.price_color').text().trim();
-            const availability = $(element).find('.availability .instock').text().trim().replace(/[\n\s]+/g, '');
-            items.push({ title, price, availability });
-          }
+        // Find the 'ul' tag within the details element
+        const ulElement = $('details#careers-accordion ul');
+
+        // Extract the data from the 'li' tags
+        const careers = [];
+        ulElement.children('li').each((index, element) => {
+          careers.push($(element).text().trim());
         });
 
         // Write parsed items to JSON file
-        fs.appendFileSync('crawled_data.json', JSON.stringify(items, null, 2) + '\n');
+        fs.appendFileSync('crawled_data.json', JSON.stringify(careers, null, 2) + '\n');
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
@@ -46,7 +42,7 @@ async function crawl() {
         console.error('Error crawling:', error);
       }
     }
-  }
+ }
 }
 
 crawl();
