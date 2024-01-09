@@ -24,16 +24,12 @@ function App() {
 
   return (
     <div>
-      {isLoading && <p>Loading data...</p>}
+      {isLoading && <p>Loading careers...</p>}
       {error && <p>Error: {error.message}</p>}
       {data.length > 0 && (
         <ul>
-          {data.map((item) => (
-            <li key={item.title}>
-              <h2>{item.title}</h2>
-              <p>Price: {item.price}</p>
-              <p>Availability: {item.availability}</p>
-            </li>
+          {data.map((career) => (
+            <li key={career}>{career}</li>
           ))}
         </ul>
       )}
