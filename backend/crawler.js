@@ -2,8 +2,8 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
-const allowedDomains = ['study-uk.britishcouncil.org'];
-const startUrl = 'https://study-uk.britishcouncil.org/moving-uk';
+const allowedDomains = ['britishcouncil.org']; // Update if needed
+const startUrl = 'https://study-uk.britishcouncil.org/moving-uk/cost-studying';
 
 async function crawl() {
   const queue = [startUrl];
@@ -20,28 +20,27 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         const items = [];
-        $('.product_pod').each((index, element) => {
-          const itemUrl = $(element).find('a').attr('href');
-          if (itemUrl && allowedDomains.some(domain => itemUrl.startsWith(domain))) {
-            queue.push(itemUrl);
-          } else {
-            const title = $(element).find('h3 a').text().trim();
-            const price = $(element).find('.price_color').text().trim();
-            const availability = $(element).find('.availability .instock').text().trim().replace(/[\n\s]+/g, '');
-            items.push({ title, price, availability });
-          }
+
+        // Extract title and properties:
+        const title = $('head title').text().trim();
+        const description = $('meta[name="description"]').attr('content');
+        const ogTitle = $('meta[property="og:title"]').attr('content');
+        const ogDescription = $('meta[property="og:description"]').attr('content');
+        const ogImage = $('meta[property="og:image"]').attr('content');
+
+        items.push({
+          title,
+          description,
+          ogTitle,
+          ogDescription,
+          ogImage
         });
 
         // Write parsed items to JSON file
         fs.appendFileSync('crawled_data.json', JSON.stringify(items, null, 2) + '\n');
 
-        // Follow links to other categories
-        $('.pager a').each((index, element) => {
-          const link = $(element).attr('href');
-          if (link && allowedDomains.some(domain => link.startsWith(domain))) {
-            queue.push(link);
-          }
-        });
+        // Follow links to other pages (if applicable)
+        // ...
       } catch (error) {
         console.error('Error crawling:', error);
       }
