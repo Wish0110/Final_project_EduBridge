@@ -29,7 +29,6 @@ async function crawl() {
         const careerTopic = $('details#careers-accordion h2').text().trim();
         const careerDescript = $('details#careers-accordion div.trix-content').text().trim();
         const ulElement = $('details#careers-accordion ul');
-
         const keyFeaturesTopic = $('details#key-features-accordion h2').text().trim();
         const keyFeaturesList = $('details#key-features-accordion ul').children('li').map((index, element) => $(element).text().trim()).get();
 
@@ -44,6 +43,7 @@ async function crawl() {
           console.warn('Careers ul element not found on the page.');
         }
 
+        
         // Write parsed items to JSON file
         fs.appendFileSync('crawled_data.json', JSON.stringify({
           schoolTitle,
