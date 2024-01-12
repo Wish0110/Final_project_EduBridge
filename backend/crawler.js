@@ -20,6 +20,11 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Find the 'ul' tag within the details element
+        const schoolTitle = $('h2.school-title a').text().trim();
+        const courseTitle = $('h1.hero-heading .course-title').text().trim();
+        const detailsTable = $('.key-facts--alternative table').text().trim();
+        const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
+        const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
         const ulElement = $('details#careers-accordion ul');
 
         // Extract the data from the 'li' tags
@@ -29,7 +34,14 @@ async function crawl() {
         });
 
         // Write parsed items to JSON file
-        fs.appendFileSync('crawled_data.json', JSON.stringify(careers, null, 2) + '\n');
+        fs.appendFileSync('crawled_data.json', JSON.stringify({
+          schoolTitle,
+          courseTitle,
+          detailsTable,
+          registerButton,
+          applyButton
+      },
+          careers, null, 2) + '\n');
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
