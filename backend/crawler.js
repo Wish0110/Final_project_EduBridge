@@ -26,6 +26,7 @@ async function crawl() {
         const detailsTable = $('.key-facts--alternative table').text().trim();
         const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
+        const careerDescript = $('details#careers-accordion div.trix-content').text().trim();
         const careerTopic = $('details#careers-accordion h2').text().trim();
         const ulElement = $('details#careers-accordion ul');
 
