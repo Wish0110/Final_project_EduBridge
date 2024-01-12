@@ -27,9 +27,10 @@ async function crawl() {
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
         const ulElement = $('details#careers-accordion ul');
 
-        // Ensure ulElement exists before extraction
+        let careers = []; // Define careers as an empty array here
+
+        // Extract careers only if ulElement exists
         if (ulElement.length > 0) {
-          const careers = [];
           ulElement.children('li').each((index, element) => {
             careers.push($(element).text().trim());
           });
@@ -44,7 +45,7 @@ async function crawl() {
           detailsTable,
           registerButton,
           applyButton,
-          careers
+          careers: careers || [] // Ensure careers is always an array
         }, null, 2) + '\n');
 
         // Follow links to other categories
