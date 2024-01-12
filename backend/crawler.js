@@ -6,10 +6,10 @@ const allowedDomains = ['plymouth.ac.uk'];
 const startUrl = 'https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-artificial-intelligence/';
 
 async function crawl() {
- const queue = [startUrl];
- const visited = new Set();
+  const queue = [startUrl];
+  const visited = new Set();
 
- while (queue.length > 0) {
+  while (queue.length > 0) {
     const url = queue.shift();
 
     if (!visited.has(url)) {
@@ -19,7 +19,7 @@ async function crawl() {
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
 
-        // Find the 'ul' tag within the details element
+        // Verify selectors (replace with actual selectors after inspection)
         const schoolTitle = $('h2.school-title a').text().trim();
         const courseTitle = $('h1.hero-heading .course-title').text().trim();
         const detailsTable = $('.key-facts--alternative table').text().trim();
@@ -27,11 +27,15 @@ async function crawl() {
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
         const ulElement = $('details#careers-accordion ul');
 
-        // Extract the data from the 'li' tags
-        const careers = [];
-        ulElement.children('li').each((index, element) => {
-          careers.push($(element).text().trim());
-        });
+        // Ensure ulElement exists before extraction
+        if (ulElement.length > 0) {
+          const careers = [];
+          ulElement.children('li').each((index, element) => {
+            careers.push($(element).text().trim());
+          });
+        } else {
+          console.warn('Careers ul element not found on the page.');
+        }
 
         // Write parsed items to JSON file
         fs.appendFileSync('crawled_data.json', JSON.stringify({
@@ -39,9 +43,9 @@ async function crawl() {
           courseTitle,
           detailsTable,
           registerButton,
-          applyButton
-      },
-          careers, null, 2) + '\n');
+          applyButton,
+          careers
+        }, null, 2) + '\n');
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
@@ -54,7 +58,7 @@ async function crawl() {
         console.error('Error crawling:', error);
       }
     }
- }
+  }
 }
 
 crawl();
