@@ -44,10 +44,10 @@ async function crawl() {
         fs.appendFileSync('crawled_data.json', JSON.stringify({
           schoolTitle,
           courseTitle,
-          overviewText,
           detailsTable,
           registerButton,
           applyButton,
+          overviewText,
           careerText,
           careers: careers || [] // Ensure careers is always an array
         }, null, 2) + '\n');
