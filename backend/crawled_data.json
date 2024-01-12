@@ -1,0 +1,22 @@
+{
+  "schoolTitle": "School of Engineering, Computing and Mathematics",
+  "courseTitle": "Computer Science (Artificial Intelligence)",
+  "detailsTable": "UCAS tariff\n        120 - 128\n      \n        \n          UCAS course code\n          I400\n        \n    \n      Institution code\n      P60\n    \n  \n     Duration\n      \n          3 years (+ optional placement)\n  \n  \n    Course type\n    Full-time\n  \n  \n    Location\n    Plymouth",
+  "registerButton": "/forms/open-day/registration",
+  "applyButton": "http://www.ucas.com/apply",
+  "careersHeader": "",
+  "careersIntro": "",
+  "careers": [
+    "mobile developers",
+    "web application developers",
+    "software developers",
+    "project managers",
+    "systems analysts",
+    "software engineers",
+    "UX developer",
+    "data analytics developer",
+    "AI developer",
+    "machine learning engineer",
+    "data engineer/architect."
+  ]
+}
