@@ -27,6 +27,7 @@ async function crawl() {
         const detailsTable = $('.key-facts--alternative table').text().trim();
         const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
+        const careerTopic = $('details#careers-accordion h2').attr('href').trim();
         const ulElement = $('details#careers-accordion ul');
 
         let careers = []; // Define careers as an empty array here
@@ -49,6 +50,7 @@ async function crawl() {
           applyButton,
           overviewText,
           careerText,
+          careerTopic,
           careers: careers || [] // Ensure careers is always an array
         }, null, 2) + '\n');
 
