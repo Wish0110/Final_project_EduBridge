@@ -50,6 +50,7 @@ async function crawl() {
           applyButton,
           overviewText,
           careerTopic,
+          careerDescript,
           careers: careers || [] // Ensure careers is always an array
         }, null, 2) + '\n');
 
