@@ -30,6 +30,9 @@ async function crawl() {
         const careerDescript = $('details#careers-accordion div.trix-content').text().trim();
         const ulElement = $('details#careers-accordion ul');
 
+        const keyFeaturesTopic = $('details#key-features-accordion h2').text().trim();
+        const keyFeaturesList = $('details#key-features-accordion ul').children('li').map((index, element) => $(element).text().trim()).get();
+
         let careers = []; // Define careers as an empty array here
 
         // Extract careers only if ulElement exists
@@ -51,7 +54,9 @@ async function crawl() {
           overviewText,
           careerTopic,
           careerDescript,
-          careers: careers || [],
+          careers: careers,
+          keyFeaturesTopic,
+          keyFeaturesList
         }, null, 2) + '\n');
 
         // Follow links to other categories
