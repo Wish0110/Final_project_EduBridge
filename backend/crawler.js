@@ -23,7 +23,6 @@ async function crawl() {
         const schoolTitle = $('h2.school-title a').text().trim();
         const courseTitle = $('h1.hero-heading .course-title').text().trim();
         const overviewText = $('div.overview p').text().trim();
-        const careerText = $('div.course-accordions div ul').text().trim();
         const detailsTable = $('.key-facts--alternative table').text().trim();
         const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
@@ -49,7 +48,6 @@ async function crawl() {
           registerButton,
           applyButton,
           overviewText,
-          careerText,
           careerTopic,
           careers: careers || [] // Ensure careers is always an array
         }, null, 2) + '\n');
