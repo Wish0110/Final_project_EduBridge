@@ -25,9 +25,13 @@ async function crawl() {
         const detailsTable = $('.key-facts--alternative table').text().trim();
         const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
+
+        // Extract the additional details
+        const careersHeader = $('h2.careers-header').text().trim(); // Assuming the header has a class of 'careers-header'
+        const careersIntro = $('div.careers-intro').text().trim(); // Assuming the intro has a class of 'careers-intro'
         const ulElement = $('details#careers-accordion ul');
 
-        let careers = []; // Define careers as an empty array here
+        let careers = [];
 
         // Extract careers only if ulElement exists
         if (ulElement.length > 0) {
@@ -45,7 +49,9 @@ async function crawl() {
           detailsTable,
           registerButton,
           applyButton,
-          careers: careers || [] // Ensure careers is always an array
+          careersHeader,
+          careersIntro,
+          careers: careers || []
         }, null, 2) + '\n');
 
         // Follow links to other categories
