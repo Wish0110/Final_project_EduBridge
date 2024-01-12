@@ -1,3 +1,4 @@
+
 {
   "schoolTitle": "School of Engineering, Computing and Mathematics",
   "courseTitle": "Computer Science (Artificial Intelligence)",
@@ -19,5 +20,11 @@
     "AI developer",
     "machine learning engineer",
     "data engineer/architect."
+  ],
+  "keyFeaturesTopic": "Key features",
+  "keyFeaturesList": [
+    "Be inspired by the creativity that our practical, hands-on course nurturesOur ‘learning through doing’ ethos means you build the skills to make you desirable to employers. You’ll learn from dedicated teaching staff engaged in internationally significant research, actively creating and developing applications.",
+    "Collaborate and buildMirroring the teamwork at the heart of the industry, you’ll work in a team to develop work with a real purpose.",
+    "Get a head-start in the industryBenefit from a programme with strong links with industry, (e.g. Apple, Microsoft, IBM, Oracle and Intel) and those links are used to embed relevant real-world problems directly into the programmes."
   ]
 }
