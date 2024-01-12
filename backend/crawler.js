@@ -25,10 +25,8 @@ async function crawl() {
         const detailsTable = $('.key-facts--alternative table').text().trim();
         const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
         const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
-
-        // Extract the additional details
-        const careersHeader = $('h2.careers-header').text().trim(); // Assuming the header has a class of 'careers-header'
-        const careersIntro = $('div.careers-intro').text().trim(); // Assuming the intro has a class of 'careers-intro'
+        const careersHeader = $('div.overview p:first-of-type').text().trim();
+        const careersIntro = $('div.overview p:nth-of-type(2)').text().trim();
         const ulElement = $('details#careers-accordion ul');
 
         let careers = [];
