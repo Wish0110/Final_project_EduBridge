@@ -40,7 +40,7 @@ async function crawl() {
         const feesDetails = $('details#fees-funding-accordion div.course_fee_table table').text().trim();
         const feesDetailsextra = $('details#fees-funding-accordion div.course_fee_table ').text().trim();
         const feesDetailsadd = $('div.trix-content h2').text().trim();
-        const feesDetailsaddDetails = $('div.strong').text().trim();
+        const feesDetailsaddDetails = $('div.trix-content div.strong').text().trim();
         const applytopic = $('details#how-to-apply-accordion h2').text().trim();
         const applydetails = $('details#how-to-apply-accordion div.trix-content ').text().trim();
 
