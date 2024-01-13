@@ -35,7 +35,7 @@ async function crawl() {
         const ulElement3 = $('details#structure-accordion div.trix-content ul').children('li').map((index, element) => $(element).text().trim()).get();
         const entryreqTopic = $('details#entry-requirements-accordion h2').text().trim();
         const entryreq = $('details#entry-requirements-accordion div.accordion-div-box p').text().trim();
-        
+        const entryreqdetails = $('details#entry-requirements-accordion div.trix-content strong').text().trim();
         
 
         let careers = []; // Define careers as an empty array here
