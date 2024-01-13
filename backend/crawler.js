@@ -71,6 +71,16 @@ async function crawl() {
           keyFeaturesList,
           courseMain,
           ulElement3,
+          entryreqTopic,
+          entryreq,
+          entryreqdetails,
+          feesTopic,
+          feesDetails,
+          feesDetailsextra,
+          feesDetailsadd,
+          feesDetailsaddDetails,
+          applytopic,
+          applydetails
         }, null, 2) + '\n');
 
         // Follow links to other categories
