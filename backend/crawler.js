@@ -32,8 +32,10 @@ async function crawl() {
         const keyFeaturesTopic = $('details#key-features-accordion h2').text().trim();
         const keyFeaturesList = $('details#key-features-accordion ul').children('li').map((index, element) => $(element).text().trim()).get();
         const courseMain = $('details#structure-accordion summary.module-accordion-summary h3.course-stage-heading').text().trim();
-        const courseStage = $('details#structure-accordion summary.module-accordion-summary h3.course-stage-heading h4').text().trim();
         const ulElement3 = $('details#structure-accordion div.trix-content ul').children('li').map((index, element) => $(element).text().trim()).get();
+        const entryreqTopic = $('details#entry-requirements-accordion h2').text().trim();
+        
+        
 
         let careers = []; // Define careers as an empty array here
 
