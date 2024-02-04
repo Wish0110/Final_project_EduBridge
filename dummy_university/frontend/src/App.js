@@ -3,7 +3,7 @@ import './App.css';
 import logoNlearn from './images/Nlearn-logo.jfif';
 import studentportal from './images/studentportal.png';
 import logoPlymouthUsad from './images/plyuniversity-logo.jfif';
-import logoVictoria from './images/victoria-university-logo.png';
+import logoVictoria from './images/victoria-university-logo.jfif';
 
 function App() {
   return (
