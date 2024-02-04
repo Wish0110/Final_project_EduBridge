@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import logoPlymouth from './images/plymouth-university-logo.png';
 import logoBard from './images/bard-university-logo.png';
-import studentportal from './images/melbourne-university-logo.png';
+import studentportal from './images/studentportal.png';
 import logoPlymouthUsad from './images/plymouth-usad-logo.png';
 import logoVictoria from './images/victoria-university-logo.png';
 
