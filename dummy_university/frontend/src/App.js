@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import logoNlearn from './images/Nlearn-logo..jfif';
-import logoBard from './images/plyuniversity-logo..jfif';
+import logoNlearn from './images/Nlearn-logo.jfif';
 import studentportal from './images/studentportal.png';
-import logoPlymouthUsad from './images/plymouth-usad-logo.png';
+import logoPlymouthUsad from './images/plyuniversity-logo.jfif';
 import logoVictoria from './images/victoria-university-logo.png';
 
 function App() {
@@ -23,12 +22,6 @@ function App() {
               <a href="#">
                 <img src={logoPlymouthUsad} alt="Plymouth University" />
                 <span>Plymouth University</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src={logoBard} alt="Bard Victoria University" />
-                <span>Bard Victoria University</span>
               </a>
             </li>
             <li>
