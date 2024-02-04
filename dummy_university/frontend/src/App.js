@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import logoNlearn from './images/Nlearn-logo.png';
-import logoBard from './images/bard-university-logo.png';
+import logoBard from './images/plyuniversity-logo..jfif';
 import studentportal from './images/studentportal.png';
 import logoPlymouthUsad from './images/plymouth-usad-logo.png';
 import logoVictoria from './images/victoria-university-logo.png';
