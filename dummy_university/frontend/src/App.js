@@ -11,32 +11,36 @@ function App() {
       <header className="App-header">
         <h1>NSBM Student Portal</h1>
         <nav>
-          <ul>
-            <li>
-              <a href="#">
-                <img src={logoNlearn} alt="University of Plymouth" />
-                <span>University of Plymouth</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src={logoPlymouthUsad} alt="Plymouth University" />
-                <span>Plymouth University</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src={logoVictoria} alt="Melbourne Australia Victoria University" />
-                <span>Melbourne Australia Victoria University</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src={studentportal} alt="USAD Test" />
-                <span>USAD Test</span>
-              </a>
-            </li>
-          </ul>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <a href="#">
+                    <img src={logoNlearn} alt="University of Plymouth" />
+                    <span>University of Plymouth</span>
+                  </a>
+                </td>
+                <td>
+                  <a href="#">
+                    <img src={logoPlymouthUsad} alt="Plymouth University" />
+                    <span>Plymouth University</span>
+                  </a>
+                </td>
+                <td>
+                  <a href="#">
+                    <img src={logoVictoria} alt="Melbourne Australia Victoria University" />
+                    <span>Melbourne Australia Victoria University</span>
+                  </a>
+                </td>
+                <td>
+                  <a href="#">
+                    <img src={studentportal} alt="USAD Test" />
+                    <span>USAD Test</span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </nav>
         <main>
           <h2>Online Services for Students</h2>
