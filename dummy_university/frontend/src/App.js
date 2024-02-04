@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import logoNlearn from './images/Nlearn-logo.png';
+import logoNlearn from './images/Nlearn-logo..jfif';
 import logoBard from './images/plyuniversity-logo..jfif';
 import studentportal from './images/studentportal.png';
 import logoPlymouthUsad from './images/plymouth-usad-logo.png';
