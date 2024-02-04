@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import logoPlymouth from './images/plymouth-university-logo.png';
+import logoNlearn from './images/Nlearn-logo.png';
 import logoBard from './images/bard-university-logo.png';
 import studentportal from './images/studentportal.png';
 import logoPlymouthUsad from './images/plymouth-usad-logo.png';
@@ -15,7 +15,7 @@ function App() {
           <ul>
             <li>
               <a href="#">
-                <img src={logoPlymouth} alt="University of Plymouth" />
+                <img src={logoNlearn} alt="University of Plymouth" />
                 <span>University of Plymouth</span>
               </a>
             </li>
