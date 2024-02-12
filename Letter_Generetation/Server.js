@@ -59,7 +59,15 @@ var config = {
             
 axios(config)
     .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        //console.log(JSON.stringify(response.data));
+        const student = response.data.document;
+        const name = student.name;
+        const studentid = student.studentid;
+        const degree = student.degree;
+
+        console.log(`Name: ${name}`);
+        console.log(`Student ID: ${studentid}`);
+        console.log(`Degree: ${degree}`);
     })
     .catch(function (error) {
         console.log(error);
