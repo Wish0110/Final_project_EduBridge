@@ -31,7 +31,7 @@ function App() {
               </a>
             </div>
             <div className="image-box">
-              <a href="#">
+              <a href="studentportal.js">
                 <img src={studentportal} alt="USAD Test" />
                 <span>USAD Test</span>
               </a>

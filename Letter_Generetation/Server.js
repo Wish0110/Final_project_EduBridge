@@ -34,6 +34,39 @@ app.get('/getResponse',async(req,res)=>{
 }
 });
 
+// mongdo db data api 
+var axios = require('axios');
+var data = JSON.stringify({
+    "collection": "students",
+    "database": "studentrecords",
+    "dataSource": "Cluster0",
+    "filter": {
+        "studentid": "23209" // Filter documents where studentid matches
+    }
+});
+            
+var config = {
+    method: 'post',
+    url: 'https://ap-south-1.aws.data.mongodb-api.com/app/data-zwwqd/endpoint/data/v1/action/findOne',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Request-Headers': '*',
+      'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2',
+      'Accept': 'application/ejson'
+    },
+    data: data
+};
+            
+axios(config)
+    .then(function (response) {
+        console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+///mongodb data api end
+
 app.listen(3000,()=>{
     console.log("Server is running on port 3000")
 })
