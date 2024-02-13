@@ -7,7 +7,7 @@ const openai=new OpenAI({
     apiKey:"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"
 })
 
-app.get('/getResponse',async(req,res)=>{
+app.post('/getResponse',async(req,res)=>{
     try {
         //const userPrompt = req.body.userPrompt;
         const studentname = req.body.studentname;
