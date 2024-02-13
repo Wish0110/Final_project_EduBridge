@@ -12,12 +12,15 @@ function App() {
       const response = await axios.post('http://localhost:3000/getResponse', {
         studentid: studentID,
       });
-
-      setLetter(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+// Handle the response data
+const { studentDetails, recommendationLetter } = response.data;
+setLetter(recommendationLetter);
+// Optionally, display studentDetails if needed
+} catch (error) {
+console.error(error);
+// Handle errors appropriately in the frontend
+}
+};
 
   return (
     <div className="App">
