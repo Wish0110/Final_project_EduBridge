@@ -66,8 +66,7 @@ axios(config)
         const degree = student.degree;
 
         console.log(`"i want to write a letter about the a student nameed ${name} with the student number ${studentid} who studied ${degree} with a gpa of "+studentgpa+" and did  "+studentsports+" in our university  as a dean of the faculty as a recomdation for a masters degree and add recipent as Dear Sir/Madam sender is Dean Faculty of"+studetfaculty+"please dont add recipeints senders desgisnation would be engough please dont use [] in the spaces"`);
-        console.log(`Student ID: ${studentid}`);
-        console.log(`Degree: ${degree}`);
+    
     })
     .catch(function (error) {
         console.log(error);
