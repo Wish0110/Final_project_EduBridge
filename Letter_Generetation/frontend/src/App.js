@@ -4,6 +4,7 @@ import axios from 'axios';
 function App() {
   const [studentID, setStudentID] = useState('');
   const [letter, setLetter] = useState('');
+  const [studentDetails, setStudentDetails] = useState({}); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,14 +14,14 @@ function App() {
         studentid: studentID,
       });
 // Handle the response data
-const { studentDetails, recommendationLetter } = response.data;
-setLetter(recommendationLetter);
-// Optionally, display studentDetails if needed
-} catch (error) {
-console.error(error);
-// Handle errors appropriately in the frontend
-}
-};
+const { studentDetails: receivedDetails, recommendationLetter } = response.data;
+      setLetter(recommendationLetter);
+      setStudentDetails(receivedDetails); // Update student details state
+    } catch (error) {
+      console.error(error);
+      // Handle errors appropriately in the frontend
+    }
+  };
 
   return (
     <div className="App">
@@ -32,8 +33,14 @@ console.error(error);
         <button type="submit">OK</button>
       </form>
       <div>{letter}</div>
+      {/* Optionally display student details */}
+      {Object.keys(studentDetails).length > 0 && ( // Check if details are available
+        <div>
+          <h3>Student Details:</h3>
+          {/* ... display student information using studentDetails */}
+        </div>
+      )}
     </div>
   );
 }
-
 export default App;
