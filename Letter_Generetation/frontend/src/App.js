@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
+  const [studentID, setStudentID] = useState('');
+  const [letter, setLetter] = use1State('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3000/getResponse', {
+        studentid: studentID,
+      });
+
+      setLetter(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Student ID:
+          <input type="text" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
+        </label>
+        <button type="submit">OK</button>
+      </form>
+      <div>{letter}</div>
     </div>
   );
 }
