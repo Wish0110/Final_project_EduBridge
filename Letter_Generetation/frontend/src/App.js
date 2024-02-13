@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function App() {
   const [studentID, setStudentID] = useState('');
-  const [letter, setLetter] = use1State('');
+  const [letter, setLetter] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
