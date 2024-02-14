@@ -23,7 +23,7 @@ const { studentDetails: receivedDetails, recommendationLetter } = response.data;
     }
   };
 
-  return (
+return (
     <div className="App">
       <form onSubmit={handleSubmit}>
         <label>

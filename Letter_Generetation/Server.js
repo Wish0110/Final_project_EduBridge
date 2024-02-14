@@ -7,7 +7,7 @@ const openai=new OpenAI({
     apiKey:"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"
 })
 
-app.post('/getResponse',async(req,res)=>{
+app.get('/getResponse',async(req,res)=>{
     try {
         //const userPrompt = req.body.userPrompt;
         const studentname = req.body.studentname;
@@ -54,19 +54,22 @@ var config = {
       'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2',
       'Accept': 'application/ejson'
     },
-    data: data
+   data
 };
             
 axios(config)
     .then(function (response) {
         //console.log(JSON.stringify(response.data));
         const student = response.data.document;
+        if (student) {
         const name = student.name;
         const studentid = student.studentid;
         const degree = student.degree;
 
         console.log(`"i want to write a letter about the a student nameed ${name} with the student number ${studentid} who studied ${degree} with a gpa of "+studentgpa+" and did  "+studentsports+" in our university  as a dean of the faculty as a recomdation for a masters degree and add recipent as Dear Sir/Madam sender is Dean Faculty of"+studetfaculty+"please dont add recipeints senders desgisnation would be engough please dont use [] in the spaces"`);
-    
+    } else {
+        console.log('No student found with the given studentid');
+      }
     })
     .catch(function (error) {
         console.log(error);
