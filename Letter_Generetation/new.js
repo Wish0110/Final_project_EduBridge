@@ -54,7 +54,7 @@ readline.question('Enter student ID: ', (studentid) => {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
       // Replace with your own API key (omitted for security reasons)
-      'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2',
+      'api-key': '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',
       'Accept': 'application/ejson'
     },
     data
@@ -99,9 +99,9 @@ const openai = require('openai');
 
 // Initialize OpenAI with your API key (stored securely outside the code)
 
-const apiKey = process.env.API_KEY;
+const apiKey = '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';
 
-const openaiClient = new openai(apiKey);
+const openaiClient = new openai({apiKey});
 
 // Function to generate letter recommendation
 async function generateLetterRecommendation(studentData) {
