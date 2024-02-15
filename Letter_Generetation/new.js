@@ -92,7 +92,7 @@ readline.question('Enter student ID: ', (studentid) => {
 //dn aye mekat letter generate wena mn function ekk widyt add krnw api ekk neme function ekk dammaam
 //postman one na eka kelinma terminal eke run wenw sirt mehema pennanna plwnne api ekath tynw ekath hdala denm daant functuion ekk widiyt hdmu
 
-/*
+
 ///letter generation
 // Import required libraries
 const openai = require('openai');
@@ -147,4 +147,4 @@ generateLetterRecommendation(studentData)
 
 
 ///letter generation end
-*/
+
