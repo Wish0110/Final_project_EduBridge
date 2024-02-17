@@ -38,7 +38,7 @@ readline.question('Enter student ID: ', (studentid) => {
 
   //me tynne methana wenne adala database eka collection eka document eka balala data ganna eka api eken meka wenas krnna dyk na
 
-  const data = JSON.stringify({
+  var data = JSON.stringify({
     "collection": "students",
     "database": "studentrecords",
     "dataSource": "Cluster0",
@@ -47,18 +47,17 @@ readline.question('Enter student ID: ', (studentid) => {
     }
   });
 
-  const config = {
+  var config = {
     method: 'post',
     url: 'https://ap-south-1.aws.data.mongodb-api.com/app/data-zwwqd/endpoint/data/v1/action/findOne',
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
-      // Replace with your own API key (omitted for security reasons)
-      'api-key': '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',
+      'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2',
       'Accept': 'application/ejson'
     },
-    data
-  };
+   data
+};
 //me tynne methanin tham variables wlt cll krnne meke danat tynne name studnt id degree wtrine oyt one ewa mulinma mongo
 //db eke hjdala methanin ekat galapenna danna plwn mn comment krl danm ewa oy hdganna
   axios(config)
