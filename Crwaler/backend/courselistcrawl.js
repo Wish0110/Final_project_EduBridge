@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 const allowedDomains = ['plymouth.ac.uk'];
-const startUrl = 'https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-artificial-intelligence/';
+const startUrl = 'https://www.plymouth.ac.uk/subjects/';
 
 async function crawl() {
   const queue = [startUrl];
