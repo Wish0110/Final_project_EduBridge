@@ -20,17 +20,11 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Verify selectors (replace with actual selectors after inspection)
-        const courseList = $('page-courses responsive-module ').text().trim();
+        const courseList = $('page-courses responsive-module a').text().trim();
         
 
         // Extract careers only if ulElement exists
-        if (ulElement.length > 0) {
-          ulElement.children('li').each((index, element) => {
-            careers.push($(element).text().trim());
-          });
-        } else {
-          console.warn('Careers ul element not found on the page.');
-        }
+        
 
         
         // Write parsed items to JSON file
