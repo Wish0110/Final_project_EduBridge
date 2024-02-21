@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 const allowedDomains = ['https://www.plymouth.ac.uk'];
-const queue = ['https://www.plymouth.ac.uk/courses/undergraduate'];
+const queue = ['https://www.plymouth.ac.uk/courses'];
 
 async function crawl() {
   while (queue.length > 0) {
@@ -16,7 +16,7 @@ async function crawl() {
 
       // Extract course names
       const courseNames = [];
-      $('.course-listing-item h3 a').each((index, element) => {
+      $('.page-courses a').each((index, element) => {
         courseNames.push($(element).text().trim());
       });
 
