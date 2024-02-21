@@ -28,7 +28,7 @@ async function crawl() {
         // Write parsed items to JSON file
         fs.appendFileSync('crawled_data.json', JSON.stringify({
           courseList
-        }, null, 2) + '\n');
+        }) + '\n');
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
