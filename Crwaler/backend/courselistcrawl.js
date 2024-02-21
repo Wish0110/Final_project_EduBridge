@@ -2,8 +2,8 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
-const startUrl = 'https://www.plymouth.ac.uk/courses';
 const allowedDomains = ['plymouth.ac.uk'];
+const startUrl = 'https://www.plymouth.ac.uk/courses';
 
 async function crawl() {
   const queue = [startUrl];
@@ -20,41 +20,68 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Verify selectors (replace with actual selectors after inspection)
-        const courseList = $('.course-listing-item');
+        const schoolTitle = $('h2.school-title a').text().trim();
+        const courseTitle = $('h1.hero-heading .course-title').text().trim();
+        const overviewText = $('div.overview p').text().trim();
+        const detailsTable = $('.key-facts--alternative table').text().trim();
+        const registerButton = $('.cta-key-fact--alternative--register-for-open-day a').attr('href').trim();
+        const applyButton = $('.cta-key-fact--alternative--apply-via-ucas a').attr('href').trim();
+        const careerTopic = $('details#careers-accordion h2').text().trim();
+        const careerDescript = $('details#careers-accordion div.trix-content').text().trim();
+        const ulElement = $('details#careers-accordion ul');
+        const keyFeaturesTopic = $('details#key-features-accordion h2').text().trim();
+        const keyFeaturesList = $('details#key-features-accordion ul').children('li').map((index, element) => $(element).text().trim()).get();
+        const courseMain = $('details#structure-accordion summary.module-accordion-summary h3.course-stage-heading').text().trim();
+        const ulElement3 = $('details#structure-accordion div.trix-content ul').children('li').map((index, element) => $(element).text().trim()).get();
+        const entryreqTopic = $('details#entry-requirements-accordion h2').text().trim();
+        const entryreq = $('details#entry-requirements-accordion div.accordion-div-box p').text().trim();
+        const entryreqdetails = $('details#entry-requirements-accordion div.trix-content strong').text().trim();
+        const feesTopic = $('details#fees-funding-accordion h2').text().trim();
+        const feesDetails = $('details#fees-funding-accordion div.course_fee_table table').text().trim();
+        const feesDetailsextra = $('details#fees-funding-accordion div.course_fee_table ').text().trim();
+        const feesDetailsadd = $('div.trix-content h2').text().trim();
+        const feesDetailsaddDetails = $('div.trix-content div.strong').text().trim();
+        const applytopic = $('details#how-to-apply-accordion h2').text().trim();
+        const applydetails = $('details#how-to-apply-accordion div.trix-content ').text().trim();
 
-        courseList.each((index, element) => {
-          const courseName = $(element).find('.course-title').text().trim();
-          const courseRoute = $(element).find('.course-route').text().trim();
-          const courseLink = $(element).find('.course-title a').attr('href');
+        let careers = []; // Define careers as an empty array here
 
-          // Extract course details only if courseLink exists
-          if (courseLink) {
-            const courseDetails = {
-              name: courseName,
-              route: courseRoute,
-              link: courseLink
-            };
+        // Extract careers only if ulElement exists
+        if (ulElement.length > 0) {
+          ulElement.children('li').each((index, element) => {
+            careers.push($(element).text().trim());
+          });
+        } else {
+          console.warn('Careers ul element not found on the page.');
+        }
 
-            // Follow course link to get more details
-            axios.get(courseLink)
-              .then(response => {
-                const $ = cheerio.load(response.data);
-                const courseTitle = $('h1.hero-heading .course-title').text().trim();
-                const courseDescription = $('div.overview p').text().trim();
-
-                courseDetails.title = courseTitle;
-                courseDetails.description = courseDescription;
-
-                // Write parsed item to JSON file
-                fs.appendFileSync('crawled_data.json', JSON.stringify({
-                  course: courseDetails
-                }, null, 2) + '\n');
-              })
-              .catch(error => {
-                console.error('Error crawling course:', error);
-              });
-          }
-        });
+        
+        // Write parsed items to JSON file
+        fs.appendFileSync('crawled_data.json', JSON.stringify({
+          schoolTitle,
+          courseTitle,
+          detailsTable,
+          registerButton,
+          applyButton,
+          overviewText,
+          careerTopic,
+          careerDescript,
+          careers: careers,
+          keyFeaturesTopic,
+          keyFeaturesList,
+          courseMain,
+          ulElement3,
+          entryreqTopic,
+          entryreq,
+          entryreqdetails,
+          feesTopic,
+          feesDetails,
+          feesDetailsextra,
+          feesDetailsadd,
+          feesDetailsaddDetails,
+          applytopic,
+          applydetails
+        }, null, 2) + '\n');
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
