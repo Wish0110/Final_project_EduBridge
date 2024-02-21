@@ -27,7 +27,7 @@ async function crawl() {
         fs.appendFileSync('crawled_data.json', JSON.stringify({
           courseTitle,
 
-        }, null, 2) + '\n');
+        }) + '\n');
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
