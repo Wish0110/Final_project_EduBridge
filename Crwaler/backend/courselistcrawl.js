@@ -6,12 +6,9 @@ const allowedDomains = ['plymouth.ac.uk'];
 const startUrl = 'https://www.plymouth.ac.uk/subjects/';
 
 async function crawl() {
-  const queue = [startUrl];
   const visited = new Set();
 
-  while (queue.length > 0) {
-    const url = queue.shift();
-
+  async function crawlPage(url) {
     if (!visited.has(url)) {
       visited.add(url);
 
@@ -22,25 +19,35 @@ async function crawl() {
         // Verify selectors (replace with actual selectors after inspection)
         const courseTitle = $('div.gallery-web-refresh-grid-item span.title').text().trim();
 
-        
-        // Write parsed items to JSON file
-        fs.appendFileSync('crawled_data.json', JSON.stringify({
+        // Return parsed items
+        return {
           courseTitle,
-
-        }) + '\n');
-
-        // Follow links to other categories
-        $('.pager a').each((index, element) => {
-          const link = $(element).attr('href');
-          if (link && allowedDomains.some(domain => link.startsWith(domain))) {
-            queue.push(link);
-          }
-        });
+        };
       } catch (error) {
         console.error('Error crawling:', error);
+        return null;
       }
     }
   }
+
+  async function crawlAll(url) {
+    const result = await crawlPage(url);
+
+    if (result) {
+      // Write parsed items to JSON file
+      fs.appendFileSync('crawled_data.json', JSON.stringify(result) + '\n');
+
+      // Follow links to other categories
+      $('.pager a').each((index, element) => {
+        const link = $(element).attr('href');
+        if (link && allowedDomains.some(domain => link.startsWith(domain))) {
+          crawlAll(link);
+        }
+      });
+    }
+  }
+
+  crawlAll(startUrl);
 }
 
 crawl();
