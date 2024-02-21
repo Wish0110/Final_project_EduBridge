@@ -10,13 +10,13 @@ const crawledDataFile = 'crawled_data.json'; // File to store unique course titl
 const visitedUrls = new Set();
 
 // Load previously crawled course titles (if the file exists)
-let crawledTitles = new Set();
+let crawledTitles = [];
 if (fs.existsSync(crawledDataFile)) {
     let data = fs.readFileSync(crawledDataFile, 'utf8');
     let parsedData = JSON.parse(data);
 
     if (Array.isArray(parsedData)) {
-        crawledTitles = new Set(parsedData.flatMap(item => (Array.isArray(item) ? item.map(i => i.courseTitle) : [])));
+        crawledTitles = parsedData.map(item => item.courseTitle);
     } else {
         console.log('Parsed data is not an array');
     }
@@ -28,7 +28,7 @@ async function crawl() {
   while (queue.length > 0) {
     const url = queue.shift();
 
-    if (!visitedUrls.has(url) && !crawledTitles.has(url)) { // Check both visited and crawled lists
+    if (!visitedUrls.has(url) && !crawledTitles.includes(url)) { // Check both visited and crawled lists
       visitedUrls.add(url);
 
       try {
@@ -41,9 +41,9 @@ async function crawl() {
           .trim();
 
         // Only add new course title to crawled data if unique
-        if (!crawledTitles.has(courseTitle)) {
-          crawledTitles.add(courseTitle);
-          fs.appendFileSync(crawledDataFile, JSON.stringify({ courseTitle }, null, 2) + '\n');
+        if (!crawledTitles.includes(courseTitle)) {
+          crawledTitles.push(courseTitle);
+          fs.writeFileSync(crawledDataFile, JSON.stringify(crawledTitles.map(title => ({ courseTitle: title })), null, 2));
         }
 
         // Follow links to other categories (modified to filter irrelevant links)
