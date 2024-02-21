@@ -10,11 +10,17 @@ const crawledDataFile = 'crawled_data.json'; // File to store unique course titl
 const visitedUrls = new Set();
 
 // Load previously crawled course titles (if the file exists)
-const crawledTitles = new Set(
-    fs.existsSync(crawledDataFile)
-      ? JSON.parse(fs.readFileSync(crawledDataFile, 'utf8')).flatMap(item => (Array.isArray(item) ? item.map(i => i.courseTitle) : []))
-      : []
-  );
+let crawledTitles = new Set();
+if (fs.existsSync(crawledDataFile)) {
+    let data = fs.readFileSync(crawledDataFile, 'utf8');
+    let parsedData = JSON.parse(data);
+
+    if (Array.isArray(parsedData)) {
+        crawledTitles = new Set(parsedData.flatMap(item => (Array.isArray(item) ? item.map(i => i.courseTitle) : [])));
+    } else {
+        console.log('Parsed data is not an array');
+    }
+}
 
 async function crawl() {
   const queue = [startUrl];
