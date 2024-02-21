@@ -20,13 +20,14 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Verify selectors (replace with actual selectors after inspection)
-        const courseList = $('ul.scroll-loading-content scroll-loading-dynamic li a').text().trim();
+        const courseList = $('ul.scroll-loading-content.scroll-loading-dynamic li a').get().map((a) => ({
+          href: $(a).attr('href'),
+          text: $(a).text().trim()
+        }));
 
-
-        
         // Write parsed items to JSON file
         fs.appendFileSync('crawled_data.json', JSON.stringify({
-            courseList
+          courseList
         }, null, 2) + '\n');
 
         // Follow links to other categories
