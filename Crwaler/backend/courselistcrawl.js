@@ -16,7 +16,7 @@ async function crawl() {
 
       // Extract course names
       const courseNames = [];
-      $('.page-courses a').each((index, element) => {
+      $('.page-courses responsive-module a').each((index, element) => {
         courseNames.push($(element).text().trim());
       });
 
