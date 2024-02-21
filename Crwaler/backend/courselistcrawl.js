@@ -11,11 +11,11 @@ const visitedUrls = new Set();
 
 // Load previously crawled course titles (if the file exists)
 const crawledTitles = new Set(
-  fs.existsSync(crawledDataFile)
-    ? JSON.parse(fs.readFileSync(crawledDataFile, 'utf8')).map(item => item.courseTitle)
-    : []
-);
-
+    fs.existsSync(crawledDataFile)
+      ? JSON.parse(fs.readFileSync(crawledDataFile, 'utf8')).reduce((acc, item) => acc.concat(Array.isArray(item) ? item.map(i => i.courseTitle) : []), [])
+      : []
+  );
+  
 async function crawl() {
   const queue = [startUrl];
 
