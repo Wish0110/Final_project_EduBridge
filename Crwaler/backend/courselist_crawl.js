@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const allowedDomains = ['plymouth.ac.uk'];
 const startUrl = 'https://www.plymouth.ac.uk/subjects/';
-const crawledDataFile = 'crawled_data.json'; // File to store unique course titles
+const crawledDataFile = 'crawled_data1.json'; // File to store unique course titles
 
 // Set to keep track of visited URLs
 const visitedUrls = new Set();
