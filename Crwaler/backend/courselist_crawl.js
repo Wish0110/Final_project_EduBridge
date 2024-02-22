@@ -42,7 +42,7 @@ async function crawl() {
 
         // Only add new course title to crawled data if unique
         if (!crawledTitles.includes(courseTitle)) {
-          crawledTitles.push(courseTitle,/n/,courseTitle);
+          crawledTitles.push(courseTitle);
           fs.writeFileSync(crawledDataFile, JSON.stringify(crawledTitles.map(title => ({ courseTitle: title })), null, 2));
         }
 
