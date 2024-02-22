@@ -1,54 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Or another data fetching library
-import { preprocessData } from './utils'; // Import preprocessData function from the appropriate module
 
-const CourseList = () => {
+function CourseList() {
   const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+
       try {
-        const response = await axios.get('/crawled_data1'); // Adjust URL if needed
-        const processedData = preprocessData(response.data); // Call preprocessData function
-        setCourses(processedData);
+        const response = await fetch('http://localhost:3001/crawled_data1');
+        const data = await response.json();
+        setCourses(data);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       } finally {
-        setLoading(false); // Set loading state to false after fetch
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  const renderCourses = () => {
-    if (error) {
-      return <p>Error fetching data: {error.message}</p>;
-    } else if (loading) {
-      return <p>Loading courses...</p>; // Loading indicator
-    } else {
-      return (
-        <ul>
-          {courses.map((course) => (
-            <li key={course.courseTitle}>
-              {/* Render course details based on desired presentation */}
-              <h3>{course.courseTitle}</h3>
-              {/* Additional course details, actions, etc. */}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  };
-
   return (
     <div>
-      <h2>Courses</h2>
-      {renderCourses()}
+      <h1>Course List</h1>
+      {isLoading && <p>Loading courses...</p>}
+      {error && <p>Error: {error}</p>}
+      {courses.length > 0 && (
+        <ul>
+          {courses.map((course, index) => (
+            <li key={index}>{course.courseTitle}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
-};
+}
 
 export default CourseList;
