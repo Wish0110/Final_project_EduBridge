@@ -1,79 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
-function App() {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+function CourseList() {
+  const [courses, setCourses] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
-      setData(null);
-      setError(null);
-
       try {
-        const response = await axios.get('http://localhost:3001/crawled_data');
-        setData(response.data);
+        const response = await fetch('http://localhost:3001/crawled_data1');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setCourses(data);
       } catch (error) {
         setError(error);
-      } finally {
-        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  if (isLoading) {
-    return <p>Loading data...</p>;
-  }
-
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <div>Error: {error.message}</div>;
   }
 
-  if (!data) {
-    return <p>No data available</p>;
+  if (!courses.length) {
+    return <div>Loading courses...</div>;
   }
 
   return (
     <div>
-      <h2>{data.courseTitle}</h2>
-      <h3>{data.schoolTitle}</h3>
-      <p>{data.overviewText}</p>
-      <h4>{data.careerTopic}</h4>
-      <p>{data.careerDescript}</p>
-      <h4>{data.keyFeaturesTopic}</h4>
+      <h1>Crawled Courses</h1>
       <ul>
-        {data.keyFeaturesList.map((feature, index) => (
-          <li key={index}>{feature}</li>
-        ))}
-      </ul>
-      <h4>{data.courseMain}</h4>
-      <ul>
-        {data.ulElement3.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h4>{data.entryreqTopic}</h4>
-      <p>{data.entryreq}</p>
-      <p>{data.entryreqdetails}</p>
-      <h4>{data.feesTopic}</h4>
-      <p>{data.feesDetails}</p>
-      <p>{data.feesDetailsextra}</p>
-      <p>{data.feesDetailsadd}</p>
-      <p>{data.feesDetailsaddDetails}</p>
-      <h4>{data.applytopic}</h4>
-      <p>{data.applydetails}</p>
-      <h4>{data.careerTopic}</h4>
-      <ul>
-        {data.careers.map((career, index) => (
-          <li key={index}>{career}</li>
+        {courses.map((course) => (
+          <li key={course.courseTitle}>{course.courseTitle}</li>
         ))}
       </ul>
     </div>
   );
 }
 
-export default App;
+export default CourseList;
