@@ -36,28 +36,28 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Verify selectors (replace with actual selectors after inspection)
-        const courseTitle1 = $('div.gallery-web-refresh-grid-item img.Roland Levinsky building abstract span.title').text().trim();
-        const courseTitle2 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle3 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle4 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle5 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle6 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle7 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle8 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle9 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle10 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle11 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle12 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle13 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle14 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle15 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle16 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle17 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle18 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle19 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle20 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle21 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
-        const courseTitle22 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle1 = $('div.gallery-web-refresh-grid-item img.Student paramedic training span.title').text().trim();
+        const courseTitle2 = $('div.gallery-web-refresh-grid-item img.Roland Levinsky building abstract span.title').text().trim();
+        const courseTitle3 = $('div.gallery-web-refresh-grid-item img.Laura Rosser holding a view finder camera span.title').text().trim();
+        const courseTitle4 = $('div.gallery-web-refresh-grid-item img.Lions - Getty span.title').text().trim();
+        const courseTitle5 = $('div.gallery-web-refresh-grid-item img.City skyscrapers abstract view span.title').text().trim();
+        const courseTitle6 = $('div.gallery-web-refresh-grid-item img.Microcrystals of ascorbic acid in polarized light span.title').text().trim();
+        const courseTitle7 = $('div.gallery-web-refresh-grid-item img.Close-up circuitboard span.title').text().trim();
+        const courseTitle8 = $('div.gallery-web-refresh-grid-item img.3D design piece 2018 degree show span.title').text().trim();
+        const courseTitle9 = $('div.gallery-web-refresh-grid-item img.Tuyajto lake, Andes cordillera, Atacama region, Chile span.title').text().trim();
+        const courseTitle10 = $('div.gallery-web-refresh-grid-item img.Big data students in computer lab with Luciana Dalla Valle span.title').text().trim();
+        const courseTitle11 = $('div.gallery-web-refresh-grid-item img.Engineering 3d printing span.title').text().trim();
+        const courseTitle12 = $('div.gallery-web-refresh-grid-item img.Thailand back packer span.title').text().trim();
+        const courseTitle13 = $('div.gallery-web-refresh-grid-item img.Old wax-sealed letter span.title').text().trim();
+        const courseTitle14 = $('div.gallery-web-refresh-grid-item img.Lady justice statuette span.title').text().trim();
+        const courseTitle15 = $('div.gallery-web-refresh-grid-item img.SRRDG explore the programme Plymouth Hoe span.title').text().trim();
+        const courseTitle16 = $('div.gallery-web-refresh-grid-item img.Symmetric green background of cactus succulent plants span.title').text().trim();
+        const courseTitle17 = $('div.gallery-web-refresh-grid-item img.Abstract impression of DNA double helix span.title').text().trim();
+        const courseTitle18 = $('div.gallery-web-refresh-grid-item img.Piano keys span.title').text().trim();
+        const courseTitle19 = $('div.gallery-web-refresh-grid-item img.Male child nursing student with lecturer practicing clinical skills. span.title').text().trim();
+        const courseTitle20 = $('div.gallery-web-refresh-grid-item img.Performance hero span.title').text().trim();
+        const courseTitle21 = $('div.gallery-web-refresh-grid-item img.Rorschach test image span.title').text().trim();
+        const courseTitle22 = $('div.gallery-web-refresh-grid-item img.Westminster bridge span.title').text().trim();
 
         // Only add new course title to crawled data if unique
         if (!crawledTitles.includes(courseTitle1)) {
