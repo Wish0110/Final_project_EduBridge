@@ -36,14 +36,33 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Verify selectors (replace with actual selectors after inspection)
-        const courseTitle = $('div.gallery-web-refresh-grid-item span.title')
-          .text()
-          .trim();
+        const courseTitle1 = $('div.gallery-web-refresh-grid-item img.alt.Roland Levinsky building abstract span.title').text().trim();
+        const courseTitle2 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle3 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle4 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle5 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle6 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle7 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle8 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle9 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle10 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle11 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle12 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle13 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle14 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle15 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle16 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle17 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle18 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle19 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle20 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle21 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
+        const courseTitle22 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
 
         // Only add new course title to crawled data if unique
-        if (!crawledTitles.includes(courseTitle)) {
-          crawledTitles.push(courseTitle);
-          fs.writeFileSync(crawledDataFile, JSON.stringify(crawledTitles.map(title => ({ courseTitle: title })), null, 2));
+        if (!crawledTitles.includes(courseTitle1)) {
+          crawledTitles.push(courseTitle1);
+          fs.writeFileSync(crawledDataFile, JSON.stringify(crawledTitles.map(title => ({ courseTitle1: title })), null, 2));
         }
 
         // Follow links to other categories (modified to filter irrelevant links)
