@@ -12,14 +12,18 @@ const visitedUrls = new Set();
 // Load previously crawled course titles (if the file exists)
 let crawledTitles = [];
 if (fs.existsSync(crawledDataFile)) {
+  try {
     let data = fs.readFileSync(crawledDataFile, 'utf8');
     let parsedData = JSON.parse(data);
 
     if (Array.isArray(parsedData)) {
-        crawledTitles = parsedData.map(item => item.courseTitle);
+      crawledTitles = parsedData;
     } else {
-        console.log('Parsed data is not an array');
+      console.log('Parsed data is not an array');
     }
+  } catch (error) {
+    console.error('Error loading crawled data:', error);
+  }
 }
 
 async function crawl() {
@@ -43,7 +47,13 @@ async function crawl() {
         // Only add new course title to crawled data if unique
         if (!crawledTitles.includes(courseTitle)) {
           crawledTitles.push(courseTitle);
-          fs.writeFileSync(crawledDataFile, JSON.stringify(crawledTitles.map(title => ({ courseTitle: title })), null, 2));
+
+          // Write course title on a separate line in the JSON file
+          fs.appendFileSync(
+            crawledDataFile,
+            `{"courseTitle": "${courseTitle}"},\n`,
+            'utf8'
+          );
         }
 
         // Follow links to other categories (modified to filter irrelevant links)
@@ -52,7 +62,6 @@ async function crawl() {
           if (
             link &&
             allowedDomains.some(domain => link.startsWith(domain)) &&
-            // Filter out links that don't lead to course categories
             link.match(/\/subjects\/(\w|-)+$/)
           ) {
             queue.push(link);
