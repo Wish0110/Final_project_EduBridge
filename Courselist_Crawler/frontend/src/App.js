@@ -32,7 +32,9 @@ function CourseList() {
       {courses.length > 0 && (
         <ul>
           {courses.map((course, index) => (
-            <li key={index}>{course.courseTitle}</li>
+            <li key={index}>
+              {course.courseTitle.join(/n/)}
+            </li>
           ))}
         </ul>
       )}
