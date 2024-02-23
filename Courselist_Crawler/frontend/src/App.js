@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+function CourseList() {
+  const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch('http://localhost:3001/crawled_data1');
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Course List</h1>
+      {isLoading && <p>Loading courses...</p>}
+      {error && <p>Error: {error}</p>}
+      {courses.length > 0 && (
+        <ul>
+          {courses.map((course, index) => (
+            <li key={index}>{course.courseTitle}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
 
-export default App;
+export default CourseList;
