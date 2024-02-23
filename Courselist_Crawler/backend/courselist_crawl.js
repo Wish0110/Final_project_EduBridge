@@ -36,7 +36,7 @@ async function crawl() {
         const $ = cheerio.load(response.data);
 
         // Verify selectors (replace with actual selectors after inspection)
-        const courseTitle1 = $('div.gallery-web-refresh-grid-item img.alt.Roland Levinsky building abstract span.title').text().trim();
+        const courseTitle1 = $('div.gallery-web-refresh-grid-item img.Roland Levinsky building abstract span.title').text().trim();
         const courseTitle2 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
         const courseTitle3 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
         const courseTitle4 = $('div.gallery-web-refresh-grid-item span.title').text().trim();
