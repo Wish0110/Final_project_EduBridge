@@ -59,26 +59,40 @@ async function crawl() {
         const courseTitle21 = $('div.gallery-web-refresh-grid-item img.Rorschach test image span.title').text().trim();
         const courseTitle22 = $('div.gallery-web-refresh-grid-item img.Westminster bridge span.title').text().trim();
 
-        // Only add new course title to crawled data if unique
-        if (!crawledTitles.includes(courseTitle1)) {
-          crawledTitles.push(courseTitle1);
-          fs.writeFileSync(crawledDataFile, JSON.stringify(crawledTitles.map(title => ({ courseTitle1: title })), null, 2));
-        }
+        fs.appendFileSync('crawled_data.json', JSON.stringify({
+          courseTitle1,
+          courseTitle2,
+          courseTitle3,
+          courseTitle4,
+          courseTitle5,
+          courseTitle6,
+          courseTitle7,
+          courseTitle8,
+          courseTitle9,
+          courseTitle10,
+          courseTitle11,
+          courseTitle12,
+          courseTitle13,
+          courseTitle14,
+          courseTitle15,
+          courseTitle16,
+          courseTitle17,
+          courseTitle18,
+          courseTitle19,
+          courseTitle20,
+          courseTitle21,
+          courseTitle22,
+        }, null, 2) + '\n');
 
-        // Follow links to other categories (modified to filter irrelevant links)
+        // Follow links to other categories
         $('.pager a').each((index, element) => {
           const link = $(element).attr('href');
-          if (
-            link &&
-            allowedDomains.some(domain => link.startsWith(domain)) &&
-            // Filter out links that don't lead to course categories
-            link.match(/\/subjects\/(\w|-)+$/)
-          ) {
+          if (link && allowedDomains.some(domain => link.startsWith(domain))) {
             queue.push(link);
           }
         });
       } catch (error) {
-        console.error('Error crawling:', url, error);
+        console.error('Error crawling:', error);
       }
     }
   }
