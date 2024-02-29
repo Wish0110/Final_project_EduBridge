@@ -50,4 +50,9 @@ async function crawl() {
   }
 }
 
+// Delete the existing crawled_data.json file or rename it to crawled_data_old.json
+if (fs.existsSync('crawled_data.json')) {
+  fs.unlinkSync('crawled_data.json');
+}
+
 crawl();
