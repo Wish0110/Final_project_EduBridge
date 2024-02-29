@@ -1,7 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
-const cron = require('node-cron');
 
 const baseURL = 'https://www.plymouth.ac.uk';
 const url = 'https://www.plymouth.ac.uk/subjects';
@@ -26,19 +25,16 @@ const getLinks = async (url) => {
   }
 };
 
-// Schedule the crawler to run every day at 6 AM
-cron.schedule('0 6 * * *', () => {
-  getLinks(url)
-    .then((links) => {
-      console.log(`Total links found: ${links.length}`);
+getLinks(url)
+  .then((links) => {
+    console.log(`Total links found: ${links.length}`);
 
-      fs.writeFile(outputFile, JSON.stringify(links, null, 2), (err) => {
-        if (err) {
-          console.error(`Error writing to file: ${err}`);
-        } else {
-          console.log(`Links saved to ${outputFile}`);
-        }
-      });
-    })
-    .catch((error) => console.error(`Error: ${error}`));
-});
+    fs.writeFile(outputFile, JSON.stringify(links, null, 2), (err) => {
+      if (err) {
+        console.error(`Error writing to file: ${err}`);
+      } else {
+        console.log(`Links saved to ${outputFile}`);
+      }
+    });
+  })
+  .catch((error) => console.error(`Error: ${error}`));
