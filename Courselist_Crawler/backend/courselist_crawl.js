@@ -21,9 +21,9 @@ async function crawl() {
 
         // Extract titles and links from the provided code snippet
         const titlesAndLinks = [
-          ['Allied health professions', 'https://www.plymouth.ac.uk/study/allied-health-professions'],
-          ['Architecture and built environment', 'https://www.plymouth.ac.uk/subjects/architecture-design-building-construction'],
-          ['Art', 'https://www.plymouth.ac.uk/subjects/art'],
+          'Allied health professions', 'https://www.plymouth.ac.uk/study/allied-health-professions',
+          'Architecture and built environment', 'https://www.plymouth.ac.uk/subjects/architecture-design-building-construction',
+          'Art', 'https://www.plymouth.ac.uk/subjects/art',
           // Add more categories here
         ];
 
