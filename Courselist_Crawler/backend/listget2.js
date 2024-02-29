@@ -1,51 +1,29 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-const fs = require('fs');
 
-const allowedDomains = ['plymouth.ac.uk'];
-const startUrl = 'https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-artificial-intelligence/';
+const baseURL = 'https://www.plymouth.ac.uk';
+const url = 'https://www.plymouth.ac.uk/subjects';
 
-async function crawl() {
-  const queue = [startUrl];
-  const visited = new Set();
+const getLinks = async (url) => {
+  try {
+    const response = await axios.get(url);
+    const $ = cheerio.load(response.data);
 
-  while (queue.length > 0) {
-    const url = queue.shift();
+    const links = [];
 
-    if (!visited.has(url)) {
-      visited.add(url);
+    $('a').each((i, link) => {
+      links.push(baseURL + $(link).attr('href'));
+    });
 
-      try {
-        const response = await axios.get(url);
-        const $ = cheerio.load(response.data);
-
-        // Extract titles and links from the provided code snippet
-        const titlesAndLinks = [
-          ['Allied health professions', 'https://www.plymouth.ac.uk/study/allied-health-professions'],
-          ['Architecture and built environment', 'https://www.plymouth.ac.uk/subjects/architecture-design-building-construction'],
-          ['Art', 'https://www.plymouth.ac.uk/subjects/art'],
-          // Add more categories here
-        ];
-
-        titlesAndLinks.forEach(([title, link]) => {
-          fs.appendFileSync('crawled_data.json', JSON.stringify({
-            title,
-            link,
-          }, null, 2) + '\n');
-        });
-
-        // Follow links to other categories
-        $('.pager a').each((index, element) => {
-          const link = $(element).attr('href');
-          if (link && allowedDomains.some(domain => link.startsWith(domain))) {
-            queue.push(link);
-          }
-        });
-      } catch (error) {
-        console.error('Error crawling:', error);
-      }
-    }
+    return links;
+  } catch (error) {
+    console.error(`Error fetching links: ${error}`);
   }
-}
+};
 
-crawl();
+getLinks(url)
+  .then((links) => {
+    console.log(`Total links found: ${links.length}`);
+    console.log(links);
+  })
+  .catch((error) => console.error(`Error: ${error}`));
