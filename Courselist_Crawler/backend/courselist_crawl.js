@@ -57,7 +57,7 @@ async function crawl() {
         const courseTitle19 = $('div.gallery-web-refresh-grid-item img.Male child nursing student with lecturer practicing clinical skills. span.title').text().trim();
         const courseTitle20 = $('div.gallery-web-refresh-grid-item img.Performance hero span.title').text().trim();
         const courseTitle21 = $('div.gallery-web-refresh-grid-item img.Rorschach test image span.title').text().trim();
-        const courseTitle22 = $('div.gallery-web-refresh-grid-item img.Westminster bridge span.title').text().trim();
+        const courseTitle22 = $('div.gallery-web-refresh-grid-item a[href="/subjects/sociology-international-relations-politics"] span.title').text().trim();
 
         fs.appendFileSync('crawled_data.json', JSON.stringify({
           courseTitle1,
