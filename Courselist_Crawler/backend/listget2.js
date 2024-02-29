@@ -11,8 +11,10 @@ const getLinks = async (url) => {
 
     const links = [];
 
-    $('a').each((i, link) => {
-      links.push(baseURL + $(link).attr('href'));
+    $('.gallery-web-refresh-grid-item a').each((i, link) => {
+      const title = $(link).text().trim();
+      const href = baseURL + $(link).attr('href');
+      links.push({ title, href });
     });
 
     return links;
