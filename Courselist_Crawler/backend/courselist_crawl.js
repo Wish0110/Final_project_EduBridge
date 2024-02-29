@@ -19,8 +19,11 @@ async function crawl() {
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
 
-        const sociologyTitle = $('.gallery-web-refresh-grid-item .title').eq(21).text().trim(); // Index 21 corresponds to the Sociology title
-        const sociologyLink = $('.gallery-web-refresh-grid-item a').eq(21).attr('href').trim();
+        const sociologyTitleElement = $('.gallery-web-refresh-grid-item .title').eq(21);
+        const sociologyTitle = sociologyTitleElement.length > 0 ? sociologyTitleElement.text().trim() : '';
+
+        const sociologyLinkElement = $('.gallery-web-refresh-grid-item a').eq(21);
+        const sociologyLink = sociologyLinkElement.length > 0 ? sociologyLinkElement.attr('href').trim() : '';
 
         // Write parsed items to JSON file
         fs.appendFileSync('crawled_data.json', JSON.stringify({
