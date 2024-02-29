@@ -19,20 +19,22 @@ async function crawl() {
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
 
-        // Extract titles and links from the provided code snippet
-        const titlesAndLinks = [
-          ['Allied health professions', 'https://www.plymouth.ac.uk/study/allied-health-professions'],
-          ['Architecture and built environment', 'https://www.plymouth.ac.uk/subjects/architecture-design-building-construction'],
-          ['Art', 'https://www.plymouth.ac.uk/subjects/art'],
-          // Add more categories here
-        ];
+        // Extract titles and links from the page
+        const titlesAndLinks = [];
+        $('.course-listing-item').each((index, element) => {
+          const title = $(element).find('.course-title').text().trim();
+          const link = $(element).find('.course-title a').attr('href');
 
-        titlesAndLinks.forEach(([title, link]) => {
-          fs.appendFileSync('crawled_data.json', JSON.stringify({
-            title,
-            link,
-          }, null, 2) + '\n');
+          if (title && link) {
+            titlesAndLinks.push({
+              title,
+              link,
+            });
+          }
         });
+
+        // Save the extracted titles and links to a file
+        fs.writeFileSync('crawled_data.json', JSON.stringify(titlesAndLinks, null, 2));
 
         // Follow links to other categories
         $('.pager a').each((index, element) => {
