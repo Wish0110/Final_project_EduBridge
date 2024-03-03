@@ -27,7 +27,7 @@ const getLinks = async (url) => {
 };
 
 const scheduleCrawl = () => {
-  cron.schedule('0 16 55 * * *', async () => {
+  cron.schedule('0 10 12 * * *', async () => {
     console.log('Starting crawl...');
     const links = await getLinks(url);
     console.log(`Total links found: ${links.length}`);
