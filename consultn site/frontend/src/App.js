@@ -1,12 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Home from './Home';
 
-function App() {
-  return (
-    <div className="App">
-      <Home />
-    </div>
-  );
-}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Home />
+  </React.StrictMode>
+);
 
-export default App;
+export default Home; // export Home as default
