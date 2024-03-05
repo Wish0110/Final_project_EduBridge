@@ -1,7 +1,7 @@
 import React from 'react';
 import banner from './banner.png';
 import Navbar from './navbar';
-import MapPage from 'map.js';
+import MapPage from './map';
 
 const Home = () => {
   const navigateToMap = () => {
