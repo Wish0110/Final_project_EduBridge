@@ -1,0 +1,4 @@
+{
+    "css.lint.argumentsInColorFunction": "error",
+    "css.lint.unknownAtRules": "ignore"
+}
