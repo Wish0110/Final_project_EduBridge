@@ -13,7 +13,7 @@ function Home() {
       <main>
         <p>This is a description of our website. Here you can find all sorts of information about our products and services.</p>
 
-        <button>Map</button> {/* This is the "Map" button */}
+        <button>Map</button> 
       </main>
 
       <footer>
