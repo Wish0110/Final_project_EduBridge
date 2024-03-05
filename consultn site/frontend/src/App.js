@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Home from './Home';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
-);
+import './App.css';
 
-export default Home; // export Home as default
+function App() {
+  return (
+    <>
+    <h1>Hello there?</h1>
+    </>
+  );
+}
+
+export default App;
