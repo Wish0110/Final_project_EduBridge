@@ -1,45 +1,117 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { Container } from "@mui/material";
 
-const NavbarComponent = () => {
+function MyComponent() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">
-        <img
-          alt=""
-          src="/logo.svg"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />
-        {' '}Your Website
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/map">
-            Map
-          </Nav.Link>
-          <Nav.Link as={Link} to="/university">
-            University
-          </Nav.Link>
-          <Nav.Link as={Link} to="/courses">
-            Courses
-          </Nav.Link>
-          <Nav.Link as={Link} to="/service">
-            Service
-          </Nav.Link>
-          <Nav.Link as={Link} to="/help">
-            Help
-          </Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  );
-};
+    <Container maxWidth="xl">
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "#e6c235",
+          color: "#000000",
+          width: "108%",
+          transform: "translateX(-4%)",
+        }}
+      >
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            <b>DWANP</b> restaurent
+          </Typography>
+          <Button
+            href="/Home"
+            sx={{
+              color: "black",
+              marginRight: "1rem",
+              "&:hover": {
+                backgroundColor: "black",
+                color: "white",
+              },
+            }}
+          >
+            <b>Home</b>
+          </Button>
+          <Button
 
-export default NavbarComponent;
+            href="/Employee"
+            sx={{
+              color: "black",
+              marginRight: "1rem",
+              "&:hover": {
+                backgroundColor: "black",
+                color: "white",
+              },
+            }}
+          >
+            <b>Employee</b>
+          </Button>
+          <Button
+            href="/Inventory"
+            sx={{
+              color: "black",
+              marginRight: "1rem",
+              "&:hover": {
+                backgroundColor: "black",
+                color: "white",
+              },
+            }}
+          >
+            <b>Inventory</b>
+          </Button>
+          <Button
+            
+            href="/Menu"
+            sx={{
+              color: "black",
+              marginRight: "1rem",
+              "&:hover": {
+                backgroundColor: "black",
+                color: "white",
+              },
+            }}
+          >
+            <b>Menu</b>
+          </Button>
+          <Button
+            
+            href="/Order"
+            sx={{
+              color: "black",
+              marginRight: "1rem",
+              "&:hover": {
+                backgroundColor: "black",
+                color: "white",
+              },
+            }}
+          >
+            <b>Order</b>
+          </Button>
+          <Button
+            
+            href="/Table"
+            sx={{
+              color: "black",
+              marginRight: "1rem",
+              "&:hover": {
+                backgroundColor: "black",
+                color: "white",
+              },
+            }}
+          >
+            <b>Table</b>
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </Container>
+  );
+}
+
+export default MyComponent;
