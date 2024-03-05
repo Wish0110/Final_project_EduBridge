@@ -1,11 +1,10 @@
 import React from 'react';
+import NavbarComponent from './navbar';
 
 function Home() {
   return (
     <div>
-      <nav>
-        {/* Add your nav bar links here */}
-      </nav>
+      <NavbarComponent />
 
       <header style={{ backgroundImage: `url('your-banner-image-url')` }}>
         <h1>Welcome to Our Website!</h1>
