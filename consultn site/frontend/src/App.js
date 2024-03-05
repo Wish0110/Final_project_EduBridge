@@ -1,11 +1,11 @@
 
-import './App.css';
+import React from 'react';
+import './index.css';
 
 function App() {
   return (
     <>
-    <h1 className='text-3*1 font-bold'>Hello there?</h1>
-    </>
+<h1 className='text-3xl font-bold'>Hello there!</h1>    </>
   );
 }
 
