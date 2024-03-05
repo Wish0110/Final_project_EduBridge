@@ -1,23 +1,22 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Map from './map';
 import banner from './banner.png';
 import Navbar from './navbar';
-import MapPage from './map';
+import './App.css';
 
 const Home = () => {
-  const navigateToMap = () => {
-    // Assuming you have a routing library like React Router set up:
-    window.location.href = "/map"; // Navigate to the map page using URL
-  };
-
-  return (
-    <div className="home">
-      <img src={banner} alt="Home Page Banner" className="banner" />
-      <Navbar />
-      <button className="map-button" onClick={MapPage}>
-        Map
-      </button>
-    </div>
-  );
+    return (
+        <div className="home">
+            <img src={banner} alt="Home Page Banner" className="banner" />
+            <Navbar />
+            <div>
+                <Routes>
+                    <Route path="/map" element={<Map />} />
+                </Routes>
+            </div>
+        </div>
+    );
 };
 
 export default Home;
