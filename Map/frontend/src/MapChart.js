@@ -36,7 +36,7 @@ const MapChart = () => {
             </div>
           ) : (
             <button onClick={handleDetailsClick}>More Info</button>
-          )} 
+          )}  
         </Popup>
       </Marker>
       <ZoomControl position="bottomright" />
