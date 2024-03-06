@@ -40,7 +40,7 @@ const MapChart = () => {
         </Popup>
       </Marker>
       <ZoomControl position="bottomright" />
-    </MapContainer>
+    </MapContainer> 
   );
 };
 
