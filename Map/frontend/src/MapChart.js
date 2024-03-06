@@ -27,7 +27,7 @@ const MapChart = () => {
       <Marker position={plymouthUniversityCoordinates}>
         <Popup>
         {showDetails ? (
-            <div>
+            <div> 6
               {/* Detailed information about Plymouth University */}
               <p>Plymouth University is a public university in Plymouth, England.</p>
               <a href="https://www.plymouth.ac.uk/" target="_blank" rel="noreferrer">
