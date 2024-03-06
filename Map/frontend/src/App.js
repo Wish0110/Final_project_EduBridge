@@ -1,5 +1,5 @@
 import React from 'react';
-import { APIProvider } from '@vis.gl/react-google-maps';
+import { APIProvider } from './components/APIProvider';
 import Intro from './mappage'; // Adjust the path if necessary
 
 const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
