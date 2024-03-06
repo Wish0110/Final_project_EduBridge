@@ -1,8 +1,9 @@
 import React from 'react';
 //import L from 'leaflet';
-import 'leaflet/dist/leaflet.css'; // Include CSS for styling
+import 'leaflet/dist/leaflet.css';// Include CSS for styling
 import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet';
 import { Popup } from 'react-leaflet';
+
 
 const MapChart = () => {
   // Initial map center and zoom level
