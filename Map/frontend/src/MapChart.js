@@ -33,7 +33,7 @@ const MapChart = () => {
               <a href="https://www.plymouth.ac.uk/" target="_blank" rel="noreferrer">
                 Explore Plymouth University
               </a>
-            </div>
+            </div> 
           ) : (
             <button onClick={handleDetailsClick}>More Info</button>
           )}    
