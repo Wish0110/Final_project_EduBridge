@@ -1,17 +1,13 @@
 import React from 'react';
-import { APIProvider } from './components/APIProvider';
-import Intro from './mappage'; // Adjust the path if necessary
+import MapChart from './MapChart';
 
-const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-
-function App() {
+const App = () => {
   return (
     <div>
-      <APIProvider apiKey={googleMapsApiKey}>
-        <Intro />
-      </APIProvider>
+      <h1>UK Map Example</h1>
+      <MapChart />
     </div>
   );
-}
+};
 
 export default App;
