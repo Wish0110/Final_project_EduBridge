@@ -17,7 +17,7 @@ export default function Intro() {
             <div style={{height: "100vh"}}>
                 <Map zoom={9} center={position}></Map>
             </div>
-            </APIProvider>
+        </APIProvider>
 
     );
 }
