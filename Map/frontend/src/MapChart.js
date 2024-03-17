@@ -8,7 +8,7 @@ const MapChart = () => {
   // Initial map center and zoom level
   const mapCenter = [52.3555, -1.1572]; // Center of UK
   const zoomLevel = 6;
- 
+  
   // Coordinates of Plymouth University
   const plymouthUniversityCoordinates = [50.4122, -4.0882];
  
@@ -17,7 +17,7 @@ const MapChart = () => {
   const handleDetailsClick = () => {
     setShowDetails(!showDetails); // Toggle state on button click
   };
-
+ 
   return (
     <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '400px' }}>
       <TileLayer
