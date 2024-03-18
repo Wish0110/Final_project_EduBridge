@@ -17,7 +17,7 @@ const MapChart = () => {
   const handleDetailsClick = () => {
     setShowDetails(!showDetails); // Toggle state on button click
   };
- 
+  
   return (
     <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '400px' }}>
       <TileLayer
