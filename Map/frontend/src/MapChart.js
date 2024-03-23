@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css'; // Include CSS for styling
 import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet';
 import { Popup } from 'react-leaflet';
      
-const MapChart = () => {
+const MapChart = () => { 
   // Initial map center and zoom level
   const mapCenter = [52.3555, -1.1572]; // Center of UK
   const zoomLevel = 6;
