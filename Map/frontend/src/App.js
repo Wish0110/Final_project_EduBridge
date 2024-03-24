@@ -4,7 +4,7 @@ import MapChart from './MapChart';
 const App = () => {
   return (
     <div>
-      <h1>UK Map Example</h1>
+      <h1>Universities in UK</h1>
       <MapChart />
     </div>
   );
