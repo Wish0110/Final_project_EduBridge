@@ -54,7 +54,7 @@ var config = {
       'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2',
       'Accept': 'application/ejson'
     },
-   data
+   data 
 };
             
 axios(config)
