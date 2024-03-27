@@ -1,22 +1,26 @@
+// Home.js
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import banner from './banner.png';
+import { useNavigate, Route, Routes } from 'react-router-dom';
 import Navbar from './navbar';
 import './App.css';
+import Map from './map';
 
 const Home = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   return (
     <div className="home">
-      <img src={banner} alt="Home Page Banner" className="banner" />
+      <img src="banner.png" alt="Home Page Banner" className="banner" />
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<div>
-
-          <button className="map-button" onClick={() => navigate('/map')}>
-            Map
-          </button>
-        </div>} />
+        <Route exact path="/" element={
+          <div>
+            <button className="map-button" onClick={() => navigate('/map')}>
+              Map
+            </button>
+          </div>
+        } />
+        <Route path="/map" element={<Map />} />
       </Routes>
     </div>
   );
