@@ -1,6 +1,6 @@
 // Map.js
 import React from 'react';
-import MapChart from 'Map/frontend/src/MapChart.js';
+import MapChart from './components/MapChart';
 
 const Map = () => {
   return <MapChart />;

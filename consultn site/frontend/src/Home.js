@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <img src="banner.png" alt="Home Page Banner" className="banner" />
+      <img src="abanner.png" alt="Home Page Banner" className="banner" />
       <Navbar />
       <Routes>
         <Route exact path="/" element={
