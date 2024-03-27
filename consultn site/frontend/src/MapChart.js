@@ -3,10 +3,7 @@ import React, { useState } from 'react';
 import 'leaflet/dist/leaflet.css'; // Include CSS for styling
 import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet';
 import { Popup } from 'react-leaflet';
-
-
-<h1>Universities in UK</h1>
-
+     
 const MapChart = () => { 
   // Initial map center and zoom level
   const mapCenter = [52.3555, -1.1572]; // Center of UK
