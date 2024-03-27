@@ -12,7 +12,7 @@ const MapChart = () => {
   // Coordinates of Plymouth University
   const plymouthUniversityCoordinates = [50.4122, -4.0882];
  
-  const [showDetails, setShowDetails] = useState(false); // State to toggle details
+  const [showDetails, setShowDetails] = useState(true); // State to toggle details
 
   const handleDetailsClick = () => {
     setShowDetails(!showDetails); // Toggle state on button click
