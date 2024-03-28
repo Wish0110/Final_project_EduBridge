@@ -1,14 +1,15 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import MapChart from './MapChart';
+import { Link } // Use Link for cleaner navigation
+  from 'react-router-dom';
 
-const Home = ({ onClick }) => {
+const Home = () => {
   return (
-    <div>
-      <Button variant="primary" size="lg" onClick={onClick}>
-        Map
-      </Button>
-      <MapChart />
+    <div className="home">
+      <h1>Welcome!</h1>
+      <p>Explore the location of Plymouth University.</p>
+      <Link to="/map">
+        <button>View Map</button>
+      </Link>
     </div>
   );
 };

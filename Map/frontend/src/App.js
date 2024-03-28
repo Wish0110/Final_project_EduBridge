@@ -1,18 +1,17 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-//import MapChart from './MapChart';
+import MapChart from './MapChart';
 
-function App() {
-  const handleMapClick = () => {
-    // Code to handle button click and show MapChart
-  };
-
+const App = () => {
   return (
-    <div className="App">
-      <Home onClick={handleMapClick} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapChart />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
