@@ -1,27 +1,20 @@
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import Map from './map';
+import MapChart from './MapChart';
 import banner from './banner.png';
 import Navbar from './navbar';
 import './App.css';
 
-const Home = () => {
-    const navigate = useNavigate();
+const App = () => {
   return (
-    <div className="home">
-      <img src={banner} alt="Home Page Banner" className="banner" />
+    <div>
       <Navbar />
-      <Routes>
-        <Route path="/map" element={<Map />} />
-        <Route exact path="/" element={<div>
-
-          <button className="map-button" onClick={() => navigate('/map')}>
-            Map
-          </button>
-        </div>} />
-      </Routes>
+      <header style={{ textAlign: 'center', marginBottom: '1rem' }}>
+      <img src={banner} alt="Home Page Banner" className="banner" />
+      </header>
+      <h2>UK University Map</h2>
+      <MapChart />
     </div>
   );
 };
 
-export default Home;
+export default App;
