@@ -1,39 +1,36 @@
-import React from 'react';
-import logo from './logo.png'; // Replace with your logo image path
+import React, { useState } from 'react';
+import './navbar.css';
 
-const navbar = () => {
-  const navbarStyles = {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    backdropFilter: 'blur(10px)',
-    position: 'sticky',
-    top: 0,
-    zIndex: 100,
-    transition: 'all 0.3s ease',
-    
-  }
+const Navbar = () => {
+  const [activeLink, setActiveLink] = useState('#');
+
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+  };
 
   return (
-    <nav className="navbar" style={navbarStyles}>
-      <img src={logo} alt="Logo" className="logo" />
-      <ul className="nav-links">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Services</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-        <li>
-          <a href="#">More</a>
-        </li>
-      </ul>
+    <nav className="navbar navbar-expand-custom navbar-mainbg">
+      <a className="navbar-brand navbar-logo" href="#">Navbar</a>
+      <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i className="fas fa-bars text-white"></i>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav ml-auto">
+          <div className="hori-selector">
+            <div className="left"></div>
+            <div className="right"></div>
+          </div>
+          <li className={activeLink === "#" ? "nav-item active" : "nav-item"} onClick={() => handleLinkClick('#')}>
+            <a className="nav-link" href="javascript:void(0);"><i className="fas fa-tachometer-alt"></i>Dashboard</a>
+          </li>
+          <li className={activeLink === "javascript:void(0);" ? "nav-item active" : "nav-item"} onClick={() => handleLinkClick("javascript:void(0);")}>
+            <a className="nav-link" href="javascript:void(0);"><i className="far fa-address-book"></i>Address Book</a>
+          </li>
+          {/* Add more list items as needed */}
+        </ul>
+      </div>
     </nav>
   );
 };
 
-export default navbar;
+export default Navbar;
