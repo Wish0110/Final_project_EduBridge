@@ -1,10 +1,19 @@
 import React from 'react';
-
 import logo from './logo.png'; // Replace with your logo image path
 
-const Navbar = () => {
+const navbar = () => {
+  const navbarStyles = {
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backdropFilter: 'blur(10px)',
+    position: 'sticky',
+    top: 0,
+    zIndex: 100,
+    transition: 'all 0.3s ease',
+    
+  }
+
   return (
-    <nav className="navbar">
+    <nav className="navbar" style={navbarStyles}>
       <img src={logo} alt="Logo" className="logo" />
       <ul className="nav-links">
         <li>
@@ -27,4 +36,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default navbar;
