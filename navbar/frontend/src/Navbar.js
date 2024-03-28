@@ -1,82 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import for navigation
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
 
 const Navbar = () => {
-  const [isActive, setIsActive] = useState(false); // State for mobile menu toggle
+  const [active, setActive] = useState(null);
 
-  const handleToggle = () => {
-    setIsActive(!isActive);
+  const handleActive = (e) => {
+    setActive(e.target.id);
   };
-
-  // Function to add active class on page load based on current path
-  useEffect(() => {
-    const currentPath = window.location.pathname.split('/').pop();
-
-    const targetLink = document.querySelector(
-      `#navbarSupportedContent ul li a[href="${currentPath}"]`
-    );
-
-    if (targetLink) {
-      targetLink.parentElement.classList.add('active');
-    }
-  }, []); // Empty dependency array to run only once on component mount
 
   return (
     <nav className="navbar navbar-expand-custom navbar-mainbg">
-      <Link className="navbar-brand navbar-logo" to="#">
+      <a className="navbar-brand navbar-logo" href="#">
         Navbar
-      </Link>
+      </a>
       <button
         className="navbar-toggler"
         type="button"
         aria-controls="navbarSupportedContent"
-        aria-expanded={isActive ? 'true' : 'false'}
+        aria-expanded="false"
         aria-label="Toggle navigation"
-        onClick={handleToggle}
       >
         <i className="fas fa-bars text-white"></i>
       </button>
-
-      <div
-        className={`collapse navbar-collapse ${isActive ? 'show' : ''}`}
-        id="navbarSupportedContent"
-      >
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              <i className="fas fa-tachometer-alt"></i> Dashboard
-            </Link>
+          <div className="hori-selector">
+            <div className="left"></div>
+            <div className="right"></div>
+          </div>
+          <li
+            id="dashboard"
+            className={`nav-item ${active === 'dashboard' && 'active'}`}
+            onClick={handleActive}
+          >
+            <a className="nav-link" href="javascript:void(0);">
+              <i className="fas fa-tachometer-alt"></i>Dashboard
+            </a>
           </li>
-          <li className="nav-item active">
-            <Link className="nav-link" to="/address-book">
-              <i className="far fa-address-book"></i> Address Book
-            </Link>
+          <li
+            id="address-book"
+            className={`nav-item ${active === 'address-book' && 'active'}`}
+            onClick={handleActive}
+          >
+            <a className="nav-link" href="javascript:void(0);">
+              <i className="far fa-address-book"></i>Address Book
+            </a>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/components">
-              <i className="far fa-clone"></i> Components
-            </Link>
+          <li
+            id="components"
+            className={`nav-item ${active === 'components' && 'active'}`}
+            onClick={handleActive}
+          >
+            <a className="nav-link" href="javascript:void(0);">
+              <i className="far fa-clone"></i>Components
+           </a>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/calendar">
-              <i className="far fa-calendar-alt"></i> Calendar
-            </Link>
+          <li
+            id="calendar"
+            className={`nav-item ${active === 'calendar' && 'active'}`}
+            onClick={handleActive}
+          >
+            <a className="nav-link" href="javascript:void(0);">
+              <i className="far fa-calendar-alt"></i>Calendar
+            </a>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/charts">
-              <i className="far fa-chart-bar"></i> Charts
-            </Link>
+          <li
+            id="charts"
+            className={`nav-item ${active === 'charts' && 'active'}`}
+            onClick={handleActive}
+          >
+            <a className="nav-link" href="javascript:void(0);">
+              <i className="far fa-chart-bar"></i>Charts
+            </a>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/documents">
-              <i className="far fa-copy"></i> Documents
-            </Link>
+          <li
+            id="documents"
+            className={`nav-item ${active === 'documents' && 'active'}`}
+            onClick={handleActive}
+          >
+            <a className="nav-link" href="javascript:void(0);">
+              <i className="far fa-copy"></i>Documents
+            </a>
           </li>
         </ul>
-      </div>
-      <div className="hori-selector">
-        <div className="left"></div>
-        <div className="right"></div>
       </div>
     </nav>
   );
