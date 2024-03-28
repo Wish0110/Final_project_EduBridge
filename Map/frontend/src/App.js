@@ -1,11 +1,10 @@
 import React from 'react';
-import MapChart from './MapChart';
+import Home from './Home';
 
 const App = () => {
   return (
     <div>
-      <h1>Universities in UK</h1>
-      <MapChart />
+      < Home/>
     </div>
   );
 };
