@@ -1,7 +1,7 @@
 import React from 'react';
 import MapChart from './MapChart'; // Import the MapChart component
 
-const UniversityMap = () => {
+const map = () => {
   return (
     <div>
       <h1>UK University MAP</h1>
@@ -10,4 +10,4 @@ const UniversityMap = () => {
   );
 };
 
-export default UniversityMap;
+export default map;
