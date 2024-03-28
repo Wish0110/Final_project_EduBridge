@@ -1,13 +1,18 @@
 import React from 'react';
-import MapChart from './MapChart';
+import './App.css';
+import Home from './Home';
+//import MapChart from './MapChart';
 
-const App = () => {
+function App() {
+  const handleMapClick = () => {
+    // Code to handle button click and show MapChart
+  };
+
   return (
-    <div>
-      <h1>Universities in UK</h1>
-      <MapChart />
+    <div className="App">
+      <Home onClick={handleMapClick} />
     </div>
   );
-};
+}
 
 export default App;
