@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import Map from './MapChart';
+import Map from './map';
 import banner from './banner.png';
 import Navbar from './navbar';
 import './App.css';
@@ -12,10 +12,10 @@ const Home = () => {
       <img src={banner} alt="Home Page Banner" className="banner" />
       <Navbar />
       <Routes>
-        <Route path="/MapChart" element={<Map />} />
+        <Route path="/map" element={<Map />} />
         <Route exact path="/" element={<div>
 
-          <button className="map-button" onClick={() => navigate('/MapChart')}>
+          <button className="map-button" onClick={() => navigate('/map')}>
             Map
           </button>
         </div>} />
