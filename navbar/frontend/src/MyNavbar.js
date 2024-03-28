@@ -1,33 +1,31 @@
-import React from "react";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import './navbar.css';
+import logo from './logo.png'; // Replace with your logo image path
 
-function MyNavbar() {
+const Navbar = () => {
   return (
-    <Navbar>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <a href="#">My Navbar</a>
-        </Navbar.Brand>
-      </Navbar.Header>
-      <Nav>
-        <NavItem eventKey={1} href="#">
-          Dashboard
-        </NavItem>
-        <NavItem eventKey={2} href="#">
-          Address Book
-        </NavItem>
-        <NavItem eventKey={3} href="#">
-          Calendar
-        </NavItem>
-        <NavItem eventKey={4} href="#">
-          Ill Charts
-        </NavItem>
-        <NavItem eventKey={5} href="#">
-          Documents
-        </NavItem>
-      </Nav>
-    </Navbar>
+    <nav className="navbar">
+      <img src={logo} alt="Logo" className="logo" />
+      <ul className="nav-links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Services</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+          <a href="#">More</a>
+        </li>
+      </ul>
+    </nav>
   );
-}
+};
 
-export default MyNavbar;
+export default Navbar;
