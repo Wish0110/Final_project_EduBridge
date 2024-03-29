@@ -39,7 +39,44 @@ const Navbar = () => {
                             fa-tachometer-alt">
                             </i>Home
                         </NavLink>    
-                    </li>        
+                    </li>  
+
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/About" exact>
+                            <i 
+                            className="fas
+                            fa-address-book">
+                            </i>About
+                        </NavLink>    
+                    </li>  
+
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/Service" exact>
+                            <i 
+                            className="far
+                            fa-clone">
+                            </i>Service
+                        </NavLink>    
+                    </li>  
+
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/Testimonial" exact>
+                            <i 
+                            className="far
+                            fa-chart-bar">
+                            </i>Testimonial
+                        </NavLink>    
+                    </li>
+
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/Contact" exact>
+                            <i 
+                            className="far
+                            fa-copy">
+                            </i>Contact Us
+                        </NavLink>    
+                    </li>
+
                 </ul>
         </div>
     </nav>    
