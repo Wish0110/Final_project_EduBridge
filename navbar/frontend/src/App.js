@@ -1,11 +1,8 @@
 import React from 'react';
-import Mynavbar from './Mynavbar';
 
 const App = () => {
   return (
-    <div>
-      < Mynavbar />
-    </div>
+    <h1>Hello world</h1>
   );
 };
 
