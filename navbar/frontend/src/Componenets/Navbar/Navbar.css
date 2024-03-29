@@ -8,6 +8,11 @@ body {
   margin: 0;
   padding: 0;
 }
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
 i {
   margin-right: 10px;
 }
@@ -23,11 +28,16 @@ i {
 #navbarSupportedContent {
   overflow: hidden;
   position: relative;
+  
+}
+
+.navbar-nav {
+  float: right !important;
 }
 
 #navbarSupportedContent ul {
   padding: 0px;
-  margin: 0px;
+  margin-left: 650px !important;
 }
 #navbarSupportedContent ul li a i {
   margin-right: 10px;

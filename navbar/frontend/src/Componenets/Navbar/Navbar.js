@@ -37,10 +37,21 @@ const Navbar = () => {
 
     useEffect(() => {
         animation();
-        $(window).on('resize', function(){
-            setTimeout(function(){ animation(); }, 500);
+    
+        $(window).on('resize', function() {
+            setTimeout(function() { animation(); }, 500);
         });
+    
+        // New code for loading animation
+        setTimeout(() => {
+            $('.navbar-brand').removeClass('hidden'); // Start with logo
+            setTimeout(() => {
+                $('.nav-item').removeClass('hidden'); // Then list items
+            }, 100); // Delay between logo and list items
+        }, 400); // Delay before starting animation
+    
     }, []);
+    
 
     return (
         <nav className="navbar navbar-expand-lg 
@@ -74,7 +85,7 @@ const Navbar = () => {
                         <div className="right"></div>
                     </div>
 
-                    <li className="nav-item active">
+                    <li className="nav-item active hidden">
                         <NavLink className="nav-link" to="/" exact>
                             <i 
                             className="fas
@@ -83,7 +94,7 @@ const Navbar = () => {
                         </NavLink>    
                     </li>  
 
-                    <li className="nav-item">
+                    <li className="nav-item hidden">
                         <NavLink className="nav-link" to="/About" exact>
                             <i 
                             className="fas
@@ -92,7 +103,7 @@ const Navbar = () => {
                         </NavLink>    
                     </li>  
 
-                    <li className="nav-item">
+                    <li className="nav-item hidden">
                         <NavLink className="nav-link" to="/Service" exact>
                             <i 
                             className="far
@@ -101,7 +112,7 @@ const Navbar = () => {
                         </NavLink>    
                     </li>  
 
-                    <li className="nav-item">
+                    <li className="nav-item hidden">
                         <NavLink className="nav-link" to="/Testimonial" exact>
                             <i 
                             className="far
@@ -110,7 +121,7 @@ const Navbar = () => {
                         </NavLink>    
                     </li>
 
-                    <li className="nav-item">
+                    <li className="nav-item hidden">
                         <NavLink className="nav-link" to="/Contact" exact>
                             <i 
                             className="far
