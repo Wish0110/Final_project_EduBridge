@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import './Navbar.css';
 import { NavLink } from "react-router-dom";
+import logo from './logo.png';
 import $ from 'jquery';
 
 const Navbar = () => {
@@ -54,12 +55,8 @@ const Navbar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-lg 
-        navbar-mainbg">
-
-        <NavLink className="navbar-brand navbar-logo" to="/" exact>
-            Web Solutions
-            </NavLink>
+        <nav className="navbar navbar-expand-lg navbar-mainbg">
+        <img src={logo} alt="Logo" className="navbar-logo" />
 
         <button
             className="navbar-toggler"
@@ -117,7 +114,7 @@ const Navbar = () => {
                             <i 
                             className="far
                             fa-chart-bar">
-                            </i>Testimonial
+                            </i>Map
                         </NavLink>    
                     </li>
 
