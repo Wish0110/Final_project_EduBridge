@@ -1,7 +1,6 @@
 import React from 'react';
 import MapChart from './MapChart';
 import banner from './banner.png';
-import './App.css';
 
 const Home = () => {
   return (

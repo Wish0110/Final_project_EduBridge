@@ -58,20 +58,6 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-mainbg">
         <img src={logo} alt="Logo" className="navbar-logo" />
 
-        <button
-            className="navbar-toggler"
-            onClick={function(){
-                setTimeout(function(){ animation(); });
-            }}
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i className="fas fa-bars text-white"></i>
-        </button>
-
         <div
             className="collapse navbar-collapse"
             id="navbarSupportedContent">
