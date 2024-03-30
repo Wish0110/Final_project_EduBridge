@@ -1,7 +1,7 @@
 import React from 'react';
 import MapChart from './MapChart';
 import banner from './banner.png';
-import Navbar from './navbar';
+import Navbar from './Componenets/Navbar/Navbar';
 import './App.css';
 
 const App = () => {
