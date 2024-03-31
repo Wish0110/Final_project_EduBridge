@@ -18,7 +18,7 @@ i {
 }
 
 .navbar-logo {
-  padding: 5px;
+  padding: 0px;
   height: 62px;
   margin-left: 20px;
   background-color: #000000;
@@ -26,6 +26,7 @@ i {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
 }
 
 .navbar-logo img {
@@ -45,11 +46,15 @@ i {
 
 .navbar-nav {
   float: right !important;
+  margin-right: 0px;
+  display: flex; 
+  align-items: center;
 }
+
 
 #navbarSupportedContent ul {
   padding: 0px;
-  margin-left: 450px !important;
+  margin-left: 0px !important;
 }
 #navbarSupportedContent ul li a i {
   margin-right: 10px;
@@ -93,7 +98,8 @@ i {
 .hori-selector {
   display: inline-block;
   position: absolute;
-  height: 120%;
+  height: 200px;
+  width: 250px;
   top: 0px;
   left: 0px;
   transition-duration: 0.6s;
