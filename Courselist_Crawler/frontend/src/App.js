@@ -11,7 +11,7 @@ function CourseList() {
       setError(null);
 
       try {
-        const response = await fetch('http://localhost:3001/crawled_data1');
+        const response = await fetch('http://localhost:3001/links');
         const data = await response.json();
         setCourses(data);
       } catch (error) {
@@ -33,7 +33,7 @@ function CourseList() {
         <ul>
           {courses.map((course, index) => (
             <li key={index}>
-              {course.courseTitle}
+              {course.title}
             </li>
           ))}
         </ul>
