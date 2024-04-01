@@ -1,35 +1,14 @@
-import React, { useState, useEffect } from 'react';
-
+import React from "react";
 
 const About = () => {
-  const [courses, setCourses] = useState([]);
+    return (
+        <div className="container">
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('http://localhost:3001/links');
-      const data = await response.json();
-      setCourses(data);
-    };
+            <h1 className="text-center" style={{paddingTop: "30%"}}>
+                    About
+            </h1>
 
-    fetchData();
-  }, []);
-
-  // ... rest of the code
-
-  return (
-    <div>
-      <h1>About Us</h1>
-      <ul>
-        {courses.map((course, index) => (
-          <li key={index}>
-            <a href={course.href} target="_blank" rel="noopener noreferrer">
-              {course.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
+        </div>
+    )
+}
 export default About;

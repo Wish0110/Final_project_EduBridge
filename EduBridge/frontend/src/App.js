@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Service from './pages/Service/Service';
 import Testmonial from './pages/Testmonial/Testmonial'; 
 import Navbar from './Componenets/Navbar/Navbar';
+//import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity';
 
 const App = () => {
   return (

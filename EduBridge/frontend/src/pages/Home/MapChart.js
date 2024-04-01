@@ -19,7 +19,8 @@ const MapChart = () => {
     setShowDetails(!showDetails); // Toggle state on button click
   };
   
-  <Link to="/about">
+  // Button to navigate
+  <Link to="/PlymouthUnivesity">
   <button onClick={handleDetailsClick}>More Info</button>
 </Link>
 
@@ -35,7 +36,7 @@ const MapChart = () => {
     <div>
       {/* Detailed information about Plymouth University */}
       <p>Plymouth University is a public university in Plymouth, England.</p>
-      <Link to="/about">
+      <Link to="/PlymouthUnivesity">
         <button>Explore Plymouth University</button>
       </Link>
     </div>
