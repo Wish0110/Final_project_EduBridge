@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/Tesmonial" exact 
           element={<Testmonial />} />
        <Route path="/PlymouthUnivesity" exact element={<PlymouthUnivesity />} />
-       <Route path="/computing-details" exact element={<DegreeList />} />
+       <Route path="/DegreeList" exact element={<DegreeList />} />
     </Routes>
       </main>
     </Router>

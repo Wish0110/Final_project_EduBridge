@@ -11,7 +11,7 @@ function DegreeList() {
       setError(null);
 
       try {
-        const response = await fetch('http://localhost:3003/links');
+        const response = await fetch('http://localhost:3001/links');
         const data = await response.json();
         setCourses(data);
       } catch (error) {
