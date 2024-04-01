@@ -11,7 +11,7 @@ function DegreeList() {
       setError(null);
 
       try {
-        const response = await fetch('http://localhost:3001/links');
+        const response = await fetch('http://localhost:3003/DegreeLinks');
         const data = await response.json();
         setCourses(data);
       } catch (error) {
@@ -33,8 +33,10 @@ function DegreeList() {
         <ul>
           {courses.map((course, index) => (
             <li key={index}>
+            <a href={course.href} target="_blank" rel="noopener noreferrer">
               {course.title}
-            </li>
+            </a>
+          </li>
           ))}
         </ul>
       )}

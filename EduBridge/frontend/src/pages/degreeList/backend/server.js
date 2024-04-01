@@ -5,9 +5,9 @@ const cors = require('cors');
 
 app.use(cors());
 // Endpoint to serve crawled data
-app.get('/links', async (req, res) => {
+app.get('/DegreeLinks', async (req, res) => {
   try {
-    const data = await fs.promises.readFile('links.json', 'utf-8');
+    const data = await fs.promises.readFile('DegreeLinks.json', 'utf-8');
     res.json(JSON.parse(data));
   } catch (error) {
     console.error('Error fetching data:', error);
