@@ -23,7 +23,7 @@ const PlymouthUnivesity = () => {
           <li key={index}>
             {course.title === 'Computing' ? (
 
-              <Link to="/computing-details">
+              <Link to="/DegreeList">
                 <a href={course.href} target="_blank" rel="noopener noreferrer">
                   {course.title}
                 </a>
