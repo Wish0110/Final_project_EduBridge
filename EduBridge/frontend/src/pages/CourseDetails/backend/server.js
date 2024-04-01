@@ -16,6 +16,6 @@ app.get('/crawled_data', async (req, res) => {
 });
 
 // Start the server
-app.listen(3001, () => {
-  console.log('Server listening on port 3001');
+app.listen(3002, () => {
+  console.log('Server listening on port 3002');
 });

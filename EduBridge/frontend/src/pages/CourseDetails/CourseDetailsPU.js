@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function App() {
+function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ function App() {
       setError(null);
 
       try {
-        const response = await axios.get('http://localhost:3001/crawled_data');
+        const response = await axios.get('http://localhost:3002/crawled_data');
         setData(response.data);
       } catch (error) {
         setError(error);
@@ -76,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default CourseDetailsPU;
