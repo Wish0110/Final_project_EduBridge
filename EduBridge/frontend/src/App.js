@@ -8,7 +8,7 @@ import Service from './pages/Service/Service';
 import Testmonial from './pages/Testmonial/Testmonial'; 
 import Navbar from './Componenets/Navbar/Navbar';
 import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity'; 
-//import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
+import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
 import DegreeList from './pages/degreeList/DegreeList';
 
 const App = () => {
@@ -29,6 +29,8 @@ const App = () => {
           element={<Testmonial />} />
        <Route path="/PlymouthUnivesity" exact element={<PlymouthUnivesity />} />
        <Route path="/DegreeList" exact element={<DegreeList />} />
+        <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
+        
     </Routes>
       </main>
     </Router>
