@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CourseLink from './CourseLink';
 
 const PlymouthUnivesity = () => {
@@ -21,7 +21,7 @@ const PlymouthUnivesity = () => {
       <ul>
         {courses.map((course, index) => (
           <li key={index}>
-            {/*<course.title === 'Computing' ? (
+            {course.title === 'Computing' ? (
 
               <Link to="/computing-details">
                 <a href={course.href} target="_blank" rel="noopener noreferrer">
@@ -32,8 +32,7 @@ const PlymouthUnivesity = () => {
               <a href={course.href} target="_blank" rel="noopener noreferrer">
                 {course.title}
               </a>
-            )}*/}
-            <CourseLink href={course.href} title={course.title} />
+            )}
           </li>
         ))}
       </ul>
