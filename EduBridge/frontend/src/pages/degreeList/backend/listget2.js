@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const baseURL = 'https://www.plymouth.ac.uk';
 const url = 'https://www.plymouth.ac.uk/schools/school-of-engineering-computing-and-mathematics/computer-science';
-const outputFile = 'links.json';
+const outputFile = 'DegreeLinks.json';
 
 const getLinks = async (url) => {
   try {
