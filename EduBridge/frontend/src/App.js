@@ -10,7 +10,6 @@ import Navbar from './Componenets/Navbar/Navbar';
 import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity'; 
 import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
 
-
 const App = () => {
   return (
     <Router>

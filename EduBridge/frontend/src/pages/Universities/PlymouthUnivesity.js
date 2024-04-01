@@ -21,7 +21,8 @@ const PlymouthUnivesity = () => {
         {courses.map((course, index) => (
           <li key={index}>
             {course.title === 'Computing' ? (
-              <Link to="/CourseDetailsPU">
+
+              <Link to="/computing-details">
                 <a href={course.href} target="_blank" rel="noopener noreferrer">
                   {course.title}
                 </a>
