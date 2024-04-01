@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 //import L from 'leaflet';
+import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css'; // Include CSS for styling
 import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet';
 import { Popup } from 'react-leaflet';
-     
+    
 const MapChart = () => { 
   // Initial map center and zoom level
   const mapCenter = [52.3555, -1.1572]; // Center of UK
@@ -18,6 +19,10 @@ const MapChart = () => {
     setShowDetails(!showDetails); // Toggle state on button click
   };
   
+  <Link to="/about">
+  <button onClick={handleDetailsClick}>More Info</button>
+</Link>
+
   return (
     <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '400px' }}>
       <TileLayer
@@ -25,19 +30,19 @@ const MapChart = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={plymouthUniversityCoordinates}>
-        <Popup>
-        {showDetails ? ( 
-            <div> 
-              {/* Detailed information about Plymouth University */}
-              <p>Plymouth University is a public university in Plymouth, England.</p>
-              <a href="https://www.plymouth.ac.uk/" target="_blank" rel="noreferrer">
-                Explore Plymouth University
-              </a>
-            </div> 
-          ) : (
-            <button onClick={handleDetailsClick}>More Info</button>
-          )}    
-        </Popup>
+      <Popup>
+  {showDetails ? (
+    <div>
+      {/* Detailed information about Plymouth University */}
+      <p>Plymouth University is a public university in Plymouth, England.</p>
+      <Link to="/about">
+        <button>Explore Plymouth University</button>
+      </Link>
+    </div>
+  ) : (
+    <button onClick={handleDetailsClick}>More Info</button>
+  )}
+</Popup>
       </Marker>
       <ZoomControl position="bottomright" />
     </MapContainer> 
