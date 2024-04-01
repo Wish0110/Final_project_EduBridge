@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
-const DegreeList = () => {
+function DegreeList() {
   const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3001/links');
-      const data = await response.json();
-      setCourses(data);
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch('http://localhost:3003/links');
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     fetchData();
@@ -16,27 +26,20 @@ const DegreeList = () => {
 
   return (
     <div>
-      <h1>Course List</h1>
-      <ul>
-        {courses.map((course, index) => (
-          <li key={index}>
-            {course.title === 'Computing' ? (
-
-              <Link to="/computing-details">
-                <a href={course.href} target="_blank" rel="noopener noreferrer">
-                  {course.title}
-                </a>
-              </Link>
-            ) : (
-              <a href={course.href} target="_blank" rel="noopener noreferrer">
-                {course.title}
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
+      <h1>Degree List</h1>
+      {isLoading && <p>Loading Degree...</p>}
+      {error && <p>Error: {error}</p>}
+      {courses.length > 0 && (
+        <ul>
+          {courses.map((course, index) => (
+            <li key={index}>
+              {course.title}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
-};
+}
 
 export default DegreeList;
