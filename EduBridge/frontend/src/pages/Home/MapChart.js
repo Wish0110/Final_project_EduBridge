@@ -19,7 +19,6 @@ const MapChart = () => {
     setShowDetails(!showDetails); // Toggle state on button click
   };
   
-  // Button to navigate
   <Link to="/PlymouthUnivesity">
   <button onClick={handleDetailsClick}>More Info</button>
 </Link>
