@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 const baseURL = 'https://www.plymouth.ac.uk';
-const url = 'https://www.plymouth.ac.uk/subjects';
+const url = 'https://www.plymouth.ac.uk/schools/school-of-engineering-computing-and-mathematics/computer-science';
 const outputFile = 'links.json';
 
 const getLinks = async (url) => {
@@ -13,7 +13,7 @@ const getLinks = async (url) => {
 
     const links = [];
 
-    $('.gallery-web-refresh-grid-item a').each((i, link) => {
+    $('.article-group-grid-item a').each((i, link) => {
       const title = $(link).text().trim();
       const href = baseURL + $(link).attr('href');
       links.push({ title, href });
