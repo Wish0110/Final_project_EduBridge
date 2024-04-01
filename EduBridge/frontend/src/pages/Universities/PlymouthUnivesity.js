@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-const About = () => {
+const PlymouthUnivesity = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -14,11 +14,10 @@ const About = () => {
     fetchData();
   }, []);
 
-  // ... rest of the code
 
   return (
     <div>
-      <h1>About Us</h1>
+      <h1>Course List</h1>
       <ul>
         {courses.map((course, index) => (
           <li key={index}>
@@ -32,4 +31,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default PlymouthUnivesity;

@@ -7,7 +7,8 @@ import Home from './pages/Home/Home';
 import Service from './pages/Service/Service';
 import Testmonial from './pages/Testmonial/Testmonial'; 
 import Navbar from './Componenets/Navbar/Navbar';
-//import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity';
+import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity'; 
+
 
 const App = () => {
   return (
@@ -25,8 +26,9 @@ const App = () => {
           element={<Service />} />
         <Route path="/Tesmonial" exact 
           element={<Testmonial />} />
+       <Route path="/PlymouthUnivesity" exact element={<PlymouthUnivesity />} />
+
     </Routes>
-          
       </main>
     </Router>
   );
