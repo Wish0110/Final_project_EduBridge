@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CourseLink from './CourseLink';
+//import CourseLink from './CourseLink';
 
 const PlymouthUnivesity = () => {
   const [courses, setCourses] = useState([]);

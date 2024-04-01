@@ -16,6 +16,6 @@ app.get('/links', async (req, res) => {
 });
 
 // Start the server
-app.listen(3003, () => {
-  console.log('Server listening on port 3003');
+app.listen(3001, () => {
+  console.log('Server listening on port 3001');
 });

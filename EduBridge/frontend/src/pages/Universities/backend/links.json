@@ -1,50 +1,90 @@
 [
   {
-    "title": "BSc (Hons) Computer Science",
-    "href": "https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science"
+    "title": "Allied health professions",
+    "href": "https://www.plymouth.ac.uk/study/allied-health-professions"
   },
   {
-    "title": "BSc (Hons) Computer Science (Artificial Intelligence)",
-    "href": "https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-artificial-intelligence"
+    "title": "Architecture and built environment",
+    "href": "https://www.plymouth.ac.uk/subjects/architecture-design-building-construction"
   },
   {
-    "title": "BSc (Hons) Computer Science (Cyber Security)",
-    "href": "https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-cyber-security"
+    "title": "Art",
+    "href": "https://www.plymouth.ac.uk/subjects/art"
   },
   {
-    "title": "BSc (Hons) Computer Science (Games Development)",
-    "href": "https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-games-development"
+    "title": "Biological sciences",
+    "href": "https://www.plymouth.ac.uk/subjects/biological-sciences"
   },
   {
-    "title": "BSc (Hons) Computer Science (Software Engineering)",
-    "href": "https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-software-engineering"
+    "title": "Business, management, marketing, finance and maritime and logistics",
+    "href": "https://www.plymouth.ac.uk/subjects/business-law-logistics-management"
   },
   {
-    "title": "BSc (Hons) Computer Science with Foundation Year",
-    "href": "https://www.plymouth.ac.uk/courses/undergraduate/bsc-computer-science-with-foundation-year"
+    "title": "Chemistry",
+    "href": "https://www.plymouth.ac.uk/subjects/chemistry"
   },
   {
-    "title": "MSc Artificial Intelligence",
-    "href": "https://www.plymouth.ac.uk/courses/postgraduate/msc-artificial-intelligence"
+    "title": "Computing",
+    "href": "https://www.plymouth.ac.uk/subjects/computer-science"
   },
   {
-    "title": "MSc Cyber Security",
-    "href": "https://www.plymouth.ac.uk/courses/postgraduate/msc-cyber-security"
+    "title": "Design",
+    "href": "https://www.plymouth.ac.uk/subjects/design"
   },
   {
-    "title": "MSc Health Data Science and Statistics",
-    "href": "https://www.plymouth.ac.uk/courses/postgraduate/msc-health-data-science-and-statistics"
+    "title": "Earth, geography, and environment",
+    "href": "https://www.plymouth.ac.uk/subjects/earth-geography-environment"
   },
   {
-    "title": "MSc Data Science and Business Analytics",
-    "href": "https://www.plymouth.ac.uk/courses/postgraduate/msc-data-science-and-business-analytics"
+    "title": "Education and teaching",
+    "href": "https://www.plymouth.ac.uk/subjects/education-teaching"
   },
   {
-    "title": "PhD Cyber Security",
-    "href": "https://www.plymouth.ac.uk/courses/postgraduate/phd-cyber-security"
+    "title": "Engineering",
+    "href": "https://www.plymouth.ac.uk/subjects/engineering-robotics"
   },
   {
-    "title": "PhD on the Basis of Prior Published Works in Cyber Security",
-    "href": "https://www.plymouth.ac.uk/courses/postgraduate/phd-on-the-basis-of-prior-published-works-in-cyber-security"
+    "title": "Hospitality, tourism and events management",
+    "href": "https://www.plymouth.ac.uk/subjects/hospitality-tourism-sport-leisure"
+  },
+  {
+    "title": "Humanities",
+    "href": "https://www.plymouth.ac.uk/subjects/humanities-languages"
+  },
+  {
+    "title": "Law, criminology and policing",
+    "href": "https://www.plymouth.ac.uk/subjects/law-criminology-policing"
+  },
+  {
+    "title": "Marine",
+    "href": "https://www.plymouth.ac.uk/subjects/marine"
+  },
+  {
+    "title": "Mathematical sciences",
+    "href": "https://www.plymouth.ac.uk/subjects/mathematical-sciences"
+  },
+  {
+    "title": "Medicine, dentistry and biomedical sciences",
+    "href": "https://www.plymouth.ac.uk/subjects/medicine-dentistry-biomedical-healthcare-sciences"
+  },
+  {
+    "title": "Music",
+    "href": "https://www.plymouth.ac.uk/subjects/music"
+  },
+  {
+    "title": "Nursing and midwifery",
+    "href": "https://www.plymouth.ac.uk/study/nursing-midwifery"
+  },
+  {
+    "title": "Performing arts",
+    "href": "https://www.plymouth.ac.uk/subjects/performing-arts"
+  },
+  {
+    "title": "Psychology",
+    "href": "https://www.plymouth.ac.uk/subjects/psychology-and-social-sciences"
+  },
+  {
+    "title": "Sociology, international relations and politics",
+    "href": "https://www.plymouth.ac.uk/subjects/sociology-international-relations-politics"
   }
 ]
