@@ -4,8 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App () {
 
   return (
-    <div>
-         
+    <div className='d-flex'>
+      <div className='col-auto'>
+
+    </div>     
     </div>
   );
 };
