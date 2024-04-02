@@ -39,7 +39,12 @@ const Sidebar = ({ children }) => {
         path: '/EnglishLanguageSkills',
         name: 'EnglishLanguageSkills',
         icon: <FaRegChartBar />
-      },
+    },
+    {
+        path: '/FinanceAndFunding',
+        name: 'FinanceAndFunding',
+        icon: <FaRegChartBar />
+    },
   ];
 
   const [selectedPage, setSelectedPage] = useState(null);
