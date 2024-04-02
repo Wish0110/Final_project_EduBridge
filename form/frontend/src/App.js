@@ -1,13 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from 'react-dom/client';
-import Form from './Form';
+import "antd/dist/antd.css";
+import "./App.css";
+import {Menu} from "antd";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Form />
-  </React.StrictMode>,
-  document.getElementById('root')
+function App() {
+  return (
+  <div>
+    <Menu
+    items={[
+      { label: "Home"},
+      { label: "Dashboard"},
+      { label: "Users List"},
+      { label: "Profile"},
+      { label: "Submit"},
+
+    ]}>
+
+    </Menu>
+  </div>
 );
+}
 
 export default App;
