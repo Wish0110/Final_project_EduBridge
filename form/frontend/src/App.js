@@ -7,6 +7,7 @@ import PersonalDetails from './pages/PersonalDetails';
 import Contactandresidencydetails from './pages/Contactandresidencydetails';
 import NationalityDetails from './pages/NationalityDetails';
 import SupportingInformation from './pages/SupportingInformation';
+import EnglishLanguageSkills from './pages/EnglishLanguageSkills';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/Contactandresidencydetails" element={<Contactandresidencydetails />} />
           <Route path="/NationalityDetails" element={<NationalityDetails />} />
           <Route path="/SupportingInformation" element={<SupportingInformation />} />
+          <Route path="/EnglishLanguageSkills" element={<EnglishLanguageSkills />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

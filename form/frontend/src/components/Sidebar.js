@@ -34,7 +34,12 @@ const Sidebar = ({ children }) => {
         path: '/SupportingInformation',
         name: 'SupportingInformation',
         icon: <FaRegChartBar />
-    }
+    },
+    {
+        path: '/EnglishLanguageSkills',
+        name: 'EnglishLanguageSkills',
+        icon: <FaRegChartBar />
+      },
   ];
 
   const [selectedPage, setSelectedPage] = useState(null);
