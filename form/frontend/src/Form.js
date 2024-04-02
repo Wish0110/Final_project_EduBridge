@@ -1,16 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from './Sidebar';
 
-function App () {
-
+function Form() {
   return (
-    <div className='d-flex'>
-      <div className='col-auto'>
-        <Sidebar />
-    </div>     
-    </div>
+    <BrowserRouter>
+      <div className='d-flex'>
+        <div className='col-auto'>
+          <Sidebar />
+        </div>
+      </div>
+    </BrowserRouter>
   );
-};
+}
 
-export default App;
+export default Form;
