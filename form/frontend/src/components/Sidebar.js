@@ -29,6 +29,11 @@ const Sidebar = ({ children }) => {
       path: '/NationalityDetails',
       name: 'NationalityDetails',
       icon: <FaRegChartBar />
+    },
+    {
+        path: '/SupportingInformation',
+        name: 'SupportingInformation',
+        icon: <FaRegChartBar />
     }
   ];
 

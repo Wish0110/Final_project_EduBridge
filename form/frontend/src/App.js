@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import PersonalDetails from './pages/PersonalDetails';
 import Contactandresidencydetails from './pages/Contactandresidencydetails';
 import NationalityDetails from './pages/NationalityDetails';
+import SupportingInformation from './pages/SupportingInformation';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Contactandresidencydetails" element={<Contactandresidencydetails />} />
           <Route path="/NationalityDetails" element={<NationalityDetails />} />
+          <Route path="/SupportingInformation" element={<SupportingInformation />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
