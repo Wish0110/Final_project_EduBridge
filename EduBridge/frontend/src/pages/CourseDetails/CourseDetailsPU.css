@@ -1,0 +1,16 @@
+.courseTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .course-title-maximized {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .course-overview-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }

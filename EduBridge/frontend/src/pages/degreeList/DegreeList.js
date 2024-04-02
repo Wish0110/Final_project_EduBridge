@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function DegreeList() {
   const [courses, setCourses] = useState([]);
@@ -33,9 +34,18 @@ function DegreeList() {
         <ul>
           {courses.map((course, index) => (
             <li key={index}>
-            <a href={course.href} target="_blank" rel="noopener noreferrer">
-              {course.title}
-            </a>
+              {course.title === 'MSc Artificial Intelligence' ? (
+
+              <Link to="/CourseDetailsPU">
+                <a href={course.href} target="_blank" rel="noopener noreferrer">
+                  {course.title}
+                </a>
+              </Link>
+            ) : (
+              <a href={course.href} target="_blank" rel="noopener noreferrer">
+                {course.title}
+              </a>
+            )}
           </li>
           ))}
         </ul>
