@@ -1,15 +1,11 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { ReactDOM } from "react-dom/client";
+import Form from "./Form"; 
+import './index.css';
 
-function App () {
-
-  return (
-    <div className='d-flex'>
-      <div className='col-auto'>
-
-    </div>     
-    </div>
-  );
-};
-
-export default App;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Form />
+  </React.StrictMode>
+  
+)
