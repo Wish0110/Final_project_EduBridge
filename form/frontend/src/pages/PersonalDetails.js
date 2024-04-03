@@ -4,7 +4,9 @@ import axios from "axios";
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState("");
   const [studentData, setStudentData] = useState({});
-  //const [sectionComplete, setSectionComplete] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Track loading state
+
+  // Assuming you've installed axios: `npm install axios`
 
   const handleStudentIdChange = (event) => {
     setStudentId(event.target.value);
@@ -12,6 +14,8 @@ const PersonalDetails = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setIsLoading(true); // Set loading state
 
     try {
       const response = await axios.post(
@@ -26,6 +30,8 @@ const PersonalDetails = () => {
       }
     } catch (error) {
       console.error("Error fetching student data:", error);
+    } finally {
+      setIsLoading(false); // Reset loading state
     }
   };
 
@@ -44,13 +50,15 @@ const PersonalDetails = () => {
             onChange={handleStudentIdChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Submit"}
+        </button>
       </form>
 
       <h2>First and Middle Name(s)</h2>
       <p>
-        Make sure your name is as it appears on any official documents, such as
-        your passport, birth certificate or driving licence.
+        Make sure your name is as it appears on any official documents, such as your
+        passport, birth certificate or driving licence.
       </p>
       <textarea
         value={studentData.firstName || ""}
