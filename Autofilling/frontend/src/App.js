@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-function App() {
-  const [studentId, setStudentId] = useState('');
-  const [studentData, setStudentData] = useState({ name: '', studentId: '' });
+const PersonalDetails = () => {
+  const [studentId, setStudentId] = useState("");
+  const [studentData, setStudentData] = useState({});
+  const [isLoading, setIsLoading] = useState(false); // Track loading state for feedback
+
+  const handleStudentIdChange = (event) => {
+    setStudentId(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setIsLoading(true); // Set loading state
+
     try {
-      const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
+      const response = await axios.post(
+        "http://localhost:3002/api/fetch-student",
+        { studentId }
+      );
 
       if (response.data.success) {
         setStudentData(response.data.data);
@@ -17,41 +27,45 @@ function App() {
         console.error(response.data.message);
       }
     } catch (error) {
-      console.error('Error fetching student data:', error);
+      console.error("Error fetching student data:", error);
+    } finally {
+      setIsLoading(false); // Reset loading state
     }
   };
 
-  const handleNameChange = (event) => {
-    setStudentData({ ...studentData, name: event.target.value });
-  };
-
-  const handleStudentIdChange = (event) => {
-    setStudentData({ ...studentData, studentId: event.target.value });
+  const handleFirstNameChange = (event) => {
+    setStudentData({ ...studentData, firstName: event.target.value });
   };
 
   return (
-    <div className="App">
+    <div>
       <form onSubmit={handleSubmit}>
         <label>
           Student ID:
-          <input type="text" value={studentId} onChange={(event) => setStudentId(event.target.value)} />
+          <input
+            type="text"
+            value={studentId}
+            onChange={handleStudentIdChange}
+          />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Submit"}
+        </button>
       </form>
-      {studentData && (
-        <div>
-          <label>
-            Name:
-            <textarea value={studentData.name} onChange={handleNameChange} />
-          </label>
-          <label>
-            Student ID:
-            <textarea value={studentData.studentId} onChange={handleStudentIdChange} />
-          </label>
-        </div>
-      )}
+
+      <h2>First and Middle Name(s)</h2>
+      <p>
+        Make sure your name is as it appears on any official documents, such as your
+        passport, birth certificate or driving licence.
+      </p>
+      <textarea
+        value={studentData.firstName || ""}
+        onChange={handleFirstNameChange}
+      />
+
+      {/* Rest of the form fields */}
     </div>
   );
-}
+};
 
-export default App;
+export default PersonalDetails;
