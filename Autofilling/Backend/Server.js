@@ -1,9 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
+app.use(cors({ // Apply CORS middleware
+    origin: 'http://localhost:3000' // Allow requests from this origin
+  }));
+  
 app.use(express.json());
 
 app.post('/api/fetch-student', async (req, res) => {
