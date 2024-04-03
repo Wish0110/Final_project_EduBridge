@@ -26,7 +26,7 @@ const PersonalDetails = () => {
         onChange={(e) => setUserId(e.target.value)}
       />
 
-        <button type="button">
+        <button type="button" >
           Submit
         </button>
 
