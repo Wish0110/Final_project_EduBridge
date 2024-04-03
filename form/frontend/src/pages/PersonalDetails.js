@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const PersonalDetails = () => {
+  const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,6 +18,18 @@ const PersonalDetails = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+
+      <h2>Enter your ID</h2>
+      <input
+        type="text"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+
+        <button type="button">
+          Submit
+        </button>
+
       <h2>Title</h2>
       <select value={title} onChange={(e) => setTitle(e.target.value)}>
         <option value="">Select an option</option>
