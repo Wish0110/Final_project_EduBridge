@@ -10,6 +10,7 @@ import SupportingInformation from './pages/SupportingInformation';
 import EnglishLanguageSkills from './pages/EnglishLanguageSkills';
 import FinanceAndFunding from './pages/FinanceAndFunding';
 import Education from './pages/Education';
+import Employment from './pages/Employment';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/EnglishLanguageSkills" element={<EnglishLanguageSkills />} />
           <Route path="/FinanceAndFunding" element={<FinanceAndFunding />} />
           <Route path="/Education" element={<Education />} />
+          <Route path="/Employment" element={<Employment />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
