@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  FaBars,
   FaCommentAlt,
   FaRegChartBar,
   FaTh,
@@ -57,7 +56,7 @@ const Sidebar = ({ children }) => {
     },
     {
       path: '/PersonalStatement',
-      name: 'PersonalStatement',
+      name: 'Employment',
       icon: <FaRegChartBar />
     },
   ];
@@ -68,9 +67,9 @@ const Sidebar = ({ children }) => {
     <div className="container">
       <div className="sidebar">
         <div className='top_section'>
-          <h1 className='logo'>Logo</h1>
+          <h1 className='logo'>#</h1>
           <div className='bars'>
-            <FaBars />
+           
           </div>
         </div>
         {menuItem.map((item, index) => (

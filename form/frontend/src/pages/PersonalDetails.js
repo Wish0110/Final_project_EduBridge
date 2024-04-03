@@ -13,21 +13,21 @@ const PersonalDetails = () => {
   const [gender, setGender] = useState("");
   const [sectionComplete, setSectionComplete] = useState(false);
 
-  const handleSubmit = (event) => {
-    (async () => {
-      try {
-        const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
-
-        if (response.data.success) {
-          setStudentData(response.data.data);
-        } else {
-          console.error(response.data.message);
-        }
-      } catch (error) {
-        console.error('Error fetching student data:', error);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
+  
+      if (response.data.success) {
+        setStudentData(response.data.data);
+      } else {
+        console.error(response.data.message);
       }
-    })();
-};
+    } catch (error) {
+      console.error('Error fetching student data:', error);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -38,26 +38,27 @@ const PersonalDetails = () => {
         </label>
         <button type="submit">Submit</button>
 
-      {studentData && (
-        <div>
-          <label>
-            Name:
-            <textarea value={studentData.name} readOnly />
-          </label>
-          <label>
-            Student ID:
-            <textarea value={studentData.studentId} readOnly />
-          </label>
-        </div>
-      )}
-
-      <h2>Title</h2>
+        <h2>Title</h2>
       <select value={title} onChange={(e) => setTitle(e.target.value)}>
         <option value="">Select an option</option>
         <option value="Miss">Miss</option>
         <option value="Mr">Mr</option>
         <option value="Mrs">Mrs</option>
       </select>
+
+      {studentData && (
+        <div>
+          <label>
+            <h2>First and Middle Name(s)</h2>
+                <p>
+                  Make sure your name is as it appears on any official documents, such as
+                  your passport, birth certificate or driving licence.
+                </p>
+            <textarea value={studentData.name} readOnly />
+          </label>
+        </div>
+      )}
+
 
       <h2>First and Middle Name(s)</h2>
       <p>
