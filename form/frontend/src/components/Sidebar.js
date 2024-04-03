@@ -55,6 +55,11 @@ const Sidebar = ({ children }) => {
       name: 'Employment',
       icon: <FaRegChartBar />
     },
+    {
+      path: '/PersonalStatement',
+      name: 'PersonalStatement',
+      icon: <FaRegChartBar />
+    },
   ];
 
   const [selectedPage, setSelectedPage] = useState(null);
