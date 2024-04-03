@@ -45,6 +45,11 @@ const Sidebar = ({ children }) => {
         name: 'FinanceAndFunding',
         icon: <FaRegChartBar />
     },
+    {
+      path: '/Education',
+      name: 'Education',
+      icon: <FaRegChartBar />
+  },
   ];
 
   const [selectedPage, setSelectedPage] = useState(null);

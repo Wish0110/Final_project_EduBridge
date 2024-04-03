@@ -9,6 +9,7 @@ import NationalityDetails from './pages/NationalityDetails';
 import SupportingInformation from './pages/SupportingInformation';
 import EnglishLanguageSkills from './pages/EnglishLanguageSkills';
 import FinanceAndFunding from './pages/FinanceAndFunding';
+import Education from './pages/Education';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/SupportingInformation" element={<SupportingInformation />} />
           <Route path="/EnglishLanguageSkills" element={<EnglishLanguageSkills />} />
           <Route path="/FinanceAndFunding" element={<FinanceAndFunding />} />
+          <Route path="/Education" element={<Education />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
