@@ -1,25 +1,15 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const PersonalDetails = () => {
-  const [studentId, setStudentId] = useState("");
-  const [studentData, setStudentData] = useState({});
-  const [isLoading, setIsLoading] = useState(false); // Track loading state for feedback
-
-  const handleStudentIdChange = (event) => {
-    setStudentId(event.target.value);
-  };
+function App() {
+  const [studentId, setStudentId] = useState('');
+  const [studentData, setStudentData] = useState({ name: '', studentId: '' });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setIsLoading(true); // Set loading state
-
     try {
-      const response = await axios.post(
-        "http://localhost:3002/api/fetch-student",
-        { studentId }
-      );
+      const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
 
       if (response.data.success) {
         setStudentData(response.data.data);
@@ -27,45 +17,33 @@ const PersonalDetails = () => {
         console.error(response.data.message);
       }
     } catch (error) {
-      console.error("Error fetching student data:", error);
-    } finally {
-      setIsLoading(false); // Reset loading state
+      console.error('Error fetching student data:', error);
     }
   };
 
-  const handleFirstNameChange = (event) => {
-    setStudentData({ ...studentData, firstName: event.target.value });
-  };
-
   return (
-    <div>
+    <div className="App">
       <form onSubmit={handleSubmit}>
         <label>
           Student ID:
-          <input
-            type="text"
-            value={studentId}
-            onChange={handleStudentIdChange}
-          />
+          <input type="text" value={studentId} onChange={(event) => setStudentId(event.target.value)} />
         </label>
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Loading..." : "Submit"}
-        </button>
+        <button type="submit">Submit</button>
       </form>
-
-      <h2>First and Middle Name(s)</h2>
-      <p>
-        Make sure your name is as it appears on any official documents, such as your
-        passport, birth certificate or driving licence.
-      </p>
-      <textarea
-        value={studentData.firstName || ""}
-        onChange={handleFirstNameChange}
-      />
-
-      {/* Rest of the form fields */}
+      {studentData && (
+        <div>
+          <label>
+            Name:
+            <textarea value={studentData.name} readOnly />
+          </label>
+          <label>
+            Student ID:
+            <textarea value={studentData.studentId} readOnly />
+          </label>
+        </div>
+      )}
     </div>
   );
-};
+}
 
-export default PersonalDetails;
+export default App;
