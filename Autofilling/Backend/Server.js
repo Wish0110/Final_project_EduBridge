@@ -1,82 +1,56 @@
-const express = require("express");
-const OpenAI = require("openai");
-const app = express();
-app.use(express.json());
-
-const openai=new OpenAI({
-    apiKey:"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"
-})
-
-app.get('/getResponse',async(req,res)=>{
-    try {
-        //const userPrompt = req.body.userPrompt;
-        const studentname = req.body.studentname;
-        const studentnumber = req.body.studentnumber;
-        const studentdegree = req.body.studentdegree;
-        const studentgpa = req.body.studentgpa;
-        const studentsports = req.body.studentsports;
-        const studetfaculty = req.body.studetfaculty;
-        console.log(studentname,studentnumber,studentdegree,studentgpa,studentsports);
-        const response = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo',
-            messages: [
-                { role: 'system', content: `I want to write a letter about a student named ${studentname} with the student number ${studentnumber} who studied ${studentdegree} with a gpa of ${studentgpa} and did ${studentsports} in our university as a dean of the faculty as a recommendation for a master's degree and add recipient as Dear Sir/Madam sender is Dean Faculty of ${studetfaculty} please don't add recipients sender's designation would be enough please don't use [] in the spaces` }
-            ]
-        });
-
-    console.log(response.choices[0].message.content);
-    res.send(response.choices[0].message.content);
-} catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while processing your request.' });
-}
-});
-
-// mongdo db data api 
-var axios = require('axios');
-var data = JSON.stringify({
-    "collection": "students",
-    "database": "studentrecords",
-    "dataSource": "Cluster0",
-    "filter": {
-        "studentid": "23209" // Filter documents where studentid matches
-    }
-});
-            
-var config = {
-    method: 'post',
-    url: 'https://ap-south-1.aws.data.mongodb-api.com/app/data-zwwqd/endpoint/data/v1/action/findOne',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
-      'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2',
-      'Accept': 'application/ejson'
-    },
-   data 
-};
-            
-axios(config)
-    .then(function (response) {
-        //console.log(JSON.stringify(response.data));
-        const student = response.data.document;
-        if (student) {
-        const name = student.name;
-        const studentid = student.studentid;
-        const degree = student.degree;
-
-        console.log(`${name}
-         ${studentid} 
-         ${degree} `);
-    } else {
-        console.log('No student found with the given studentid');
-      }
-    })
-    .catch(function (error) {
-        console.log(error);
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
+  const axios = require('axios');
+  
+  function getStudentId() {
+    return new Promise((resolve, reject) => {
+      readline.question('Enter student ID: ', (studentId) => {
+        resolve(studentId.trim());
+        readline.close();
+      });
     });
-
-///mongodb data api end
-
-app.listen(3000,()=>{
-    console.log("Server is running on port 3000")
-})
+  }
+  
+  async function fetchStudentData() {
+    try {
+      const studentid = await getStudentId();
+  
+      const data = JSON.stringify({
+        collection: "students",
+        database: "studentrecords",
+        dataSource: "Cluster0",
+        filter: {
+          studentid
+        }
+      });
+  
+      const config = {
+        method: 'post',
+        url: 'https://ap-south-1.aws.data.mongodb-api.com/app/data-zwwqd/endpoint/data/v1/action/findOne',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': '*',
+          'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2' // Replace with your actual API key
+        },
+        data
+      };
+  
+      const response = await axios(config);
+      const student = response.data.document;
+  
+      if (student) {
+        console.log(`Name: ${student.name}`);
+        console.log(`Student ID: ${student.studentid}`);
+      } else {
+        console.log('Student not found.');
+      }
+    } catch (error) {
+      console.error('Error fetching student data:', error);
+    }
+  }
+  
+  fetchStudentData();
+  
