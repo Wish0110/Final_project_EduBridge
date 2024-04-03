@@ -3,13 +3,13 @@ import axios from 'axios';
 
 function App() {
   const [studentId, setStudentId] = useState('');
-  const [studentData, setStudentData] = useState(null);
+  const [studentData, setStudentData] = useState({ name: '', studentId: '' });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
+      const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
 
       if (response.data.success) {
         setStudentData(response.data.data);
@@ -19,6 +19,14 @@ const response = await axios.post('http://localhost:3002/api/fetch-student', { s
     } catch (error) {
       console.error('Error fetching student data:', error);
     }
+  };
+
+  const handleNameChange = (event) => {
+    setStudentData({ ...studentData, name: event.target.value });
+  };
+
+  const handleStudentIdChange = (event) => {
+    setStudentData({ ...studentData, studentId: event.target.value });
   };
 
   return (
@@ -32,9 +40,14 @@ const response = await axios.post('http://localhost:3002/api/fetch-student', { s
       </form>
       {studentData && (
         <div>
-          <h2>Student Data:</h2>
-          <p>Name: {studentData.name}</p>
-          <p>Student ID: {studentData.studentId}</p>
+          <label>
+            Name:
+            <textarea value={studentData.name} onChange={handleNameChange} />
+          </label>
+          <label>
+            Student ID:
+            <textarea value={studentData.studentId} onChange={handleStudentIdChange} />
+          </label>
         </div>
       )}
     </div>
