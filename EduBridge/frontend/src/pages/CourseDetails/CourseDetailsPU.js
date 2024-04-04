@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CourseDetailsPU.css';
+import { useNavigate } from "react-router-dom";
 
 function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,6 +75,7 @@ function CourseDetailsPU() {
           <li key={index}>{career}</li>
         ))}
       </ul>
+      <button onClick={() => navigate("/Form")}>Apply Now</button>
     </div>
   );
 }

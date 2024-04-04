@@ -3,7 +3,7 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3004;
 
 app.use(cors({ // Apply CORS middleware
     origin: 'http://localhost:3000' // Allow requests from this origin
