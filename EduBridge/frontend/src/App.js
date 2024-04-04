@@ -11,6 +11,7 @@ import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity';
 import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
 import DegreeList from './pages/degreeList/DegreeList';
 import Form from './pages/form/Form';
+import PersonalDetails from './pages/form/pages/PersonalDetails'; // Add this line
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
        <Route path="/DegreeList" exact element={<DegreeList />} />
         <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
         <Route path="/Form" exact element={<Form />} />
+        <Route path="/PersonalDetails" exact element={<PersonalDetails />} /> {/* Add this line */}
+
         
     </Routes>
       </main>
