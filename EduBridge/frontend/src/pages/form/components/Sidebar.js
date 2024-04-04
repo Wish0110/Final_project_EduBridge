@@ -74,15 +74,15 @@ const Sidebar = ({ children }) => {
         </div>
         {menuItem.map((item, index) => (
           <NavLink
-            to={item.path}
-            key={index}
-            className='link'
-            activeClassName="active"
-            onClick={() => setSelectedPage(item.name)}
-          >
-            <div className='icon'>{item.icon}</div>
-            <div className='link_text'>{item.name}</div>
-          </NavLink>
+          to={item.path}
+          key={index}
+          className='link'
+          onClick={() => setSelectedPage(item.name)}
+          style={({ isActive }) => isActive ? { backgroundColor: '#7d9fc1', color: '#000' } : {}}
+        >
+          <div className='icon'>{item.icon}</div>
+          <div className={`link_text ${selectedPage === item.name ? 'sidebar-active' : ''}`}>{item.name}</div>
+        </NavLink>
         ))}
       </div>
       <main>
