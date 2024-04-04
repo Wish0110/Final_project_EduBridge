@@ -17,7 +17,7 @@ const PersonalDetails = () => {
     event.preventDefault();
   
     try {
-      const response = await axios.post('http://localhost:3004/api/fetch-student', { studentId });
+      const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
   
       if (response.data.success) {
         setStudentData(response.data.data);

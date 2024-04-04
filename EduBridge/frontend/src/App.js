@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './pages/form/components/Sidebar'; // Import the Sidebar component
 
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
@@ -17,28 +16,25 @@ const App = () => {
   return (
     <Router>
       <Navbar/>
-      <div className="container"> {/* Add a container div */}
-        <Sidebar> {/* Include the Sidebar component */}
-          <main>
-            <Routes>
-              <Route path="/" exact 
-                element={<Home />} />
-              <Route path="/About" exact 
-                element={<About />} />
-              <Route path="/Contact" exact 
-                element={<Contact />} />
-              <Route path="/Service" exact 
-                element={<Service />} />
-              <Route path="/Tesmonial" exact 
-                element={<Testmonial />} />
-             <Route path="/PlymouthUnivesity" exact element={<PlymouthUnivesity />} />
-             <Route path="/DegreeList" exact element={<DegreeList />} />
-              <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
-              <Route path="/Form" exact element={<Form />} />
-            </Routes>
-          </main>
-        </Sidebar>
-      </div> {/* Close the container div */}
+      <main>
+      <Routes>
+        <Route path="/" exact 
+          element={<Home />} />
+        <Route path="/About" exact 
+          element={<About />} />
+        <Route path="/Contact" exact 
+          element={<Contact />} />
+        <Route path="/Service" exact 
+          element={<Service />} />
+        <Route path="/Tesmonial" exact 
+          element={<Testmonial />} />
+       <Route path="/PlymouthUnivesity" exact element={<PlymouthUnivesity />} />
+       <Route path="/DegreeList" exact element={<DegreeList />} />
+        <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
+        <Route path="/Form" exact element={<Form />} />
+        
+    </Routes>
+      </main>
     </Router>
   );
 };
