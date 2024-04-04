@@ -11,7 +11,16 @@ import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity';
 import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
 import DegreeList from './pages/degreeList/DegreeList';
 import Form from './pages/form/Form';
-import PersonalDetails from './pages/form/pages/PersonalDetails'; // Add this line
+import PersonalDetails from './pages/form/pages/PersonalDetails';
+import Contactandresidencydetails from './pages/form/pages/Contactandresidencydetails';
+import NationalityDetails from './pages/form/pages/NationalityDetails';
+import SupportingInformation from './pages/form/pages/SupportingInformation';
+import EnglishLanguageSkills from './pages/form/pages/EnglishLanguageSkills';
+import FinanceAndFunding from './pages/form/pages/FinanceAndFunding';
+import Education from './pages/form/pages/Education';
+import Employment from './pages/form/pages/Employment';
+import PersonalStatement from './pages/form/pages/PersonalStatement';
+
 
 const App = () => {
   return (
@@ -33,9 +42,15 @@ const App = () => {
        <Route path="/DegreeList" exact element={<DegreeList />} />
         <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
         <Route path="/Form" exact element={<Form />} />
-        <Route path="/PersonalDetails" exact element={<PersonalDetails />} /> {/* Add this line */}
-
-        
+        <Route path="/PersonalDetails" exact element={<PersonalDetails />} /> 
+        <Route path="/Contactandresidencydetails" exact element={<Contactandresidencydetails />} />
+        <Route path="/NationalityDetails" exact element={<NationalityDetails />} />
+        <Route path="/SupportingInformation" exact element={<SupportingInformation />} />
+        <Route path="/EnglishLanguageSkills" exact element={<EnglishLanguageSkills />} />
+        <Route path="/FinanceAndFunding" exact element={<FinanceAndFunding />} />
+        <Route path="/Education" exact element={<Education />} />
+        <Route path="/Employment" exact element={<Employment />} />
+        <Route path="/PersonalStatement" exact element={<PersonalStatement />} />
     </Routes>
       </main>
     </Router>
