@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
   const [studentData, setStudentData] = useState({ name: '', studentId: '' });
