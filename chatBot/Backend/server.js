@@ -1,5 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
+// Rest of your server code...
+
 const app = require('express')();
 
 const port = 3001; // Choose a different port than your React app
