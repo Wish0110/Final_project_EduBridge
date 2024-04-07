@@ -7,7 +7,7 @@ import {
   MessageList,
   Message,
   MessageInput,
-  TypingIndicator
+  TypingIndicator,
 } from '@chatscope/chat-ui-kit-react';
 
 const API_KEY = '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';
@@ -20,6 +20,9 @@ function App() {
       sender: "ChatGpt",
     }
   ]) //[]
+
+  const [chatMessages, setChatMessages] = useState([]); // define chatMessages here
+
 
   const handleSend = async (message) => {
     const newMessage = { 
@@ -45,7 +48,7 @@ function App() {
 
     let apiMessages = chatMessage.map((messageObject) => {
       let role = "";
-       if (messageObject.sender === "user") {
+       if (messageObject.sender === "ChatGPT") {
          role = "assistant"
        } else {
          role = "user"
@@ -68,7 +71,7 @@ function App() {
         ...apiMessages // [message1, message2, ...]
       ]
     }
-    await new Promise(resolve => setTimeout(resolve, 1000));
+
     await fetch("https://api.openai.com/v1/chat/completions", {
   method: "POST",
   headers: {
@@ -80,6 +83,14 @@ function App() {
     return data.json();
   }).then((data) => {
     console.log(data);
+    console.log(data.choices[0].message.content);
+    setMessages(
+      [...chatMessages, {
+        message: data.choices[0].message.content,
+        sender: "ChatGPT",
+      }]
+    );
+    setTyping(false);
   });
 }
   return (
