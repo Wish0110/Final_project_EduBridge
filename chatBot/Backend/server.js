@@ -1,31 +1,14 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import { Configuration, OpenAIApi } from 'openai';
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-const app = express();
-const port = 8000;
-app.use(bodyParser.json());
-app.use(cors());
+const app = require('express')();
 
-const configuration = new Configuration({
-  apiKey: process.env.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,
-});
-const openai = new OpenAIApi(configuration);
+const port = 3001; // Choose a different port than your React app
 
-app.post('/api/chatbot', async (req, res) => {
-  const { input } = req.body;
-
-  const completion = await openai.createCompletion({
-    model: 'text-davinci-003',
-    prompt: `You are a helpful assistant. Answer the following question: ${input}`,
-    temperature: 0.5,
-    max_tokens: 100,
-  });
-
-  res.json({ message: completion.data.choices[0].text });
-});
+app.use('/api', createProxyMiddleware({
+  target: 'http://api.openai.com',
+  changeOrigin: true, // Important for handling CORS
+}));
 
 app.listen(port, () => {
-  console.log(`Chatbot server listening at http://localhost:${port}`);
+  console.log(`Proxy server listening on port ${port}`);
 });

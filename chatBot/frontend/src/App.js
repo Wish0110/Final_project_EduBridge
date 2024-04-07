@@ -54,9 +54,17 @@ function App() {
 
     });
 
+    //role: "user" or "assistant", content: "message"
+
+    const systemMessage = {
+      role: "system",
+      content: "Explain all consepts like I am 21 years old."
+    }
+
     const apiRequestBody = {
       "model": "gpt-3.5-turbo",
       "messages": [
+        systemMessage,
         ...apiMessages // [message1, message2, ...]
       ]
     }
@@ -68,8 +76,13 @@ function App() {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(apiRequestBody)
-  })
-  }
+  }).then((data) => {
+    return data.json();
+  }).then((data) => {
+    console.log(data);
+  });
+}
+
   return (
     <div className="App">
       <div style={{ position: "relative", height: '700px', width:"700px"}}>
