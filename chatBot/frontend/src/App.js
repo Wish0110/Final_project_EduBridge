@@ -10,7 +10,7 @@ import {
   TypingIndicator
 } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = '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';
+const API_KEY = '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';
 
 function App() {
   const [typing, setTyping] = useState(false);
@@ -68,21 +68,20 @@ function App() {
         ...apiMessages // [message1, message2, ...]
       ]
     }
-
-    await fetch("http://localhost:3001/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer" + API_KEY,
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(apiRequestBody)
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    await fetch("https://api.openai.com/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer " + API_KEY,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(apiRequestBody)
   }).then((data) => {
     return data.json();
   }).then((data) => {
     console.log(data);
   });
 }
-
   return (
     <div className="App">
       <div style={{ position: "relative", height: '700px', width:"700px"}}>
