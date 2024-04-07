@@ -69,7 +69,7 @@ function App() {
       ]
     }
 
-    await fetch("http://api.openai.com/v1/chat/completions", {
+    await fetch("http://localhost:3001/api/v1/chat/completions", {
       method: "POST",
       headers: {
         "Authorization": "Bearer" + API_KEY,
