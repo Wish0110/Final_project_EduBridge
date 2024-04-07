@@ -22,10 +22,10 @@ function App() {
   ]) //[]
 
   const handleSend = async (message) => {
-    const newMessage = { 
+    const newMessage = {
       message: message,
       sender: "user",
-      direction: "outgoing" ,
+      direction: "outgoing",
     }
 
     const newMessages = [...messages, newMessage]; // old and new messages
@@ -65,30 +65,36 @@ function App() {
       "model": "gpt-3.5-turbo",
       "messages": [
         systemMessage,
-        ...apiMessages // [message1, message2, ...]
+       ...apiMessages // [message1, message2,...]
       ]
     }
+
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await fetch("https://api.openai.com/v1/chat/completions", {
-  method: "POST",
-  headers: {
-    "Authorization": "Bearer " + API_KEY,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(apiRequestBody)
-  }).then((data) => {
-    return data.json();
-  }).then((data) => {
+
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(apiRequestBody)
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
     console.log(data);
-  });
-}
+  }
+
   return (
     <div className="App">
       <div style={{ position: "relative", height: '700px', width:"700px"}}>
         <MainContainer>
           <ChatContainer>
             <MessageList
-            typingIndicator={typing ? <TypingIndicator content="Mocha is typing" /> :null}
+            typingIndicator={typing? <TypingIndicator content="Mocha is typing" /> :null}
             >
               {messages.map((message, i) => {
                 return <Message key={i} model={message} />
