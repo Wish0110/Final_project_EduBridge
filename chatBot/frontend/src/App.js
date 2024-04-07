@@ -11,14 +11,23 @@ function App() {
   }
  ])
 
+ const handleSend = async (message) => {
+  const newMessage = { 
+    message: message,
+    sender: "user" 
+  }
+ }
   return (
     <div className="App">
       <div style={{ position: "relative", height: '800vh', width:"700px"}}>
         <MainContainer>
           <ChatContainer>
             <MessageList>
-
+              {messages.map((message, i) => {
+                return <message key="i" model={message} />
+              })}
             </MessageList>
+            <MessageInput placeholder="Type message here" onSend={handleSend}/>
           </ChatContainer>
         </MainContainer>
       </div>
