@@ -87,11 +87,10 @@ function App() {
     <div className="App">
       <div style={{ position:"relative", height: "700px", width: "700px"  }}>
         <MainContainer>
-          <ChatContainer styleName="custom-chat-container">       
+          <ChatContainer>       
             <MessageList 
               scrollBehavior="smooth" 
               typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
-              styleName="custom-message-list"
             >
               {messages.map((message, i) => {
                 console.log(message)
