@@ -10,6 +10,8 @@ import {
   TypingIndicator
 } from '@chatscope/chat-ui-kit-react';
 
+const API_KEY = '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';
+
 function App() {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
@@ -34,8 +36,40 @@ function App() {
     //typing indicatore
     setTyping(true);
     //process user message
+    await processMessageToChatGPT(newMessages);
   }
 
+  async function processMessageToChatGPT(chatMessage) {
+    //chatMessages {sender: "user" or "ChatGpt", message: "message"}
+    // apiMessages { role: "user" or "assistant", content: "message"}
+
+    let apiMessages = chatMessage.map((messageObject) => {
+      let role = "";
+       if (messageObject.sender === "user") {
+         role = "assistant"
+       } else {
+         role = "user"
+       }
+       return { role: role, content: messageObject.message }
+
+    });
+
+    const apiRequestBody = {
+      "model": "gpt-3.5-turbo",
+      "messages": [
+        ...apiMessages // [message1, message2, ...]
+      ]
+    }
+
+    await fetch("http://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer" + API_KEY,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(apiRequestBody)
+  })
+  }
   return (
     <div className="App">
       <div style={{ position: "relative", height: '700px', width:"700px"}}>
