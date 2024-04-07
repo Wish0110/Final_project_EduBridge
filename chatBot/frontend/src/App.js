@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './App.css';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
@@ -85,12 +85,13 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{ position:"relative", height: "800px", width: "700px"  }}>
+      <div style={{ position:"relative", height: "700px", width: "700px"  }}>
         <MainContainer>
-          <ChatContainer>       
+          <ChatContainer styleName="custom-chat-container">       
             <MessageList 
               scrollBehavior="smooth" 
               typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+              styleName="custom-message-list"
             >
               {messages.map((message, i) => {
                 console.log(message)
