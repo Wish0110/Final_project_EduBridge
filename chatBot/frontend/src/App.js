@@ -10,7 +10,7 @@ import {
   TypingIndicator
 } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = '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';
+const API_KEY = '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';
 
 function App() {
   const [typing, setTyping] = useState(false);
@@ -22,10 +22,10 @@ function App() {
   ]) //[]
 
   const handleSend = async (message) => {
-    const newMessage = {
+    const newMessage = { 
       message: message,
       sender: "user",
-      direction: "outgoing",
+      direction: "outgoing" ,
     }
 
     const newMessages = [...messages, newMessage]; // old and new messages
@@ -65,36 +65,30 @@ function App() {
       "model": "gpt-3.5-turbo",
       "messages": [
         systemMessage,
-       ...apiMessages // [message1, message2,...]
+        ...apiMessages // [message1, message2, ...]
       ]
     }
-
     await new Promise(resolve => setTimeout(resolve, 1000));
-
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(apiRequestBody)
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
+    await fetch("https://api.openai.com/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer " + API_KEY,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(apiRequestBody)
+  }).then((data) => {
+    return data.json();
+  }).then((data) => {
     console.log(data);
-  }
-
+  });
+}
   return (
     <div className="App">
       <div style={{ position: "relative", height: '700px', width:"700px"}}>
         <MainContainer>
           <ChatContainer>
             <MessageList
-            typingIndicator={typing? <TypingIndicator content="Mocha is typing" /> :null}
+            typingIndicator={typing ? <TypingIndicator content="Mocha is typing" /> :null}
             >
               {messages.map((message, i) => {
                 return <Message key={i} model={message} />

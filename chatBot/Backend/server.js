@@ -28,3 +28,5 @@ app.use('/api/v1/chat/completions', createProxyMiddleware({
 app.listen(port, () => {
   console.log(`Proxy server listening on port ${port}`);
 });
+
+//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
