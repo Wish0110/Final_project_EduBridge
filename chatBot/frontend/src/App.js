@@ -7,7 +7,7 @@ import {
   MessageList,
   Message,
   MessageInput,
-  TypingIndicator,
+  TypingIndicator
 } from '@chatscope/chat-ui-kit-react';
 
 const API_KEY = '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';
@@ -20,9 +20,6 @@ function App() {
       sender: "ChatGpt",
     }
   ]) //[]
-
-  const [chatMessages, setChatMessages] = useState([]); // define chatMessages here
-
 
   const handleSend = async (message) => {
     const newMessage = { 
@@ -85,7 +82,7 @@ function App() {
     console.log(data);
     console.log(data.choices[0].message.content);
     setMessages(
-      [...chatMessages, {
+      [...messages, {
         message: data.choices[0].message.content,
         sender: "ChatGPT",
       }]
