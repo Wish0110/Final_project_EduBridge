@@ -70,6 +70,7 @@ function App() {
 
     const pdfBlob = await pdfDoc.save();
     setPdfDoc(pdfBlob);
+    createPdfViewer();
   };
 
   const createPdfViewer = () => {
@@ -78,6 +79,7 @@ function App() {
     viewer.style.height = '500px';
     viewer.src = URL.createObjectURL(pdfDoc); // Assuming pdfDoc is a Blob
     pdfViewerRef.current.appendChild(viewer);
+    
   };
 
   return (
