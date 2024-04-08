@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { PDFDocument } from 'pdf-lib';
 
@@ -7,6 +7,9 @@ function App() {
   const [studentData, setStudentData] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [generatedLetter, setGeneratedLetter] = useState(null);
+  // ... other state variables
+  const [pdfDoc, setPdfDoc] = useState(null);
+  const pdfViewerRef = useRef(null); // Ref for the PDF viewer
 
   const handleInputChange = (event) => {
     setStudentId(event.target.value);
@@ -55,6 +58,27 @@ function App() {
       setErrorMessage('An error occurred while generating the letter.');
     }
   };
+  const handleGeneratePdf = async () => {
+    const pdfDoc = await PDFDocument.create();
+
+    const page = pdfDoc.addPage();
+    page.drawText(generatedLetter, {
+      x: 100,
+      y: 100,
+      fontSize: 12
+    });
+
+    const pdfBlob = await pdfDoc.save();
+    setPdfDoc(pdfBlob);
+  };
+
+  const createPdfViewer = () => {
+    const viewer = document.createElement('iframe');
+    viewer.style.width = '100%';
+    viewer.style.height = '500px';
+    viewer.src = URL.createObjectURL(pdfDoc); // Assuming pdfDoc is a Blob
+    pdfViewerRef.current.appendChild(viewer);
+  };
 
   return (
     <div className="App">
@@ -86,9 +110,15 @@ function App() {
         <div>
           <h2>Generated Letter</h2>
           <pre>{generatedLetter}</pre>
+
+          <button onClick={handleGeneratePdf}>Convert to PDF</button>
+    {pdfDoc && (
+      <div ref={pdfViewerRef} />
+    )}
         </div>
       )}
     </div>
+    
   );
 }
 
