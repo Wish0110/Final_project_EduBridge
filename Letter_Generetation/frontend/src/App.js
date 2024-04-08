@@ -9,12 +9,6 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    if (!studentID) {
-      setLetter('');
-      setStatus('Please enter a student ID.');
-      return;
-    }
-  
     try {
       const response = await axios.post('http://localhost:3002/api/generate-letter', {
         studentId: studentID,
