@@ -3,48 +3,53 @@ import axios from 'axios';
 
 function App() {
   const [studentId, setStudentId] = useState('');
+  const [studentData, setStudentData] = useState(null);
   const [letter, setLetter] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
-
-    try {
-      const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
-      if (response.data.success) {
-        const letterResponse = await axios.post('http://localhost:3002/api/generate-letter', { studentData: response.data.data });
-        if (letterResponse.data.success) {
-          setLetter(letterResponse.data.data);
-        } else {
-          setError(letterResponse.data.message);
-        }
+    const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
+    const { success, data, message } = response.data;
+    if (success) {
+      setStudentData(data);
+      const letterResponse = await axios.post('http://localhost:3002/api/generate-letter', { studentData });
+      const { success: letterSuccess, data: letterData, message: letterMessage } = letterResponse.data;
+      if (letterSuccess) {
+        setLetter(letterData);
       } else {
-        setError(response.data.message);
+        console.error('Error generating letter:', letterMessage);
       }
-    } catch (err) {
-      setError('An error occurred while fetching student data or generating the letter.');
+    } else {
+      console.error('Error fetching student data:', message);
     }
-
-    setLoading(false);
   };
 
   return (
     <div>
-      <h1>Generate Letter of Recommendation</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter student ID"
-          value={studentId}
-          onChange={(e) => setStudentId(e.target.value)}
-        />
-        <button type="submit" disabled={loading}>{loading ? 'Loading...' : 'Generate Letter'}</button>
+        <label>
+          Enter student ID:
+          <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
+        </label>
+        <button type="submit">Fetch Data and Generate Letter</button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {letter && <pre style={{ whiteSpace: 'pre-wrap', marginTop: '20px' }}>{letter}</pre>}
+      {studentData && (
+        <div>
+          <h2>Student Data:</h2>
+          <p>Name: {studentData.name}</p>
+          <p>Student ID: {studentData.studentId}</p>
+          <p>Degree: {studentData.degree}</p>
+          <p>GPA: {studentData.gpa}</p>
+          <p>Sports: {studentData.sports}</p>
+          <p>Faculty: {studentData.faculty}</p>
+        </div>
+      )}
+      {letter && (
+        <div>
+          <h2>Generated Letter:</h2>
+          <p>{letter}</p>
+        </div>
+      )}
     </div>
   );
 }
