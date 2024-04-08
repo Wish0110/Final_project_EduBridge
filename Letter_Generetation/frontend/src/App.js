@@ -9,7 +9,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/generate-letter', {
+      const response = await axios.post('http://localhost:3002/api/generate-letter', {
         studentId: studentID,
       });
 
