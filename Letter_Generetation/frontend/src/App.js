@@ -72,28 +72,73 @@ function App() {
         const chunk = generatedLetter.slice(i, i + chunkSize);
   
         page.drawText(chunk, {
-          x: 50,
+          x: 40,
           y: currentPositionY,
-          fontSize: 12,
-          width: '21cm',
+          fontSize: 9,
+          width: '17cm',
         });
   
         currentPositionY -= 20;
       }
+
+      const htmlTemplate = `
+      <html>
+        <head>
+          <style>
+            .letter {
+              font-family: Arial, sans-serif;
+              font-size: 12px;
+              line-height: 1.5;
+              margin: 0;
+              padding: 0;
+            }
+            .letter h1 {
+              font-size: 18px;
+              font-weight: bold;
+              margin: 10px 0;
+            }
+            .letter p {
+              margin: 10px 0;
+            }
+            .letter .signature {
+              margin-top: 50px;
+              text-align: center;
+            }
+          </style>
+        </head>
+        <body class="letter">
+          <h1>Student Recommendation Letter</h1>
+          <p>Dear Sir/Madam,</p>
+          <p>
+            I am pleased to write this letter of recommendation for ${studentData.name} with student ID ${studentData.studentId}. ${studentData.name} has completed a ${studentData.degree} degree with a GPA of ${studentData.gpa}. Throughout their academic career, ${studentData.name} has demonstrated dedication, hard work, and a passion for learning.
+          </p>
+          <p>
+            ${studentData.name} has not only excelled in their academic studies, but has also actively participated in ${studentData.sports} activities. They have shown great leadership skills and a strong commitment to their community. ${studentData.name}'s involvement in the ${studentData.faculty} faculty has been instrumental in promoting a positive and inclusive environment.
+          </p>
+          <p>
+            I am confident that ${studentData.name} will continue to excel in their future endeavors and make valuable contributions to society. I highly recommend ${studentData.name} for any opportunities that may come their way.
+          </p>
+          <div class="signature">
+            Best regards,<br />
+            Dean, Faculty of ${studentData.faculty}
+          </div>
+        </body>
+      </html>
+    `;
   
-      const pdfBytes = await pdfDoc.save();
-      const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-  
-      if (pdfViewerRef.current) {
-        createPdfViewer(pdfBlob);
-      } else {
-        console.error('Error: pdfViewerRef.current is null');
-      }
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      setErrorMessage('Error generating PDF');
+    const pdfBytes = await pdfDoc.embedHtml(htmlTemplate);
+    const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+    if (pdfViewerRef.current) {
+      createPdfViewer(pdfBlob);
+    } else {
+      console.error('Error: pdfViewerRef.current is null');
     }
-  };
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    setErrorMessage('Error generating PDF');
+  }
+};
 
 const createPdfViewer = (pdfBlob) => {
   const viewer = document.createElement('iframe');
