@@ -70,16 +70,15 @@ function App() {
 
     const pdfBlob = await pdfDoc.save();
     setPdfDoc(pdfBlob);
-    createPdfViewer();
+    createPdfViewer(pdfBlob);
   };
 
-  const createPdfViewer = () => {
+  const createPdfViewer = (pdfBlob) => {
     const viewer = document.createElement('iframe');
     viewer.style.width = '100%';
     viewer.style.height = '500px';
-    viewer.src = URL.createObjectURL(pdfDoc); // Assuming pdfDoc is a Blob
+    viewer.src = URL.createObjectURL(pdfBlob); // Use the passed pdfBlob
     pdfViewerRef.current.appendChild(viewer);
-    
   };
 
   return (
