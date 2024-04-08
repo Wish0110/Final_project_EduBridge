@@ -59,7 +59,8 @@ function App() {
     }
   };
   const handleGeneratePdf = async () => {
-    const pdfDoc = await PDFDocument.create();
+    try {
+      const pdfDoc = await PDFDocument.create();
 
     const page = pdfDoc.addPage();
     page.drawText(generatedLetter, {
@@ -67,11 +68,15 @@ function App() {
       y: 100,
       fontSize: 12
     });
-
     const pdfBlob = await pdfDoc.save();
-    setPdfDoc(pdfBlob);
-    createPdfViewer(pdfBlob);
-  };
+    createPdfViewer(pdfBlob); // Pass pdfBlob directly
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    setErrorMessage('Error generating PDF');
+  }
+};
+
+  
 
   const createPdfViewer = (pdfBlob) => {
     const viewer = document.createElement('iframe');
