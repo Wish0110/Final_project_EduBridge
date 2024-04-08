@@ -1,44 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import GeneratedLetter from './GeneratedLetter';
 
-function App() {
-  const [studentID, setStudentID] = useState('');
+const App = () => {
   const [letter, setLetter] = useState('');
-  const [status, setStatus] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    try {
-      const response = await axios.post('http://localhost:3002/api/generate-letter', {
-        studentId: studentID,
-      });
-  
-      // Send the generated letter to the backend
-      axios.post('http://localhost:3002/api/print-letter', { letter: response.data.data });
-  
-      setLetter(response.data.data);
-      setStatus(response.data.message);
-    } catch (error) {
-      console.error(error);
-      setLetter('');
-      setStatus('An error occurred while generating the letter.');
-    }
-  };
+  useEffect(() => {
+    const fetchLetter = async () => {
+      try {
+        const response = await axios.get('/api/generate-letter');
+        setLetter(response.data.data);
+      } catch (error) {
+        console.error('Error fetching letter:', error);
+      }
+    };
+
+    fetchLetter();
+  }, []);
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Student ID:
-          <input type="text" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
-        </label>
-        <button type="submit">Generate Letter</button>
-      </form>
-      {status && <p>{status}</p>}
-      <div>{letter}</div>
+    <div>
+      <h1>Letter Generator</h1>
+      <GeneratedLetter letter={letter} />
     </div>
   );
-}
+};
 
 export default App;
