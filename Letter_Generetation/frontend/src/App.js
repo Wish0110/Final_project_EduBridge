@@ -64,15 +64,22 @@ function App() {
     try {
       const pdfDoc = await PDFDocument.create();
       const page = pdfDoc.addPage();
-      
-      page.drawText(generatedLetter, {
-    
-        x: 100,
-        y: 100,
-        fontSize: 12,
-        width: '21cm',
-        height: '29.7cm'
-      });
+  
+      const chunkSize = 50;
+      let currentPositionY = 700;
+  
+      for (let i = 0; i < generatedLetter.length; i += chunkSize) {
+        const chunk = generatedLetter.slice(i, i + chunkSize);
+  
+        page.drawText(chunk, {
+          x: 50,
+          y: currentPositionY,
+          fontSize: 12,
+          width: '21cm',
+        });
+  
+        currentPositionY -= 20;
+      }
   
       const pdfBytes = await pdfDoc.save();
       const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
