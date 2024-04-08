@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument} from 'pdf-lib';
+import './App.css';
 
 function App() {
   const [studentId, setStudentId] = useState('');
@@ -8,7 +9,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [generatedLetter, setGeneratedLetter] = useState(null);
   // ... other state variables
-  const [pdfDoc, setPdfDoc] = useState(null);
+  const [pdfDoc] = useState(null);
   const pdfViewerRef = useRef(null); // Ref for the PDF viewer
 
   const handleInputChange = (event) => {
@@ -67,7 +68,9 @@ function App() {
       page.drawText(generatedLetter, {
         x: 100,
         y: 100,
-        fontSize: 12
+        fontSize: 12,
+        width: '21cm',
+        height: '29.7cm'
       });
   
       const pdfBytes = await pdfDoc.save();
@@ -124,6 +127,7 @@ const createPdfViewer = (pdfBlob) => {
           <pre>{generatedLetter}</pre>
 
           <button onClick={handleGeneratePdf}>Convert to PDF</button>
+          
     {pdfDoc && (
       <div ref={pdfViewerRef} />
     )}
