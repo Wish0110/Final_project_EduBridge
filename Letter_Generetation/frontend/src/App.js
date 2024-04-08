@@ -58,33 +58,39 @@ function App() {
       setErrorMessage('An error occurred while generating the letter.');
     }
   };
+
   const handleGeneratePdf = async () => {
     try {
       const pdfDoc = await PDFDocument.create();
-
-    const page = pdfDoc.addPage();
-    page.drawText(generatedLetter, {
-      x: 100,
-      y: 100,
-      fontSize: 12
-    });
-    const pdfBlob = await pdfDoc.save();
-    createPdfViewer(pdfBlob); // Pass pdfBlob directly
-  } catch (error) {
-    console.error('Error generating PDF:', error);
-    setErrorMessage('Error generating PDF');
-  }
-};
-
   
-
-  const createPdfViewer = (pdfBlob) => {
-    const viewer = document.createElement('iframe');
-    viewer.style.width = '100%';
-    viewer.style.height = '500px';
-    viewer.src = URL.createObjectURL(pdfBlob); // Use the passed pdfBlob
-    pdfViewerRef.current.appendChild(viewer);
+      const page = pdfDoc.addPage();
+      page.drawText(generatedLetter, {
+        x: 100,
+        y: 100,
+        fontSize: 12
+      });
+  
+      const pdfBytes = await pdfDoc.save();
+      const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+  
+      if (pdfViewerRef.current) {
+        createPdfViewer(pdfBlob);
+      } else {
+        console.error('Error: pdfViewerRef.current is null');
+      }
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      setErrorMessage('Error generating PDF');
+    }
   };
+
+const createPdfViewer = (pdfBlob) => {
+  const viewer = document.createElement('iframe');
+  viewer.style.width = '100%';
+  viewer.style.height = '500px';
+  viewer.src = URL.createObjectURL(pdfBlob);
+  pdfViewerRef.current.appendChild(viewer);
+};
 
   return (
     <div className="App">
@@ -121,6 +127,7 @@ function App() {
     {pdfDoc && (
       <div ref={pdfViewerRef} />
     )}
+    <div ref={pdfViewerRef} />
         </div>
       )}
     </div>
