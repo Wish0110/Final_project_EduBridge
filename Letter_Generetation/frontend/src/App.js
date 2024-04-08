@@ -4,19 +4,31 @@ import axios from 'axios';
 function App() {
   const [studentID, setStudentID] = useState('');
   const [letter, setLetter] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    if (!studentID) {
+      setLetter('');
+      setStatus('Please enter a student ID.');
+      return;
+    }
+  
     try {
       const response = await axios.post('http://localhost:3002/api/generate-letter', {
         studentId: studentID,
       });
-
-      setLetter(response.data.letter);
+  
+      // Send the generated letter to the backend
+      axios.post('http://localhost:3002/api/print-letter', { letter: response.data.data });
+  
+      setLetter(response.data.data);
+      setStatus(response.data.message);
     } catch (error) {
       console.error(error);
-      // Handle errors appropriately in the frontend
+      setLetter('');
+      setStatus('An error occurred while generating the letter.');
     }
   };
 
@@ -29,6 +41,7 @@ function App() {
         </label>
         <button type="submit">Generate Letter</button>
       </form>
+      {status && <p>{status}</p>}
       <div>{letter}</div>
     </div>
   );

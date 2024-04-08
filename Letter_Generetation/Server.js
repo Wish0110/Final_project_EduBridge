@@ -70,40 +70,51 @@ app.post('/api/fetch-student', async (req, res) => {
   }
 });
 
-app.post('/api/generate-letter', async (req, res) => {
-  try {
-    const studentData = req.body.studentData;
-
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [{
-        "role": "user",
-        "content": `I want to write a letter of recommendation for a student named ${studentData.name} with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of ${studentData.gpa}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. Please generate the letter in the following format:
-
-Dear Sir/Madam,
-
-[Write the recommendation here]
-
-Best regards,
-Dean, Faculty of ${studentData.faculty}
-`
-      }]
-    });
-
-    res.status(200).json({
-      success: true,
-      data: response.choices[0].message.content
-    });
-  } catch (error) {
-    console.error('Error generating letter:', error);
-
-    res.status(500).json({
-      success: false,
-      message: 'An error occurred while generating the letter.'
-    });
-  }
-});
-
+    app.post('/api/generate-letter', async (req, res) => {
+        try {
+          const studentData = req.body.studentData;
+      
+          const response = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo',
+            messages: [{
+              "role": "user",
+              "content": `I want to write a letter of recommendation for a student named ${studentData.name} with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of ${studentData.gpa}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. Please generate the letter in the following format:
+      
+      Dear Sir/Madam,
+      
+      [Write the recommendation here]
+      
+      Best regards,
+      Dean, Faculty of ${studentData.faculty}
+      `
+            }]
+          });
+      
+          res.status(200).json({
+            success: true,
+            data: response.choices[0].message.content
+          });
+        } catch (error) {
+          console.error('Error generating letter:', error);
+      
+          res.status(500).json({
+            success: false,
+            message: 'An error occurred while generating the letter.' + error.message,
+            error: error
+          });
+        }
+      });
+      app.post('/api/print-letter', (req, res) => {
+        const letter = req.body.letter;
+        console.log('Generated letter:');
+        console.log(letter);
+      
+        res.status(200).json({
+          success: true,
+          message: 'Letter printed successfully.'
+        });
+      });
+      
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
