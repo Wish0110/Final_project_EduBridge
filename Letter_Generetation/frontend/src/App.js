@@ -63,9 +63,10 @@ function App() {
   const handleGeneratePdf = async () => {
     try {
       const pdfDoc = await PDFDocument.create();
-  
       const page = pdfDoc.addPage();
+      
       page.drawText(generatedLetter, {
+    
         x: 100,
         y: 100,
         fontSize: 12,
@@ -127,15 +128,10 @@ const createPdfViewer = (pdfBlob) => {
           <pre>{generatedLetter}</pre>
 
           <button onClick={handleGeneratePdf}>Convert to PDF</button>
-          
-    {pdfDoc && (
-      <div ref={pdfViewerRef} />
-    )}
-    <div ref={pdfViewerRef} />
+          <div className="pdf-viewer-container" ref={pdfViewerRef} />
         </div>
       )}
     </div>
-    
   );
 }
 
