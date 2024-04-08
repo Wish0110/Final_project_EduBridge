@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { PDFDocument} from 'pdf-lib';
+import Letter from './letter';
 import './App.css';
 
 function App() {
