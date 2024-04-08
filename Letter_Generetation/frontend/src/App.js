@@ -46,28 +46,7 @@ function App() {
       const { success, data, message } = response.data;
 
       if (success) {
-        const pdfDoc = await PDFDocument.load(await fetch('path/to/letter-template.pdf')); // Replace with the path to your letter template
-        const page = pdfDoc.getPages()[0];
-  
-        const { width, height } = page.getSize();
-        const textWidth = page.getFont('Helvetica').widthOfTextAtSize(data, 12);
-  
-        const textHeight = 12; // Line height
-        const yCoord = height - textHeight - 36; // 36 is the top margin
-  
-        const newText = page.drawText(data, {
-          x: (width - textWidth) / 2,
-          y: yCoord,
-          size: 12,
-          font: 'Helvetica',
-          color: '#000000',
-        });
-  
-        const pdfBytes = await pdfDoc.save();
-        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-        const url = URL.createObjectURL(blob);
-  
-        setGeneratedLetter(url);
+        setGeneratedLetter(data);
       } else {
         setErrorMessage(message);
       }
