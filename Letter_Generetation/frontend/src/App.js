@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { PDFDocument} from 'pdf-lib';
-import Letter from './letter';
 import './App.css';
 
 function App() {
@@ -40,18 +39,34 @@ function App() {
   const handleGenerateLetter = async () => {
     setErrorMessage(null);
     setGeneratedLetter(null);
-
+  
     if (!studentData) {
       setErrorMessage('Please fetch student data first.');
       return;
     }
-
+  
     try {
       const response = await axios.post('http://localhost:3002/api/generate-letter', { studentData });
       const { success, data, message } = response.data;
-
+  
       if (success) {
-        setGeneratedLetter(data);
+        // Split the letter into words
+        const words = data.split(' ');
+  
+        // Add line breaks after every 7 words
+        const lineBreaks = words.reduce((result, word, index) => {
+          if ((index + 1) % 7 === 0) {
+            result.push(word, '\n');
+          } else {
+            result.push(word);
+          }
+          return result;
+        }, []);
+  
+        // Join the words with line breaks
+        const letterWithLineBreaks = lineBreaks.join(' ');
+  
+        setGeneratedLetter(letterWithLineBreaks);
       } else {
         setErrorMessage(message);
       }
@@ -72,62 +87,19 @@ function App() {
       for (let i = 0; i < generatedLetter.length; i += chunkSize) {
         const chunk = generatedLetter.slice(i, i + chunkSize);
   
-        page.drawText(chunk, {
-          x: 40,
+        const processedChunk = chunk.replace(/<br>/g, '\n');
+        page.drawText(processedChunk, {
+          x: 20,
           y: currentPositionY,
           fontSize: 9,
-          width: '17cm',
-        });
+          width: '15cm',
+          lineHeight: 1.0,
+        });  
   
         currentPositionY -= 20;
       }
 
-      const htmlTemplate = `
-      <html>
-        <head>
-          <style>
-            .letter {
-              font-family: Arial, sans-serif;
-              font-size: 12px;
-              line-height: 1.5;
-              margin: 0;
-              padding: 0;
-            }
-            .letter h1 {
-              font-size: 18px;
-              font-weight: bold;
-              margin: 10px 0;
-            }
-            .letter p {
-              margin: 10px 0;
-            }
-            .letter .signature {
-              margin-top: 50px;
-              text-align: center;
-            }
-          </style>
-        </head>
-        <body class="letter">
-          <h1>Student Recommendation Letter</h1>
-          <p>Dear Sir/Madam,</p>
-          <p>
-            I am pleased to write this letter of recommendation for ${studentData.name} with student ID ${studentData.studentId}. ${studentData.name} has completed a ${studentData.degree} degree with a GPA of ${studentData.gpa}. Throughout their academic career, ${studentData.name} has demonstrated dedication, hard work, and a passion for learning.
-          </p>
-          <p>
-            ${studentData.name} has not only excelled in their academic studies, but has also actively participated in ${studentData.sports} activities. They have shown great leadership skills and a strong commitment to their community. ${studentData.name}'s involvement in the ${studentData.faculty} faculty has been instrumental in promoting a positive and inclusive environment.
-          </p>
-          <p>
-            I am confident that ${studentData.name} will continue to excel in their future endeavors and make valuable contributions to society. I highly recommend ${studentData.name} for any opportunities that may come their way.
-          </p>
-          <div class="signature">
-            Best regards,<br />
-            Dean, Faculty of ${studentData.faculty}
-          </div>
-        </body>
-      </html>
-    `;
-  
-    const pdfBytes = await pdfDoc.embedHtml(htmlTemplate);
+      const pdfBytes = await pdfDoc.save();
     const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
 
     if (pdfViewerRef.current) {

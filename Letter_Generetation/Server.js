@@ -83,7 +83,7 @@ app.post('/api/fetch-student', async (req, res) => {
       
       Dear Sir/Madam,
       
-      [Write the recommendation here]
+      [Write the recommendation here with the student's name, student ID, degree, GPA, sports, and faculty. And pharagraphvise should be displayed. ]
       
       Best regards,
       Dean, Faculty of ${studentData.faculty}
