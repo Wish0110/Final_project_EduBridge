@@ -40,6 +40,10 @@ i {
 .navbar-mainbg {
   background-color: #000000;
   padding: 0px;
+ 
+  margin-top: 0 !important;
+  width: 100%;
+  z-index: 1;
 }
 #navbarSupportedContent {
   overflow: hidden;
