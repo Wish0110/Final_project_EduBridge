@@ -49,7 +49,7 @@ function ReccomandationLetter(){
       }
     
       try {
-        const response = await axios.post('http://localhost:3002/api/generate-letter', { studentData });
+        const response = await axios.post('http://localhost:3005/api/generate-letter', { studentData });
         const { success, data, message } = response.data;
     
         if (success) {
