@@ -3,7 +3,7 @@ import axios from 'axios';
 import html2pdf from 'html2pdf.js';
 import 'url-polyfill';
 import './App.css';
-
+import Sidebar from '../../components/Sidebar';
 
 function ReccomandationLetter(){
   
@@ -95,6 +95,7 @@ function ReccomandationLetter(){
     
         
     return (
+      <Sidebar>
       <div className="App">
         <h1>Student Recommendation Letter Generator</h1>
         <form onSubmit={handleSubmit}>
@@ -130,6 +131,7 @@ function ReccomandationLetter(){
           </div>
         )}
       </div>
+      </Sidebar>
     );
   }
 
