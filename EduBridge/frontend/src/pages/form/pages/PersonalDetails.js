@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
   const [studentData, setStudentData] = useState({ name: '', studentId: '' });
@@ -31,7 +30,7 @@ const PersonalDetails = () => {
   };
 
   return (
-  
+    <div>
     <form onSubmit={handleSubmit}>
         <h1>Personal Details</h1>
          <label>
@@ -179,6 +178,7 @@ const PersonalDetails = () => {
         Save this section
       </button>
     </form>
+    </div>
   );
 };
 
