@@ -15,8 +15,10 @@ const ApplicationOverview = () => {
           </div>
           <div className="card">
             <div className="card-content">
+            <div className='left-card'>
               <h3>Card 2</h3>
               <p>This is card 2.</p>
+              </div>
             </div>
           </div>
           <div className="card">
@@ -35,7 +37,9 @@ const ApplicationOverview = () => {
           </div>
           <div className="card">
             <div className="card-content">
+            <div className='left-card'>
               <h3>Card 5</h3>
+              </div>
               <p>This is card 5.</p>
             </div>
           </div>
@@ -55,7 +59,9 @@ const ApplicationOverview = () => {
           </div>
           <div className="card">
             <div className="card-content">
+            <div className='left-card'>
               <h3>Card 8</h3>
+              </div>
               <p>This is card 8.</p>
             </div>
           </div>
