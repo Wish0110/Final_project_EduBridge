@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = ({ children }) => {
   const menuItem = [
     {
-      path: '/',
+      path: '/ApplicationOverview',
       name: 'Application Overview',
       icon: <FaTh />
     },

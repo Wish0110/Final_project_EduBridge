@@ -11,6 +11,7 @@ import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity';
 import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
 import DegreeList from './pages/degreeList/DegreeList';
 import Form from './pages/form/Form';
+import ApplicationOverview from './pages/form/pages/ApplicationOverview';
 import PersonalDetails from './pages/form/pages/PersonalDetails';
 import Contactandresidencydetails from './pages/form/pages/Contactandresidencydetails';
 import NationalityDetails from './pages/form/pages/NationalityDetails';
@@ -43,6 +44,7 @@ const App = () => {
        <Route path="/DegreeList" exact element={<DegreeList />} />
         <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
         <Route path="/Form" exact element={<Form />} />
+        <Route path="/ApplicationOverview" exact element={<ApplicationOverview />} />
         <Route path="/PersonalDetails" exact element={<PersonalDetails />} /> 
         <Route path="/Contactandresidencydetails" exact element={<Contactandresidencydetails />} />
         <Route path="/NationalityDetails" exact element={<NationalityDetails />} />
