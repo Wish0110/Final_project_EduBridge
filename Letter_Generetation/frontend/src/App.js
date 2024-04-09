@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import html2pdf from 'html2pdf.js';
+import 'url-polyfill';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   // ... other state variables
   const [pdfDoc] = useState(null);
   const pdfViewerRef = useRef(null); // Ref for the PDF viewer
+  
 
   const handleInputChange = (event) => {
     setStudentId(event.target.value);
@@ -89,9 +91,9 @@ function App() {
       html2canvas: { scale: 2 },
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
-  
     html2pdf().set(opt).from(document.getElementById('letter-content')).save();
   };
+  
       
   return (
     <div className="App">
