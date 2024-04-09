@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import html2pdf from 'html2pdf.js';
-import { Document, Page } from 'react-pdf';
 import './App.css';
 
 function App() {
