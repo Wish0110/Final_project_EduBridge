@@ -20,7 +20,7 @@ import FinanceAndFunding from './pages/form/pages/FinanceAndFunding';
 import Education from './pages/form/pages/Education';
 import Employment from './pages/form/pages/Employment';
 import PersonalStatement from './pages/form/pages/PersonalStatement';
-import ReccomandationLetter from './pages/form/pages/ReccomandationLetter';
+import ReccomandationLetter from './pages/form/pages/ReccomandationLetter/ReccomandationLetter';
 
 const App = () => {
   return (
