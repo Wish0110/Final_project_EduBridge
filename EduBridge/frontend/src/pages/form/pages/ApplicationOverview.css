@@ -39,3 +39,21 @@
   .wide-card {
     width: 67%;
   }
+
+  .start-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .start-button:hover {
+    background-color: #0056b3;
+  }
