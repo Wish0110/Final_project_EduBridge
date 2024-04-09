@@ -75,7 +75,7 @@ function CourseDetailsPU() {
           <li key={index}>{career}</li>
         ))}
       </ul>
-      <button onClick={() => navigate("/Form")}>Apply Now</button>
+      <button onClick={() => navigate("/ApplicationOverview")}>Apply Now</button>
     </div>
   );
 }
