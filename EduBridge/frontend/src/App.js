@@ -20,7 +20,7 @@ import FinanceAndFunding from './pages/form/pages/FinanceAndFunding';
 import Education from './pages/form/pages/Education';
 import Employment from './pages/form/pages/Employment';
 import PersonalStatement from './pages/form/pages/PersonalStatement';
-
+import ReccomandationLetter from './pages/form/pages/ReccomandationLetter';
 
 const App = () => {
   return (
@@ -51,6 +51,7 @@ const App = () => {
         <Route path="/Education" exact element={<Education />} />
         <Route path="/Employment" exact element={<Employment />} />
         <Route path="/PersonalStatement" exact element={<PersonalStatement />} />
+        <Route path="/ReccomandationLetter" exact element={<ReccomandationLetter />} />
     </Routes>
       </main>
     </Router>

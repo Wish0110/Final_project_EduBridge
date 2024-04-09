@@ -50,6 +50,11 @@ const Sidebar = ({ children }) => {
       icon: <FaRegChartBar />
     },
     {
+      path: '/ReccomandationLetter',
+      name: 'ReccomandationLetter',
+      icon: <FaRegChartBar />
+    },
+    {
       path: '/Employment',
       name: 'Employment',
       icon: <FaRegChartBar />
