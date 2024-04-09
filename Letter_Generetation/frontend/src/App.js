@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
-import { PDFDocument} from 'pdf-lib';
 import html2pdf from 'html2pdf.js';
+import { Document, Page } from 'react-pdf';
 import './App.css';
 
 function App() {
@@ -77,51 +77,23 @@ function App() {
     }
   };
 
-  const handleGeneratePdf = async () => {
-    try {
-      const pdfDoc = await PDFDocument.create();
-      const page = pdfDoc.addPage();
-  
-      const chunkSize = 50;
-      let currentPositionY = 700;
-  
-      for (let i = 0; i < generatedLetter.length; i += chunkSize) {
-        const chunk = generatedLetter.slice(i, i + chunkSize);
-  
-        const processedChunk = chunk.replace(/<br>/g, '\n');
-        page.drawText(processedChunk, {
-          x: 20,
-          y: currentPositionY,
-          fontSize: 9,
-          width: '15cm',
-          lineHeight: 1.0,
-        });  
-  
-        currentPositionY -= 20;
-      }
-
-      const pdfBytes = await pdfDoc.save();
-    const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-
-    if (pdfViewerRef.current) {
-      createPdfViewer(pdfBlob);
-    } else {
-      console.error('Error: pdfViewerRef.current is null');
+  const handleGeneratePdf = () => {
+    if (!generatedLetter) {
+      setErrorMessage('Please generate the letter first.');
+      return;
     }
-  } catch (error) {
-    console.error('Error generating PDF:', error);
-    setErrorMessage('Error generating PDF');
-  }
-};
-
-const createPdfViewer = (pdfBlob) => {
-  const viewer = document.createElement('iframe');
-  viewer.style.width = '100%';
-  viewer.style.height = '500px';
-  viewer.src = URL.createObjectURL(pdfBlob);
-  pdfViewerRef.current.appendChild(viewer);
-};
-
+  
+    const opt = {
+      margin: 1,
+      filename: 'recommendation_letter.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+  
+    html2pdf().set(opt).from(document.getElementById('letter-content')).save();
+  };
+      
   return (
     <div className="App">
       <h1>Student Recommendation Letter Generator</h1>
@@ -154,7 +126,7 @@ const createPdfViewer = (pdfBlob) => {
           <pre>{generatedLetter}</pre>
 
           <button onClick={handleGeneratePdf}>Convert to PDF</button>
-          <div className="pdf-viewer-container" ref={pdfViewerRef} />
+          <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
         </div>
       )}
     </div>
