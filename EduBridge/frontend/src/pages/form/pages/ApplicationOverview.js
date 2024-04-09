@@ -19,7 +19,7 @@ const ApplicationOverview = () => {
           <div className="card">
             <div className="card-content">
             <div className='left-card'>
-              <h3>Contact and Residency Details</h3>
+              <h4>Contact and Residency Details</h4>
               <p>Address, email, telephone and where you live.</p>
               <div className="card-footer">
               <button className="start-button">Start this section</button>
@@ -101,11 +101,10 @@ const ApplicationOverview = () => {
           <div className="card">
             <div className="card-content">
               <h3>Personal statement</h3>
-              <p>Why do you want to study this subject?</p>
+              <p>Why do you want to study this subject?</p></div>
               <div className="card-footer">
               <button className="start-button">Start this section</button>
               </div>
-            </div>
           </div>
         </div>
       </div>
