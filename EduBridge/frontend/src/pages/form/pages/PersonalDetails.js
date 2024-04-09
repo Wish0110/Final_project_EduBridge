@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Sidebar from "../components/Sidebar";
 
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
@@ -30,6 +31,7 @@ const PersonalDetails = () => {
   };
 
   return (
+    <Sidebar>
     <div>
     <form onSubmit={handleSubmit}>
         <h1>Personal Details</h1>
@@ -179,6 +181,7 @@ const PersonalDetails = () => {
       </button>
     </form>
     </div>
+    </Sidebar>
   );
 };
 
