@@ -8,6 +8,9 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
     "jquery": "^3.7.1",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
@@ -17,6 +20,7 @@
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "react-simple-maps": "^3.0.0",
+    "url-polyfill": "^1.1.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
