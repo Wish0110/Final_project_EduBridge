@@ -55,7 +55,7 @@ const Navbar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-mainbg">
+        <nav className="navbar navbar-expand-lg navbar-mainbg ">
         <img src={logo} alt="Logo" className="navbar-logo" />
 
         <div
