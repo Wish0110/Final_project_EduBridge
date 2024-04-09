@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import html2pdf from 'html2pdf.js';
 import 'url-polyfill';
@@ -10,9 +10,6 @@ function ReccomandationLetter(){
     const [studentData, setStudentData] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
     const [generatedLetter, setGeneratedLetter] = useState(null);
-    // ... other state variables
-    const [pdfDoc] = useState(null);
-    const pdfViewerRef = useRef(null); // Ref for the PDF viewer
     
   
     const handleInputChange = (event) => {
