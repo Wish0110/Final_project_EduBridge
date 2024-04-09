@@ -9,74 +9,75 @@ const ApplicationOverview = () => {
         <div className="card-row">
           <div className="card">
             <div className="card-content">
-              <h3>Card 1</h3>
-              <p>This is card 1.</p>
+              <h3>Personal details</h3>
+              <p>Name, age, title and gender.</p>
+              <button className="start-button">Start this section</button>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
             <div className='left-card'>
-              <h3>Card 2</h3>
-              <p>This is card 2.</p>
+              <h3>Contact and Residency Details</h3>
+              <p>Address, email, telephone and where you live.</p>
+              <button className="start-button">Start this section</button>
               </div>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
-              <h3>Card 3</h3>
-              <p>This is card 3.</p>
+              <h3>Nationality Details</h3>
+              <p>Birthplace and nationalities.</p>
+              <button className="start-button">Start this section</button>
             </div>
           </div>
         </div>
         <div className="card-row">
           <div className="card">
             <div className="card-content">
-              <h3>Card 4</h3>
-              <p>This is card 4.</p>
+              <h3>Supporting Information</h3>
+              <p>So that providers know how to support you during your studies.</p>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
             <div className='left-card'>
-              <h3>Card 5</h3>
+              <h3>English Language Skills</h3>
               </div>
-              <p>This is card 5.</p>
+              <p>Is English your first language?</p>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
-              <h3>Card 6</h3>
-              <p>This is card 6.</p>
+              <h3>Finance And Funding</h3>
+              <p>Tell us how you’ll fund your study.</p>
             </div>
           </div>
         </div>
         <div className="card-row">
           <div className="card">
             <div className="card-content">
-              <h3>Card 7</h3>
-              <p>This is card 7.</p>
+              <h3>Education</h3>
+              <p>Qualifications and periods of study.</p>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
-            <div className='left-card'>
-              <h3>Card 8</h3>
-              </div>
+              <h3>Reccomandation Letter</h3>
               <p>This is card 8.</p>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
-              <h3>Card 9</h3>
-              <p>This is card 9.</p>
+              <h3>Employment</h3>
+              <p>Paid employment.</p>
             </div>
           </div>
         </div>
         <div className="card-row">
-          <div className="card wide-card">
+          <div className="card">
             <div className="card-content">
-              <h3>Card 10</h3>
-              <p>This is card 10.</p>
+              <h3>Personal statement</h3>
+              <p>Why do you want to study this subject?</p>
             </div>
           </div>
         </div>
