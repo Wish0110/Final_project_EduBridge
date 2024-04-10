@@ -96,7 +96,7 @@ const Navbar = () => {
                     </li>  
 
                     <li className="nav-item hidden">
-                        <NavLink className="nav-link" to="/Testimonial" exact>
+                        <NavLink className="nav-link" to="/Testmonial" exact>
                             <i 
                             className="far
                             fa-chart-bar">
