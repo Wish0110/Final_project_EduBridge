@@ -26,7 +26,7 @@ const ApplicationOverview = () => {
               <p>Address, email, telephone and where you live.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 2</button>
+              <NavLink to="/Contactandresidencydetails" className="start-button">Start this section 2</NavLink>
             </div>
           </div>
 
