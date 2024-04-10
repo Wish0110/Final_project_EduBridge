@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
+import { NavLink } from 'react-router-dom';
 import './ApplicationOverview.css';
 
 const ApplicationOverview = () => {
@@ -15,7 +16,7 @@ const ApplicationOverview = () => {
               <p>Name, age, title and gender.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 1</button>
+              <NavLink to="/PersonalDetails" className="start-button">Start this section 1</NavLink>
             </div>
           </div>
 
@@ -111,7 +112,7 @@ const ApplicationOverview = () => {
           </div>
 
         <div className="card-row">
-          
+
           <div className="card">
             <div className="card-content">
               <h3>Personal statement</h3>
