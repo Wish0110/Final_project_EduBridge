@@ -20,7 +20,7 @@ const Home = () => {
 
     {/*chatbot*/}
     <div className="sticky-button">
-         <button>Button</button>
+         <button>Mocha</button>
     </div>
 
     </div>
