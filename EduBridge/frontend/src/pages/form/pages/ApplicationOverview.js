@@ -105,7 +105,7 @@ const ApplicationOverview = () => {
               <p>Paid employment.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 9</button>
+              <NavLink to="/Employment" className="start-button">Start this section 9</NavLink>
               </div>
             </div>
 
