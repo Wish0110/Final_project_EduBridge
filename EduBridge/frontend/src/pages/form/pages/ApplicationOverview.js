@@ -51,7 +51,7 @@ const ApplicationOverview = () => {
               <p>So that providers know how to support you during your studies.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 4</button>
+              <NavLink to="/SupportingInformation" className="start-button">Start this section 4</NavLink>
               </div>
             </div>
 
