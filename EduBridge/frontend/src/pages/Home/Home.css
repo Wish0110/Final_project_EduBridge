@@ -1,3 +1,4 @@
-.map-chart-container {
-    margin-bottom: 7rem; 
-  }
+.Navbar {
+  margin-top: -20px; /* adjust this value to match the height of your navbar */
+  position: relative;
+}

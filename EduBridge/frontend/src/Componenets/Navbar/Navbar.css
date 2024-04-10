@@ -3,10 +3,12 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: #fff; /* fallback for old browsers */
+  margin: 0;
+  padding: 0;
 }
 * {
   margin: 0;
-  padding: 0;
+
 }
 .hidden {
   opacity: 0;
@@ -38,12 +40,14 @@ i {
 }
 
 .navbar-mainbg {
+  position: sticky;
   background-color: #000000;
   padding: 0px;
- 
   margin-top: 0 !important;
   width: 100%;
-  z-index: 1;
+  top: 0;
+  z-index: 1000
+
 }
 #navbarSupportedContent {
   overflow: hidden;

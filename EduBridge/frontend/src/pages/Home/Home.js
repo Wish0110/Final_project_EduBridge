@@ -1,12 +1,12 @@
 import React from 'react';
 import MapChart from './MapChart';
 //import banner from './banner.png';
-import Navbar from '../../Componenets/Navbar/Navbar';
 import './Home.css';
+import Navbar from '../../Componenets/Navbar/Navbar';
 
 const Home = () => {
   return (
-    <div>
+    <div className='Navbar'>
     <Navbar />
     <div className="HomeContainer">
       {/*<img src={banner} alt="Home Page Banner" className="banner" />*/}
