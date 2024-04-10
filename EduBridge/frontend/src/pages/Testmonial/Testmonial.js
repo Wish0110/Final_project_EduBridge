@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../../Componenets/Navbar/Navbar";
+import "./Testmonial.css"
 
 const Testmonial = () => {
     return (
-        <div>
+        <div className='Navbar'>
             <Navbar />
         <div className="container">
 
