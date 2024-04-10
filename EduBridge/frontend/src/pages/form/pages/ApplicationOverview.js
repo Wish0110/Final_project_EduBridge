@@ -36,7 +36,7 @@ const ApplicationOverview = () => {
               <p>Birthplace and nationalities.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 3</button>
+              <NavLink to="/NationalityDetails" className="start-button">Start this section 3</NavLink>
               </div>
             </div>
 
