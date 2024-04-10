@@ -30,8 +30,9 @@
   }
   
   .card-content {
-    padding-top: 20px;
+    padding-top: 70px;
     padding-bottom: 0; /* Remove bottom padding */
+    padding-left: 20px;
     height: auto; /* Change height to auto */
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@ const Employment = () => {
   return (
     <Sidebar>
     <div>
-      <h2>Education</h2>
+      <h2>Employment</h2>
     </div>
     </Sidebar>
   );

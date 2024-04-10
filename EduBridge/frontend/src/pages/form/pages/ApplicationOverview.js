@@ -119,7 +119,7 @@ const ApplicationOverview = () => {
               <p>Why do you want to study this subject?</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 10</button>
+              <NavLink to="/PersonalStatement" className="start-button">Start this section 10</NavLink>
               </div>
           </div>
 
