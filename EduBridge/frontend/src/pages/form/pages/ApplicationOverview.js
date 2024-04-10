@@ -71,7 +71,7 @@ const ApplicationOverview = () => {
               <p>Tell us how you’ll fund your study.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 6</button>
+              <NavLink to="/FinanceAndFunding" className="start-button">Start this section 6</NavLink>
               </div>
             </div>
 
