@@ -6,7 +6,6 @@ import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
 import Service from './pages/Service/Service';
 import Testmonial from './pages/Testmonial/Testmonial'; 
-import Navbar from './Componenets/Navbar/Navbar';
 import PlymouthUnivesity from './pages/Universities/PlymouthUnivesity'; 
 import CourseDetailsPU from './pages/CourseDetails/CourseDetailsPU';
 import DegreeList from './pages/degreeList/DegreeList';
@@ -23,11 +22,9 @@ import Employment from './pages/form/pages/Employment';
 import PersonalStatement from './pages/form/pages/PersonalStatement';
 import ReccomandationLetter from './pages/form/pages/ReccomandationLetter/ReccomandationLetter';
 
-
 const App = () => {
   return (
-    <Router>
-      <Navbar/>
+    <Router> 
       <main>
       <Routes>
         <Route path="/" exact 
@@ -39,7 +36,7 @@ const App = () => {
         <Route path="/Service" exact 
           element={<Service />} />
         <Route path="/Tesmonial" exact 
-          element={<Testmonial />} />
+          element={<Testmonial />} />  
        <Route path="/PlymouthUnivesity" exact element={<PlymouthUnivesity />} />
        <Route path="/DegreeList" exact element={<DegreeList />} />
         <Route path="/CourseDetailsPU" exact element={<CourseDetailsPU />} />
