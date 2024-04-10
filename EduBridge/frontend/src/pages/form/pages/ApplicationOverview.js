@@ -95,7 +95,7 @@ const ApplicationOverview = () => {
               <p>This is card 8.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 8</button>
+              <NavLink to="/ReccomandationLetter" className="start-button">Start this section 8</NavLink>
               </div>
             </div>
 
