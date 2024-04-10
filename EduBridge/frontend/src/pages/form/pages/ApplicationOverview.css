@@ -10,6 +10,7 @@
   }
   
   .card {
+    position: relative;
     background-color: #7d9fc1;
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -29,11 +30,12 @@
   }
   
   .card-content {
-    padding: 20px;
-    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 0; /* Remove bottom padding */
+    height: auto; /* Change height to auto */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Add this to push the 'p' tag to the top and the button to the bottom */
   }
   
   .wide-card {
@@ -47,11 +49,12 @@
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin-top: 10px;
     cursor: pointer;
     border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
   }
   
   .start-button:hover {
@@ -59,5 +62,15 @@
   }
 
   .card-footer{
-    
+    position: absolute; /* Add this line */
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background-color: #f1f1f1;
+  height: auto;
+  width: 100%; /* Add this line */
+   /* Add some top and bottom padding to the button */
+
   }
