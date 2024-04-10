@@ -61,7 +61,7 @@ const ApplicationOverview = () => {
               <p>Is English your first language?</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 5</button>
+              <NavLink to="/EnglishLanguageSkills" className="start-button">Start this section 5</NavLink>
             </div>
           </div>
 
