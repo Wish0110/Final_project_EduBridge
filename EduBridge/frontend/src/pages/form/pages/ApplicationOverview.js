@@ -85,7 +85,7 @@ const ApplicationOverview = () => {
               <p>Qualifications and periods of study.</p>
               </div>
               <div className="card-footer">
-              <button className="start-button">Start this section 7</button>
+              <NavLink to="/Education" className="start-button">Start this section 7</NavLink>
               </div>
             </div>
 
