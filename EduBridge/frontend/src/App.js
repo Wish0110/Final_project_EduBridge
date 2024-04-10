@@ -21,6 +21,7 @@ import Education from './pages/form/pages/Education';
 import Employment from './pages/form/pages/Employment';
 import PersonalStatement from './pages/form/pages/PersonalStatement';
 import ReccomandationLetter from './pages/form/pages/ReccomandationLetter/ReccomandationLetter';
+import ChatBot from './pages/Home/ChatBot/frontend/ChatBot';
 
 const App = () => {
   return (
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/Employment" exact element={<Employment />} />
         <Route path="/PersonalStatement" exact element={<PersonalStatement />} />
         <Route path="/ReccomandationLetter" exact element={<ReccomandationLetter />} />
+        <Route path="/ChatBot" exact element={<ChatBot />} />
     </Routes>
       </main>
     </Router>

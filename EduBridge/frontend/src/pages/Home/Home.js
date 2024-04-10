@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MapChart from './MapChart';
 //import banner from './banner.png';
 import './Home.css';
@@ -19,13 +20,16 @@ const Home = () => {
       </div>
 
     {/*chatbot*/}
+    <Link to="/ChatBot">
     <div className="sticky-button">
          <button>Mocha</button>
     </div>
+    </Link>
 
     </div>
     </div>
   );
 };
+
 
 export default Home;
