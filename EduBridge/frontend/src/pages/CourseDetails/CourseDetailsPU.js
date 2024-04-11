@@ -3,6 +3,7 @@ import axios from 'axios';
 import './CourseDetailsPU.css';
 import { useNavigate } from "react-router-dom";
 
+
 function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
