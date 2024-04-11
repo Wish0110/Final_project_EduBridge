@@ -9,7 +9,7 @@ function CourseDetailsPU() {
   const [error, setError] = useState(null);
   const [expanded, setExpanded] = useState({});
 
-  const [expandedFees, setExpandedFees] = useState(false); //div expand
+  const [expandedSec, setExpandedSec] = useState(false); //div expand
 
   const [expandedCourseDetails, setExpandedCourseDetails] = useState(false);
   
@@ -58,8 +58,8 @@ function CourseDetailsPU() {
   };
 
   //div handling
-  const handleExpandFees = () => {
-    setExpandedFees(!expandedFees);
+  const handleExpandSec = () => {
+    setExpandedSec(!expandedSec);
   };
 
   return (
@@ -92,16 +92,19 @@ function CourseDetailsPU() {
       </>
     )}
 
-    <h3 onClick={() => handleExpand(3)}>{data.entryreqTopic}</h3>
-    {expanded[3] && (
-      <>
+    <div className='Expand-Sec' onClick={handleExpandSec}>
+    <h3>{data.entryreqTopic}</h3>
+    {expandedSec && (
+          <>
         <p>{data.entryreq}</p>
         <p>{data.entryreqdetails}</p>
-      </>
-    )}
-      <div className='Fees-Sec' onClick={handleExpandFees}>
+        </>
+      )}
+      </div>
+      
+      <div className='Expand-Sec' onClick={handleExpandSec}>
         <h3>{data.feesTopic}</h3>
-        {expandedFees && (
+        {expandedSec && (
           <>
             <p>{data.feesDetails}</p>
             <p>{data.feesDetailsextra}</p>
