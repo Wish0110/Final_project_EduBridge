@@ -120,13 +120,20 @@ function CourseDetailsPU() {
       </>
         )}
       </div>
-      
+
+      <div className='Expand-Sec' onClick={handleExpandSec}>
       <h3>{data.careerTopic}</h3>
+      {expandedSec && (
+          <>
       <ul>
         {data.careers.map((career, index) => (
           <li key={index}>{career}</li>
         ))}
       </ul>
+      </>
+        )}
+      </div>
+
       <button onClick={() => navigate("/ApplicationOverview")}>Apply Now</button>
     </div>
   );
