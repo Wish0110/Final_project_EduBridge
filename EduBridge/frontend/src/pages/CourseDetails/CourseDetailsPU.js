@@ -7,7 +7,7 @@ function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expandedSec, setExpandedSec] = useState(false); //div expand
+  const [expandedSec, setExpandedSec] = useState({}); //div expand
 
   
   const navigate = useNavigate();
@@ -44,8 +44,11 @@ function CourseDetailsPU() {
   }
 
   //div handling
-  const handleExpandSec = () => {
-    setExpandedSec(!expandedSec);
+  const handleExpandSec = (section) => {
+    setExpandedSec(prevExpandedSec => ({
+      ...prevExpandedSec,
+      [section]: !prevExpandedSec[section],
+    }));
   };
 
   return (
@@ -54,18 +57,18 @@ function CourseDetailsPU() {
       <h3>{data.schoolTitle}</h3>
       <p className="course-overview-text">{data.overviewText}</p>
 
-      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <div className='Expand-Sec' onClick={() => handleExpandSec('career')}>
       <h3>{data.careerTopic}</h3>
-        {expandedSec && (
+        {expandedSec.career && (
         <>
           <p>{data.careerDescript}</p>
         </>
           )}
       </div>
 
-      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <div className='Expand-Sec' onClick={() => handleExpandSec('keyFeatures')}>
       <h3>{data.keyFeaturesTopic}</h3>
-        {expandedSec && (
+        {expandedSec.keyFeatures && (
         <>
         <ul>
           {data.keyFeaturesList.map((feature, index) => (
@@ -76,9 +79,9 @@ function CourseDetailsPU() {
           )}
       </div>
 
-     <div className='Expand-Sec' onClick={handleExpandSec}>
+     <div className='Expand-Sec' onClick={() => handleExpandSec('courseDetails')}>
      <h3>{data.courseDetails}</h3>
-      {expandedSec && (
+      {expandedSec.courseDetails && (
       <>
         <h4>{data.courseMain}</h4>
         <ul>
@@ -90,9 +93,9 @@ function CourseDetailsPU() {
     )}
     </div>
 
-    <div className='Expand-Sec' onClick={handleExpandSec}>
+    <div className='Expand-Sec' onClick={() => handleExpandSec('entryreq')}>
     <h3>{data.entryreqTopic}</h3>
-    {expandedSec && (
+    {expandedSec.entryreq && (
           <>
         <p>{data.entryreq}</p>
         <p>{data.entryreqdetails}</p>
@@ -100,30 +103,30 @@ function CourseDetailsPU() {
       )}
       </div>
       
-      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <div className='Expand-Sec' onClick={() => handleExpandSec('fees')}>
         <h3>{data.feesTopic}</h3>
-        {expandedSec && (
+        {expandedSec.fees && (
           <>
             <p>{data.feesDetails}</p>
             <p>{data.feesDetailsextra}</p>
             <p>{data.feesDetailsadd}</p>
-            <p>{data.feesDetailsaddDetails}</p>
+            <p>{data.feesDetailssummary}</p>
           </>
         )}
       </div>
 
-      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <div className='Expand-Sec' onClick={() =>handleExpandSec('apply')}>
       <h3>{data.applytopic}</h3>
-      {expandedSec && (
+      {expandedSec.apply && (
           <>
       <p>{data.applydetails}</p>
       </>
         )}
       </div>
 
-      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <div className='Expand-Sec' onClick={() =>handleExpandSec('careers')}>
       <h3>{data.careerTopic}</h3>
-      {expandedSec && (
+      {expandedSec.careers && (
           <>
       <ul>
         {data.careers.map((career, index) => (
