@@ -65,15 +65,15 @@ function CourseDetailsPU() {
 
       <div className='Expand-Sec' onClick={handleExpandSec}>
       <h3>{data.keyFeaturesTopic}</h3>
-      {expandedSec && (
-      <>
-      <ul>
-        {data.keyFeaturesList.map((feature, index) => (
-          <li key={index}>{feature}</li>
-        ))}
-      </ul>
-      </>
-      )}
+        {expandedSec && (
+        <>
+        <ul>
+          {data.keyFeaturesList.map((feature, index) => (
+            <li key={index}>{feature}</li>
+          ))}
+        </ul>
+        </>
+          )}
       </div>
 
      <div className='Expand-Sec' onClick={handleExpandSec}>
@@ -112,8 +112,15 @@ function CourseDetailsPU() {
         )}
       </div>
 
+      <div className='Expand-Sec' onClick={handleExpandSec}>
       <h3>{data.applytopic}</h3>
+      {expandedSec && (
+          <>
       <p>{data.applydetails}</p>
+      </>
+        )}
+      </div>
+      
       <h3>{data.careerTopic}</h3>
       <ul>
         {data.careers.map((career, index) => (
