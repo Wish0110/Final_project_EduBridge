@@ -7,6 +7,7 @@ function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [expanded, setExpanded] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,19 +41,28 @@ function CourseDetailsPU() {
     return <p>No data available</p>;
   }
 
+  const handleExpand = (index) => {
+    setExpanded((prevExpanded) => ({
+     ...prevExpanded,
+      [index]:!prevExpanded[index],
+    }));
+  };
+
   return (
     <div>
       <h2>{data.courseTitle}</h2>
       <h3>{data.schoolTitle}</h3>
-      <p>{data.overviewText}</p>
-      <h3>{data.careerTopic}</h3>
-      <p>{data.careerDescript}</p>
-      <h3>{data.keyFeaturesTopic}</h3>
+      <p className="course-overview-text">{data.overviewText}</p>
+      <h3 onClick={() => handleExpand(0)}>{data.careerTopic}</h3>
+      {expanded[0] && <p>{data.careerDescript}</p>}
+      <h3 onClick={() => handleExpand(1)}>{data.keyFeaturesTopic}</h3>
+      {expanded[1] && (
       <ul>
         {data.keyFeaturesList.map((feature, index) => (
           <li key={index}>{feature}</li>
         ))}
       </ul>
+      )}
       <h4>{data.courseMain}</h4>
       <ul>
         {data.ulElement3.map((item, index) => (
