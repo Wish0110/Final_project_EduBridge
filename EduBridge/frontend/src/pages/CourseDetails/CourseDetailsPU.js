@@ -8,7 +8,11 @@ function CourseDetailsPU() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expanded, setExpanded] = useState({});
+
+  const [expandedFees, setExpandedFees] = useState(false); //div expand
+
   const [expandedCourseDetails, setExpandedCourseDetails] = useState(false);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,6 +57,11 @@ function CourseDetailsPU() {
     setExpandedCourseDetails(!expandedCourseDetails);
   };
 
+  //div handling
+  const handleExpandFees = () => {
+    setExpandedFees(!expandedFees);
+  };
+
   return (
     <div>
       <h2>{data.courseTitle}</h2>
@@ -71,8 +80,8 @@ function CourseDetailsPU() {
       </ul>
       )}
 
-<h3 onClick={handleExpandCourseDetails}>{data.courseDetails}</h3>
-    {expandedCourseDetails && (
+     <h3 onClick={handleExpandCourseDetails}>{data.courseDetails}</h3>
+      {expandedCourseDetails && (
       <>
         <h4>{data.courseMain}</h4>
         <ul>
@@ -82,15 +91,26 @@ function CourseDetailsPU() {
         </ul>
       </>
     )}
-    
-      <h3>{data.entryreqTopic}</h3>
-      <p>{data.entryreq}</p>
-      <p>{data.entryreqdetails}</p>
-      <h3>{data.feesTopic}</h3>
-      <p>{data.feesDetails}</p>
-      <p>{data.feesDetailsextra}</p>
-      <p>{data.feesDetailsadd}</p>
-      <p>{data.feesDetailsaddDetails}</p>
+
+    <h3 onClick={() => handleExpand(3)}>{data.entryreqTopic}</h3>
+    {expanded[3] && (
+      <>
+        <p>{data.entryreq}</p>
+        <p>{data.entryreqdetails}</p>
+      </>
+    )}
+      <div className='Fees-Sec' onClick={handleExpandFees}>
+        <h3>{data.feesTopic}</h3>
+        {expandedFees && (
+          <>
+            <p>{data.feesDetails}</p>
+            <p>{data.feesDetailsextra}</p>
+            <p>{data.feesDetailsadd}</p>
+            <p>{data.feesDetailsaddDetails}</p>
+          </>
+        )}
+      </div>
+
       <h3>{data.applytopic}</h3>
       <p>{data.applydetails}</p>
       <h3>{data.careerTopic}</h3>
