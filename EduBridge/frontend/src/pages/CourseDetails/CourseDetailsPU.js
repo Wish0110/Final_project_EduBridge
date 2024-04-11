@@ -45,9 +45,9 @@ function CourseDetailsPU() {
       <h2>{data.courseTitle}</h2>
       <h3>{data.schoolTitle}</h3>
       <p>{data.overviewText}</p>
-      <h4>{data.careerTopic}</h4>
+      <h3>{data.careerTopic}</h3>
       <p>{data.careerDescript}</p>
-      <h4>{data.keyFeaturesTopic}</h4>
+      <h3>{data.keyFeaturesTopic}</h3>
       <ul>
         {data.keyFeaturesList.map((feature, index) => (
           <li key={index}>{feature}</li>
@@ -59,17 +59,17 @@ function CourseDetailsPU() {
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <h4>{data.entryreqTopic}</h4>
+      <h3>{data.entryreqTopic}</h3>
       <p>{data.entryreq}</p>
       <p>{data.entryreqdetails}</p>
-      <h4>{data.feesTopic}</h4>
+      <h3>{data.feesTopic}</h3>
       <p>{data.feesDetails}</p>
       <p>{data.feesDetailsextra}</p>
       <p>{data.feesDetailsadd}</p>
       <p>{data.feesDetailsaddDetails}</p>
-      <h4>{data.applytopic}</h4>
+      <h3>{data.applytopic}</h3>
       <p>{data.applydetails}</p>
-      <h4>{data.careerTopic}</h4>
+      <h3>{data.careerTopic}</h3>
       <ul>
         {data.careers.map((career, index) => (
           <li key={index}>{career}</li>
