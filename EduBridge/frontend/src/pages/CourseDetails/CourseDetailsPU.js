@@ -9,7 +9,6 @@ function CourseDetailsPU() {
   const [error, setError] = useState(null);
   const [expandedSec, setExpandedSec] = useState(false); //div expand
 
-  const [expandedCourseDetails, setExpandedCourseDetails] = useState(false);
   
   const navigate = useNavigate();
 
@@ -44,17 +43,6 @@ function CourseDetailsPU() {
     return <p>No data available</p>;
   }
 
-  const handleExpand = (index) => {
-    setExpanded((prevExpanded) => ({
-     ...prevExpanded,
-      [index]:!prevExpanded[index],
-    }));
-  };
-
-  const handleExpandCourseDetails = () => {
-    setExpandedCourseDetails(!expandedCourseDetails);
-  };
-
   //div handling
   const handleExpandSec = () => {
     setExpandedSec(!expandedSec);
@@ -75,14 +63,18 @@ function CourseDetailsPU() {
           )}
       </div>
 
-      <h3 onClick={() => handleExpand(1)}>{data.keyFeaturesTopic}</h3>
-      {expanded[1] && (
+      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <h3>{data.keyFeaturesTopic}</h3>
+      {expandedSec && (
+      <>
       <ul>
         {data.keyFeaturesList.map((feature, index) => (
           <li key={index}>{feature}</li>
         ))}
       </ul>
+      </>
       )}
+      </div>
 
      <div className='Expand-Sec' onClick={handleExpandSec}>
      <h3>{data.courseDetails}</h3>
