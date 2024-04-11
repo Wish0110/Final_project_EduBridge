@@ -8,6 +8,7 @@ function CourseDetailsPU() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expanded, setExpanded] = useState({});
+  const [expandedCourseDetails, setExpandedCourseDetails] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,13 +49,19 @@ function CourseDetailsPU() {
     }));
   };
 
+  const handleExpandCourseDetails = () => {
+    setExpandedCourseDetails(!expandedCourseDetails);
+  };
+
   return (
     <div>
       <h2>{data.courseTitle}</h2>
       <h3>{data.schoolTitle}</h3>
       <p className="course-overview-text">{data.overviewText}</p>
+
       <h3 onClick={() => handleExpand(0)}>{data.careerTopic}</h3>
       {expanded[0] && <p>{data.careerDescript}</p>}
+
       <h3 onClick={() => handleExpand(1)}>{data.keyFeaturesTopic}</h3>
       {expanded[1] && (
       <ul>
@@ -63,12 +70,19 @@ function CourseDetailsPU() {
         ))}
       </ul>
       )}
-      <h4>{data.courseMain}</h4>
-      <ul>
-        {data.ulElement3.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+
+<h3 onClick={handleExpandCourseDetails}>{data.courseDetails}</h3>
+    {expandedCourseDetails && (
+      <>
+        <h4>{data.courseMain}</h4>
+        <ul>
+          {data.ulElement3.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </>
+    )}
+    
       <h3>{data.entryreqTopic}</h3>
       <p>{data.entryreq}</p>
       <p>{data.entryreqdetails}</p>
