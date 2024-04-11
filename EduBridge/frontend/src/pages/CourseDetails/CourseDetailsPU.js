@@ -7,8 +7,6 @@ function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expanded, setExpanded] = useState({});
-
   const [expandedSec, setExpandedSec] = useState(false); //div expand
 
   const [expandedCourseDetails, setExpandedCourseDetails] = useState(false);
@@ -68,8 +66,14 @@ function CourseDetailsPU() {
       <h3>{data.schoolTitle}</h3>
       <p className="course-overview-text">{data.overviewText}</p>
 
-      <h3 onClick={() => handleExpand(0)}>{data.careerTopic}</h3>
-      {expanded[0] && <p>{data.careerDescript}</p>}
+      <div className='Expand-Sec' onClick={handleExpandSec}>
+      <h3>{data.careerTopic}</h3>
+        {expandedSec && (
+        <>
+          <p>{data.careerDescript}</p>
+        </>
+          )}
+      </div>
 
       <h3 onClick={() => handleExpand(1)}>{data.keyFeaturesTopic}</h3>
       {expanded[1] && (
@@ -80,8 +84,9 @@ function CourseDetailsPU() {
       </ul>
       )}
 
-     <h3 onClick={handleExpandCourseDetails}>{data.courseDetails}</h3>
-      {expandedCourseDetails && (
+     <div className='Expand-Sec' onClick={handleExpandSec}>
+     <h3>{data.courseDetails}</h3>
+      {expandedSec && (
       <>
         <h4>{data.courseMain}</h4>
         <ul>
@@ -91,6 +96,7 @@ function CourseDetailsPU() {
         </ul>
       </>
     )}
+    </div>
 
     <div className='Expand-Sec' onClick={handleExpandSec}>
     <h3>{data.entryreqTopic}</h3>
