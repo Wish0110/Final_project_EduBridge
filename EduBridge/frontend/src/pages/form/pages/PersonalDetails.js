@@ -28,6 +28,7 @@ const PersonalDetails = () => {
     } catch (error) {
       console.error('Error fetching student data:', error);
     }
+    setSectionComplete(true);
   };
 
   return (
@@ -179,6 +180,9 @@ const PersonalDetails = () => {
       <button type="submit" disabled={!sectionComplete}>
         Save this section
       </button>
+      <button type="submit" disabled={!sectionComplete}>
+            Save Progress
+          </button>
     </form>
     </div>
     </Sidebar>
