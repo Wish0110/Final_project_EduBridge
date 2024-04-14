@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import './form-css/Contactandresidencydetails.css'
 
 const Contactandresidencydetails = () => {
 
@@ -35,12 +36,12 @@ const Contactandresidencydetails = () => {
     });
   };
 
-  const handleCheckboxChange = (e) => {
+  {/*const handleCheckboxChange = (e) => {
     setContactDetails({
       ...contactDetails,
       nomineeAddressSame: e.target.checked,
     });
-  };
+  };*/}
 
   return (
     <Sidebar>
@@ -51,8 +52,8 @@ const Contactandresidencydetails = () => {
         <select name="mobileNumber" value={contactDetails.mobileNumber} onChange={handleInputChange}>
           <option value="+94">Srilanka (+94)</option>
           <option value="other">Other (Please specify)</option>
-          
         </select>
+        <input type="tel" name="mobileNumber" value={contactDetails.mobileNumber} onChange={handleInputChange} />
       </label>
       <label>
         Email address:
@@ -110,34 +111,8 @@ const Contactandresidencydetails = () => {
             How you know your nominee:
             <input type="text" name="nomineeRelation" value={contactDetails.nomineeRelation} onChange={handleInputChange} />
           </label>
-          <label>
-            Residency details:
-            <p>Is your home address the same as your postal address?</p>
-            <label>
-              <input type="checkbox" name="nomineeAddressSame" checked={contactDetails.nomineeAddressSame} onChange={handleCheckboxChange} />
-              Yes
-            </label>
-          </label>
-          {!contactDetails.nomineeAddressSame && (
-            <>
-              <label>
-                Nominee's address line 1:
-                <input type="text" name="nomineeAddressLine1" value={contactDetails.nomineeAddressLine1} onChange={handleInputChange} />
-              </label>
-              <label>
-                Nominee's address line 2:
-                <input type="text" name="nomineeAddressLine2" value={contactDetails.nomineeAddressLine2} onChange={handleInputChange} />
-              </label>
-              <label>
-                Nominee's address line 3:
-                <input type="text" name="nomineeAddressLine3" value={contactDetails.nomineeAddressLine3} onChange={handleInputChange} />
-              </label>
-              <label>
-                Nominee's address line 4:
-                <input type="text" name="nomineeAddressLine4" value={contactDetails.nomineeAddressLine4} onChange={handleInputChange} />
-              </label>
-            </>
-          )}
+          
+      
         </>
       )}
       <button type="submit">Save and continue</button>

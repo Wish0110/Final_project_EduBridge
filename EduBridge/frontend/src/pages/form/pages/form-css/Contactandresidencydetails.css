@@ -1,0 +1,29 @@
+form label {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  form label input,
+  form label select {
+    margin-top: 5px;
+  }
+  
+  form label .radio-group,
+  form label .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  form label .radio-group label,
+  form label .checkbox-group label {
+    margin-right: 10px;
+  }
+  
+  form label .nominee-address-group {
+    margin-top: 10px;
+  }
+  
+  form label .nominee-address-group input {
+    margin-top: 5px;
+  }
