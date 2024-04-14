@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CourseDetailsPU.css';
+import { Configuration, OpenAIApi } from 'openai';
 import { useNavigate } from "react-router-dom";
+
+const API_KEY = "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";
 
 
 function CourseDetailsPU() {
@@ -9,8 +12,12 @@ function CourseDetailsPU() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedSec, setExpandedSec] = useState({}); //div expand
+  const [summary, setSummary] = useState(null);
 
-  
+  const configuration = new Configuration({
+    apiKey: API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,19 +25,46 @@ function CourseDetailsPU() {
       setIsLoading(true);
       setData(null);
       setError(null);
-
+  
       try {
         const response = await axios.get('http://localhost:3002/crawled_data');
         setData(response.data);
+  
+        // Summarize the course details using the OpenAI API
+        const summary = await openai.createCompletion({
+          model: 'text-davinci-003',
+          prompt: `Summarize the following course details in 150 words or less:
+  
+  ${response.data.overviewText}
+  ${response.data.careerDescript}
+  ${response.data.keyFeaturesList.join('\n')}
+  ${response.data.courseDetails}
+  ${response.data.entryreq}
+  ${response.data.entryreqdetails}
+  ${response.data.feesDetails}
+  ${response.data.feesDetailsextra}
+  ${response.data.feesDetailsadd}
+  ${response.data.feesDetailssummary}
+  ${response.data.applydetails}
+  ${response.data.careers.join('\n')}`,
+          temperature: 0.5,
+          max_tokens: 150,
+          top_p: 1.0,
+          frequency_penalty: 0.0,
+          presence_penalty: 0.0,
+        });
+  
+        setSummary(summary.data.choices[0].text.trim());
+  
       } catch (error) {
         setError(error);
       } finally {
         setIsLoading(false);
       }
     };
-
+  
     fetchData();
-  }, []);
+  }, [openai]);
 
   if (isLoading) {
     return <p>Loading data...</p>;
@@ -137,6 +171,9 @@ function CourseDetailsPU() {
       </>
         )}
       </div>
+
+      <h2>Summary:</h2>
+    <p>{summary}</p>
 
       <button onClick={() => navigate("/ApplicationOverview")}>Apply Now</button>
     </div>
