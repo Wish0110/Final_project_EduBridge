@@ -178,9 +178,6 @@ const PersonalDetails = () => {
       </div>
 
       <button type="submit" disabled={!sectionComplete}>
-        Save this section
-      </button>
-      <button type="submit" disabled={!sectionComplete}>
             Save Progress
           </button>
     </form>
