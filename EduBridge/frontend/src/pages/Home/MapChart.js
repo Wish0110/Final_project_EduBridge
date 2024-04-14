@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css'; // Include CSS for styling
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, icon } from 'react-leaflet';
 
 const universities = [
   {
     name: 'University of Oxford',
     coordinates: [51.7520, -1.2577],
+    
   },
   {
     name: 'University of Cambridge',
@@ -150,6 +151,12 @@ const universities = [
   },
 ];
 
+const customIcon = icon({
+  iconUrl: require('./marker-icon.png'), // Replace with your icon image path
+  iconSize: [25, 41], // Size of the icon image (width, height)
+  iconAnchor: [12.5, 41], // Point of the icon that corresponds to the marker position
+});
+
 const MapChart = () => {
   // Initial map center and zoom level
   const mapCenter = [52.3555, -1.1572]; // Center of UK
@@ -184,6 +191,7 @@ const MapChart = () => {
             ) : (
               <button onClick={() => handleDetailsClick(university)}>More Info</button>
             )}
+            
           </Popup>
         </Marker>
       ))}
