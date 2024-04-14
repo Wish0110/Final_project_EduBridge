@@ -185,9 +185,11 @@ const MapChart = () => {
               <div>
                 {/* Detailed information about the university */}
                 <p>{university.name}</p>
-                <Link to={`/${university.name}`}>
-                  <button>Explore {university.name}</button>
+                {university.name === 'Plymouth University' && (
+                  <Link to="/PlymouthUnivesity">
+                    <button>Explore Plymouth University</button>
                 </Link>
+                )}
               </div>
             ) : (
               <button onClick={() => handleDetailsClick(university)}>More Info</button>
