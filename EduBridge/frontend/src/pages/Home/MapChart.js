@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css'; // Include CSS for styling
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl, icon } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
+import L from 'leaflet';
 
 const universities = [
   {
@@ -151,10 +152,10 @@ const universities = [
   },
 ];
 
-const customIcon = icon({
-  iconUrl: require('./marker-icon.png'), // Replace with your icon image path
-  iconSize: [25, 41], // Size of the icon image (width, height)
-  iconAnchor: [12.5, 41], // Point of the icon that corresponds to the marker position
+const customIcon = L.icon({
+  iconUrl: require('./marker.png'), // Replace with your image path
+  iconSize: [32, 32], // Adjust size as needed
+  iconAnchor: [16, 32], // Center the icon at the marker's position
 });
 
 const MapChart = () => {
@@ -178,7 +179,7 @@ const MapChart = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {universities.map((university) => (
-        <Marker key={university.name} position={university.coordinates}>
+        <Marker key={university.name} position={university.coordinates} icon={customIcon}>
           <Popup>
             {showDetails ? (
               <div>
