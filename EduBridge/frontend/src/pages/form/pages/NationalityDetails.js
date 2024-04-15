@@ -42,27 +42,33 @@ const DualNationality = ({ onChange }) => {
 
   return (
     <div>
+      <label>
+        4. Dual Nationality (label)
+        <br />
+        If you have dual nationality, select your first nationality in the previous
+        field and your second nationality here.
+      </label>
+      <br />
       <input type="checkbox" checked={dualNationality} onChange={handleChange} />
-      <label>If you have dual nationality, select your first nationality in the previous field and your second nationality here.</label>
     </div>
   );
 };
 
-const NationalitySelector = ({ options, label, onChange, dualNationality }) => {
-  if (!dualNationality) {
-    return null;
-  }
-
+const VisaRadioOptions = ({ label, options, onChange }) => {
   return (
     <div>
       <label>{label}</label>
-      <select onChange={onChange}>
-        {options.map(option => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
+      {options.map(option => (
+        <label key={option}>
+          <input
+            type="radio"
+            name={label} // Ensures only one option can be selected within this section
+            value={option}
+            onChange={onChange}
+          />
+          {option}
+        </label>
+      ))}
     </div>
   );
 };
@@ -85,10 +91,6 @@ const ApplicationForm = () => {
     setDateOfEntry(e.target.value);
   };
 
-  const handleDualNationalityChange = (e) => {
-    setDualNationality(e.target.checked);
-  };
-
   return (
     <Sidebar>
       <CountrySelector
@@ -102,13 +104,29 @@ const ApplicationForm = () => {
         options={['Sri Lanka', 'UK', 'Other']}
         onChange={handleNationalityChange}
       />
-      <DualNationality onChange={handleDualNationalityChange} />
-      <NationalitySelector
-        label="4. Dual nationality(label)"
-        options={['Sri Lanka', 'UK', 'Other']}
-        onChange={handleSecondNationalityChange}
-        dualNationality={dualNationality}
-      />
+      <DualNationality onChange={setDualNationality} />
+      {dualNationality && (
+        <>
+          <CountrySelector
+            label="Second Nationality (label)"
+            options={['Sri Lanka', 'UK', 'Other']}
+            onChange={handleSecondNationalityChange}
+          />
+          <VisaRadioOptions
+            label="Do you need a student visa to study in the UK?"
+            options={['Yes', 'No']}
+            
+          />
+          <VisaRadioOptions
+            label="Have you previously studied on a student or tier 4 visa?"
+            options={['Yes', 'No']}
+          />
+          <VisaRadioOptions
+            label="Do you have settled or pre-settled status in the UK?"
+            options={['Yes', 'No']}
+          />
+        </>
+      )}
     </Sidebar>
   );
 };
