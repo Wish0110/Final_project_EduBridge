@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './form-css/PersonalDetails.css';
 import Sidebar from "../components/Sidebar";
 
 const PersonalDetails = () => {
