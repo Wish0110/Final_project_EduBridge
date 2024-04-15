@@ -49,7 +49,7 @@ const DualNationalityRadio = ({ onChange }) => {
         field and your second nationality here.
       </label>
       <br />
-<div>
+      <div>
         <label>
           <input
             type="radio"
@@ -70,8 +70,8 @@ const DualNationalityRadio = ({ onChange }) => {
           />
           No
         </label>
-      </div>    
       </div>
+    </div>
   );
 };
 
@@ -99,7 +99,7 @@ const ApplicationForm = () => {
   const [secondNationality, setSecondNationality] = useState('');
   const [dateOfEntry, setDateOfEntry] = useState('');
   const [dualNationality, setDualNationality] = useState('no');
-  const [isComplete, setIsComplete] = useState(false); // Track completion status
+  const [isComplete, setIsComplete] = useState(); // Track completion status
 
   const handleNationalityChange = (e) => {
     setNationality(e.target.value);
@@ -118,7 +118,7 @@ const ApplicationForm = () => {
   };
 
   const handleCompletionCheck = (e) => {
-    const isSectionComplete = nationality && dateOfEntry; // Replace with your actual check
+    const isSectionComplete = nationality !== ''; // Replace with your actual check
     setIsComplete(e.target.checked && isSectionComplete);
   };
 
@@ -146,21 +146,19 @@ const ApplicationForm = () => {
           <VisaRadioOptions
             label="Do you need a student visa to study in the UK?"
             options={['Yes', 'No']}
-            
           />
           <VisaRadioOptions
             label="Have you previously studied on a student or tier 4 visa?"
             options={['Yes', 'No']}
           />
           <VisaRadioOptions
-            label="Do you have settled orpre-settled status in the UK?"
+            label="Do you have settled or pre-settled status in the UK?"
             options={['Yes', 'No']}
-
           />
         </>
       )}
 
-      <div>
+     <div>
         <label>
           <input
             type="checkbox"
@@ -175,7 +173,6 @@ const ApplicationForm = () => {
             }}
             disabled={!isComplete}
           />
-          Tick "OK" to confirm completion (This section only)
         </label>
         <p>
           Mark this section as complete: You must complete all mandatory fields
