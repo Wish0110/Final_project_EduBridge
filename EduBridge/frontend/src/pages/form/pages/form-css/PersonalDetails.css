@@ -35,6 +35,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    resize: none;
   }
   
   input[type="radio"], input[type="checkbox"] {
@@ -69,3 +70,15 @@
   select {
     height: 30px;
   }
+
+  .radio-group {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .radio-group label {
+    margin-left: 10px;
+  }
+
+  

@@ -5,6 +5,7 @@
   }
   .container{
     display: flex;
+
   }
   main{
     width: 100%;
@@ -17,7 +18,9 @@
     height: 100vh;
     width: 500px;
     padding: 1rem; /* Reduce the padding to 1rem */
-  
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
   }
 
   .top_section{
@@ -49,3 +52,4 @@
   .icon, .link_text{
     font-size: 20px;
   }
+

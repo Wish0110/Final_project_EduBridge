@@ -52,14 +52,12 @@ const PersonalDetails = () => {
 
       {studentData && (
         <div>
-          <label>
             <h2>First and Middle Name(s)</h2>
                 <p>
                   Make sure your name is as it appears on any official documents, such as
                   your passport, birth certificate or driving licence.
                 </p>
             <textarea value={studentData.name} readOnly />
-          </label>
         </div>
       )}
 
@@ -107,7 +105,7 @@ const PersonalDetails = () => {
         university or college directly if you'd feel more comfortable
         identifying in another way, or if this changes.
       </p>
-      <div>
+      <div className="radio-group">
         <input
           type="radio"
           id="man"
@@ -118,7 +116,7 @@ const PersonalDetails = () => {
         />
         <label htmlFor="man">Man</label>
       </div>
-      <div>
+      <div className="radio-group">
         <input
           type="radio"
           id="woman"
@@ -129,7 +127,7 @@ const PersonalDetails = () => {
         />
         <label htmlFor="woman">Woman</label>
       </div>
-      <div>
+      <div className="radio-group">
         <input
           type="radio"
           id="another"
@@ -139,7 +137,8 @@ const PersonalDetails = () => {
           onChange={(e) => setGender(e.target.value)}
         />
         <label htmlFor="another">Use another term</label>
-      </div><div>
+      </div>
+      <div className="radio-group">
         <input
           type="radio"
           id="not_to_say"
