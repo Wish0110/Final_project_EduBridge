@@ -53,6 +53,13 @@ const Navbar = () => {
     
     }, []);
     
+    //map navigation
+    const handleMapClick = () => {
+        const mapSection = document.getElementById("map");
+        if (mapSection) {
+          mapSection.scrollIntoView({ behavior: "smooth" });
+        }
+      };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-mainbg ">
@@ -95,13 +102,15 @@ const Navbar = () => {
                         </NavLink>    
                     </li>  
 
-                    <li className="nav-item hidden">
-                        <Link className="nav-link" to="#map" exact>
-                            <i 
-                            className="far
-                            fa-chart-bar">
-                            </i>Map
-                        </Link>    
+                    <li className="nav-item">
+                        <Link
+                        className="nav-link"
+                        to="#map"
+                        exact
+                        onClick={handleMapClick}
+                        >
+                        <i className="far fa-chart-bar"></i>Map
+                        </Link>
                     </li>
 
                     <li className="nav-item hidden">
