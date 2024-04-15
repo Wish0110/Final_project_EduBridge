@@ -1,0 +1,32 @@
+.banner-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .banner-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .banner-image img {
+    width: 100%;
+    height: auto;
+    transform: translateX(50%);
+  }
+  
+  @media (max-width: 991.98px) {
+    .banner-image {
+      display: none;
+    }
+  }
