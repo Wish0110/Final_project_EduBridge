@@ -49,7 +49,8 @@ const Home = () => {
 
     <section id="home">
     <div className="HomeContainer" id="home" ref={homeRef}>
-      <img src={banner} alt="Home Page Banner" className="banner"/>
+      <h2>Home</h2>
+      <home_banner />
     </div>
     </section>
 
