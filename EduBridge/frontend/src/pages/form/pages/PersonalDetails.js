@@ -6,7 +6,6 @@ const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
   const [studentData, setStudentData] = useState({ name: '', studentId: '' });
   const [title, setTitle] = useState("");
-  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [previousNames, setPreviousNames] = useState("");
   const [preferredName, setPreferredName] = useState("");
@@ -62,17 +61,6 @@ const PersonalDetails = () => {
           </label>
         </div>
       )}
-
-
-      <h2>First and Middle Name(s)</h2>
-      <p>
-        Make sure your name is as it appears on any official documents, such as
-        your passport, birth certificate or driving licence.
-      </p>
-      <textarea
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      />
 
       <h2>Last Name</h2>
       <p>
