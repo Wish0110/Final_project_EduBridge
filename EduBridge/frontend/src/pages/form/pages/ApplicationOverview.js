@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import { NavLink } from 'react-router-dom';
-import './ApplicationOverview.css';
+import './form-css/ApplicationOverview.css';
 
 const ApplicationOverview = () => {
   return (
