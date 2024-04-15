@@ -6,11 +6,26 @@ import './Home.css';
 import Navbar from '../../Componenets/Navbar/Navbar';
 
 const Home = () => {
+  //Home navigations controll
+  const homeRef = useRef(null);
   const mapRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const mapSection = document.getElementById("map");
+      const homeSection = homeRef.current;
+      const mapSection = mapRef.current;
+
+      //home section scroll
+      if (homeSection) {
+        const rect = homeSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          homeRef.current.classList.add("active");
+        } else {
+         homeRef.current.classList.remove("active");
+        }
+      }
+
+      //map section scroll
       if (mapSection) {
         const rect = mapSection.getBoundingClientRect();
         if (rect.top <= window.innerHeight && rect.bottom >= 0) {
@@ -32,9 +47,11 @@ const Home = () => {
     <div className='Navbar'>
     <Navbar />
 
-    <div className="HomeContainer">
-      *<img src={banner} alt="Home Page Banner" className="banner" />
+    <section id="home">
+    <div className="HomeContainer" id="home" ref={homeRef}>
+      <img src={banner} alt="Home Page Banner" className="banner"/>
     </div>
+    </section>
 
     <section id="map">
     <div className="map-chart-container" ref={mapRef}>

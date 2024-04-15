@@ -53,6 +53,14 @@ const Navbar = () => {
     
     }, []);
     
+    //home navigation
+    const handleHomeClick = () => {
+        const homeSection = document.getElementById("home");
+        if (homeSection) {
+          homeSection.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+
     //map navigation
     const handleMapClick = () => {
         const mapSection = document.getElementById("map");
@@ -60,6 +68,7 @@ const Navbar = () => {
           mapSection.scrollIntoView({ behavior: "smooth" });
         }
       };
+
 
     return (
         <nav className="navbar navbar-expand-lg navbar-mainbg ">
@@ -75,15 +84,28 @@ const Navbar = () => {
                         <div className="right"></div>
                     </div>
 
+                    {/*Home*/}
                     <li className="nav-item active hidden">
-                        <NavLink className="nav-link" to="/" exact>
+                        <Link className="nav-link" to="#home" exact
+                        onClick={handleHomeClick}
+                        >
                             <i 
                             className="fas
                             fa-tachometer-alt">
                             </i>Home
-                        </NavLink>    
+                        </Link>    
                     </li>  
 
+                    {/*Map*/}
+                    <li className="nav-item">
+                        <Link
+                        className="nav-link" to="#map" exact
+                        onClick={handleMapClick}
+                        >
+                        <i className="far fa-chart-bar"></i>Map
+                        </Link>
+                    </li>
+                    
                     <li className="nav-item hidden">
                         <NavLink className="nav-link" to="/About" exact>
                             <i 
@@ -101,17 +123,6 @@ const Navbar = () => {
                             </i>Service
                         </NavLink>    
                     </li>  
-
-                    <li className="nav-item">
-                        <Link
-                        className="nav-link"
-                        to="#map"
-                        exact
-                        onClick={handleMapClick}
-                        >
-                        <i className="far fa-chart-bar"></i>Map
-                        </Link>
-                    </li>
 
                     <li className="nav-item hidden">
                         <NavLink className="nav-link" to="/Contact" exact>
