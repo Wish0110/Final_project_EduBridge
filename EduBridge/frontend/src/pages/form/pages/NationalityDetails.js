@@ -1,193 +1,56 @@
-import { useState } from 'react';
+import React, { useState } from "react";
 import Sidebar from '../components/Sidebar';
 import './form-css/nationalityDetails.css';
 
-const CountrySelector = ({ options, label, onChange }) => {
-  return (
-    <div>
-      <label>{label}</label>
-      <select onChange={onChange}>
-        {options.map(option => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-};
 
-const DatePicker = ({ label, onChange }) => {
-  const [date, setDate] = useState('');
-
-  const handleChange = (e) => {
-    setDate(e.target.value);
-    onChange(e.target.value);
-  };
-
-  return (
-    <div>
-      <label>{label}</label>
-      <input type="date" value={date} onChange={handleChange} />
-    </div>
-  );
-};
-
-const DualNationalityRadio = ({ onChange }) => {
-  const [dualNationality, setDualNationality] = useState('no'); // Default to 'no'
-
-  const handleChange = (e) => {
-    setDualNationality(e.target.value);
-    onChange(e.target.value); // Pass the selected value to parent component
-  };
-
-  return (
-    <div>
-      <label>
-        Dual Nationality
-        <br />
-        If you have dual nationality, select your first nationality in the previous
-        field and your second nationality here.
-      </label>
-      <br />
-      <div>
-        <label>
-          <input
-            type="radio"
-            name="dualNationality" // Ensures only one option can be selected
-            value="yes"
-            checked={dualNationality === 'yes'}
-            onChange={handleChange}
-          />
-          Yes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="dualNationality"
-            value="no"
-            checked={dualNationality === 'no'}
-            onChange={handleChange}
-          />
-          No
-        </label>
-      </div>
-    </div>
-  );
-};
-
-const VisaRadioOptions = ({ label, options, onChange }) => {
-  return (
-    <div>
-      <label>{label}</label>
-      {options.map(option => (
-        <label key={option}>
-          <input
-            type="radio"
-            name={label} // Ensures only one option can be selected within this section
-            value={option}
-            onChange={onChange}
-          />
-          {option}
-        </label>
-      ))}
-    </div>
-  );
-};
-
-const ApplicationForm = () => {
+const NationalityDetails = () => {
+  const [birthCountry, setBirthCountry] = useState('');
+  const [arrivalDate, setArrivalDate] = useState('');
   const [nationality, setNationality] = useState('');
-  const [secondNationality, setSecondNationality] = useState('');
-  const [dateOfEntry, setDateOfEntry] = useState('');
-  const [dualNationality, setDualNationality] = useState('no');
-  const [isComplete, setIsComplete] = useState(); // Track completion status
 
-  const handleNationalityChange = (e) => {
-    setNationality(e.target.value);
+  const handleBirthCountryChange = (event) => {
+    setBirthCountry(event.target.value);
   };
 
-  const handleSecondNationalityChange = (e) => {
-    setSecondNationality(e.target.value);
+  const handleArrivalDateChange = (event) => {
+    setArrivalDate(event.target.value);
   };
 
-  const handleDateOfEntryChange = (e) => {
-    setDateOfEntry(e.target.value);
-  };
-
-  const handleDualNationalityChange = (e) => {
-    setDualNationality(e.target.value);
-  };
-
-  const handleCompletionCheck = (e) => {
-    const isSectionComplete = nationality !== ''; // Replace with your actual check
-    setIsComplete(e.target.checked && isSectionComplete);
+  const handleNationalityChange = (event) => {
+    setNationality(event.target.value);
   };
 
   return (
-    <Sidebar >
-      <div className='form-container'></div>
-      <CountrySelector
-        label="What is your country of birth?"
-        options={['Sri Lanka', 'UK', 'Other']}
-        onChange={handleNationalityChange}
-      />
-      <DatePicker label="Please tell us your date of first entry to UK" onChange={handleDateOfEntryChange} />
-      <CountrySelector
-        label="What is your nationality?"
-        options={['Sri Lanka', 'UK', 'Other']}
-        onChange={handleNationalityChange}
-      />
-      <DualNationalityRadio onChange={setDualNationality} />
-      {dualNationality === 'yes' && ( // Conditionally render VisaRadioOptions
-        <>
-          <CountrySelector
-            label="Second Nationality?"
-            options={['UK', 'Other']}
-            onChange={handleSecondNationalityChange}
-          />
-          <VisaRadioOptions
-            label="Do you need a student visa to study in the UK?"
-            options={['Yes', 'No']}
-          />
-          <VisaRadioOptions
-            label="Have you previously studied on a student or tier 4 visa?"
-            options={['Yes', 'No']}
-          />
-          <VisaRadioOptions
-            label="Do you have settled or pre-settled status in the UK?"
-            options={['Yes', 'No']}
-          />
-        </>
-      )}
+    <Sidebar>
+    <form>
+      <label htmlFor="birth-country">
+        What is your country of birth? <br />
+        For the purpose of this question the UK includes the Channel Islands and the Isle of Man.
+      </label>
+      <select id="birth-country" value={birthCountry} onChange={handleBirthCountryChange}>
+        <option value="">Select a country</option>
+        <option value="sri-lanka">Sri Lanka</option>
+        {/* Add more country options here */}
+      </select>
 
-     <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={isComplete}
-            onChange={(e) => {
-              handleCompletionCheck(e);
-              if (e.target.checked && nationality && dateOfEntry) {
-                e.target.disabled = true;
-              } else {
-                e.target.disabled = false;
-              }
-            }}
-            disabled={!isComplete}
-          />
-        </label>
-        <p>
-          Mark this section as complete: You must complete all mandatory fields
-          in this section before you can mark it as complete. All sections must
-          be marked as complete before you can send your application.
-        </p>
-      </div>
+      <label htmlFor="arrival-date">
+        Please tell us your date of first entry to UK <br />
+        If you already live in the UK, this should be the date you moved here. If you have never lived in the UK before, please enter the date you plan to arrive to start a course.
+      </label>
+      <input type="date" id="arrival-date" value={arrivalDate} onChange={handleArrivalDateChange} />
 
-      <button type="submit" disabled={!isComplete}>
-        Submit
-      </button>
+      <label htmlFor="nationality">
+        What is your nationality? <br />
+        If you're applying from outside the UK choose your nationality as it appears in your passport. If you have dual nationality and you need a visa to enter the UK, enter your first nationality as it is shown on the passport you intend to use when travelling to the UK for your course.
+      </label>
+      <select id="nationality" value={nationality} onChange={handleNationalityChange}>
+        <option value="">Select a nationality</option>
+        <option value="sri-lankan">Sri Lankan</option>
+        {/* Add more nationality options here */}
+      </select>
+    </form>
     </Sidebar>
   );
-};
+}
 
-export default ApplicationForm;
+export default NationalityDetails;
