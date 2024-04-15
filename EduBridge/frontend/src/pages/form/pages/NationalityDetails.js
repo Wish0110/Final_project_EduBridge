@@ -32,25 +32,46 @@ const DatePicker = ({ label, onChange }) => {
   );
 };
 
-const DualNationality = ({ onChange }) => {
-  const [dualNationality, setDualNationality] = useState(false);
+const DualNationalityRadio = ({ onChange }) => {
+  const [dualNationality, setDualNationality] = useState('no'); // Default to 'no'
 
   const handleChange = (e) => {
-    setDualNationality(e.target.checked);
-    onChange(e.target.checked);
+    setDualNationality(e.target.value);
+    onChange(e.target.value); // Pass the selected value to parent component
   };
 
   return (
     <div>
       <label>
-        4. Dual Nationality (label)
+        4. Dual Nationality
         <br />
         If you have dual nationality, select your first nationality in the previous
         field and your second nationality here.
       </label>
       <br />
-      <input type="checkbox" checked={dualNationality} onChange={handleChange} />
-    </div>
+<div>
+        <label>
+          <input
+            type="radio"
+            name="dualNationality" // Ensures only one option can be selected
+            value="yes"
+            checked={dualNationality === 'yes'}
+            onChange={handleChange}
+          />
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="dualNationality"
+            value="no"
+            checked={dualNationality === 'no'}
+            onChange={handleChange}
+          />
+          No
+        </label>
+      </div>    
+      </div>
   );
 };
 
@@ -77,7 +98,8 @@ const ApplicationForm = () => {
   const [nationality, setNationality] = useState('');
   const [secondNationality, setSecondNationality] = useState('');
   const [dateOfEntry, setDateOfEntry] = useState('');
-  const [dualNationality, setDualNationality] = useState(false);
+  const [dualNationality, setDualNationality] = useState('no');
+  const [isComplete, setIsComplete] = useState(false); // Track completion status
 
   const handleNationalityChange = (e) => {
     setNationality(e.target.value);
@@ -91,25 +113,34 @@ const ApplicationForm = () => {
     setDateOfEntry(e.target.value);
   };
 
+  const handleDualNationalityChange = (e) => {
+    setDualNationality(e.target.value);
+  };
+
+  const handleCompletionCheck = (e) => {
+    const isSectionComplete = nationality && dateOfEntry; // Replace with your actual check
+    setIsComplete(e.target.checked && isSectionComplete);
+  };
+
   return (
     <Sidebar>
       <CountrySelector
-        label="1. What is your country of birth? (label)"
+        label="1. What is your country of birth?"
         options={['Sri Lanka', 'UK', 'Other']}
         onChange={handleNationalityChange}
       />
-      <DatePicker label="2. Please tell us your date of first entry to UK(label)" onChange={handleDateOfEntryChange} />
+      <DatePicker label="2. Please tell us your date of first entry to UK" onChange={handleDateOfEntryChange} />
       <CountrySelector
-        label="3. What is your nationality? (label)"
+        label="3. What is your nationality?"
         options={['Sri Lanka', 'UK', 'Other']}
         onChange={handleNationalityChange}
       />
-      <DualNationality onChange={setDualNationality} />
-      {dualNationality && (
+      <DualNationalityRadio onChange={setDualNationality} />
+      {dualNationality === 'yes' && ( // Conditionally render VisaRadioOptions
         <>
           <CountrySelector
-            label="Second Nationality (label)"
-            options={['Sri Lanka', 'UK', 'Other']}
+            label="Second Nationality?"
+            options={['UK', 'Other']}
             onChange={handleSecondNationalityChange}
           />
           <VisaRadioOptions
@@ -122,11 +153,41 @@ const ApplicationForm = () => {
             options={['Yes', 'No']}
           />
           <VisaRadioOptions
-            label="Do you have settled or pre-settled status in the UK?"
+            label="Do you have settled orpre-settled status in the UK?"
             options={['Yes', 'No']}
+
           />
         </>
       )}
+
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={isComplete}
+            onChange={(e) => {
+              handleCompletionCheck(e);
+              if (e.target.checked && nationality && dateOfEntry) {
+                e.target.disabled = true;
+              } else {
+                e.target.disabled = false;
+              }
+            }}
+            disabled={!isComplete}
+          />
+          Tick "OK" to confirm completion (This section only)
+        </label>
+        <p>
+          Mark this section as complete: You must complete all mandatory fields
+          in this section before you can mark it as complete. All sections must
+          be marked as complete before you can send your application.
+        </p>
+      </div>
+
+      <button type="submit" disabled={!isComplete}>
+        Submit
+      </button>
+
     </Sidebar>
   );
 };
