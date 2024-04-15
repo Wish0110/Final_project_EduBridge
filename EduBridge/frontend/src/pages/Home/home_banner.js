@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import bannerImage from './Home-Banner.png'; // Import your image
 import './banner.css';
 
 const home_banner = () => {
@@ -8,7 +9,7 @@ const home_banner = () => {
       <Row className="align-items-center g-0">
         <Col xs={12} md={7} className="position-relative">
           <div className="banner-content d-flex align-items-center h-100">
-            <div>
+          <div className="text-left">
               <h1 className="display-3 fw-bold text-white">
                 Welcome to EduBridge
               </h1>
@@ -18,12 +19,9 @@ const home_banner = () => {
               {/* Add any other content you want here */}
             </div>
           </div>
-          <div className="banner-image d-none d-md-block">
-            <img src={require('../assets/Home-Banner.png')} alt="Banner" />
-          </div>
         </Col>
         <Col xs={12} md={5} className="bg-light p-5 h-100 d-flex justify-content-center">
-          {/* Add any other content you want here */}
+          <img src={bannerImage} alt="Home Banner" className="img-fluid w-75" /> {/* Add your image here and make it smaller with w-75 */}
         </Col>
       </Row>
     </Container>

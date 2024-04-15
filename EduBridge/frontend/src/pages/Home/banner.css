@@ -1,21 +1,27 @@
 .banner-content {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  margin-bottom: 50px;
   }
   
+  .banner-content h1,
+.banner-content p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
   .banner-image {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     z-index: -1;
-    width: 50%;
-    height: 100%;
+    width: 20%;
+    height: 50%;
     overflow: hidden;
   }
   
@@ -24,6 +30,12 @@
     height: auto;
     transform: translateX(50%);
   }
+
+  .img-fluid img {
+    width: 800px !important; /* Change this value to increase or decrease the image size */
+    height: 800px !important;
+    transform: translateX(50%);
+}
   
   @media (max-width: 991.98px) {
     .banner-image {

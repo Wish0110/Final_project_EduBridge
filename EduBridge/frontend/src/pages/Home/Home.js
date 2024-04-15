@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MapChart from './MapChart';
-import banner from './banner.png';
+import HomeBanner from './home_banner';
 import './Home.css';
 import Navbar from '../../Componenets/Navbar/Navbar';
 
@@ -48,9 +48,9 @@ const Home = () => {
     <Navbar />
 
     <section id="home">
-    <div className="HomeContainer" id="home" ref={homeRef}>
+    <div className="HomeContainer" ref={homeRef}>
       <h2>Home</h2>
-      <home_banner />
+      <HomeBanner />
     </div>
     </section>
 
