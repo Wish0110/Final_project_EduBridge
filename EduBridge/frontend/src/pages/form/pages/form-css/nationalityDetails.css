@@ -1,0 +1,36 @@
+.sidebar input,
+.sidebar select,
+.sidebar textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Add some styles to the labels */
+.sidebar label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Add some styles to the radio buttons and checkboxes */
+.sidebar input[type="radio"],
+.sidebar input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns to your preference */
+    grid-gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .CountrySelector,
+.DatePicker,
+.DualNationalityRadio,
+.VisaRadioOptions {
+  grid-column: 1 / -1; /* Span the entire width of the grid container */
+}

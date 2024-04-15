@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import './form-css/nationalityDetails.css';
 
 const CountrySelector = ({ options, label, onChange }) => {
   return (
@@ -43,7 +44,7 @@ const DualNationalityRadio = ({ onChange }) => {
   return (
     <div>
       <label>
-        4. Dual Nationality
+        Dual Nationality
         <br />
         If you have dual nationality, select your first nationality in the previous
         field and your second nationality here.
@@ -123,15 +124,16 @@ const ApplicationForm = () => {
   };
 
   return (
-    <Sidebar>
+    <Sidebar >
+      <div className='form-container'></div>
       <CountrySelector
-        label="1. What is your country of birth?"
+        label="What is your country of birth?"
         options={['Sri Lanka', 'UK', 'Other']}
         onChange={handleNationalityChange}
       />
-      <DatePicker label="2. Please tell us your date of first entry to UK" onChange={handleDateOfEntryChange} />
+      <DatePicker label="Please tell us your date of first entry to UK" onChange={handleDateOfEntryChange} />
       <CountrySelector
-        label="3. What is your nationality?"
+        label="What is your nationality?"
         options={['Sri Lanka', 'UK', 'Other']}
         onChange={handleNationalityChange}
       />
@@ -184,7 +186,6 @@ const ApplicationForm = () => {
       <button type="submit" disabled={!isComplete}>
         Submit
       </button>
-
     </Sidebar>
   );
 };

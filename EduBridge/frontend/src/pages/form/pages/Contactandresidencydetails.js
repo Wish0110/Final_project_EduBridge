@@ -36,12 +36,12 @@ const Contactandresidencydetails = () => {
     });
   };
 
-  {/*const handleCheckboxChange = (e) => {
+  /*const handleCheckboxChange = (e) => {
     setContactDetails({
       ...contactDetails,
       nomineeAddressSame: e.target.checked,
     });
-  };*/}
+  };*/
 
   return (
     <Sidebar>
