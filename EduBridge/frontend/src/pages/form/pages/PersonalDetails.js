@@ -7,21 +7,16 @@ const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
   const [studentData, setStudentData] = useState({
     name: '',
-    studentId: '',
+    studentid: '',
     firstName: '',
     middleName: '',
     lastName: '',
-    previousNames: '',
+    prvName: '',
     preferredName: '',
-    birthDate: '',
+    dateOfBirth: '',
     gender: ''
   });
   const [title, setTitle] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [previousNames, setPreviousNames] = useState("");
-  const [preferredName, setPreferredName] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [gender, setGender] = useState("");
   const [sectionComplete, setSectionComplete] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -77,8 +72,7 @@ const PersonalDetails = () => {
         your passport, birth certificate or driving licence.
       </p>
       <textarea
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
+        value={studentData.lastName} 
       />
 
       <h2>Previous Name(s)</h2>
@@ -87,8 +81,8 @@ const PersonalDetails = () => {
         it helps when we're matching educational records.
       </p>
       <textarea
-        value={previousNames}
-        onChange={(e) => setPreviousNames(e.target.value)}
+        value={studentData.previousNames}
+        onChange={(e) => setStudentData({ ...studentData, previousNames: e.target.value })}
       />
 
       <h2>Preferred Name</h2>
@@ -97,16 +91,16 @@ const PersonalDetails = () => {
         call you in our correspondence.
       </p>
       <textarea
-        value={preferredName}
-        onChange={(e) => setPreferredName(e.target.value)}
-      />
+        value={studentData.preferredName}
+        onChange={(e) => setStudentData({ ...studentData, preferredName: e.target.value })}
+        />
 
       <h2>Date of Birth</h2>
       <p>DD MM YYYY</p>
       <input
         type="text"
-        value={birthDate}
-        onChange={(e) => setBirthDate(e.target.value)}
+        value={studentData.birthDate}
+            onChange={(e) => setStudentData({ ...studentData, birthDate: e.target.value })}
       />
 
       <h2>Gender</h2>
@@ -121,8 +115,8 @@ const PersonalDetails = () => {
           id="man"
           name="gender"
           value="man"
-          checked={gender === "man"}
-          onChange={(e) => setGender(e.target.value)}
+          checked={studentData.gender === "man"}
+          onChange={(e) => setStudentData({ ...studentData, gender: e.target.value })}
         />
         <label htmlFor="man">Man</label>
       </div>
@@ -132,8 +126,8 @@ const PersonalDetails = () => {
           id="woman"
           name="gender"
           value="woman"
-          checked={gender === "woman"}
-          onChange={(e) => setGender(e.target.value)}
+          checked={studentData.gender === "woman"}
+          onChange={(e) => setStudentData({ ...studentData, gender: e.target.value })}
         />
         <label htmlFor="woman">Woman</label>
       </div>
@@ -143,8 +137,8 @@ const PersonalDetails = () => {
           id="another"
           name="gender"
           value="another"
-          checked={gender === "another"}
-          onChange={(e) => setGender(e.target.value)}
+          checked={studentData.gender === "another"}
+          onChange={(e) => setStudentData({ ...studentData, gender: e.target.value })}
         />
         <label htmlFor="another">Use another term</label>
       </div>
@@ -154,8 +148,8 @@ const PersonalDetails = () => {
           id="not_to_say"
           name="gender"
           value="not_to_say"
-          checked={gender === "not_to_say"}
-          onChange={(e) => setGender(e.target.value)}
+          checked={studentData.gender === "not_to_say"}
+          onChange={(e) => setStudentData({ ...studentData, gender: e.target.value })}
         />
         <label htmlFor="not_to_say">I prefer not to say</label>
       </div>
