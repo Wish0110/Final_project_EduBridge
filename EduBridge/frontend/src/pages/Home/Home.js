@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import 'leaflet/dist/leaflet.css'; // Include CSS for styling
 import { Link } from 'react-router-dom';
 import MapChart from './MapChart';
 import HomeBanner from './home_banner';
@@ -53,7 +54,7 @@ const Home = () => {
     </div>
     </section>
 
-    <section id="map">
+    <section id="map" className="map-section">
     <div className="map-chart-container" ref={mapRef}>
         <h2>UK University Map</h2>
         <MapChart />

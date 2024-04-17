@@ -172,7 +172,12 @@ const MapChart = () => {
 
   return (
     
-    <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: '400px' }}>
+    <MapContainer center={mapCenter} zoom={zoomLevel} style={{
+      width: '100px', 
+      height: '800px',
+      borderRadius: '10px',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    }}>
       
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -180,19 +185,35 @@ const MapChart = () => {
       />
       {universities.map((university) => (
         <Marker key={university.name} position={university.coordinates} icon={customIcon}>
-          <Popup>
+          <Popup style={{
+              padding: '10px',
+              borderRadius: '5px',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            }}>
             {showDetails ? (
               <div>
                 {/* Detailed information about the university */}
                 <p>{university.name}</p>
                 {university.name === 'Plymouth University' && (
                   <Link to="/PlymouthUnivesity">
-                    <button>Explore Plymouth University</button>
+                    <button style={{
+                        backgroundColor: '#007bff',
+                        color: '#fff',
+                        border: 'none',
+                        padding: '5px 10px',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                      }}>Explore Plymouth University</button>
                 </Link>
                 )}
               </div>
             ) : (
-              <button onClick={() => handleDetailsClick(university)}>More Info</button>
+              <button style={{
+                backgroundColor: 'transparent',
+                border: 'none',
+                padding: '5px 10px',
+                cursor: 'pointer',
+              }}onClick={() => handleDetailsClick(university)}>More Info</button>
             )}
             
           </Popup>

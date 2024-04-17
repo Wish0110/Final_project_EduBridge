@@ -22,3 +22,12 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+/*map display ctyles*/
+.map-chart-container { 
+  width: 1000px; 
+  height: 500px; 
+  margin: 50px;
+  overflow: hidden;
+  position: relative; 
+}
