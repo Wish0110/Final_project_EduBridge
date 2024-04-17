@@ -26,14 +26,22 @@ const PersonalDetails = () => {
       const response = await axios.post('http://localhost:3004/api/fetch-student', { studentId });
   
       if (response.data.success) {
-        setStudentData(response.data.data);
+        const { name,studentid,lastName, prvName, preferredName, dateOfBirth, gender } = response.data.data;
+        setStudentData({
+          name,
+          studentid,
+          lastName,
+          prvName,
+          preferredName,
+          dateOfBirth,
+          gender
+      });
       } else {
         console.error(response.data.message);
       }
     } catch (error) {
       console.error('Error fetching student data:', error);
     }
-    setSectionComplete(true);
   };
 
   return (
@@ -55,53 +63,59 @@ const PersonalDetails = () => {
         <option value="Mrs">Mrs</option>
       </select>
 
-      {studentData && (
+  
         <div>
             <h2>First and Middle Name(s)</h2>
                 <p>
                   Make sure your name is as it appears on any official documents, such as
                   your passport, birth certificate or driving licence.
                 </p>
-            <textarea value={studentData.name} readOnly />
+                {studentData && <textarea value={studentData.name} readOnly />}
         </div>
-      )}
 
-      <h2>Last Name</h2>
-      <p>
-        Make sure your name is as it appears on any official documents, such as
-        your passport, birth certificate or driving licence.
-      </p>
-      <textarea
-        value={studentData.lastName} 
-      />
 
+       <div>
+          <h2>Last Name</h2>
+            <p>
+              Make sure your name is as it appears on any official documents, such as
+              your passport, birth certificate or driving licence.
+            </p>
+            {studentData && <textarea value={studentData.lastName} readOnly />}
+        </div>  
+   
+      <div>
       <h2>Previous Name(s)</h2>
       <p>
         Tell us any other names you've been known by (for example maiden name), as
         it helps when we're matching educational records.
       </p>
+      {studentData && (
       <textarea
-        value={studentData.previousNames}
-        onChange={(e) => setStudentData({ ...studentData, previousNames: e.target.value })}
+        value={studentData.prvName}
+        onChange={(e) => setStudentData({ ...studentData, prvName: e.target.value })}
       />
+    )}
+    </div>
 
+      <div>
       <h2>Preferred Name</h2>
       <p>
         Let us know what we, and your chosen universities and colleges, should
         call you in our correspondence.
       </p>
+      {studentData && (
       <textarea
         value={studentData.preferredName}
         onChange={(e) => setStudentData({ ...studentData, preferredName: e.target.value })}
-        />
+      />
+    )}
+      </div>  
 
+      <div>
       <h2>Date of Birth</h2>
       <p>DD MM YYYY</p>
-      <input
-        type="text"
-        value={studentData.birthDate}
-            onChange={(e) => setStudentData({ ...studentData, birthDate: e.target.value })}
-      />
+      {studentData && <input value={studentData.dateOfBirth} readOnly />}
+      </div>
 
       <h2>Gender</h2>
       <p>
