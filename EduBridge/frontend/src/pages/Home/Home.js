@@ -112,11 +112,19 @@ const Home = () => {
       </div>
     </section>
 
-    {/*about*/}
+    {/*Service*/}
     <section id="service" className="service-section">
     <div className="service-container" ref={serviceRef}>
         <h2>Service</h2>
         <Service />
+      </div>
+    </section>
+
+    {/*contact*/}
+    <section id="contact" className="contact-section">
+    <div className="contact-container" ref={contactRef}>
+        <h2>contact</h2>
+        <Contact />
       </div>
     </section>
 
