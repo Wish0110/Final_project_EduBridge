@@ -8,8 +8,6 @@ const PersonalDetails = () => {
   const [studentData, setStudentData] = useState({
     name: '',
     studentid: '',
-    firstName: '',
-    middleName: '',
     lastName: '',
     prvName: '',
     preferredName: '',
@@ -26,7 +24,7 @@ const PersonalDetails = () => {
       const response = await axios.post('http://localhost:3004/api/fetch-student', { studentId });
   
       if (response.data.success) {
-        const { name,studentid,lastName, prvName, preferredName, dateOfBirth, gender } = response.data.data;
+        const { name, studentid, lastName, prvName, preferredName, dateOfBirth, gender } = response.data.data;
         setStudentData({
           name,
           studentid,
@@ -35,13 +33,17 @@ const PersonalDetails = () => {
           preferredName,
           dateOfBirth,
           gender
+          
       });
+
+      
       } else {
         console.error(response.data.message);
       }
     } catch (error) {
       console.error('Error fetching student data:', error);
     }
+    
   };
 
   return (
@@ -80,7 +82,7 @@ const PersonalDetails = () => {
               Make sure your name is as it appears on any official documents, such as
               your passport, birth certificate or driving licence.
             </p>
-            {studentData && <textarea value={studentData.lastName} readOnly />}
+            <textarea value={studentData.lastName} readOnly />
         </div>  
    
       <div>
