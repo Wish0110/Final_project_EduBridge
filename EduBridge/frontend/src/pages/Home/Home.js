@@ -7,7 +7,7 @@ import './Home.css';
 import Navbar from '../../Componenets/Navbar/Navbar';
 import About from '../About/About';
 import Service from '../Service/Service';
-
+import Contact from '../Contact/Contact';
 
 const Home = () => {
   //navigations controll in pages
@@ -15,6 +15,7 @@ const Home = () => {
   const mapRef = useRef(null);
   const aboutRef = useRef(null);
   const serviceRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,7 @@ const Home = () => {
       const mapSection = mapRef.current;
       const aboutSection = aboutRef.current;
       const serviceSection = serviceRef.current;
+      const contactSection = contactRef.current;
 
       //home section scroll
       if (homeSection) {
@@ -60,6 +62,16 @@ const Home = () => {
           serviceRef.current.classList.add("active");
         } else {
           serviceRef.current.classList.remove("active");
+        }
+      }
+
+      //contact section scroll
+      if (contactSection) {
+        const rect = contactSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          contactRef.current.classList.add("active");
+        } else {
+          contactRef.current.classList.remove("active");
         }
       }
     };
