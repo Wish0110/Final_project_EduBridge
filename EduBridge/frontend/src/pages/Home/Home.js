@@ -49,7 +49,6 @@ const Home = () => {
 
     <section id="home">
     <div className="HomeContainer" ref={homeRef}>
-      <h2>Home</h2>
       <HomeBanner />
     </div>
     </section>
