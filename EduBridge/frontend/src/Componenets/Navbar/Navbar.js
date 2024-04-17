@@ -69,6 +69,13 @@ const Navbar = () => {
         }
       };
 
+      //about navigation
+    const handleAboutClick = () => {
+        const aboutSection = document.getElementById("about");
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: "smooth" });
+        }
+      };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-mainbg ">
@@ -106,13 +113,13 @@ const Navbar = () => {
                         </Link>
                     </li>
                     
-                    <li className="nav-item hidden">
-                        <NavLink className="nav-link" to="/About" exact>
-                            <i 
-                            className="fas
-                            fa-address-book">
-                            </i>About
-                        </NavLink>    
+                    <li className="nav-item">
+                        <Link
+                        className="nav-link" to="#about" exact
+                        onClick={handleAboutClick}
+                        >
+                        <i className="fas fa-address-book"></i>About
+                        </Link>    
                     </li>  
 
                     <li className="nav-item hidden">
