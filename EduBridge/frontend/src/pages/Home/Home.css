@@ -31,3 +31,9 @@
   overflow: hidden;
   position: relative; 
 }
+
+.leaflet-container {
+  margin-top: 50px;
+  width: 1000px !important;
+  height: 500px !important;
+}
