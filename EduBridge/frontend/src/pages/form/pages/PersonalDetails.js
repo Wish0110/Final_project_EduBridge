@@ -16,6 +16,7 @@ const PersonalDetails = () => {
   });
   const [title, setTitle] = useState("");
   const [sectionComplete, setSectionComplete] = useState(false);
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,13 +29,13 @@ const PersonalDetails = () => {
         setStudentData({
           name,
           studentid,
-          lastName,
+          lastName, // Include lastName here
           prvName,
           preferredName,
           dateOfBirth,
           gender
-          
-      });
+        });
+        
 
       
       } else {
@@ -82,10 +83,11 @@ const PersonalDetails = () => {
               Make sure your name is as it appears on any official documents, such as
               your passport, birth certificate or driving licence.
             </p>
-            <textarea value={studentData.lastName} readOnly />
-        </div>  
-   
+            {studentData && <textarea value={studentData.lastName} readOnly />}    
+            </div>  
+
       <div>
+
       <h2>Previous Name(s)</h2>
       <p>
         Tell us any other names you've been known by (for example maiden name), as
