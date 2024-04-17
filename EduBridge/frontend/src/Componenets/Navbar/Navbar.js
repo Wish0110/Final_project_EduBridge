@@ -77,6 +77,14 @@ const Navbar = () => {
         }
       };
 
+      //service navigation
+    const handleServiceClick = () => {
+        const serviceSection = document.getElementById("service");
+        if (serviceSection) {
+            serviceSection.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-mainbg ">
         <img src={logo} alt="Logo" className="navbar-logo" />
@@ -122,13 +130,15 @@ const Navbar = () => {
                         </Link>    
                     </li>  
 
-                    <li className="nav-item hidden">
-                        <NavLink className="nav-link" to="/Service" exact>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="#service" exact
+                        onClick={handleServiceClick}
+                        >
                             <i 
                             className="far
                             fa-clone">
                             </i>Service
-                        </NavLink>    
+                        </Link>    
                     </li>  
 
                     <li className="nav-item hidden">

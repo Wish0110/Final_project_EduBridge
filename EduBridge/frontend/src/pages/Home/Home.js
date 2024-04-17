@@ -6,18 +6,21 @@ import HomeBanner from './home_banner';
 import './Home.css';
 import Navbar from '../../Componenets/Navbar/Navbar';
 import About from '../About/About';
+import Service from '../Service/Service';
 
 const Home = () => {
-  //Home navigations controll
+  //navigations controll in pages
   const homeRef = useRef(null);
   const mapRef = useRef(null);
   const aboutRef = useRef(null);
+  const serviceRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const homeSection = homeRef.current;
       const mapSection = mapRef.current;
       const aboutSection = aboutRef.current;
+      const serviceSection = serviceRef.current;
 
       //home section scroll
       if (homeSection) {
@@ -46,6 +49,16 @@ const Home = () => {
           aboutRef.current.classList.add("active");
         } else {
           aboutRef.current.classList.remove("active");
+        }
+      }
+
+      //about section scroll
+      if (serviceSection) {
+        const rect = serviceSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          serviceRef.current.classList.add("active");
+        } else {
+          serviceRef.current.classList.remove("active");
         }
       }
     };
@@ -83,6 +96,14 @@ const Home = () => {
     <div className="about-container" ref={aboutRef}>
         <h2>About</h2>
         <About />
+      </div>
+    </section>
+
+    {/*about*/}
+    <section id="service" className="service-section">
+    <div className="service-container" ref={serviceRef}>
+        <h2>Service</h2>
+        <Service />
       </div>
     </section>
 
