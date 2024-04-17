@@ -176,7 +176,7 @@ const MapChart = () => {
       width: '100px', 
       height: '800px',
       borderRadius: '10px',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
     }}>
       
       <TileLayer

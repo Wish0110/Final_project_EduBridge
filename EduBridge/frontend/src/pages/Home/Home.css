@@ -30,6 +30,7 @@
   margin: 50px;
   overflow: hidden;
   position: relative; 
+  background-color: #fff; 
 }
 
 .leaflet-container {
