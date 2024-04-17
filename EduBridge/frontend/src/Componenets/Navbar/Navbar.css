@@ -46,8 +46,8 @@ i {
   margin-top: 0 !important;
   width: 100%;
   top: 0;
-  z-index: 1000
-
+  z-index: 1000;
+  position: sticky;
 }
 #navbarSupportedContent {
   overflow: hidden;
