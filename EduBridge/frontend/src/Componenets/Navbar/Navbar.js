@@ -85,6 +85,14 @@ const Navbar = () => {
         }
       };
 
+      //service navigation
+    const handleContactClick = () => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-mainbg ">
         <img src={logo} alt="Logo" className="navbar-logo" />
@@ -138,6 +146,17 @@ const Navbar = () => {
                             className="far
                             fa-clone">
                             </i>Service
+                        </Link>    
+                    </li> 
+
+                    <li className="nav-item">
+                        <Link className="nav-link" to="#contact" exact
+                        onClick={handleContactClick}
+                        >
+                            <i 
+                            className="far
+                            fa-clone">
+                            </i>Contact
                         </Link>    
                     </li>  
 
