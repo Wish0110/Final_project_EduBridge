@@ -5,7 +5,17 @@ import Sidebar from "../components/Sidebar";
 
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
-  const [studentData, setStudentData] = useState({ name: '', studentId: '' });
+  const [studentData, setStudentData] = useState({
+    name: '',
+    studentId: '',
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    previousNames: '',
+    preferredName: '',
+    birthDate: '',
+    gender: ''
+  });
   const [title, setTitle] = useState("");
   const [lastName, setLastName] = useState("");
   const [previousNames, setPreviousNames] = useState("");
