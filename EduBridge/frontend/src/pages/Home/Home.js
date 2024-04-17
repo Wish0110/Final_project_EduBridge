@@ -1,12 +1,13 @@
 import React, { useRef, useEffect } from 'react';
-import 'leaflet/dist/leaflet.css'; // Include CSS for styling
 import { Link } from 'react-router-dom';
+import 'leaflet/dist/leaflet.css'; 
 import MapChart from './MapChart';
 import HomeBanner from './home_banner';
 import './Home.css';
 import Navbar from '../../Componenets/Navbar/Navbar';
 import About from '../About/About';
 import Service from '../Service/Service';
+
 
 const Home = () => {
   //navigations controll in pages
