@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import './Navbar.css';
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from './logo.png';
 import $ from 'jquery';
 
@@ -159,15 +159,6 @@ const Navbar = () => {
                             </i>Contact
                         </Link>    
                     </li>  
-
-                    <li className="nav-item hidden">
-                        <NavLink className="nav-link" to="/Contact" exact>
-                            <i 
-                            className="far
-                            fa-copy">
-                            </i>Contact Us
-                        </NavLink>    
-                    </li>
 
                 </ul>
         </div>
