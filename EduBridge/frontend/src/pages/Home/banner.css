@@ -17,7 +17,7 @@
   .banner-image {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 100px;
     bottom: 0;
     z-index: -1;
     width: 20%;
@@ -28,13 +28,14 @@
   .banner-image img {
     width: 100%;
     height: auto;
-    transform: translateX(50%);
+    transform: translateX(110%);
   }
 
-  .img-fluid img {
-    width: 800px !important; /* Change this value to increase or decrease the image size */
-    height: 800px !important;
-    transform: translateX(50%);
+  .img-fluid {
+    width: 700px !important; /* Change this value to increase or decrease the image size */
+    height: 600px !important;
+    transform: translateY(-138%);
+    
 }
   
   @media (max-width: 991.98px) {
