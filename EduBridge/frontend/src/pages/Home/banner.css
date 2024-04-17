@@ -21,6 +21,7 @@
   font-size: 24px;
   color: #666;
   margin-left: 100px;
+  display: inline-block;
 }
 
 .banner-image {
@@ -33,6 +34,6 @@
   width: 850px;
   max-width: 900px;
   height: auto;
-  margin-left: 200px;
+  margin-left: 250px;
   margin-bottom: 20px;
 }
