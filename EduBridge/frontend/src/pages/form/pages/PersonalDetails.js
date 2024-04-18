@@ -49,7 +49,7 @@ const PersonalDetails = () => {
             <input type="text" value={studentId} onChange={(event) => setStudentId(event.target.value)} />
           </label>
           <button type="submit" disabled={isLoading}>
-            {isLoading ? 'Loading...' : 'Save Progress'}
+            {isLoading ? 'Loading...' : 'submit'}
           </button>
 
           <h2>Title</h2>

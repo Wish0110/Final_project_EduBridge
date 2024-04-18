@@ -85,18 +85,25 @@ const Contactandresidencydetails = () => {
             Student ID:
             <input type="text" value={studentId} onChange={(event) => setStudentId(event.target.value)} />
           </label>
-          <button type="submit" disabled={isLoading}>
-            {isLoading ? 'Loading...' : 'Save Progress'}
+          <button type="submit" disabled={isLoading}> 
+            {isLoading ? 'Loading...' : 'Submit'}
           </button>
 
+      {/*Mobile telephone number*/}
+      {studentData && Object.keys(studentData).length > 0 && ( // Check for valid data
+      <div>
       <label>
         Mobile telephone number:
         <select name="mobileNumber" value={contactDetails.mobileNumber} onChange={handleInputChange}>
           <option value="+94">Srilanka (+94)</option>
           <option value="other">Other (Please specify)</option>
         </select>
-        <input type="tel" name="mobileNumber" value={contactDetails.mobileNumber} onChange={handleInputChange} />
-      </label>
+        <textarea
+                 value={studentData.teleNumber || ''}
+              />      
+        </label>
+      </div>
+      )}
 
       <label>
         Email address:
@@ -160,7 +167,7 @@ const Contactandresidencydetails = () => {
             Full name of nominee:
             <input type="text" name="nomineeName" value={contactDetails.nomineeName} onChange={handleInputChange} />
           </label>
-          
+
           <label>
             How you know your nominee:
             <input type="text" name="nomineeRelation" value={contactDetails.nomineeRelation} onChange={handleInputChange} />
