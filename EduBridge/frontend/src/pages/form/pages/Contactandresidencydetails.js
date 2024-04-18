@@ -30,8 +30,8 @@ const Contactandresidencydetails = () => {
     addressLine2: '',
     addressLine3: '',
     addressLine4: '',
-    mobileNumber: '',
-    email: '',
+    teleNumber: '',
+    Email: '',
   });
 
   const handleSubmit = async (event) => {
@@ -98,19 +98,23 @@ const Contactandresidencydetails = () => {
           <option value="+94">Srilanka (+94)</option>
           <option value="other">Other (Please specify)</option>
         </select>
-        <textarea
-                 value={studentData.teleNumber || ''}
-              />      
+        <input type="email" name="email" value={studentData.teleNumber || ''}/>
         </label>
       </div>
       )}
 
+      {/*Email*/}
+      {studentData && Object.keys(studentData).length > 0 && ( // Check for valid data
+      <div>
       <label>
         Email address:
-        <input type="email" name="email" value={contactDetails.email} onChange={handleInputChange} />
+        <input type="email" name="email" value={studentData.Email || ''}/>
       </label>
       <h2>Postal address</h2>
+      </div>
+      )}
 
+      {/*Address*/}
       <label>
         Address type:
         <select name="addressType" value={contactDetails.addressType} onChange={handleInputChange}>
@@ -119,25 +123,45 @@ const Contactandresidencydetails = () => {
         </select>
       </label>
 
+      {/*Address line 1*/}
+      {studentData && Object.keys(studentData).length > 0 && ( // Check for valid data
+      <div>
       <label>
         Address line 1:
-        <input type="text" name="addressLine1" value={contactDetails.addressLine1} onChange={handleInputChange} />
+        <input type="text" name="addressLine1" value={studentData.addressLine1 || ''} />
       </label>
+      </div>
+      )}
 
+      {/*Address line 2*/}
+      {studentData && Object.keys(studentData).length > 0 && ( // Check for valid data
+      <div>
       <label>
         Address line 2:
-        <input type="text" name="addressLine2" value={contactDetails.addressLine2} onChange={handleInputChange} />
+        <input type="text" name="addressLine2" value={studentData.addressLine2 || ''} />
       </label>
+      </div>
+      )}
 
+      {/*Address line 3*/}
+      {studentData && Object.keys(studentData).length > 0 && ( // Check for valid data
+      <div>
       <label>
         Address line 3:
-        <input type="text" name="addressLine3" value={contactDetails.addressLine3} onChange={handleInputChange} />
+        <input type="text" name="addressLine3" value={studentData.addressLine3 || ''} />
       </label>
+      </div>
+      )}
 
+      {/*Address line 4*/}
+      {studentData && Object.keys(studentData).length > 0 && ( // Check for valid data
+      <div>
       <label>
         Address line 4:
-        <input type="text" name="addressLine4" value={contactDetails.addressLine4} onChange={handleInputChange} />
+        <input type="text" name="addressLine4" value={studentData.addressLine4 || ''} />
       </label>
+      </div>
+      )}
 
       <label>
         Country:
