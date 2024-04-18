@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import './form-css/PersonalDetails.css';
 import Sidebar from "../components/Sidebar";
@@ -12,38 +12,14 @@ const PersonalDetails = () => {
     preferredName: '',
     dateOfBirth: ''
   });
-  const [name, setName] = useState("");
   const [title, setTitle] = useState("");
-  const [lastNameState, setLastName] = useState("")
-  const [setPreviousNames] = useState("");
-  const [preferredName, setPreferredName] = useState("");
-  const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState("");
   const [sectionComplete, setSectionComplete] = useState(false);
-
-  useEffect(() => {
-    const fetchStudentData = async () => {
-      if (studentId) {
-        try {
-          const response = await axios.post('http://localhost:3004/api/fetch-student', { studentId });
-
-          if (response.data.success) {
-            setStudentData(response.data.data);
-            setLastName(response.data.data.lastname);
-          } else {
-            console.error(response.data.message);
-          }
-        } catch (error) {
-          console.error('Error fetching student data:', error);
-        }
-      }
-    };
-
-    fetchStudentData();
-  }, [studentId]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await axios.post('http://localhost:3004/api/fetch-student', { studentId });
@@ -56,8 +32,10 @@ const PersonalDetails = () => {
       }
     } catch (error) {
       console.error('Error fetching student data:', error);
-    }
+    }finally {
+    setIsLoading(false);
     setSectionComplete(true);
+    }
   };
 
 
@@ -70,7 +48,9 @@ const PersonalDetails = () => {
             Student ID:
             <input type="text" value={studentId} onChange={(event) => setStudentId(event.target.value)} />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? 'Loading...' : 'Save Progress'}
+          </button>
 
           <h2>Title</h2>
           <select value={title} onChange={(e) => setTitle(e.target.value)}>
@@ -90,7 +70,7 @@ const PersonalDetails = () => {
               </p>
               <textarea
                  value={studentData.name || ''}
-                onChange={(e) => setName(e.target.value)}
+               
               />
             </div>
           )}
@@ -105,8 +85,6 @@ const PersonalDetails = () => {
               </p>
               <textarea
                 value={studentData.lastname || ''} 
-                    onChange={(e) => setLastName(e.target.value)}
-                    
                   />
                 </div>
           )}
@@ -121,7 +99,6 @@ const PersonalDetails = () => {
               </p>
               <textarea
                 value={studentData.prvName || ''}
-                onChange={(e) => setPreviousNames(e.target.value)}
               />
           </div>
           )}
@@ -136,7 +113,6 @@ const PersonalDetails = () => {
               </p>
               <textarea
                 value={studentData.preferredName || ''}
-                onChange={(e) => setPreferredName(e.target.value)}
               />
             </div>
           )}
@@ -149,7 +125,6 @@ const PersonalDetails = () => {
               <input
                 type="text"
                 value={studentData.dateOfBirth || ''}
-                onChange={(e) => setBirthDate(e.target.value)}
               />
           </div>
           )}
