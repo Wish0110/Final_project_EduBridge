@@ -5,12 +5,16 @@ import Sidebar from "../components/Sidebar";
 
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
-  const [studentData, setStudentData] = useState(
-    []
-  );
+  const [studentData, setStudentData] = useState({
+    name: '',
+    lastname: '',
+    prvName: '',
+    preferredName: '',
+    dateOfBirth: ''
+  });
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
-  const [setLastName] = useState("")
+  const [lastNameState, setLastName] = useState("")
   const [setPreviousNames] = useState("");
   const [preferredName, setPreferredName] = useState("");
   const [birthDate, setBirthDate] = useState("");
@@ -85,8 +89,7 @@ const PersonalDetails = () => {
                 your passport, birth certificate or driving licence.
               </p>
               <textarea
-                value={name}
-                defaultValue={studentData.name || ''} 
+                 value={studentData.name || ''}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -103,6 +106,7 @@ const PersonalDetails = () => {
               <textarea
                 value={studentData.lastname || ''} 
                     onChange={(e) => setLastName(e.target.value)}
+                    
                   />
                 </div>
           )}
