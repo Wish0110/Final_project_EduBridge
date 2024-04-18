@@ -43,7 +43,9 @@ app.post('/api/fetch-student', async (req, res) => {
         success: true,
         data: {
           name: student.name,
-          studentId: student.studentid
+          studentId: student.studentid,
+          title: student.title,
+          lastname: student.lastname,
         }
       });
     } else {
