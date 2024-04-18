@@ -48,8 +48,14 @@ app.post('/api/fetch-student', async (req, res) => {
           lastname: student.lastname,
           prvName: student.prvName,
           preferredName: student.preferredName,
-          dateOfBirth: student.dateOfBirth
-
+          dateOfBirth: student.dateOfBirth,
+          addressLine1: student.addressLine1,
+          addressLine2: student.addressLine2,
+          addressLine3: student.addressLine3,
+          addressLine4: student.addressLine4,
+          teleNumber: student.teleNumber,
+          Email: student.Email,
+          
         }
       });
     } else {
