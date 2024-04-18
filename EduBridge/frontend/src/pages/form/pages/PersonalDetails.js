@@ -10,8 +10,8 @@ const PersonalDetails = () => {
   );
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
-  const [lastname, setLastName] = useState("")
-  const [previousNames, setPreviousNames] = useState("");
+  const [setLastName] = useState("")
+  const [setPreviousNames] = useState("");
   const [preferredName, setPreferredName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState("");
@@ -107,38 +107,48 @@ const PersonalDetails = () => {
                 </div>
           )}
 
-          {/*last Name*/}
+          {/*Previous Name*/}
           {studentData && Object.keys(studentData).length > 0 && (
             <div>
-          <h2>Previous Name(s)</h2>
-          <p>
-            Tell us any other names you've been known by (for example maiden name), as
-            it helps when we're matching educational records.
-          </p>
-          <textarea
-            value={previousNames}
-            onChange={(e) => setPreviousNames(e.target.value)}
-          />
+              <h2>Previous Name(s)</h2>
+              <p>
+                Tell us any other names you've been known by (for example maiden name), as
+                it helps when we're matching educational records.
+              </p>
+              <textarea
+                value={studentData.prvName || ''}
+                onChange={(e) => setPreviousNames(e.target.value)}
+              />
           </div>
           )}
 
-          <h2>Preferred Name</h2>
-          <p>
-           Let us know what we, and your chosen universities and colleges, should
-            call you in our correspondence.
-          </p>
-          <textarea
-            value={preferredName}
-            onChange={(e) => setPreferredName(e.target.value)}
-          />
+          {/*Preferred Name*/}
+          {studentData && Object.keys(studentData).length > 0 && (
+            <div>
+              <h2>Preferred Name</h2>
+              <p>
+              Let us know what we, and your chosen universities and colleges, should
+                call you in our correspondence.
+              </p>
+              <textarea
+                value={studentData.preferredName || ''}
+                onChange={(e) => setPreferredName(e.target.value)}
+              />
+            </div>
+          )}
 
-          <h2>Date of Birth</h2>
-          <p>DD MM YYYY</p>
-          <input
-            type="text"
-            value={birthDate}
-            onChange={(e) => setBirthDate(e.target.value)}
-          />
+          {/*Date of Birth*/}
+          {studentData && Object.keys(studentData).length > 0 && (
+            <div>
+              <h2>Date of Birth</h2>
+              <p>DD MM YYYY</p>
+              <input
+                type="text"
+                value={studentData.dateOfBirth || ''}
+                onChange={(e) => setBirthDate(e.target.value)}
+              />
+          </div>
+          )}
 
       <h2>Gender</h2>
       <p>
