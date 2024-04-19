@@ -17,20 +17,20 @@ const PlymouthUnivesity = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Course List</h1>
-      <ul>
+    <div className="degree-list">
+      <h1 className="degree-title">Course List</h1>
+      <ul className="degree-list-items">
         {courses.map((course, index) => (
-          <li key={index}>
+          <li key={index} className="degree-item">
             {course.title === 'Computing' ? (
 
               <Link to="/DegreeList">
-                <a href={course.href} target="_blank" rel="noopener noreferrer">
+                <a href={course.href} target="_blank" rel="noopener noreferrer" className="degree-link">
                   {course.title}
                 </a>
               </Link>
             ) : (
-              <a href={course.href} target="_blank" rel="noopener noreferrer">
+              <a href={course.href} target="_blank" rel="noopener noreferrer" className="degree-link">
                 {course.title}
               </a>
             )}
