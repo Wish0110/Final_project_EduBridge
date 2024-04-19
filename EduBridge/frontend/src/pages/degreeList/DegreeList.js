@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './DegreeList.css';
+import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function DegreeList() {
   const [courses, setCourses] = useState([]);
@@ -29,11 +32,15 @@ function DegreeList() {
   return (
     <div className="degree-list">
       <img src="https://d3bpgcke55gfwt.cloudfront.net/assets/uoplogomono-c97c99e65962b59f3d62b73f869b9c0734247dd78a11ba00dc856f675f29e108.svg" alt="University of Plymouth" className="degree-logo" />
-            <div className="degree-separator-full">
+      <div className="degree-separator-full">
+        <button id="back" className="button">
+              <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
         <input type="text" className="search-bar" placeholder="Search..." />
-        <button id="back" className="button">Back</button>
-        <button id="Home"className="button">Home</button>
-      </div>      
+        <button id="Home" className="button">
+          <FontAwesomeIcon icon={faHome} />
+        </button>
+      </div>            
       <h1 className="degree-title">Degree List</h1>
       {isLoading && <p className="loading">Loading Degree...</p>}
       {error && <p className="error">Error: {error}</p>}
