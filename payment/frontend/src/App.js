@@ -1,16 +1,19 @@
-import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from './CheckoutForm';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import Success from "./Success";
+import Failure from "./Failure";
 
-const stripePromise = loadStripe('pk_test_51P7A1Q02JGQtmoATHPTsWT25jgAjJCZAxlu0V4v0tnEr6X5swIbjtQneetm0yhkaOaGEs0k5BdPqoylTIOfLuT7700QPE4VzbS');
-
-const Payment = () => {
+function App() {
   return (
-    <Elements stripe={stripePromise}>
-      <CheckoutForm />
-    </Elements>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Failure />} />
+      </Routes>
+    </>
   );
-};
+}
 
-export default Payment;
+export default App;
