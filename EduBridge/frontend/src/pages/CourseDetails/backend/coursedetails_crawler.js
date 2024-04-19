@@ -34,9 +34,11 @@ async function crawl() {
         const courseMain = $('details#structure-accordion summary.module-accordion-summary h3.course-stage-heading').text().trim();
         const courseDetails = $('details#structure-accordion .module-accordion-summary h2').text().trim();
         const ulElement3 = $('details#structure-accordion div.trix-content ul').children('li').map((index, element) => $(element).text().trim()).get();
+
         const entryreqTopic = $('details#entry-requirements-accordion h2').text().trim();
         const entryreq = $('details#entry-requirements-accordion div.accordion-div-box p').text().trim();
         const entryreqdetails = $('details#entry-requirements-accordion div.trix-content strong').text().trim();
+        
         const feesTopic = $('details#fees-funding-accordion .module-accordion-summary h2').text().trim();
         const feesDetails = $('details#fees-funding-accordion div.course_fee_table table').text().trim();
         const feesDetailsextra = $('details#fees-funding-accordion div.course_fee_table ').text().trim();
