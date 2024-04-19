@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './PlymouthUnivesity.css';
+import './PlymouthUniversity.css';
 //import CourseLink from './CourseLink';
 
 const PlymouthUnivesity = () => {
