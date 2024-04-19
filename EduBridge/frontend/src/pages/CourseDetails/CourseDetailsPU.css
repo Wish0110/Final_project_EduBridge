@@ -139,3 +139,21 @@
 .entryreqdetails {
   margin-top: 10px;
 }
+
+.degree-separator-full {
+  width: 100px !important;
+  height: 55px;
+  background-color: black; /* Optional: set the background color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 8px;
+}
+
+.search-bar {
+  width: 800px; 
+  height: 30px;
+  margin-bottom: 5px; 
+  margin-right: -10px;
+}

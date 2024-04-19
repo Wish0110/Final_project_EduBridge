@@ -20,6 +20,7 @@ const PlymouthUnivesity = () => {
 
   return (
     <div className="degree-list">
+
         <img src="https://d3bpgcke55gfwt.cloudfront.net/assets/uoplogomono-c97c99e65962b59f3d62b73f869b9c0734247dd78a11ba00dc856f675f29e108.svg" alt="University of Plymouth" className="degree-logo" />
         <div className="degree-separator-full">
         <button id="back" className="button">
@@ -30,6 +31,7 @@ const PlymouthUnivesity = () => {
           <FontAwesomeIcon icon={faHome} />
         </button>
       </div>      
+      
       <h1 className="degree-title">Course List</h1>
       <ul className="degree-list-items">
         {courses.map((course, index) => (
