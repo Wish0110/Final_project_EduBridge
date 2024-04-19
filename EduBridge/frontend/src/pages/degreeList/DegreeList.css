@@ -9,6 +9,45 @@
     margin-top: 50px;
     margin-bottom: 30px;
   }
+
+  .degree-logo {
+    display: block;
+    margin: 0 auto;
+    width: 300px; /* increased size */
+    height: 300px; /* increased size */
+    margin-top: -90px; /* moved up */
+  }
+  
+  .degree-separator-full {
+    width: 100% !important;
+    height: 55px;
+    background-color: black; /* Optional: set the background color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 8px;
+  }
+  
+  .search-bar {
+    width: 400px; 
+    height: 30px;
+    margin-bottom: 5px; 
+    margin-right: -10px;
+  }
+
+  #back.button {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    width: 180px;
+    
+  }
+
+  #Home.button {
+    margin-bottom: 20px;
+    margin-left: 4px;
+    width: 180px;
+  }
   
   .loading,
   .error {
