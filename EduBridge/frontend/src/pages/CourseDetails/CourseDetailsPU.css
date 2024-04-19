@@ -24,7 +24,9 @@
 }
 
 .Expand-Sec h3 {
-  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .Expand-Sec p {
@@ -32,8 +34,8 @@
 }
 
 .Expand-Sec ul {
-  padding: 0;
-  list-style-type: none;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 .Expand-Sec ul li {

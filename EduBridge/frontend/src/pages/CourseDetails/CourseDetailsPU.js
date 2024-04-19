@@ -58,6 +58,7 @@ function CourseDetailsPU() {
       <h3>{data.schoolTitle}</h3>
       <p className="course-overview-text">{data.overviewText}</p>
 
+      {/*career list*/}
       <div className="Expand-Sec" onClick={() => handleExpandSec("career")}>
       <h3>{data.careerTopic}</h3>
       {expandedSec.career && (
@@ -71,19 +72,19 @@ function CourseDetailsPU() {
       )}
     </div>
 
-      <div className='Expand-Sec' onClick={() => handleExpandSec('keyFeatures')}>
+      {/*key Features*/}
+      <div className="Expand-Sec" onClick={() => handleExpandSec("keyFeatures")}>
       <h3>{data.keyFeaturesTopic}</h3>
-        {expandedSec.keyFeatures && (
-        <>
+      {expandedSec.keyFeatures && (
         <ul>
           {data.keyFeaturesList.map((feature, index) => (
-            <li key={index}>{feature}</li>
+            <li style={{ listStyleType: "disc" }} key={index} dangerouslySetInnerHTML={{ __html: feature }} />
           ))}
         </ul>
-        </>
-          )}
-      </div>
+      )}
+    </div>
 
+     {/*courseDetails*/}
      <div className='Expand-Sec' onClick={() => handleExpandSec('courseDetails')}>
      <h3>{data.courseDetails}</h3>
       {expandedSec.courseDetails && (
