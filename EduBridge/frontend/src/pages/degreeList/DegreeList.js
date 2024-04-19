@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './DegreeList.css';
 
 function DegreeList() {
   const [courses, setCourses] = useState([]);
@@ -26,23 +27,23 @@ function DegreeList() {
   }, []);
 
   return (
-    <div>
-      <h1>Degree List</h1>
-      {isLoading && <p>Loading Degree...</p>}
-      {error && <p>Error: {error}</p>}
+    <div className="degree-list">
+      <h1 className="degree-title">Degree List</h1>
+      {isLoading && <p className="loading">Loading Degree...</p>}
+      {error && <p className="error">Error: {error}</p>}
       {courses.length > 0 && (
-        <ul>
+        <ul className="degree-list-items">
           {courses.map((course, index) => (
-            <li key={index}>
+            <li key={index} className="degree-item">
               {course.title === 'MSc Artificial Intelligence' ? (
 
               <Link to="/CourseDetailsPU">
-                <a href={course.href} target="_blank" rel="noopener noreferrer">
+                <a href={course.href} target="_blank" rel="noopener noreferrer" className="degree-link">
                   {course.title}
                 </a>
               </Link>
             ) : (
-              <a href={course.href} target="_blank" rel="noopener noreferrer">
+              <a href={course.href} target="_blank" rel="noopener noreferrer" className="degree-link">
                 {course.title}
               </a>
             )}
