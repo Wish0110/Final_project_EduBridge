@@ -5,35 +5,43 @@ import logo from './logo.png';
 import $ from 'jquery';
 
 const Navbar = () => {
-
-
-    function animation(){
-        var tabsNewAnim = $('#navbarSupportedContent');
-        var activeItemNewAnim = tabsNewAnim.find('.active');
-        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-        var itemPosNewAnimTop = activeItemNewAnim.position();
-        var itemPosNewAnimLeft = activeItemNewAnim.position();
+    function animation() {
+      const tabsNewAnim = $("#navbarSupportedContent");
+      const activeItemNewAnim = tabsNewAnim.find(".active");
+  
+      if (activeItemNewAnim.length) {
+        const activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+        const activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+        const itemPosNewAnimTop = activeItemNewAnim.position();
+        const itemPosNewAnimLeft = activeItemNewAnim.position();
+  
         $(".hori-selector").css({
-            top: itemPosNewAnimTop.top + "px", 
-            left: itemPosNewAnimLeft.left + "px",
-            height: activeWidthNewAnimHeight + "px",
-            width: activeWidthNewAnimWidth + "px"
+          top: itemPosNewAnimTop.top + "px",
+          left: itemPosNewAnimLeft.left + "px",
+          height: activeWidthNewAnimHeight + "px",
+          width: activeWidthNewAnimWidth + "px"
         });
-        $("#navbarSupportedContent").on("click",".nav-item", function(e){
-            $('#navbarSupportedContent ul .nav-item').removeClass("active");
-            $(this).addClass('active');
-            var activeWidthNewAnimHeight = $(this).innerHeight();
-            var activeWidthNewAnimWidth = $(this).innerWidth();
-            var itemPosNewAnimTop = $(this).position();
-            var itemPosNewAnimLeft = $(this).position();
+  
+        $("#navbarSupportedContent").on("click", ".nav-item", function(e) {
+          const navItems = $("#navbarSupportedContent ul .nav-item");
+          navItems.removeClass("active");
+          $(this).addClass("active");
+  
+          if ($(this).length) {
+            const activeWidthNewAnimHeight = $(this).innerHeight();
+            const activeWidthNewAnimWidth = $(this).innerWidth();
+            const itemPosNewAnimTop = $(this).position();
+            const itemPosNewAnimLeft = $(this).position();
+  
             $(".hori-selector").css({
-                top: itemPosNewAnimTop.top + "px", 
-                left: itemPosNewAnimLeft.left + "px",
-                height: activeWidthNewAnimHeight + "px",
-                width: activeWidthNewAnimWidth + "px"
+              top: itemPosNewAnimTop.top + "px",
+              left: itemPosNewAnimLeft.left + "px",
+              height: activeWidthNewAnimHeight + "px",
+              width: activeWidthNewAnimWidth + "px"
             });
+          }
         });
+      }
     }
 
     useEffect(() => {
