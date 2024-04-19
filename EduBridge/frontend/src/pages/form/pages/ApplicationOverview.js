@@ -2,12 +2,10 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import { NavLink } from 'react-router-dom';
 import './form-css/ApplicationOverview.css';
-import Header from '../components/header';
 
 const ApplicationOverview = () => {
   return (
-    <>
-      <Header />
+    
     <Sidebar>
     <div className="card-container">
 
@@ -129,7 +127,6 @@ const ApplicationOverview = () => {
         </div>
       </div>
     </Sidebar>
-    </>
 
   );
 }
