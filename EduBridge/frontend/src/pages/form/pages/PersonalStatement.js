@@ -28,6 +28,13 @@ const PersonalStatement = () => {
         <textarea value={value} onChange={handleChange} /><br />
         <b>You have used {charCount} of 4000 characters</b><br />
 
+        <div><button type="submit">Save</button></div>
+
+        <label>
+        •After completing all the application steps, proceed to pay the application fee.<br />
+        </label>
+        <div><button type="submit">Application Fee</button></div>        
+
     </div>
     </Sidebar>
   );
