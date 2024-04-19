@@ -1,41 +1,119 @@
-.courseTitle {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .course-title-maximized {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .course-overview-text {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
+.course-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
 
-  .Expand-Sec {
-    border: 1px solid #ddd;
-    padding: 15px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  .Expand-Sec h3 {
-    margin: 0;
-  }
-  
-  .Expand-Sec p {
-    margin: 0;
-  }
-  
-  .Expand-Sec ul {
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  .Expand-Sec ul li {
-    padding: 5px 0;
-  }
+.course-title-maximized {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.course-overview-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.Expand-Sec {
+  border: 1px solid #ddd;
+  padding: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.Expand-Sec h3 {
+  margin: 0;
+}
+
+.Expand-Sec p {
+  margin: 0;
+}
+
+.Expand-Sec ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.Expand-Sec ul li {
+  padding: 5px 0;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details-table th,
+.details-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.details-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.apply-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #0069d9;
+}
+
+.register-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #218838;
+}
+
+.Expand-Sec {
+  border: 1px solid #ddd;
+  padding: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.Expand-Sec h3 {
+  margin: 0;
+}
+
+.Expand-Sec p {
+  margin: 0;
+}
+
+.Expand-Sec ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.Expand-Sec ul li {
+  padding: 5px 0;
+}
+
+.career-description {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.career-description li {
+  margin-bottom: 10px;
+}

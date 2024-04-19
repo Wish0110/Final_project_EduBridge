@@ -4,7 +4,6 @@ import './CourseDetailsPU.css';
 import { useNavigate } from "react-router-dom";
 
 
-
 function CourseDetailsPU() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,14 +58,18 @@ function CourseDetailsPU() {
       <h3>{data.schoolTitle}</h3>
       <p className="course-overview-text">{data.overviewText}</p>
 
-      <div className='Expand-Sec' onClick={() => handleExpandSec('career')}>
+      <div className="Expand-Sec" onClick={() => handleExpandSec("career")}>
       <h3>{data.careerTopic}</h3>
-        {expandedSec.career && (
-        <>
-          <p>{data.careerDescript}</p>
-        </>
-          )}
-      </div>
+      {expandedSec.career && (
+        <div className="career-description">
+          <ul>
+            {data.careerDescript.split("\n").map((jobTitle, index) => (
+              <li style={{ listStyleType: "disc" }} key={index}>{jobTitle}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
 
       <div className='Expand-Sec' onClick={() => handleExpandSec('keyFeatures')}>
       <h3>{data.keyFeaturesTopic}</h3>
