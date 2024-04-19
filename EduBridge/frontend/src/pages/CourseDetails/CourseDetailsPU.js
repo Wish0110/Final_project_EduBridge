@@ -86,19 +86,20 @@ function CourseDetailsPU() {
 
      {/*courseDetails*/}
      <div className='Expand-Sec' onClick={() => handleExpandSec('courseDetails')}>
-     <h3>{data.courseDetails}</h3>
-      {expandedSec.courseDetails && (
-      <>
-        <h4>{data.courseMain}</h4>
-        <ul>
-          {data.ulElement3.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </>
-    )}
-    </div>
+        <h3>{data.courseDetails}</h3>
+        {expandedSec.courseDetails && (
+          <>
+            <h4>{data.courseMain}</h4>
+            <ul>
+              {data.ulElement3.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
 
+    {/*entryreqTopic*/}
     <div className='Expand-Sec' onClick={() => handleExpandSec('entryreq')}>
     <h3>{data.entryreqTopic}</h3>
     {expandedSec.entryreq && (

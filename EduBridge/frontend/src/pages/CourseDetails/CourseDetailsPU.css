@@ -29,6 +29,12 @@
   margin-bottom: 10px;
 }
 
+.Expand-Sec h4 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 .Expand-Sec p {
   margin: 0;
 }
@@ -118,4 +124,18 @@
 
 .career-description li {
   margin-bottom: 10px;
+}
+
+.entryreqTopic {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.entryreq {
+  margin-left: 20px;
+}
+
+.entryreqdetails {
+  margin-top: 10px;
 }
