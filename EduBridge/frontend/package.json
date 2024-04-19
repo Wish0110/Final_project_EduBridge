@@ -35,15 +35,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm:start-*\" \"npm run start-react\"",
-    "start-react": "npm start",
-    "start:server1": "cd ./src/pages/Universities/backend && node server1.js",
-    "start:server2": "cd ./src/pages/Universities/backend && node server2.js",
-    "start:server3": "cd ./src/pages/degreeList/backend && node server3.js",
-    "start:server4": "cd ./src/pages/form/backend && node server4.js",
-    "start:server5": "cd ./src/pages/form/pages/ReccomandationLetter/backend && node server5.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+    
   },
-
   "eslintConfig": {
     "extends": [
       "react-app",
