@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './PlymouthUniversity.css';
+import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import CourseLink from './CourseLink';
 
 const PlymouthUnivesity = () => {
@@ -18,11 +20,15 @@ const PlymouthUnivesity = () => {
 
   return (
     <div className="degree-list">
-            <img src="https://d3bpgcke55gfwt.cloudfront.net/assets/uoplogomono-c97c99e65962b59f3d62b73f869b9c0734247dd78a11ba00dc856f675f29e108.svg" alt="University of Plymouth" className="degree-logo" />
-            <div className="degree-separator-full">
+        <img src="https://d3bpgcke55gfwt.cloudfront.net/assets/uoplogomono-c97c99e65962b59f3d62b73f869b9c0734247dd78a11ba00dc856f675f29e108.svg" alt="University of Plymouth" className="degree-logo" />
+        <div className="degree-separator-full">
+        <button id="back" className="button">
+              <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
         <input type="text" className="search-bar" placeholder="Search..." />
-        <button id="back" className="button">Back</button>
-        <button id="Home"className="button">Home</button>
+        <button id="Home" className="button">
+          <FontAwesomeIcon icon={faHome} />
+        </button>
       </div>      
       <h1 className="degree-title">Course List</h1>
       <ul className="degree-list-items">

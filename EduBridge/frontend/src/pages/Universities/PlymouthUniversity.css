@@ -24,23 +24,22 @@
   }
   
   .search-bar {
-    width: 400px; 
+    width: 800px; 
     height: 30px;
     margin-bottom: 5px; 
     margin-right: -10px;
   }
 
   #back.button {
-    margin-bottom: 20px;
+    margin-top: 15px;
     margin-left: 10px;
-    width: 180px;
-    
+    width: 5px;
   }
 
   #Home.button {
-    margin-bottom: 20px;
+    margin-top: 15px;
     margin-left: 4px;
-    width: 180px;
+    width: 80px;
   }
 
   .degree-title {
@@ -79,4 +78,27 @@
   
   .degree-link:hover {
     background-color: #ddd;
+  }
+
+  .button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    outline: none;
+  }
+
+  .button svg {
+    vertical-align: middle;
+  }
+
+  .button:hover {
+    color: black;
+  }
+  
+  .button:hover svg {
+    color: rgb(77, 168, 225);
   }
