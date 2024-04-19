@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import './DegreeList.css';
 import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import useNavigation from './useNavigation';
 
 function DegreeList() {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { goBack } = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +34,7 @@ function DegreeList() {
     <div className="degree-list">
       <img src="https://d3bpgcke55gfwt.cloudfront.net/assets/uoplogomono-c97c99e65962b59f3d62b73f869b9c0734247dd78a11ba00dc856f675f29e108.svg" alt="University of Plymouth" className="degree-logo" />
       <div className="degree-separator-full">
-        <button id="back" className="button">
+        <button id="back" className="button" onClick={goBack}>
               <FontAwesomeIcon icon={faArrowLeft} />
         </button>
         <input type="text" className="search-bar" placeholder="Search..." />
