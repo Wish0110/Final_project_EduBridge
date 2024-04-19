@@ -68,7 +68,6 @@ function CourseDetailsPU() {
       </div> 
 
       
-      <h3>{data.schoolTitle}</h3>
       <p className="course-overview-text">{data.overviewText}</p>
 
       {/*career list*/}
@@ -157,7 +156,7 @@ function CourseDetailsPU() {
         )}
       </div>
 
-      <button onClick={() => navigate("/ApplicationOverview")}>Apply Now</button>
+      <button className="btnApply" onClick={() => navigate("/ApplicationOverview")}>Apply Now</button>
     </div>
   );
 }
