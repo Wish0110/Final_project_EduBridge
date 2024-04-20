@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './DegreeList.css';
 import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useNavigation from './useNavigation';
+import useNavigation from '../../Componenets/Navbar/useNavigation';
 
 function DegreeList() {
   const [courses, setCourses] = useState([]);

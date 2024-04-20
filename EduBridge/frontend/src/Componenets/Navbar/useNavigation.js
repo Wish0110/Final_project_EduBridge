@@ -1,12 +1,10 @@
-import { useContext } from 'react';
-import { RouterContext } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const useNavigation = () => {
-  const router = useContext(RouterContext);
-  const history = router.history;
+  const navigate = useNavigate();
 
   const goBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   return { goBack };
