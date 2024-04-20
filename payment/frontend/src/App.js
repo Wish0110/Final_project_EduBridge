@@ -1,18 +1,16 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./HomePage";
-import Success from "./Success";
-import Failure from "./Failure";
+import React from 'react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from './checkout';
+import PaymentForm from './PaymentForm';
+
+const stripePromise = loadStripe('YOUR_STRIPE_PUBLISHABLE_KEY');
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/success" element={<Success />} />
-        <Route path="/cancel" element={<Failure />} />
-      </Routes>
-    </>
+    <Elements stripe={stripePromise}>
+      <CheckoutForm />
+    </Elements>
   );
 }
 
