@@ -1,0 +1,11 @@
+.card{
+  width: 250px;
+  height: 400px;
+  border: 1pc solid black;
+  border-radius: 20px;
+  background: skyblue;
+}
+
+.card-back{
+  background-color: teal;
+}
