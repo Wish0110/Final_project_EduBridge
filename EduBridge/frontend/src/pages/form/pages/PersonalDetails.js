@@ -3,6 +3,7 @@ import axios from "axios";
 import './form-css/PersonalDetails.css';
 import Sidebar from "../components/Sidebar";
 
+
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
   const [studentData, setStudentData] = useState({
