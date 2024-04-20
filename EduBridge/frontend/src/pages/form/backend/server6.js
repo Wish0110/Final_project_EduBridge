@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/my-database', {
+mongoose.connect('mongodb+srv://wishhiranyaco:Wishmi99@formdata.akuxs7s.mongodb.net/?retryWrites=true&w=majority&appName=FormData', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -45,7 +45,7 @@ app.post('/api/fetch-student', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3006;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

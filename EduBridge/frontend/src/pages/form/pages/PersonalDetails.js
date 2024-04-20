@@ -41,6 +41,8 @@ const PersonalDetails = () => {
 
   
 
+  
+
   return (
     <Sidebar>
       <div>
