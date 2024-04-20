@@ -18,10 +18,12 @@
     "stripe": "^15.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "parcel build public/index.html --out-dir build --no-source-maps",
+    "dev": "node src/server.js &amp; parcel public/index.html",
+    "start": "node src/server.js"
   },
   "eslintConfig": {
     "extends": [
