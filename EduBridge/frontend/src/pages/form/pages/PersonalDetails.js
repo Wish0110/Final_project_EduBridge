@@ -17,6 +17,7 @@ const PersonalDetails = () => {
   const [sectionComplete, setSectionComplete] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -38,6 +39,7 @@ const PersonalDetails = () => {
     }
   };
 
+  
 
   return (
     <Sidebar>
