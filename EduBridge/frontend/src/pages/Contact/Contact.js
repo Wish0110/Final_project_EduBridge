@@ -26,13 +26,15 @@ const Contact = () => {
             </div>
           </div>
           <div className="footer-social">
-            <h3>Follow Us</h3>
             <ul>
               <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
               <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
               <li><a href="#"><i className="fab fa-instagram"></i></a></li>
               <li><a href="#"><i className="fab fa-twitter"></i></a></li>
             </ul>
+          </div>
+          <div className="footer-bottom">
+          <p>&copy; 2023 EduBridge - Bridge to a successful university application in the UK.</p>
           </div>
         </footer>
       );

@@ -123,7 +123,6 @@ const Home = () => {
     {/*contact*/}
     <section id="contact" className="contact-section">
     <div className="contact-container" ref={contactRef}>
-        <h2>contact</h2>
         <Contact />
       </div>
     </section>

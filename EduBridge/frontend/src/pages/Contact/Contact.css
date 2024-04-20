@@ -1,15 +1,16 @@
 .footer {
   background-color: #333;
   color: #fff;
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 250px;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .footer-section {
@@ -37,7 +38,8 @@
 .footer-social {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  margin-top: auto;
 }
 
 .footer-social h3 {
@@ -64,4 +66,18 @@
 .footer-social i {
   font-size: 24px;
   color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 10px;
+  border-top: 1px solid #1f1f1f;
+  background-color: #060606;
+  height: 35px;
+  width: 100%;
+}
+
+.footer-bottom p {
+  margin: 0;
+  padding: 10px 10px;
 }
