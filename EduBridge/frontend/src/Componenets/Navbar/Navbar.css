@@ -19,9 +19,10 @@ i {
   margin-right: 10px;
 }
 
-.active {
-  background-color: #000000 ;
+.navbar-active {
+  background-color: #000000;
 }
+
 .navbar-logo {
   padding: 0px;
   height: 62px;
