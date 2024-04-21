@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import html2pdf from 'html2pdf.js';
 import 'url-polyfill';
-import './App.css';
+import './letter.css';
 import Sidebar from '../../components/Sidebar';
 
 function ReccomandationLetter(){
