@@ -1,12 +1,12 @@
 import React from 'react';
-import './UniversityChoice.css';
+import './IsIntegrated.css';
 
 const universityOptions = [
-  { name: 'University of Oxford', isCorrect: false },
-  { name: 'University of Cambridge', isCorrect: false },
-  { name: 'NSBM Green University', isCorrect: true },
-  { name: 'University of Sussex', isCorrect: false },
-  { name: 'University of Warwick', isCorrect: false },
+  { name: 'NSBM Green University', isCorrect: false },
+  { name: 'Integrated University 1', isCorrect: false },
+  { name: 'Integrated University 2', isCorrect: true },
+  { name: 'Integrated University 3', isCorrect: false },
+  { name: 'Integrated University 4', isCorrect: false },
 ];
 
 const UniversityChoice = () => {

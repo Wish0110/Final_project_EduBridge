@@ -157,7 +157,7 @@ function CourseDetailsPU() {
         )}
       </div>
 
-      <button className="btnApply" onClick={() => navigate("/ApplicationOverview")}>Apply Now</button>
+      <button className="btnApply" onClick={() => navigate("/IsIntegrated")}>Apply Now</button>
     </div>
   );
 }
