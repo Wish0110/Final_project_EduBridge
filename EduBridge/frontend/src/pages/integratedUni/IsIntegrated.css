@@ -1,23 +1,44 @@
 .university-choice-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
   }
   
   h1 {
-    font-size: 2rem;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .university-choice-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 50px;
     margin-bottom: 30px;
   }
   
   .university-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    width: 100% !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 8px;
   }
   
   .university-button {
+    width: 48%;
+    margin-bottom: 20px;
     background-color: #4caf50;
     color: white;
     border: none;
@@ -32,11 +53,44 @@
     background-color: #3e8e41;
   }
   
-  .university-button.selected {
+  .no-button {
+    width: 48%;
+    margin-bottom: 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin-right: 170px;
+  }
+  
+  .no-button:hover {
+    background-color: #da190b;
+  }
+  
+  .university-button {
+    width: 48%;
+    margin-bottom: 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .university-button:hover {
     background-color: #3e8e41;
   }
   
   .no-button {
+    width: 48%;
+    margin-bottom: 20px;
     background-color: #f44336;
     color: white;
     border: none;
