@@ -9,6 +9,7 @@ import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 
+
 const Home = () => {
   //navigations controll in pages
   const homeRef = useRef(null);
