@@ -49,7 +49,7 @@ function DegreeList() {
         <ul className="degree-list-items">
           {courses.map((course, index) => (
             <li key={index} className="degree-item">
-              {course.title === 'MSc Artificial Intelligence' ? (
+              {course.title === 'BSc (Hons) Computer Science (Artificial Intelligence)' ? (
 
               <Link to="/CourseDetailsPU">
                 <a href={course.href} target="_blank" rel="noopener noreferrer" className="degree-link">
