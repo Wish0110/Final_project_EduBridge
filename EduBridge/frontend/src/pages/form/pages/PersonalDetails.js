@@ -48,6 +48,7 @@ const PersonalDetails = () => {
     <Sidebar>
       <div>
         <form onSubmit={handleSubmit}>
+          <div className="PersonaldetailsForm">
           <h1>Personal Details</h1>
           <label>
             Student ID:
@@ -203,8 +204,10 @@ const PersonalDetails = () => {
       <button type="submit" disabled={!sectionComplete}>
             Save Progress
           </button>
+    </div>      
     </form>
     </div>
+    
     </Sidebar>
   );
 };

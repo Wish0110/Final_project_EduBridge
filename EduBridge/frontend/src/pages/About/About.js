@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './card';
-import './about.css'; 
+import './About.css'; 
 
 const About = () => {
 

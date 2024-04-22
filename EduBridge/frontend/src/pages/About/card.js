@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Card } from 'react-bootstrap';
-import './About.css';
+import './Home-cards.css';
 
 const StepCard = ({ title, children }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -15,7 +15,7 @@ const StepCard = ({ title, children }) => {
         <div className="flip-card-inner">
           <Card className="flip-card-front" style={{ width: '18rem' }}>
             <Card.Header className="text-center">{title}</Card.Header>
-            <Card.Body style={{ border: '1px solid black', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+            <Card.Body>
               {children}
             </Card.Body>
           </Card>

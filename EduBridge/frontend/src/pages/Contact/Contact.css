@@ -5,7 +5,9 @@
   flex-direction: column;
   height: 250px;
 }
-
+.footer-content h2{
+  color: #fff;
+}
 .footer-content {
   display: flex;
   justify-content: space-between;
