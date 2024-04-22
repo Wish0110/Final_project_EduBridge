@@ -1,0 +1,55 @@
+.bot-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 600px;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  z-index: 999;
+}
+
+.bot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bot-message {
+  background-color: #e9f1ff;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 70%;
+}
+
+.bot-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.bot-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+}
+
+.bot-send {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.bot-send:hover {
+  background-color: #0056b3;
+}

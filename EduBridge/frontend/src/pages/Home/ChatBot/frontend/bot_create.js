@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Spinner,
-} from "react-bootstrap";
+import "./bot.css"; // import the CSS file
 
 const API_KEY = "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";
 
@@ -18,7 +10,7 @@ const systemMessage = {
     "Only reply about UK related topic specially UK universities. Tell the answer short and directly and numberize the universities. And also should numbersize in the best order ",
 };
 
-function App() {
+function Bot() {
   const [messages, setMessages] = useState([
     {
       message: "Hello, I'm MOCHA! Ask me anything related about UK!!!",
@@ -85,43 +77,27 @@ function App() {
   }
 
   return (
-    <Container fluid>
-      <Row>
-        <Col md={12}>
-          <div style={{ height: "600px", overflowY: "scroll" }}>
-            {messages.map((message, i) => (
-              <Row key={i} className={`mb-3 ${message.role === "assistant" ? "justify-content-start" : "justify-content-end"}`}>
-                <Col xs={10} md={9}>
-                  <div style={{ backgroundColor: message.role === "assistant" ? "#E9F1FF" : "#D8E8F8", padding: "10px", borderRadius: "20px" }}>
-                    {message.message}
-                  </div>
-                </Col>
-              </Row>
-            ))}
-            {isTyping && <Row className="justify-content-center"><Col xs={10} md={9}><Spinner animation="border" /></Col></Row>}
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <Form.Control
-            type="text"
-            placeholder="Type your message"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            onKeyDown={(e) => {
+    <div className="bot-container">
+      <div className="bot-row">
+        <div className="bot-messages">
+          {messages.map((message, i) => (
+            <div key={i} className={`bot-message ${message.role === "assistant" ? "" : "bot-user-message"}`}>
+              {message.message}
+            </div>
+          ))}
+          {isTyping && <div className="bot-spinner"><Spinner animation="border" /></div>}
+        </div>
+      </div>
+      <div className="bot-input-container">
+        <input type="text" className="bot-input" placeholder="Type your message" value={inputMessage} onChange={(e) => setInputMessage(e.target.value)} onKeyDown={(e) => {
               if (e.key === "Enter") {
                 handleSend();
               }
-            }}
-          />
-        </Col>
-        <Col md={12} className="text-end">
-          <Button variant="primary" onClick={handleSend}>Send</Button>
-        </Col>
-      </Row>
-    </Container>
+            }} />
+        <button className="bot-send" onClick={handleSend}>Send</button>
+      </div>
+    </div>
   );
 }
 
-export default App;
+export default Bot;
