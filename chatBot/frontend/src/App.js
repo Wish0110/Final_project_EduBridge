@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  TypingIndicator,
-} from "@chatscope/chat-ui-kit-react";
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Spinner,
+} from "react-bootstrap";
 
 const API_KEY = "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";
 
@@ -26,10 +27,11 @@ function App() {
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
+  const [inputMessage, setInputMessage] = useState("");
 
-  const handleSend = async (message) => {
+  const handleSend = async () => {
     const newMessage = {
-      message,
+      message: inputMessage,
       direction: "outgoing",
       role: "user",
     };
@@ -40,6 +42,9 @@ function App() {
     // Initial system message to determine ChatGPT functionality
     setIsTyping(true);
     await processMessageToChatGPT(newMessages);
+
+    // Clear input field
+    setInputMessage("");
   };
 
   async function processMessageToChatGPT(chatMessages) {
@@ -54,75 +59,68 @@ function App() {
       messages: [systemMessage, ...apiMessages],
     };
 
-    await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(apiRequestBody),
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        console.log(data);
-        if (data.choices && data.choices[0] && data.choices[0].message) {
-          setMessages([...chatMessages, {
-            message: data.choices[0].message.content,
-            role: "assistant",
-          }]);
-          setIsTyping(false);
+    try {
+      const response = await axios.post(
+        "https://api.openai.com/v1/chat/completions",
+        apiRequestBody,
+        {
+          headers: {
+            Authorization: "Bearer " + API_KEY,
+            "Content-Type": "application/json",
+          },
         }
-      })
-      .catch((error) => {
-        console.error("Error processing message:", error);
+      );
+
+      if (response.data.choices && response.data.choices[0] && response.data.choices[0].message) {
+        setMessages([...chatMessages, {
+          message: response.data.choices[0].message.content,
+          role: "assistant",
+        }]);
         setIsTyping(false);
-      });
+      }
+    } catch (error) {
+      console.error("Error processing message:", error);
+      setIsTyping(false);
+    }
   }
 
   return (
-    <div className="App">
-      <div style={{ position: "relative", height: "700px", width: "700px" }}>
-        <MainContainer>
-          <ChatContainer>
-            <MessageList scrollBehavior="smooth">
-              {messages.map((message, i) => (
-                <Message key={i} model={{ ...message }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent:
-                        message.role === "assistant"
-                          ? "flex-start"
-                          : "flex-end",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        backgroundColor:
-                          message.role === "assistant"
-                            ? "#E9F1FF"
-                            : "#D8E8F8",
-                        padding: "10px",
-                        borderRadius: "20px",
-                        maxWidth: "80%",
-                      }}
-                    >
-                      {message.message}
-                    </div>
+    <Container fluid>
+      <Row>
+        <Col md={12}>
+          <div style={{ height: "600px", overflowY: "scroll" }}>
+            {messages.map((message, i) => (
+              <Row key={i} className={`mb-3 ${message.role === "assistant" ? "justify-content-start" : "justify-content-end"}`}>
+                <Col xs={10} md={9}>
+                  <div style={{ backgroundColor: message.role === "assistant" ? "#E9F1FF" : "#D8E8F8", padding: "10px", borderRadius: "20px" }}>
+                    {message.message}
                   </div>
-                </Message>
-              ))}
-              {isTyping && <TypingIndicator />}
-            </MessageList>
-            <MessageInput
-              onSend={handleSend}
-              placeholder="Type your message"
-            />
-          </ChatContainer>
-        </MainContainer>
-      </div>
-    </div>
+                </Col>
+              </Row>
+            ))}
+            {isTyping && <Row className="justify-content-center"><Col xs={10} md={9}><Spinner animation="border" /></Col></Row>}
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <Form.Control
+            type="text"
+            placeholder="Type your message"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSend();
+              }
+            }}
+          />
+        </Col>
+        <Col md={12} className="text-end">
+          <Button variant="primary" onClick={handleSend}>Send</Button>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
