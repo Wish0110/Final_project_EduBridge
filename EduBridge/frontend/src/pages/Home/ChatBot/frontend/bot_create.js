@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Spinner } from "react-bootstrap";
 import "./bot.css"; // import the CSS file
 
 const API_KEY = "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";
