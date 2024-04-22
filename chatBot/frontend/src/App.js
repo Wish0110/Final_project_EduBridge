@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import './App.css';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
 const API_KEY = "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";
 
 const systemMessage = { 
-  "role": "system", "content": "Only reply about UK related topic specially UK universities."
+  "role": "system", "content": "Only reply about UK related topic specially UK universities.tell the answer short and directly and numberize the universities. And also should numbersize in the best order "
 }
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
     {
       message: "Hello, I'm MOCHA! Ask me anything related about UK!",
       sentTime: "just now",
-      sender: "ChatGPT"
+      sender: "Mocha"
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -77,7 +76,7 @@ function App() {
       console.log(data);
       setMessages([...chatMessages, {
         message: data.choices[0].message.content,
-        sender: "ChatGPT"
+        sender: "Mocha"
       }]);
       setIsTyping(false);
     });
@@ -88,19 +87,18 @@ function App() {
       <div style={{ position:"relative", height: "700px", width: "700px"  }}>
         <MainContainer>
           <ChatContainer>       
-            <MessageList 
+          <MessageList 
               scrollBehavior="smooth" 
-              typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+              typingIndicator={isTyping ?<TypingIndicator content="Mocha is typing" /> : null}
             >
               {messages.map((message, i) => {
-                console.log(message)
-                return <Message key={i} model={{...message,
-                  position: message.sender === "ChatGPT" ? "outgoing" : "incoming",
-                  bgcolor: message.sender === "ChatGPT" ? "#f0f0f0" : "#dcf8c6",
-                  textAlign: message.sender === "ChatGPT" ? "right" : "right"
-                }} 
-                />
-              })}
+  console.log(message)
+  return <Message key={i} model={{...message,
+    position: message.sender === "Mocha" ? "unread" : "outgoing",
+    bgcolor: message.sender === "Mocha" ? "#f0f0f0" : "#dcf8c6",
+  }} 
+/>
+})}
             </MessageList>
             <MessageInput placeholder="Type message here" onSend={handleSend} />        
           </ChatContainer>

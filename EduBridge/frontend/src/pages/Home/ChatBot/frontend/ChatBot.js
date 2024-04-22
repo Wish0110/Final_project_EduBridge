@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './chatbit.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
@@ -13,7 +14,7 @@ function App() {
     {
       message: "Hello, I'm MOCHA! Ask me anything related about UK!",
       sentTime: "just now",
-      sender: "Mocha"
+      sender: "ChatGPT"
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -42,10 +43,10 @@ function App() {
 
     let apiMessages = chatMessages.map((messageObject) => {
       let role = "";
-      if (messageObject.sender === "ChatGPT") {
-        role = "assistant";
-      } else {
+      if (messageObject.sender === "user") {
         role = "user";
+      } else {
+        role = "assistant";
       }
       return { role: role, content: messageObject.message}
     });
@@ -76,7 +77,7 @@ function App() {
       console.log(data);
       setMessages([...chatMessages, {
         message: data.choices[0].message.content,
-        sender: "Mocha"
+        sender: "ChatGPT" // Change this line
       }]);
       setIsTyping(false);
     });
@@ -87,18 +88,18 @@ function App() {
       <div style={{ position:"relative", height: "700px", width: "700px"  }}>
         <MainContainer>
           <ChatContainer>       
-            <MessageList 
+          <MessageList 
               scrollBehavior="smooth" 
               typingIndicator={isTyping ?<TypingIndicator content="Mocha is typing" /> : null}
             >
               {messages.map((message, i) => {
-                console.log(message)
-                return <Message key={i} model={{...message,
-                  position: message.sender === "ChatGPT" ? "outgoing" : "flex-end",
-                  bgcolor: message.sender === "ChatGPT" ? "#f0f0f0" : "#dcf8c6",
-                }} 
-                />
-              })}
+  console.log(message)
+  return <Message key={i} model={{...message,
+    position: message.sender === "ChatGPT" ? "right" : "left",
+    bgcolor: message.sender === "ChatGPT" ? "#f0f0f0" : "#dcf8c6",
+  }} 
+/>
+})}
             </MessageList>
             <MessageInput placeholder="Type message here" onSend={handleSend} />        
           </ChatContainer>
