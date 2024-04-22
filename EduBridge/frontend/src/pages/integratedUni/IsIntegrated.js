@@ -1,19 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './IsIntegrated.css';
 
 const universityOptions = [
-    { name: 'NSBM Green University', isCorrect: false },
-    { name: 'Integrated University 1', isCorrect: false },
-    { name: 'Integrated University 2', isCorrect: false },
-    { name: 'Integrated University 3', isCorrect: false },
-    { name: 'Integrated University 4', isCorrect: false },
+  { name: 'NSBM Green University', isCorrect: false },
+  { name: 'Integrated University 1', isCorrect: false },
+  { name: 'Integrated University 2', isCorrect: false },
+  { name: 'Integrated University 3', isCorrect: false },
+  { name: 'Integrated University 4', isCorrect: false },
 ];
 
 const UniversityChoice = () => {
   const [selectedUniversity, setSelectedUniversity] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleUniversityClick = (university) => {
     setSelectedUniversity(university);
+    navigate('/ApplicationOverview');
   };
 
   const handleNoClick = () => {
