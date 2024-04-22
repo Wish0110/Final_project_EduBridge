@@ -1,12 +1,20 @@
-import { useState } from 'react';
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import React, { useState } from "react";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+  TypingIndicator,
+} from "@chatscope/chat-ui-kit-react";
 
 const API_KEY = "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";
 
 const systemMessage = {
   role: "system",
-  content: "Only reply about UK related topic specially UK universities.tell the answer short and directly and numberize the universities. And also should numbersize in the best order ",
+  content:
+    "Only reply about UK related topic specially UK universities. Tell the answer short and directly and numberize the universities. And also should numbersize in the best order ",
 };
 
 function ChatBot() {
@@ -22,7 +30,7 @@ function ChatBot() {
   const handleSend = async (message) => {
     const newMessage = {
       message,
-      direction: 'outgoing',
+      direction: "outgoing",
       role: "user",
     };
 
@@ -57,10 +65,16 @@ function ChatBot() {
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
-        setMessages([...chatMessages, {
-          message: data.choices[0].message.content,
-          role: "assistant",
-        }]);
+        if (data.choices && data.choices[0] && data.choices[0].message) {
+          setMessages([...chatMessages, {
+            message: data.choices[0].message.content,
+            role: "assistant",
+          }]);
+          setIsTyping(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error processing message:", error);
         setIsTyping(false);
       });
   }
@@ -73,24 +87,38 @@ function ChatBot() {
             <MessageList scrollBehavior="smooth">
               {messages.map((message, i) => (
                 <Message key={i} model={{ ...message }}>
-                  {/* Determine color and alignment based on role */}
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: message.role === 'assistant' ? 'flex-start' : 'flex-end',
-                      backgroundColor: message.role === 'assistant' ? '#dcf8c6' : '#f0f0f0',
-                      padding: '10px',
-                      borderRadius: '5px',
-                      wordWrap: 'break-word',
+                      display: "flex",
+                      justifyContent:
+                        message.role === "assistant"
+                          ? "flex-start"
+                          : "flex-end",
+                      marginBottom: "10px",
                     }}
                   >
-                    {message.message}
+                    <div
+                      style={{
+                        backgroundColor:
+                          message.role === "assistant"
+                            ? "#E9F1FF"
+                            : "#D8E8F8",
+                        padding: "10px",
+                        borderRadius: "20px",
+                        maxWidth: "80%",
+                      }}
+                    >
+                      {message.message}
+                    </div>
                   </div>
                 </Message>
               ))}
-              {isTyping && <TypingIndicator content="Mocha is typing" />}
+              {isTyping && <TypingIndicator />}
             </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSend} />
+            <MessageInput
+              onSend={handleSend}
+              placeholder="Type your message"
+            />
           </ChatContainer>
         </MainContainer>
       </div>
