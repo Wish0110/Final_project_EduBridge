@@ -10,6 +10,8 @@
   background-color: #f9f9f9;
   z-index: 999;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bot-row {
@@ -35,15 +37,18 @@
   height: 50px;
   margin-top: 20px;
 }
+.bot-input-container{
+  bottom: 0;
 
+}
 .bot-input {
   width: 100%;
+  justify-content: flex;
   padding: 10px;
   border: none;
   border-radius: 20px;
   background-color: #f2f2f2;
   margin-bottom: 20px;
-  
 }
 
 .bot-send {
