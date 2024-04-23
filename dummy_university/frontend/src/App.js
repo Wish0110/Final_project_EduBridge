@@ -1,58 +1,58 @@
 import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import logoNlearn from './images/Nlearn-logo.jfif';
-import LMS from './LMS';
-import studentportal from './images/studentportal.png';
-import logoPlymouthUsad from './images/plyuniversity-logo.jfif';
-import logoVictoria from './images/victoria-university-logo.jfif';
+import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>NSBM Student Portal</h1>
-          <nav>
-            <div className="image-wrapper">
-              <div className="image-box">
-                <a href="#">
-                  <img src={logoNlearn} alt="University of Plymouth" />
-                  <span>University of Plymouth</span>
-                </a>
-              </div>
-              <div className="image-box">
-                <a href="#">
-                  <img src={logoPlymouthUsad} alt="Plymouth University" />
-                  <span>Plymouth University</span>
-                </a>
-              </div>
-              <div className="image-box">
-                <a href="#">
-                  <img src={logoVictoria} alt="Melbourne Australia Victoria University" />
-                  <span>Melbourne Australia Victoria University</span>
-                </a>
-              </div>
-              <div className="image-box">
-                <Link to="/lms">
-                  <img src={studentportal} alt="USAD Test" />
-                  <span>USAD Test</span>
-                </Link>
-              </div>
-            </div>
-          </nav>
-          <main>
-            <h2>Online Services for Students</h2>
-            <ul>
-              <li>
-                <Link to="/lms">Learning Management Systems (LMS) & Examinations</Link>
-              </li>
-            </ul>
-          </main>
-        </header>
-        <Route path="/lms" component={LMS} />
-      </div>
-    </Router>
+    <Container>
+      <Row className="g-4">
+        <Col>
+          <Card className="h-100" style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card 1</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card className="h-100" style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card 2</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card className="h-100" style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card 3</Card.Title>
+              <Card.Text>
+                Some quickexample text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card className="h-100" style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card 4</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
