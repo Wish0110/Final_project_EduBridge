@@ -1,47 +1,42 @@
 const express = require('express');
-const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://wishhiranya:Wishmi99@cluster0.7vn9uie.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://wishhiranya:Wishmi99@cluster0.7vn9uie.mongodb.net/STUDENTS_RECORDS?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Failed to connect to MongoDB', err));
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
-
-// Define a more comprehensive student model
+// Define student schema
 const studentSchema = new mongoose.Schema({
   name: String,
-  degree: String,
   studentid: String,
-  
-});
-const Student = mongoose.model('Student', studentSchema, 'studentrecords');
-
-// Add a route to get all students
-app.get('/api/students', async (req, res) => {
-    const students = await Student.find({});
-    res.json(students);
-  });
-
-// Add a route to add a new student
-app.post('/api/students', async (req, res) => {
-  const student = new Student(req.body);
-  await student.save();
-  res.json(student);
+  degree: String,
+  lastname: String,
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+// Create student model
+const Student = mongoose.model('Student', studentSchema);
+
+// Get student by ID
+app.get('/students/:id', async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
+    if (!student) {
+      return res.status(404).json({ message: 'Student not found' });
+    }
+    res.json(student);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Start server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
