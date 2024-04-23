@@ -22,14 +22,11 @@ const studentSchema = new mongoose.Schema({
 // Create student model
 const Student = mongoose.model('Student', studentSchema);
 
-// Get student by ID
-app.get('/students/:id', async (req, res) => {
+// Get all students
+app.get('/students', async (req, res) => {
   try {
-    const student = await Student.findById(req.params.id);
-    if (!student) {
-      return res.status(404).json({ message: 'Student not found' });
-    }
-    res.json(student);
+    const students = await Student.find({ studentid: { $in: ['22017', '23209'] } });
+    res.json(students);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
