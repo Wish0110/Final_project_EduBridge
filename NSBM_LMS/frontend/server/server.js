@@ -10,7 +10,9 @@ app.use(express.json());
 mongoose.connect('mongodb+srv://wishhiranya:Wishmi99@cluster0.7vn9uie.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Failed to connect to MongoDB', err));
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -18,18 +20,30 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Define a simple student model
+// Define a more comprehensive student model
 const studentSchema = new mongoose.Schema({
   name: String,
-  age: Number,
+  degree: String,
+  studentid: String,
+  Email: String,
+  addressLine1: String,
+  addressLine2: String,
+  addressLine3: String,
+  addressLine4: String,
+  dateOfBirth: Date,
+  gender: String,
+  preferredName: String,
+  title: String,
+  lastname: String,
+  teleNumber: String,
 });
 const Student = mongoose.model('Student', studentSchema);
 
 // Add a route to get all students
 app.get('/api/students', async (req, res) => {
-  const students = await Student.find({});
-  res.json(students);
-});
+    const students = await Student.find({}, '-_id');
+    res.json(students);
+  });
 
 // Add a route to add a new student
 app.post('/api/students', async (req, res) => {
