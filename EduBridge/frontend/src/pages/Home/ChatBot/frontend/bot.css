@@ -49,6 +49,7 @@
   border-radius: 20px;
   background-color: #f2f2f2;
   margin-bottom: 20px;
+  position: sticky;
 }
 
 .bot-send {
@@ -58,7 +59,7 @@
   border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 350px;
   transition: background-color 0.3s ease-out;
 }
 
