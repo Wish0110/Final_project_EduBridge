@@ -25,23 +25,13 @@ const studentSchema = new mongoose.Schema({
   name: String,
   degree: String,
   studentid: String,
-  Email: String,
-  addressLine1: String,
-  addressLine2: String,
-  addressLine3: String,
-  addressLine4: String,
-  dateOfBirth: Date,
-  gender: String,
-  preferredName: String,
-  title: String,
-  lastname: String,
-  teleNumber: String,
+  
 });
-const Student = mongoose.model('Student', studentSchema);
+const Student = mongoose.model('Student', studentSchema, 'studentrecords');
 
 // Add a route to get all students
 app.get('/api/students', async (req, res) => {
-    const students = await Student.find({}, '-_id');
+    const students = await Student.find({});
     res.json(students);
   });
 
