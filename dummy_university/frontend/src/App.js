@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
+import { Card, Button } from 'react-bootstrap';
 
-const App = () => {
+const App  = ({ link }) => {
   return (
     <Container>
       <Row className="g-4">
@@ -48,12 +49,16 @@ const App = () => {
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </Card.Text>
+              <Button className="btn" variant="primary" href={link}>
+          Go to LMS
+        </Button>
             </Card.Body>
           </Card>
         </Col>
       </Row>
     </Container>
   );
+
 }
 
 export default App;
