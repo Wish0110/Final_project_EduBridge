@@ -127,7 +127,9 @@ function ReccomandationLetter(){
             </div>
   
             <button onClick={handleGeneratePdf}>Convert to PDF</button>
+            <div className='PDF-View'>
             <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
+            </div>
           </div>
         )}
       </div>
