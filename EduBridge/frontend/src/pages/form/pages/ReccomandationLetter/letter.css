@@ -10,3 +10,16 @@
   max-width: 100%;
   overflow-x: auto;
 }
+
+#letter-content {
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 500px;
+  overflow-x: auto;
+}
