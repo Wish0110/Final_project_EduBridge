@@ -83,8 +83,10 @@ app.post('/api/fetch-student', async (req, res) => {
               "content": `I want to write a letter of recommendation for a student named ${studentData.name} 
               with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
               ${studentData.gpa}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. 
-              And also if they have any discipline record ${studentData.Discipline}.
-               Please generate the letter in the following format:
+              And also mention discipline record ${studentData.Discipline}.
+              must display "NSBM Green University, Faculty of ${studentData.faculty}
+               {This is Autimatically generated letter based on the student recordes.}" this part
+                Please generate the letter in the following format: :
       
       Dear Sir/Madam,
       
@@ -140,6 +142,8 @@ rl.question('Enter student ID: ', async (studentId) => {
       console.log('GPA:', data.gpa);
       console.log('Sports:', data.sports);
       console.log('Faculty:', data.faculty);
+      console.log('Discipline:', data.Discipline);
+
 
       // Generate the letter
       const letterResponse = await axios.post('http://localhost:3002/api/generate-letter', { studentData: data });

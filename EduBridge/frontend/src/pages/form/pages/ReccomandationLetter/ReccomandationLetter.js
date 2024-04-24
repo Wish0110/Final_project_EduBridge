@@ -114,8 +114,6 @@ function ReccomandationLetter(){
             <p>Name: {studentData.name}</p>
             <p>Student ID: {studentData.studentId}</p>
             <p>Degree: {studentData.degree}</p>
-            <p>GPA: {studentData.gpa}</p>
-            <p>Sports: {studentData.sports}</p>
             <p>Faculty: {studentData.faculty}</p>
             <button onClick={handleGenerateLetter}>Generate Letter</button>
           </div>
