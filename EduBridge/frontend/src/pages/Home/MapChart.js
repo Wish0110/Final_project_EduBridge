@@ -172,12 +172,7 @@ const MapChart = () => {
 
   return (
     
-    <MapContainer center={mapCenter} zoom={zoomLevel} style={{
-      width: '100px', 
-      height: '800px',
-      borderRadius: '10px',
-      boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-    }}>
+    <MapContainer center={mapCenter} zoom={zoomLevel} >
       
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
