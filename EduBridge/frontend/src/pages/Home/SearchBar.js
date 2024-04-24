@@ -1,4 +1,6 @@
-import React, { useState, Link } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const SearchBar = ({ onSearch, options }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +25,7 @@ const SearchBar = ({ onSearch, options }) => {
         <button type="submit">Search</button>
         <ul>
           {filteredOptions.map((option, index) => (
-            <li key={index}>
+            <li key={`${index}-${option.toLowerCase().replace(' ', '-')}`}>
               <Link to={`/search/${option.toLowerCase().replace(' ', '-')}`}>
                 {option}
               </Link>
@@ -33,5 +35,5 @@ const SearchBar = ({ onSearch, options }) => {
       </form>
     );
   };
-
+  
   export default SearchBar;

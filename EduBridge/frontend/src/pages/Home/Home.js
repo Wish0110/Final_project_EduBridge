@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css'; 
 import MapChart from './MapChart';
@@ -17,6 +17,7 @@ const Home = () => {
   const aboutRef = useRef(null);
   const serviceRef = useRef(null);
   const contactRef = useRef(null);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,6 +85,15 @@ const Home = () => {
     };
   }, []);
 
+  const [searchedOptions, setSearchedOptions] = useState([]);
+  const handleSearch = (searchTerm) => {
+    const matchingOptions = ['University', 'Cambridge Collage', 'Oxford University'].filter(
+      (option) => option.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchedOptions(matchingOptions);
+  };
+
+
   return (
 
     //navbar
@@ -103,13 +113,8 @@ const Home = () => {
         <h2>UK University Map</h2>
         <MapChart />
       <div className="search-bar">
-        <SearchBar onSearch={(searchTerm) => console.log(`Searching for: ${searchTerm}`)} />
+      <SearchBar onSearch={handleSearch} options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
 
-        <div className="search-options">
-          <Link to="/search/plymouth-uni" className="search-option">Plymouth Uni</Link>
-          <Link to="/search/cambridge-collage" className="search-option">Cambridge Collage</Link>
-          <Link to="/search/oxford-university" className="search-option">Oxford University</Link>
-        </div>
         </div>
         
       </div>

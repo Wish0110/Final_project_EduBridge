@@ -108,3 +108,30 @@
 .search-option:hover {
   background-color: #0056b3;
 }
+
+.search-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 100px;
+  margin-top: 300px;
+}
+
+.search-bar li {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  width: 250px;
+}
+
+.search-bar li:hover {
+  background-color: #0056b3;
+}
