@@ -52,7 +52,8 @@ app.post('/api/fetch-student', async (req, res) => {
           degree: student.degree,
           gpa: student.gpa,
           sports: student.sports,
-          faculty: student.faculty
+          faculty: student.faculty,
+          Discipline: student.Discipline,
         }
       });
     } else {
@@ -79,14 +80,20 @@ app.post('/api/fetch-student', async (req, res) => {
             model: 'gpt-3.5-turbo',
             messages: [{
               "role": "user",
-              "content": `I want to write a letter of recommendation for a student named ${studentData.name} with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of ${studentData.gpa}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. Please generate the letter in the following format:
+              "content": `I want to write a letter of recommendation for a student named ${studentData.name} 
+              with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
+              ${studentData.gpa}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. 
+              And also if they have any discipline record ${studentData.Discipline}.
+               Please generate the letter in the following format:
       
       Dear Sir/Madam,
       
-      [Write the recommendation here with the student's name, student ID, degree, GPA, sports, and faculty. And pharagraphvise should be displayed. ]
+      [Write the recommendation here with the student's name, student ID, faculty , degree, GPA, sports, and Discipline.
+       And pharagraphvise should be displayed. Write like actual university reccomandation letter.]
       
       Best regards,
-      Dean, Faculty of ${studentData.faculty}
+      NSBM Green University, Faculty of ${studentData.faculty}
+      {This is Autimatically generated letter based on the student recordes.}
       `
             }]
           });
