@@ -130,7 +130,7 @@ function ReccomandationLetter(){
             <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
             </div>
             <button className='Letter-dwn-btn' onClick={handleGeneratePdf}>Download Document</button>
-            <button className='Letter-save-btn' onClick={handleGeneratePdf}>Save Document</button>
+            <button className='Letter-save-btn'>Save Document</button>
           </div>
           </div>
         )}
