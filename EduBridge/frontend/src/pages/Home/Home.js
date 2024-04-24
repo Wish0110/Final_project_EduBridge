@@ -102,7 +102,9 @@ const Home = () => {
     <div ref={mapRef}>
         <h2>UK University Map</h2>
         <MapChart />
+      <div className="search-bar">
         <SearchBar onSearch={(searchTerm) => console.log(`Searching for: ${searchTerm}`)} />
+        </div>
       </div>
     </section>
 
