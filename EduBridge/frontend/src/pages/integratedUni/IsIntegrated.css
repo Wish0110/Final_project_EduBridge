@@ -39,7 +39,7 @@
   .university-button {
     width: 48%;
     margin-bottom: 20px;
-    background-color: #4caf50;
+    background-color: #7d9fc1;
     color: white;
     border: none;
     border-radius: 5px;
@@ -50,13 +50,13 @@
   }
   
   .university-button:hover {
-    background-color: #3e8e41;
+    background-color: black;
   }
   
   .no-button {
     width: 48%;
     margin-bottom: 20px;
-    background-color: #f44336;
+    background-color: #7d9fc1;
     color: white;
     border: none;
     border-radius: 5px;
@@ -74,7 +74,7 @@
   .university-button {
     width: 48%;
     margin-bottom: 20px;
-    background-color: #4caf50;
+    background-color: #7d9fc1;
     color: white;
     border: none;
     border-radius: 5px;
@@ -85,13 +85,13 @@
   }
   
   .university-button:hover {
-    background-color: #3e8e41;
+    background-color: black;
   }
   
   .no-button {
     width: 48%;
     margin-bottom: 20px;
-    background-color: #f44336;
+    background-color: #237b7b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -102,5 +102,5 @@
   }
   
   .no-button:hover {
-    background-color: #da190b;
+    background-color: black;
   }
