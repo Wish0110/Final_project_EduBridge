@@ -84,19 +84,20 @@ app.post('/api/fetch-student', async (req, res) => {
               with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
               ${studentData.gpa}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. 
               And also mention discipline record ${studentData.Discipline}.
-              must display "NSBM Green University, Faculty of ${studentData.faculty}
-               {This is Autimatically generated letter based on the student recordes.}" this part
-                Please generate the letter in the following format: :
-      
-      Dear Sir/Madam,
-      
-      [Write the recommendation here with the student's name, student ID, faculty , degree, GPA, sports, and Discipline.
-       And pharagraphvise should be displayed. Write like actual university reccomandation letter.]
-      
-      Best regards,
-      NSBM Green University, Faculty of ${studentData.faculty}
-      {This is Autimatically generated letter based on the student recordes.}
-      `
+              Please generate the letter in the following format:
+          
+            Dear Sir/Madam,
+          
+            I am writing to wholeheartedly recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
+          
+            [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline.
+            Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character.
+            Write like actual university recommendation letter.]
+          
+            Best regards,
+            NSBM Green University, Faculty of ${studentData.faculty}
+            *This is Automatically generated letter based on the student recordes.
+            `
             }]
           });
       
