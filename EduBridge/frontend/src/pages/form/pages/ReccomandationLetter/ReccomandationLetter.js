@@ -96,7 +96,7 @@ function ReccomandationLetter(){
         
     return (
       <Sidebar>
-      <div className="letter-ID">
+      <div className="letter-Page">
         <h1>Student Recommendation Letter Generator</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="studentId">Student ID:</label>
