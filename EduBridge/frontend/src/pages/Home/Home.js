@@ -104,7 +104,14 @@ const Home = () => {
         <MapChart />
       <div className="search-bar">
         <SearchBar onSearch={(searchTerm) => console.log(`Searching for: ${searchTerm}`)} />
+
+        <div className="search-options">
+          <Link to="/search/plymouth-uni" className="search-option">Plymouth Uni</Link>
+          <Link to="/search/cambridge-collage" className="search-option">Cambridge Collage</Link>
+          <Link to="/search/oxford-university" className="search-option">Oxford University</Link>
         </div>
+        </div>
+        
       </div>
     </section>
 

@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css'; // Include CSS for styling
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 
+
 const universities = [
   {
     name: 'University of Oxford',
