@@ -54,6 +54,9 @@ app.post('/api/fetch-student', async (req, res) => {
           sports: student.sports,
           faculty: student.faculty,
           Discipline: student.Discipline,
+          class: student.class,
+          extracurry: student.extracurry,
+          Finalproject: student.Finalproject,
         }
       });
     } else {
