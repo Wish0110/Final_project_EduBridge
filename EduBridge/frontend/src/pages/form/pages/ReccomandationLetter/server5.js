@@ -79,6 +79,10 @@ app.post('/api/fetch-student', async (req, res) => {
           const response = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
             messages: [{
+              "role": "system",
+              "content": "You are a helpful assistant that generates a letter of recommendation for a student based on the provided information."
+            },
+            {
               "role": "user",
               "content": `I want to write a letter of recommendation for a student named ${studentData.name} 
               with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
@@ -86,18 +90,21 @@ app.post('/api/fetch-student', async (req, res) => {
               And also mention discipline record ${studentData.Discipline}.
               Please generate the letter in the following format:
           
-            Dear Sir/Madam,
+              Dear Sir/Madam,
           
-            I am writing to wholeheartedly recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
+              I am writing to wholeheartedly recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
           
-            [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline.
-            Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character.
-            Write like actual university recommendation letter.]
+              [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline.
+              Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character.
+              Write like actual university recommendation letter.]
           
-            Best regards,
-            NSBM Green University, Faculty of ${studentData.faculty}
-            *This is Automatically generated letter based on the student recordes.
-            `
+              Best regards,
+              NSBM Green University, Faculty of ${studentData.faculty}
+              `
+            },
+            {
+              "role": "user",
+              "content": "*This is Automatically generated letter based on the student recordes."
             }]
           });
       
