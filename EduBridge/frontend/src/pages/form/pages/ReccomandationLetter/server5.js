@@ -89,8 +89,10 @@ app.post('/api/fetch-student', async (req, res) => {
               "role": "user",
               "content": `I want to write a letter of recommendation for a student named ${studentData.name} 
               with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
-              ${studentData.gpa} and mention about class ${studentData.class}. They have also participated in ${studentData.sports} and are part of the ${studentData.faculty} faculty. 
-              And also mention discipline record ${studentData.Discipline}.
+              ${studentData.gpa} and mention about class ${studentData.class}. They have also participated in ${studentData.sports} and
+              ${studentData.extracurry} and are part of the ${studentData.faculty} faculty. And also mention discipline record ${studentData.Discipline}. 
+              And reccomend for things with related ${studentData.Finalproject} and explain about project. Write like actual university 
+              recommendation letter letter bellow metion your roll who is generated letter.
               Please generate the letter in the following format:
           
               Dear Sir/Madam,
@@ -101,10 +103,6 @@ app.post('/api/fetch-student', async (req, res) => {
               [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline.
               Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character and also have bad
               things that should mention and explain like deciplene.
-              Write like actual university recommendation letter. {
-                "role": "user",
-                "content": "*This is Automatically generated letter based on the student recordes."
-              }your roll who is generated letter]
           
               Best regards,
               NSBM Green University, Faculty of ${studentData.faculty}
