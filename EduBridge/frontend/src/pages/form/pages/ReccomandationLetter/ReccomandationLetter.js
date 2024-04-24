@@ -122,7 +122,9 @@ function ReccomandationLetter(){
         {generatedLetter && (
           <div letter-display>
             <h2>Generated Letter</h2>
+            <div className='pdf-display'>
             <pre className='letter-display'>{generatedLetter}</pre>
+            </div>
   
             <button onClick={handleGeneratePdf}>Convert to PDF</button>
             <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
