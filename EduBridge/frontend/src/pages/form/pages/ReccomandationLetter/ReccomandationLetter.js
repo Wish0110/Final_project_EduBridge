@@ -96,7 +96,7 @@ function ReccomandationLetter(){
         
     return (
       <Sidebar>
-      <div className="letter-Page">
+      <div>
         <h1>Student Recommendation Letter Generator</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="studentId">Student ID:</label>
@@ -108,6 +108,7 @@ function ReccomandationLetter(){
           />
           <button type="submit">Fetch Student Data</button>
         </form>
+        
         {studentData && (
           <div className='letter-confirm'>
             <h2>Student Details</h2>
@@ -116,10 +117,12 @@ function ReccomandationLetter(){
             <p>Degree: {studentData.degree}</p>
             <p>Faculty: {studentData.faculty}</p>
             <button onClick={handleGenerateLetter}>Generate Letter</button>
-          </div>
+            </div>
         )}
         {errorMessage && <p className="error">{errorMessage}</p>}
         {generatedLetter && (
+          <div className="letter-Page">
+
           <div letter-display>
             <h2>Generated Letter</h2>
             <div className='pdf-display'>
@@ -130,6 +133,7 @@ function ReccomandationLetter(){
             <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
             </div>
             <button onClick={handleGeneratePdf}>Convert to PDF</button>
+          </div>
           </div>
         )}
       </div>
