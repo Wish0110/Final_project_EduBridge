@@ -20,9 +20,9 @@
   margin: 1rem 0;
   padding: 1rem;
   border: 1px solid #ddd;
-  border: 50px solid #000000;
+  border: 2px solid #000000;
   border-radius: 5px;
-  width: 700px;
+  width: 600px;
   overflow-x: auto;
 }
 
@@ -33,7 +33,7 @@
   line-height: 1.5;
   margin: 1rem 0;
   padding: 1rem;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   border-radius: 5px;
   width: 500px;
   overflow-x: auto;
