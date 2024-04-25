@@ -129,6 +129,8 @@ function ReccomandationLetter(){
             <div className='PDF-View'>
             <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
             </div>
+            <h4>*This is Automatically generated letter based on the student recordes.</h4>
+
             <button className='Letter-dwn-btn' onClick={handleGeneratePdf}>Download Document</button>
             <button className='Letter-save-btn'>Save Document</button>
           </div>
