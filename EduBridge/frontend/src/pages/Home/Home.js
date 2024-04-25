@@ -113,7 +113,7 @@ const Home = () => {
         <h2>UK University Map</h2>
         <MapChart />
       <div className="search-bar">
-      <SearchBar onSearch={handleSearch} options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
+      <SearchBar onSearch={handleSearch} className= 'options' options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
 
         </div>
         
