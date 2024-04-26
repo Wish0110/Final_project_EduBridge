@@ -62,9 +62,9 @@ app.post('/create_order', (req, res) => {
  * @function
  * @name completeOrder
  * @memberof module:routes
- * @param {object} req - The HTTP request object.
- * @param {object} req.body - The request body containing the order ID and intent.
- * @param {string} req.body.order_id - The ID of the order to complete.
+ * @param {object} req - The HTTP request object.ncbdhc 
+ * @param {object} req.body - The request body containing the order ID and intent.ndbv
+ * @param {string} req.body.order_id - The ID of the order to complete.fnvdjfbv
  * @param {string} req.body.intent - The intent of the order.
  * @param {object} res - The HTTP response object.
  * @returns {object} The completed order as a JSON response.
