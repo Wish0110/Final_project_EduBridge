@@ -68,7 +68,7 @@ app.post('/create_order', (req, res) => {
  * @param {string} req.body.intent - The intent of the order.
  * @param {object} res - The HTTP response object.
  * @returns {object} The completed order as a JSON response.
- * @throws {Error} If there is an error completing the order.
+ * @throws {Error} If there is an error completing the order.cgcgcg
  */
 app.post('/complete_order', (req, res) => {
     get_access_token()
