@@ -9,6 +9,7 @@ import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 import searchpage from './home_banner_imgs/HomeUniSearch.png';
+import locations from './home_banner_imgs/locations.gif';
 import botgif from './home_banner_imgs/botgif.gif';
 
 const Home = () => {
@@ -123,6 +124,11 @@ const Home = () => {
               Click on a university marker to view more details about the university. 
               You can also use the search bar at the top of the page to search for a specific university.
             </p>
+            <img
+            src={locations}
+            alt="locations"
+            className="locations-gif"
+          />
         </div>
         </div>
               
