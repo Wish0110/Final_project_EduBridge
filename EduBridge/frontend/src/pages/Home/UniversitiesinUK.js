@@ -11,7 +11,7 @@ const UniversitiesinUK = () => {
 
     const [searchedOptions, setSearchedOptions] = useState([]);
   const handleSearch = (searchTerm) => {
-    const matchingOptions = ['University', 'Cambridge Collage', 'Oxford University'].filter(
+    const matchingOptions = ['University', 'Cambridge Collage', 'Oxford University',].filter(
       (option) => option.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchedOptions(matchingOptions);
@@ -32,7 +32,12 @@ const UniversitiesinUK = () => {
       </div>         
       <img src={searchpage} alt="Universities in the UK" className="search-image" />
       <div className="Unisearch-bar">
-           <SearchBar onSearch={handleSearch} options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
+           <SearchBar onSearch={handleSearch} options={[
+            'Plymouth University', 'Cambridge Collage', 'Oxford University', 
+            'University of Cambridge', 'Imperial College London', 'University of Edinburgh', 
+            'Dublin University', 'Cardiff University'
+            ]} 
+            />
            </div>
     </div>
   );
