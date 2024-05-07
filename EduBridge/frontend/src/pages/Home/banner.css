@@ -34,7 +34,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: 1300px;
   height: 120px;
   margin-top: 750px;
   background-color: #ffffff;
@@ -49,16 +49,49 @@
 .logo-container {
   display: flex;
   align-items: center;
+  margin-left: 50px;
+  gap: 50px;
 }
 
-.logo-container img {
+
+
+.logo-container img:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.logo2 {
   width: 100px;
   height: auto;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
 
-.logo-container img:hover {
-  opacity: 1;
-  cursor: pointer;
+.logo1 {
+  width: 150px;
+  height: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo3 {
+  width: 50px;
+  height: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo4 {
+  width: 100px;
+  height: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo5 {
+  width: 100px;
+  height: auto;
+  margin-left: 350px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
 }
