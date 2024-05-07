@@ -110,7 +110,7 @@ const Home = () => {
     {/*map*/}
     <section id="map" className="map-section">
     <div ref={mapRef}>
-    <h2>UK <span className="map-text">Map</span></h2>
+    <h2>UK Universities <span className="map-text">Map</span></h2>
         <div className="divider"></div>
         <MapChart />
       <div className="search-bar">
