@@ -10,7 +10,6 @@ const Employment = () => {
     // Handle form submission here
   }
 
-
   return (
     <Sidebar>
       <div>
