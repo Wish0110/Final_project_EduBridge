@@ -9,6 +9,7 @@ import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 import SearchBar from './SearchBar';
+import Popup from './Popup';
 
 const Home = () => {
   //navigations controll in pages
