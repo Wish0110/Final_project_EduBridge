@@ -21,7 +21,7 @@ const UniversitiesinUK = () => {
     
     <div className="universities-uk-container">
        
-        <h2>Universities in the UK</h2>
+        <h2>Universities in UK</h2>
         <div className="degree-separator-full">
         <button id="back" className="button" onClick={goBack}>
               <FontAwesomeIcon icon={faArrowLeft} />
@@ -35,7 +35,7 @@ const UniversitiesinUK = () => {
            <SearchBar onSearch={handleSearch} options={[
             'Plymouth University', 'Cambridge Collage', 'Oxford University', 
             'University of Cambridge', 'Imperial College London', 'University of Edinburgh', 
-            'Dublin University', 'Cardiff University'
+            'Dublin University', 'Cardiff University', 'University of Glasgow', 
             ]} 
             />
            </div>

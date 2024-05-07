@@ -172,7 +172,8 @@
   flex-direction: column;
   gap: 10px;
   top: 100px;
-  margin-top: 300px;
+  margin-top: 600px;
+margin-right: 200px; 
 }
 
 .search-option,
@@ -180,12 +181,14 @@
   display: block;
   padding: 10px 20px;
   width: 350px;
-  margin-right: 100px; /* Add this line */
+  margin-right: 100px; 
   background-color: #f2f2f2;
   border-radius: 5px;
   color: #000000;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   transition: background-color 0.3s ease;
+  margin-top: 15px;
 }
 
 .Unisearch-bar li:hover {
