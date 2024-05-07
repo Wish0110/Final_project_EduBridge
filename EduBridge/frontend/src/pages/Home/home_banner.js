@@ -4,7 +4,7 @@ import img from './Home-Banner.png';
 import logo1 from './home_banner_imgs/logo1.png';
 import logo2 from './home_banner_imgs/logo2.png';
 import logo3 from './home_banner_imgs/logo3.png';
-import logo4 from './home_banner_imgs/logo4.jfif';
+import logo4 from './home_banner_imgs/logo4.png';
 import logo5 from './home_banner_imgs/logo5.jfif';
 
 const HomeBanner = () => {

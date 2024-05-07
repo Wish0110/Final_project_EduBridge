@@ -61,22 +61,25 @@
 }
 
 .logo2 {
-  width: 100px;
+  width: 80px;
   height: auto;
   opacity: 0.5;
+  margin-left: 50px;
   transition: opacity 0.3s ease-in-out;
 }
 
 .logo1 {
   width: 150px;
   height: auto;
+  margin-left: 50px;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
 
 .logo3 {
-  width: 50px;
+  width: 150px;
   height: auto;
+  margin-left: 50px;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
@@ -84,6 +87,7 @@
 .logo4 {
   width: 100px;
   height: auto;
+  margin-left: 50px;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
@@ -91,7 +95,7 @@
 .logo5 {
   width: 100px;
   height: auto;
-  margin-left: 350px;
+  margin-left: 50px;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
