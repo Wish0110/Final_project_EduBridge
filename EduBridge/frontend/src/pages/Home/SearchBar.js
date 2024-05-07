@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Popup from './Popup';
 
 
 const SearchBar = ({ onSearch, options }) => {
