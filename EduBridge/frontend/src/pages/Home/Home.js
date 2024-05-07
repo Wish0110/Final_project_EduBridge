@@ -118,9 +118,11 @@ const Home = () => {
         </Link>
         <div className='searchPageInstruct'>
         <h3>How to use the MAP section:</h3>
-  <p>
-    In the MAP section, you can explore the UK universities on the map. Click on a university marker to view more details about the university. You can also use the search bar at the top of the page to search for a specific university.
-  </p>
+            <p>
+              In the MAP section, you can explore the UK universities on the map. 
+              Click on a university marker to view more details about the university. 
+              You can also use the search bar at the top of the page to search for a specific university.
+            </p>
         </div>
         </div>
               

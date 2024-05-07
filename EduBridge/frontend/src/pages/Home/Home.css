@@ -235,23 +235,28 @@ margin-right: 200px;
 
 .searchPageInstruct {
   position: absolute;
-  bottom: 0;
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  width: 80%;
-  max-width: 400px;
+  height: 300px;
+  width: 500px;
   margin-bottom: 2rem;
   z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.searchPageInstruct:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
 }
 
 .searchPageInstruct p {
-  margin: 0;
+  margin: 30px;
 }
 
 .searchPageInstruct h3 {
-  margin-top: 0;
+  margin: 30px;
+  color: #617487;
 }
