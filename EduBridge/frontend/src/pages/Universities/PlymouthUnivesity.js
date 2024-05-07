@@ -28,7 +28,7 @@ const PlymouthUnivesity = () => {
         <button id="back" className="button" onClick={goBack}>
               <FontAwesomeIcon icon={faArrowLeft} />
         </button>
-        <input type="text" className="search-bar" placeholder="Search..." />
+        <input type="text" className="searchbar" placeholder="Search..." />
         <button id="Home" className="button">
           <FontAwesomeIcon icon={faHome} />
         </button>

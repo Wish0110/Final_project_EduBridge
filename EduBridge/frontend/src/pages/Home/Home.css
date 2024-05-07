@@ -81,7 +81,7 @@
   top: 39%;
 }
 
-.search-bar {
+.Unisearch-bar {
   position: absolute;
   top: 3%;
   right: 1000px;
@@ -104,13 +104,13 @@
   padding: 10px;
 }
 
-.search-bar:focus-within .search-options {
+.Unisearch-bar:focus-within .search-options {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.search-bar form {
+.Unisearch-bar form {
   display: flex;
   align-items: center;
   background-color: #ffffff;
@@ -118,23 +118,25 @@
   padding: 5px;
   width: 400px;
   height: 35px;
-  margin-left: 500px;
+  margin-top: 120px;
+  margin-left: 250px;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-.search-bar input[type="text"] {
+.Unisearch-bar input[type="text"] {
   flex-grow: 1;
   border: none;
   padding: 5px;
   width: 250px;
 }
 
-.search-bar button {
+.Unisearch-bar button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  margin-left: 200px;
+  margin-left: 130px;
   padding: 5px 10px;
+  margin-bottom: 20px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -149,23 +151,20 @@
 }
 
 .search-option {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  width: 250px;
-  margin-right: 100px;
+  display: block;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .search-option:hover {
   background-color: #0056b3;
 }
 
-.search-bar ul {
+.Unisearch-bar ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -177,17 +176,18 @@
 }
 
 .search-option,
-.search-bar li {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
+.Unisearch-bar li {
+  display: block;
+  padding: 10px 20px;
+  width: 350px;
+  margin-right: 100px; /* Add this line */
+  background-color: #f2f2f2;
   border-radius: 5px;
+  color: #000000;
   text-decoration: none;
-  cursor: pointer;
-  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.search-bar li:hover {
-  background-color: #0056b3;
+.Unisearch-bar li:hover {
+  background-color: #ddd;
 }

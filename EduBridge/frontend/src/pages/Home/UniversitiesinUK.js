@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
-import './DegreeList.css';
+import useNavigation from '../../Componenets/Navbar/useNavigation';
 import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useNavigation from '../../Componenets/Navbar/useNavigation';
-//import './UniversitiesinUK.css';
+import searchpage from './home_banner_imgs/searchpage.png';
+import './UniversitiesinUK.css';
 
 const UniversitiesinUK = () => {
     const { goBack } = useNavigation();
@@ -20,6 +20,8 @@ const UniversitiesinUK = () => {
   return (
     
     <div className="universities-uk-container">
+       
+        <h2>Universities in the UK</h2>
         <div className="degree-separator-full">
         <button id="back" className="button" onClick={goBack}>
               <FontAwesomeIcon icon={faArrowLeft} />
@@ -28,8 +30,8 @@ const UniversitiesinUK = () => {
           <FontAwesomeIcon icon={faHome} />
         </button>
       </div>         
-      <h2>Universities in the UK</h2>
-      <div className="search-bar">
+      <img src={searchpage} alt="Universities in the UK" className="search-image" />
+      <div className="Unisearch-bar">
            <SearchBar onSearch={handleSearch} options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
            </div>
     </div>
