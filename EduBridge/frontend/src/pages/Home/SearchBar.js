@@ -13,7 +13,6 @@ const SearchBar = ({ onSearch, options }) => {
     const filteredOptions = options.filter((option) =>
       option.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  
 
 
     return (

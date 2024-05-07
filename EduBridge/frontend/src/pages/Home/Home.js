@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css'; 
 import MapChart from './MapChart';
@@ -8,7 +8,6 @@ import Navbar from '../../Componenets/Navbar/Navbar';
 import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
-import SearchBar from './SearchBar';
 
 const Home = () => {
   //navigations controll in pages
