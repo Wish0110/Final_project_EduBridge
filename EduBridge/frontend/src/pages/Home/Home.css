@@ -34,9 +34,11 @@
 }
 
 .leaflet-container {
-  margin-top: 100px;
-  width: 1000px !important;
-  height: 500px !important;
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 800px !important;
+  height: 450px !important;
+  border-radius: 10px;
 }
 
 .about-container{
@@ -48,8 +50,8 @@
 }
 
 .map-section h2{
-  margin-top: 250px;
-  
+  margin-top: 200px;
+  margin-left: 45%;
 }
 
 .search-bar {

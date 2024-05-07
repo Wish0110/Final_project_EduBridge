@@ -111,6 +111,7 @@ const Home = () => {
     <section id="map" className="map-section">
     <div ref={mapRef}>
         <h2>UK University Map</h2>
+        <div className="divider"></div>
         <MapChart />
       <div className="search-bar">
       <SearchBar onSearch={handleSearch} className= 'options' options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
