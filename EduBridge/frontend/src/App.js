@@ -23,6 +23,7 @@ import PersonalStatement from './pages/form/pages/PersonalStatement';
 import ReccomandationLetter from './pages/form/pages/ReccomandationLetter/ReccomandationLetter';
 import ChatBot from './pages/Home/ChatBot/frontend/ChatBot';
 import IsIntegrated from './pages/integratedUni/IsIntegrated';
+import UniversitiesinUK from './pages/Home/UniversitiesinUK';
 
 const App = () => {
   return (
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/ReccomandationLetter" exact element={<ReccomandationLetter />} />
         <Route path="/ChatBot" exact element={<ChatBot />} />
         <Route path="/IsIntegrated" exact element={<IsIntegrated />} />
+        <Route path="/UniversitiesinUK" exact element={<UniversitiesinUK />} />
 
     </Routes>
       </main>
