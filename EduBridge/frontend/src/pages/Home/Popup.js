@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Popup = ({ options }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Popup = ({ options, isOpen, togglePopup }) => {
   return (
-    <div className="popup">
+    <div className="popup" style={{ display: isOpen ? 'block' : 'none' }}>
       <button onClick={togglePopup}>Search</button>
-      {isOpen && (
-        <ul className="options">
-          {options.map((option, index) => (
-            <li key={index} onClick={togglePopup}>
-              {option}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul className="options">
+        {options.map((option, index) => (
+          <li key={index} onClick={togglePopup}>
+            {option}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

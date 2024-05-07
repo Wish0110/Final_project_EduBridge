@@ -5,7 +5,8 @@ import Popup from './Popup';
 
 const SearchBar = ({ onSearch, options }) => {
     const [searchTerm, setSearchTerm] = useState('');
-  
+    const [isOpen, setIsOpen] = useState(false);
+
     const handleSubmit = (e) => {
       e.preventDefault();
       onSearch(searchTerm);
@@ -15,6 +16,10 @@ const SearchBar = ({ onSearch, options }) => {
       option.toLowerCase().includes(searchTerm.toLowerCase())
     );
   
+    const togglePopup = () => {
+      setIsOpen(!isOpen);
+    };
+
     return (
       <form onSubmit={handleSubmit}>
         <input
@@ -24,7 +29,8 @@ const SearchBar = ({ onSearch, options }) => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button type="submit">Search</button>
-        <ul>
+      <Popup options={filteredOptions} isOpen={isOpen} togglePopup={togglePopup} />
+      <ul>
           {filteredOptions.map((option, index) => (
             <li key={`${index}-${option.toLowerCase().replace(' ', '-')}`}>
               <Link to={`/search/${option.toLowerCase().replace(' ', '-')}`}>
