@@ -211,10 +211,47 @@ margin-right: 200px;
   margin-left: 50px;
   width: 500px;
   height: auto;
-  margin-bottom: 50px;
+  margin-top: -40px;
 }
 
 .PopUp button{
-  margin-top: 150px;
   margin-bottom: 0px;
+}
+
+.text-overlay{
+  position: absolute;
+  top: 38%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  color: #ffffff !important;
+  text-align: center;
+}
+
+.text-overlay p{
+  color: #ffffff;
+  font-size: 16px;
+  text-shadow: #000000 0px 0px 5px;
+}
+
+.searchPageInstruct {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 2rem;
+  z-index: 10;
+}
+
+.searchPageInstruct p {
+  margin: 0;
+}
+
+.searchPageInstruct h3 {
+  margin-top: 0;
 }

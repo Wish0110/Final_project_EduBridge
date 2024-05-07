@@ -111,10 +111,17 @@ const Home = () => {
       
         <div className='PopUp'>
         <Link to="/universitiesinuk">
-            <button type="button">Universities</button>
-        </Link>
+            <div className="text-overlay">
+                <p>Click Here to Search universities</p>
+              </div> 
         <img src={searchpage} alt="Universities in the UK" className="Homesearchimage" />
-
+        </Link>
+        <div className='searchPageInstruct'>
+        <h3>How to use the MAP section:</h3>
+  <p>
+    In the MAP section, you can explore the UK universities on the map. Click on a university marker to view more details about the university. You can also use the search bar at the top of the page to search for a specific university.
+  </p>
+        </div>
         </div>
               
       </div>
