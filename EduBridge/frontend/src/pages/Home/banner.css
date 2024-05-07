@@ -24,16 +24,17 @@
   display: inline-block;
 }
 
-.banner-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+.banner-image img {
+  width: 1350px;
+  height: 750px;
+  margin-bottom: 100px;
 }
 
-.banner-image img {
-  width: 750px;
-  max-width: 900px;
-  height: 650px;
-  margin-left: 350px;
-  margin-bottom: 30px;
+.banner-footer{
+  display: flex;
+  width: 350px;
+  height: 150px;
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
 }
