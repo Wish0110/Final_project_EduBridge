@@ -14,12 +14,19 @@
   background-color: #fff;
 }
 
-.sticky-button button {
-  background-color: brown;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: #4b6f8f;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
   cursor: pointer;
 }
 
@@ -193,4 +200,21 @@ margin-right: 200px;
 
 .Unisearch-bar li:hover {
   background-color: #ddd;
+}
+
+.mocha-gif {
+  width: 100px;
+  height: 100px;
+}
+
+.Homesearchimage{
+  margin-left: 50px;
+  width: 500px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.PopUp button{
+  margin-top: 150px;
+  margin-bottom: 0px;
 }

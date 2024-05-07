@@ -8,6 +8,8 @@ import Navbar from '../../Componenets/Navbar/Navbar';
 import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
+import searchpage from './home_banner_imgs/HomeUniSearch.png';
+import botgif from './home_banner_imgs/botgif.gif';
 
 const Home = () => {
   //navigations controll in pages
@@ -109,8 +111,10 @@ const Home = () => {
       
         <div className='PopUp'>
         <Link to="/universitiesinuk">
-  <button type="button">Universities</button>
-</Link>
+            <button type="button">Universities</button>
+        </Link>
+        <img src={searchpage} alt="Universities in the UK" className="Homesearchimage" />
+
         </div>
               
       </div>
@@ -141,10 +145,14 @@ const Home = () => {
 
     {/*chatbot*/}
     <Link to="/ChatBot">
-    <div className="sticky-button">
-      <button>Mocha</button>
-    </div>
-    </Link>
+        <div className="sticky-button">
+          <img
+            src={botgif}
+            alt="Mocha"
+            className="mocha-gif"
+          />
+        </div>
+      </Link>
 
     </div>
   );
