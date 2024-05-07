@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
 const SearchBar = ({ onSearch, options }) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [showPopup, setShowPopup] = useState(false); // Add a state to track popup visibility
 
   
     const handleSubmit = (e) => {
@@ -16,9 +14,7 @@ const SearchBar = ({ onSearch, options }) => {
       option.toLowerCase().includes(searchTerm.toLowerCase())
     );
   
-    const handlePopupToggle = () => {
-      setShowPopup(!showPopup);
-    };
+
 
     return (
       <form onSubmit={handleSubmit}>
@@ -29,24 +25,7 @@ const SearchBar = ({ onSearch, options }) => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button type="submit">Search</button>
-        <button type="button" onClick={handlePopupToggle}>Popup</button> 
-      {showPopup && ( // Conditionally render the popup
-        <div
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            width: 150,
-            height: 300,
-            backgroundColor: 'white',
-            border: '1px solid #ddd',
-            padding: 10,
-          }}
-        >
-          {/* Add popup content here */}
-          <p>Popup content</p>
-        </div>
-      )}
+        
         <ul>
           {filteredOptions.map((option, index) => (
             <li key={`${index}-${option.toLowerCase().replace(' ', '-')}`}>

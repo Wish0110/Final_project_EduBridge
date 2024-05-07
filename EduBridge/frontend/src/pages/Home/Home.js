@@ -85,6 +85,8 @@ const Home = () => {
     };
   }, []);
 
+  const [showPopup, setShowPopup] = useState(false); // Add a state to track popup visibility
+
   const [searchedOptions, setSearchedOptions] = useState([]);
   const handleSearch = (searchTerm) => {
     const matchingOptions = ['University', 'Cambridge Collage', 'Oxford University'].filter(
@@ -93,6 +95,9 @@ const Home = () => {
     setSearchedOptions(matchingOptions);
   };
 
+  const handlePopupToggle = () => {
+    setShowPopup(!showPopup);
+  };
 
   return (
 
@@ -117,6 +122,25 @@ const Home = () => {
       <SearchBar onSearch={handleSearch} className= 'options' options={['Plymouth University', 'Cambridge Collage', 'Oxford University']} />
 
         </div>
+
+        <button type="button" onClick={handlePopupToggle}>Popup</button> 
+      {showPopup && ( // Conditionally render the popup
+        <div
+          style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            width: 150,
+            height: 300,
+            backgroundColor: 'white',
+            border: '1px solid #ddd',
+            padding: 10,
+          }}
+        >
+          
+          <p>Popup content</p>
+        </div>
+      )}
         
       </div>
     </section>
