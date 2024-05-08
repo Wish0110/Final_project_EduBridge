@@ -30,10 +30,9 @@ const studentSchema = new mongoose.Schema({
 const Student = mongoose.model('Student', studentSchema);
 
 // Get all students
-// Get all students
 app.get('/students', async (req, res) => {
   try {
-    const students = await Student.find({ studentid: { $in: ['22017', '23209'] } });
+    const students = await Student.find().exec(); // Use exec() to return a promise
     res.json({ data: students.map(student => student.toObject()) }); // Convert Mongoose documents to plain objects
   } catch (err) {
     console.error('Error fetching students:', err);

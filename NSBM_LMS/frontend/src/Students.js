@@ -1,17 +1,22 @@
 // Students.js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const Students = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
     const fetchStudents = async () => {
-      try {
-        const response = await axios.get('http://localhost:4000/students');
-        setStudents(response.data.data);
-      } catch (error) {
-        console.error('Error fetching students:', error);
+      const response = await fetch('http://localhost:4000/students', {
+        method: 'GET',
+        credentials: 'include',
+        mode: 'cors',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setStudents(data.data);
+      } else {
+        console.error('Error fetching students:', response.statusText);
       }
     };
 
@@ -21,26 +26,13 @@ const Students = () => {
   return (
     <div>
       <h1>Students</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Student ID</th>
-            <th>Degree</th>
-            <th>Last Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {students.map((student) => (
-            <tr key={student._id}>
-              <td>{`${student.name} ${student.lastname}`}</td>
-              <td>{student.studentid}</td>
-              <td>{student.degree}</td>
-              <td>{student.lastname}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ul>
+        {students.map((student) => (
+          <li key={student._id}>
+            {student.name} ({student.studentid}) - {student.degree}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
