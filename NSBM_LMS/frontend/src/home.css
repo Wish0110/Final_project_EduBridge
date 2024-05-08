@@ -1,5 +1,6 @@
 .home-page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -13,4 +14,74 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+  .home-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 20px;
+  }
+  
+  .slot1 {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-image: url('image1.jfif');
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  .slot2 {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-image: url('image2.jfif');
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  .slot3 {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-image: url('image3.jfif');
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  .slot4 {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-image: url('image4.jfif');
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  .btn {
+    width: 90%;
+    height: 20%;
+    margin-bottom: 100px;
+  }
+  .slots-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .slot {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 0 10px;
   }
