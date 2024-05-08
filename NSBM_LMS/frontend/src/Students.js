@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+// Students.js
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Students = () => {
@@ -6,39 +7,40 @@ const Students = () => {
 
   useEffect(() => {
     const fetchStudents = async () => {
-        try {
-          const response = await axios.get('http://localhost:4000/students');
-          setStudents(response.data);
-        } catch (err) {
-          if (err.response) {
-            console.error('Error fetching students:', err.response.status, err.response.statusText);
-          } else if (err.request) {
-            console.error('Error fetching students:', err.request.statusText);
-          } else {
-            console.error('Error fetching students:', err.message);
-          }
-        }
-      };
+      try {
+        const response = await axios.get('http://localhost:4000/students');
+        setStudents(response.data.data);
+      } catch (error) {
+        console.error('Error fetching students:', error);
+      }
+    };
 
     fetchStudents();
   }, []);
 
   return (
-    <div className="students-page">
-      <h2>Students Page</h2>
-      <p>Welcome to the Students page!</p>
-      <ul>
-        {students.map((student) => (
-          <li key={student._id}>
-            <ul>
-              <li>Name: {student.name}</li>
-              <li>Student ID: {student.studentid}</li>
-              <li>Degree: {student.degree}</li>
-              <li>Last Name: {student.lastname}</li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+    <div>
+      <h1>Students</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Student ID</th>
+            <th>Degree</th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((student) => (
+            <tr key={student._id}>
+              <td>{`${student.name} ${student.lastname}`}</td>
+              <td>{student.studentid}</td>
+              <td>{student.degree}</td>
+              <td>{student.lastname}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
