@@ -1,21 +1,24 @@
+
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const { google } = require('googleapis');
+const OpenAI = require('openai');
 
 const app = express();
 const PORT = process.env.PORT || 3005;
+const openai = new OpenAI({
+  apiKey: "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"
+});
 
-// Google Cloud Translation API setup
-const translationApi = google.translate('v2');
-const apiKey = process.env.GOOGLE_API_KEY;
+app.use(cors({ // Apply CORS middleware
+  origin: 'http://localhost:3000' // Allow requests from this origin
+}));
 
-app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
-// Fetch student data from MongoDB
 app.post('/api/fetch-student', async (req, res) => {
   const studentId = req.body.studentId;
+
   try {
     const data = JSON.stringify({
       collection: "students",
@@ -32,7 +35,7 @@ app.post('/api/fetch-student', async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Request-Headers': '*',
-        'api-key': process.env.MONGODB_API_KEY
+        'api-key': 'n7FEsXAd5f1vccyEEFrGEBvDO9oqeRJmi4r5ljf2OIr7pIlr5qJBNR7biXSvsCR2'
       },
       data
     };
@@ -64,6 +67,7 @@ app.post('/api/fetch-student', async (req, res) => {
     }
   } catch (error) {
     console.error('Error fetching student data:', error);
+
     res.status(500).json({
       success: false,
       message: 'An error occurred while fetching student data.'
@@ -71,48 +75,65 @@ app.post('/api/fetch-student', async (req, res) => {
   }
 });
 
-// Generate letter using Google Cloud Translation API
-app.post('/api/generate-letter', async (req, res) => {
-  try {
-    const studentData = req.body.studentData;
-    const letterTemplate = `
-      Dear Sir/Madam,
-
-      I am writing to recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
-
-      [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline. Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character and also have bad things that should mention and explain like deciplene.]
-
-      Best regards,
-      NSBM Green University, Faculty of ${studentData.faculty}
-    `;
-
-    const translationResponse = await translationApi.translateText({
-      q: letterTemplate,
-      targetLanguageCode: 'en',
-      format: 'text',
-      key: apiKey
-    });
-
-    const generatedLetter = translationResponse.data.translations[0].translatedText;
-
-    res.status(200).json({
-      success: true,
-      data: generatedLetter
-    });
-  } catch (error) {
-    console.error('Error generating letter:', error);
-    res.status(500).json({
-      success: false,
-      message: 'An error occurred while generating the letter.'
-    });
-  }
-});
+    app.post('/api/generate-letter', async (req, res) => {
+        try {
+          const studentData = req.body.studentData;
+      
+          const response = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo',
+            messages: [{
+              "role": "system",
+              "content": "You are a helpful assistant that generates a letter of recommendation for a student based on the provided information."
+            },
+            {
+              "role": "user",
+              "content": `I want to write a letter of recommendation for a student named ${studentData.name} 
+              with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
+              ${studentData.gpa} and mention about class ${studentData.class}. They have also participated in ${studentData.sports} and
+              ${studentData.extracurry} and are part of the ${studentData.faculty} faculty. And also mention discipline record ${studentData.Discipline}. 
+              And reccomend for things with related ${studentData.Finalproject} and explain about project. Write like actual university 
+              recommendation letter letter bellow metion your roll who is generated letter.
+              Please generate the letter in the following format:
+          
+              Dear Sir/Madam,
+          
+              I am writing to recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and 
+              talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and 
+              I can confidently say that they are one of the most exceptional students I have ever had.
+              [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline.
+              Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character and also have bad
+              things that should mention and explain like deciplene.
+          
+              Best regards,
+              NSBM Green University, Faculty of ${studentData.faculty}
+              `
+            },
+            {
+              "role": "user",
+              "content": "*This is Automatically generated letter based on the student recordes."
+            }]
+          });
+      
+          res.status(200).json({
+            success: true,
+            data: response.choices[0].message.content
+          });
+        } catch (error) {
+          console.error('Error generating letter:', error);
+      
+          res.status(500).json({
+            success: false,
+            message: 'An error occurred while generating the letter.' + error.message,
+            error: error
+          });
+        }
+      });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// Readline interface to get student ID from terminal
+// To get student ID in the terminal
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -124,7 +145,7 @@ rl.question('Enter student ID: ', async (studentId) => {
   rl.close();
 
   try {
-    const response = await axios.post('http://localhost:3005/api/fetch-student', { studentId });
+    const response = await axios.post('http://localhost:3002/api/fetch-student', { studentId });
     const { success, data, message } = response.data;
 
     if (success) {
@@ -137,8 +158,9 @@ rl.question('Enter student ID: ', async (studentId) => {
       console.log('Faculty:', data.faculty);
       console.log('Discipline:', data.Discipline);
 
+
       // Generate the letter
-      const letterResponse = await axios.post('http://localhost:3005/api/generate-letter', { studentData: data });
+      const letterResponse = await axios.post('http://localhost:3002/api/generate-letter', { studentData: data });
       const { success: letterSuccess, data: letterData, message: letterMessage } = letterResponse.data;
 
       if (letterSuccess) {

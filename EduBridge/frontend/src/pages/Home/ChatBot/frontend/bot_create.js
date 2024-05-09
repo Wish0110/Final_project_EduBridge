@@ -3,7 +3,7 @@ import axios from "axios";
 import { Spinner } from "react-bootstrap";
 import "./bot.css"; // import the CSS file
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const systemMessage = {
   role: "system",
