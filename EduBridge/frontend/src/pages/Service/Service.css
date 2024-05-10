@@ -2,3 +2,10 @@
     margin-top: -20px; /* adjust this value to match the height of your navbar */
     position: relative;
   }
+
+  .cover-image{
+    background-size: cover;
+    width: 1300px;
+    height: 600px;
+    margin-left: 100px;
+  }
