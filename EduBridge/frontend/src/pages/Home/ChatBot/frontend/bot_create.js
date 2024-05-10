@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import "./bot.css"; // import the CSS file
 
@@ -12,6 +12,7 @@ function Bot() {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
+  const [typingAnimation, setTypingAnimation] = useState(""); 
 
   const hardcodedResponses = {
     "Hello": "Hello! How can I help you today?",
@@ -20,6 +21,18 @@ function Bot() {
     "What is unique about the University of Oxford?": "The University of Oxford is the oldest university in the English-speaking world and one of the most prestigious universities in the world. It has a unique tutorial-based teaching system and a strong focus on research.",
     "Which university is known for business and economics?": "The London School of Economics and Political Science (LSE) is known for its strong focus on business and economics. It is consistently ranked among the top universities in these fields both in the UK and globally.",
   };
+
+  useEffect(() => {
+    if (isTyping) {
+      const typingTimeout = setTimeout(() => {
+        setTypingAnimation((prev) => prev + ".");
+        if (typingAnimation.length > 3) {
+          setTypingAnimation("");
+        }
+      }, 300); // 300ms = 0.3s delay
+      return () => clearTimeout(typingTimeout);
+    }
+  }, [isTyping, typingAnimation]);
 
   const handleSend = () => {
     const newMessage = {
@@ -53,6 +66,7 @@ function Bot() {
     }
   };
 
+  
   return (
     <div className="bot-container">
       <div className="bot-row">
@@ -62,7 +76,12 @@ function Bot() {
               {message.message}
             </div>
           ))}
-          {isTyping && <div className="bot-spinner"><Spinner animation="border" /></div>}
+          {isTyping && (
+            <div className="bot-spinner">
+              <Spinner animation="border" />
+              <span className="bot-typing">{typingAnimation}</span>
+            </div>
+          )}
         </div>
       </div>
       <div className="bot-input-container">

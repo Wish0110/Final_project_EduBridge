@@ -77,3 +77,18 @@
   background-color: #f2f2f2;
   align-self: flex-start;
 }
+
+.bot-typing {
+  font-size: 14px;
+  color: #aaa;
+  animation: typing 1.9s infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 10px;
+  }
+}
