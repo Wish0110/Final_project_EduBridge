@@ -1,15 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Spinner } from "react-bootstrap";
 import "./bot.css"; // import the CSS file
-
-const API_KEY = "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";
-
-const systemMessage = {
-  role: "system",
-  content:
-    "Only reply about UK related topic specially UK universities. Tell the answer short and directly and numberize the universities. And also should numbersize in the best order ",
-};
 
 function Bot() {
   const [messages, setMessages] = useState([
@@ -22,7 +13,15 @@ function Bot() {
   const [isTyping, setIsTyping] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
 
-  const handleSend = async () => {
+  const hardcodedResponses = {
+    "Hello": "Hello! How can I help you today?",
+    "What are the top universities in the UK to study?": "The top universities in the UK are 1. University of Cambridge, 2. University of Oxford, 3. Imperial College London, 4. University College London, and 5. London School of Economics and Political Science.",
+    "Tell me about the University of Cambridge.": "The University of Cambridge is a public research university located in Cambridge, England. It is one of the oldest universities in the world and consistently ranks among the top universities in the UK and globally.",
+    "What is unique about the University of Oxford?": "The University of Oxford is the oldest university in the English-speaking world and one of the most prestigious universities in the world. It has a unique tutorial-based teaching system and a strong focus on research.",
+    "Which university is known for business and economics?": "The London School of Economics and Political Science (LSE) is known for its strong focus on business and economics. It is consistently ranked among the top universities in these fields both in the UK and globally.",
+  };
+
+  const handleSend = () => {
     const newMessage = {
       message: inputMessage,
       direction: "outgoing",
@@ -31,51 +30,28 @@ function Bot() {
 
     const newMessages = [...messages, newMessage];
     setMessages(newMessages);
-
-    // Initial system message to determine ChatGPT functionality
     setIsTyping(true);
-    await processMessageToChatGPT(newMessages);
 
-    // Clear input field
-    setInputMessage("");
-  };
-
-  async function processMessageToChatGPT(chatMessages) {
-    // Format messages for chatGPT API
-    let apiMessages = chatMessages.map((messageObject) => {
-      return { role: messageObject.role, content: messageObject.message };
-    });
-
-    // Get the request body with the model and formatted messages
-    const apiRequestBody = {
-      model: "gpt-3.5-turbo",
-      messages: [systemMessage, ...apiMessages],
-    };
-
-    try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        apiRequestBody,
-        {
-          headers: {
-            Authorization: "Bearer " + API_KEY,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.data.choices && response.data.choices[0] && response.data.choices[0].message) {
-        setMessages([...chatMessages, {
-          message: response.data.choices[0].message.content,
+    if (hardcodedResponses[inputMessage]) {
+      setTimeout(() => {
+        setMessages([...newMessages, {
+          message: hardcodedResponses[inputMessage],
           role: "assistant",
         }]);
         setIsTyping(false);
-      }
-    } catch (error) {
-      console.error("Error processing message:", error);
-      setIsTyping(false);
+        setInputMessage("");
+      }, 1500); // 1500ms = 1.5s delay
+    } else {
+      setTimeout(() => {
+        setMessages([...newMessages, {
+          message: "I'm sorry, I don't have information about that. Please ask me something related to UK universities.",
+          role: "assistant",
+        }]);
+        setIsTyping(false);
+        setInputMessage("");
+      }, 1500); // 1500ms = 1.5s delay
     }
-  }
+  };
 
   return (
     <div className="bot-container">
