@@ -7,7 +7,7 @@ const OpenAI = require('openai');
 const app = express();
 const PORT = process.env.PORT || 3005;
 const openai = new OpenAI({
-  apiKey: "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"
+  apiKey: "sk-proj-NwJF5CNaVp9ZQtWsOxfXT3BlbkFJxHaeIG1ywuQ8CBwqrLME"
 });
 
 app.use(cors({ // Apply CORS middleware
