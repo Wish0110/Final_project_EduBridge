@@ -269,3 +269,18 @@ margin-right: 200px;
   width: 250px;
   right: 50px;
 }
+
+.service-section h2{
+  margin-top: 20px;
+  margin-left: 48%;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+
+.about-section h2{
+  margin-top: 20px;
+  margin-left: 45%;
+  font-size: 36px;
+  margin-bottom: 20px;
+}

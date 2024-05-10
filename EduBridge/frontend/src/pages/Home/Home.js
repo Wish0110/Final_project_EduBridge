@@ -138,7 +138,8 @@ const Home = () => {
     {/*about*/}
     <section id="about" className="about-section">
     <div className="about-container" ref={aboutRef}>
-        <h2>About</h2>
+        <h2>EduBridge <span className="map-text">Guide</span></h2>
+        <div className="divider"></div>
         <About />
       </div>
     </section>
@@ -146,7 +147,8 @@ const Home = () => {
     {/*Service*/}
     <section id="service" className="service-section">
     <div className="service-container" ref={serviceRef}>
-        <h2>Service</h2>
+        <h2>Our <span className="map-text">Vision</span></h2>
+        <div className="divider"></div>
         <Service />
       </div>
     </section>

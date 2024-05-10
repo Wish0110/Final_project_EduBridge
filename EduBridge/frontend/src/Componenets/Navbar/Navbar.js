@@ -121,8 +121,7 @@ const Navbar = () => {
                         onClick={handleHomeClick}
                         >
                             <i 
-                            className="fas
-                            fa-tachometer-alt">
+                            className="fas fa-home">
                             </i>Home
                         </Link>    
                     </li>  
@@ -133,7 +132,7 @@ const Navbar = () => {
                         className="nav-link" to="#map" exact
                         onClick={handleMapClick}
                         >
-                        <i className="far fa-chart-bar"></i>Map
+                        <i className="fa-chart-bar"></i>Map
                         </Link>
                     </li>
                     
@@ -142,7 +141,7 @@ const Navbar = () => {
                         className="nav-link" to="#about" exact
                         onClick={handleAboutClick}
                         >
-                        <i className="fas fa-address-book"></i>About
+                        <i className="fas fa-address-book"></i>Guide
                         </Link>    
                     </li>  
 
@@ -153,7 +152,7 @@ const Navbar = () => {
                             <i 
                             className="far
                             fa-clone">
-                            </i>Service
+                            </i>Vision
                         </Link>    
                     </li> 
 
