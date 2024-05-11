@@ -2,45 +2,21 @@
 ![Fresh FieldsPhotography GoDaddy Store Image](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0a8cf89f-bb85-48ee-a459-afd5c305551b)
 <div align='center'>
 
-
-
 <h1>EduBride</h1>
 <p>Automated UK University Application consultancy for Sri Lankan Students</p>
 
-<h4> <span> · </span> <a href="https://github.com/NaVindu0315/PUSL3120-FullStack-Group-01/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/NaVindu0315/PUSL3120-FullStack-Group-01/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/NaVindu0315/PUSL3120-FullStack-Group-01/issues"> Request Feature </a> </h4>
-
-
 </div>
 
-## Authors
-
-- [NaVindu LakShan](https://github.com/NaVindu0315)
-- [Wishmi Hiranya](https://github.com/Wish0110)
-- [Pasindu Rathnathilake](https://github.com/pasindur2000)
-- [Aruni Nethmini](https://github.com/Aruni2000)
-- [Dumindu Athukorala](https://github.com/ADNAthukorala)
-
-
-## Environment Variables
-
-
-`MongoDB url`
-
-
-
 ## Features
-
-- Login system
-- Messaging
-- Employee Management
-- Menu Management
-- Inventory Management
-- Order Management 
-- Table Reservation
-- Customer Management
-
-
-
+- Leaflet Map
+- Web Crawling
+- Form Autofilling
+- AI Bot
+- Autogenrated Reccomandation Letter
+- University Application Forms
+- Payment procedure
+- Forms Management
+- Dummy NSBM Databse Management
 
 ## Run Locally
 
