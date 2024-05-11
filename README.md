@@ -61,11 +61,10 @@ npm start
 
 
 ## Screenshots
-![logo](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/c66887d9-d586-443a-b67a-20a1626328b1)
 ![Screenshot (288)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/6d88f331-0017-466a-99e7-486b8b51c93d)
 ![Screenshot (315)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0838e5f3-6cc2-4c80-a34a-4183d3e789a0)
 ![Screenshot (299)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/10393c2d-bae5-45da-b0b6-4439af446258)
-![Screenshot (300)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/8bd0c5a1-a703-420c-a4b5-0b99339e70cd)
+![Screenshot (317)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/d2dcba66-8aff-4647-937f-b5310f2833e9)
 ![Screenshot (316)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/b24b53cb-4d7b-47a5-bf93-e300b167a8e5)
 ![Screenshot (289)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/1232d8ab-d397-492b-96fe-62a39c594fb6)
 ![Screenshot (297)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0f1f73eb-2fdb-4af8-81a0-8e86101f5233)
