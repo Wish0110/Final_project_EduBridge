@@ -2,7 +2,7 @@
 ![Fresh FieldsPhotography GoDaddy Store Image](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0a8cf89f-bb85-48ee-a459-afd5c305551b)
 <div align='center'>
 
-<img src="![Screenshot__199_-removebg-preview](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/c2a1f00f-751d-4869-81aa-9a0a1e31d025)" alt="EduBridge logo" style="width:100px; height:100px;"/>
+
 <h1>EduBridge</h1>
 <p>Automated UK University Application consultancy for Sri Lankan Students</p>
 
