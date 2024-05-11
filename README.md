@@ -61,11 +61,17 @@ npm start
 
 
 ## Screenshots
+![logo](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/c66887d9-d586-443a-b67a-20a1626328b1)
+![Screenshot (288)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/6d88f331-0017-466a-99e7-486b8b51c93d)
+![Screenshot (315)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0838e5f3-6cc2-4c80-a34a-4183d3e789a0)
+![Screenshot (299)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/10393c2d-bae5-45da-b0b6-4439af446258)
+![Screenshot (300)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/8bd0c5a1-a703-420c-a4b5-0b99339e70cd)
+![Screenshot (316)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/b24b53cb-4d7b-47a5-bf93-e300b167a8e5)
+![Screenshot (289)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/1232d8ab-d397-492b-96fe-62a39c594fb6)
+![Screenshot (297)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0f1f73eb-2fdb-4af8-81a0-8e86101f5233)
+![Screenshot (290)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/4821e8d8-dd6e-41b4-99ac-a1c8b847f604)
+![Screenshot (301)](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/bcb3e56e-b2fa-4233-a09c-f727014760e5)
 
-![Home](https://firebasestorage.googleapis.com/v0/b/cam-test-2-78bd3.appspot.com/o/dwanp%2FHome.PNG?alt=media&token=18db8dc9-e6f2-447f-88bc-197d6bf5855e)
-![login](https://firebasestorage.googleapis.com/v0/b/cam-test-2-78bd3.appspot.com/o/dwanp%2Flogin.PNG?alt=media&token=c39ac866-439c-4d4c-9bb9-3cd43c1c2da3)
-![chat](https://firebasestorage.googleapis.com/v0/b/cam-test-2-78bd3.appspot.com/o/dwanp%2Fchat.PNG?alt=media&token=4d829876-8466-4610-bf9e-77eb7a109a70)
-![inventory](https://firebasestorage.googleapis.com/v0/b/cam-test-2-78bd3.appspot.com/o/dwanp%2Finventory%20form.PNG?alt=media&token=f81cbcee-f003-4723-9dc2-b7e7de01c523)
 
 ## Support
 
@@ -75,12 +81,6 @@ For support, email wishhiranyaco@gmail.com
 
 **Client:** React
 
-**Server:** Node, Express,MongoDB
+**Server:** Node, Express, MongoDB
 
-
-## Used By
-
-This project is used by 
-
-- DWANP Restuarants
 
