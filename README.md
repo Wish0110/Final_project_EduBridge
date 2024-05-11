@@ -2,7 +2,7 @@
 ![Fresh FieldsPhotography GoDaddy Store Image](https://github.com/Wish0110/Final_project_EduBridge/assets/113825759/0a8cf89f-bb85-48ee-a459-afd5c305551b)
 <div align='center'>
 
-<h1>EduBride</h1>
+<h1>EduBridge</h1>
 <p>Automated UK University Application consultancy for Sri Lankan Students</p>
 
 </div>
@@ -23,13 +23,13 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/NaVindu0315/PUSL3120-FullStack-Group-01.git
+  https://github.com/Wish0110/Final_project_EduBridge.git
 ```
 
 To run the Server (Backend)
 
 ```bash
-  cd dwanp-backend
+  cd EduBridge/Backend
 ```
 
 Install dependencies
@@ -48,13 +48,13 @@ To run the React App (frontend)
 Install Dependancies
 
 ```bash
-cd dwanp-frontend
+cd EduBridge/frontend
 npm install
 
 ```
 run the react app
 ```bash
-cd dwanp-frontend
+cd EduBridge/frontend
 npm start
 
 ```
