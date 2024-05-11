@@ -69,7 +69,7 @@ npm start
 
 ## Support
 
-For support, email navindulakshan99@gmail.com
+For support, email wishhiranyaco@gmail.com
 
 ## Tech Stack
 
