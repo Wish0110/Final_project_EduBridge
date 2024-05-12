@@ -3,7 +3,6 @@ import Sidebar from '../components/Sidebar';
 import { Link } from 'react-router-dom';
 import congrats from './form-imgs/celebration.webp';
 
-
 const SubmissionComplete = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -60,7 +59,7 @@ const SubmissionComplete = () => {
         {showPopup && (
           <div style={{
             position: 'fixed',
-            top: '40%',
+            top: '35%',
             left: '64%',
             transform: 'translate(-50%, -50%)',
             backgroundColor: 'white',
@@ -75,7 +74,7 @@ const SubmissionComplete = () => {
           }}>
             
             <h2 
-            style={{marginBottom: '20px'}}
+            style={{marginBottom: '30px'}}
             >
                 Congratulations!!!
             </h2>
