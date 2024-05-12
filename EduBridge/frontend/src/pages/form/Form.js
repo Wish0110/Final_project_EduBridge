@@ -13,7 +13,7 @@ import Education from './pages/Education';
 import Employment from './pages/Employment';
 import PersonalStatement from './pages/PersonalStatement';
 import ReccomandationLetter from './pages/ReccomandationLetter/ReccomandationLetter';
-import SubmissionComplete from  './pages/submissionComplete';
+import SubmissionComplete from './pages/submissionComplete';
 
 const Form = () => {
   return (

@@ -20,11 +20,11 @@ import FinanceAndFunding from './pages/form/pages/FinanceAndFunding';
 import Education from './pages/form/pages/Education';
 import Employment from './pages/form/pages/Employment';
 import PersonalStatement from './pages/form/pages/PersonalStatement';
-import SubmissionComplete from './pages/form/pages/submissionComplete';
 import ReccomandationLetter from './pages/form/pages/ReccomandationLetter/ReccomandationLetter';
 import ChatBot from './pages/Home/ChatBot/frontend/ChatBot';
 import IsIntegrated from './pages/integratedUni/IsIntegrated';
 import UniversitiesinUK from './pages/Home/UniversitiesinUK';
+import SubmissionComplete from './pages/form/pages/submissionComplete';
 
 const App = () => {
   return (
@@ -56,11 +56,10 @@ const App = () => {
         <Route path="/Employment" exact element={<Employment />} />
         <Route path="/PersonalStatement" exact element={<PersonalStatement />} />
         <Route path="/ReccomandationLetter" exact element={<ReccomandationLetter />} />
-        <Route path="/submissionComplete" exact element={<SubmissionComplete />} />
         <Route path="/ChatBot" exact element={<ChatBot />} />
         <Route path="/IsIntegrated" exact element={<IsIntegrated />} />
         <Route path="/UniversitiesinUK" exact element={<UniversitiesinUK />} />
-
+        <Route path="/SubmissionComplete" exact element={<SubmissionComplete />} />
     </Routes>
       </main>
     </Router>

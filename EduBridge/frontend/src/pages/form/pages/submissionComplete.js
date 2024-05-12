@@ -59,7 +59,7 @@ const SubmissionComplete = () => {
         {showPopup && (
           <div style={{
             position: 'fixed',
-            top: '35%',
+            top: '40%',
             left: '64%',
             transform: 'translate(-50%, -50%)',
             backgroundColor: 'white',
@@ -74,7 +74,7 @@ const SubmissionComplete = () => {
           }}>
             
             <h2 
-            style={{marginBottom: '30px'}}
+            style={{marginBottom: '20px'}}
             >
                 Congratulations!!!
             </h2>
