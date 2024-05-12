@@ -28,7 +28,23 @@ app.post('/api/store-student', async (req, res) => {
       lastname: String,
       prvName: String,
       preferredName: String,
-      dateOfBirth: String
+      dateOfBirth: String,
+      mobileNumber: String,
+      email: String,
+      addressType: String,
+      addressLine1: String,
+      addressLine2: String,
+      addressLine3: String,
+      addressLine4: String,
+      country: String,
+      nominatedAccess: String,
+      nomineeName: String,
+      nomineeRelation: String,
+      nomineeAddressSame: String,
+      nomineeHomeAddress: String,
+      nomineeAddressType: String,
+      nomineeResidentialCategory: String,
+
     })(newStudent);
 
     await student.save();

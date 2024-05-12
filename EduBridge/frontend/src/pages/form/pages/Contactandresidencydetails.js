@@ -76,6 +76,29 @@ const Contactandresidencydetails = () => {
     });
   };*/
 
+  const handleFormSubmission = async () => {
+    // Create a new student object to store in the database
+    const newStudent = {
+      studentId,
+      ...studentData
+    };
+
+    try {
+      // Make a POST request to your MongoDB API to store the data
+      const response = await axios.post('http://localhost:3006/api/store-student', newStudent);
+
+      if (response.data.success) {
+        console.log('Student data stored successfully!');
+      } else {
+        console.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('Error storing student data:', error);
+    }
+  };
+
+  
+
   return (
     <Sidebar>
         <form onSubmit={handleSubmit}>

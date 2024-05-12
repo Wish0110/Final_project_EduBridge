@@ -96,7 +96,7 @@ const PersonalDetails = () => {
               </p>
               <textarea
                  value={studentData.name || ''}
-               
+                 onChange={(e) => setStudentData({ ...studentData, name: e.target.value })}
               />
             </div>
           )}
@@ -111,6 +111,7 @@ const PersonalDetails = () => {
               </p>
               <textarea
                 value={studentData.lastname || ''} 
+                onChange={(e) => setStudentData({ ...studentData, lastname: e.target.value })}
                   />
                 </div>
           )}
@@ -125,6 +126,7 @@ const PersonalDetails = () => {
               </p>
               <textarea
                 value={studentData.prvName || ''}
+                onChange={(e) => setStudentData({ ...studentData, prvName: e.target.value })}
               />
           </div>
           )}
@@ -139,6 +141,7 @@ const PersonalDetails = () => {
               </p>
               <textarea
                 value={studentData.preferredName || ''}
+                onChange={(e) => setStudentData({ ...studentData, preferredName: e.target.value })}
               />
             </div>
           )}
@@ -151,6 +154,7 @@ const PersonalDetails = () => {
               <input
                 type="text"
                 value={studentData.dateOfBirth || ''}
+                onChange={(e) => setStudentData({ ...studentData, dateOfBirth: e.target.value })}
               />
           </div>
           )}
