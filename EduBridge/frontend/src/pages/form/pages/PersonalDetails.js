@@ -3,7 +3,6 @@ import axios from "axios";
 import './form-css/PersonalDetails.css';
 import Sidebar from "../components/Sidebar";
 
-
 const PersonalDetails = () => {
   const [studentId, setStudentId] = useState('');
   const [studentData, setStudentData] = useState({
@@ -40,9 +39,28 @@ const PersonalDetails = () => {
     }
   };
 
-  
+  const handleFormSubmission = async () => {
+    // Create a new student object to store in the database
+    const newStudent = {
+      studentId,
+      title,
+      gender,
+      ...studentData
+    };
 
-  
+    try {
+      // Make a POST request to your MongoDB API to store the data
+      const response = await axios.post('http://localhost:3006/api/store-student', newStudent);
+
+      if (response.data.success) {
+        console.log('Student data stored successfully!');
+      } else {
+        console.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('Error storing student data:', error);
+    }
+  };
 
   return (
     <Sidebar>
@@ -201,7 +219,7 @@ const PersonalDetails = () => {
         </label>
       </div>
 
-      <button type="submit" disabled={!sectionComplete}>
+      <button type="button" onClick={handleFormSubmission} disabled={!sectionComplete}>
             Save Progress
           </button>
     </div>      
