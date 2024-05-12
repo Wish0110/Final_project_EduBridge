@@ -47,6 +47,36 @@ app.post('/api/store-student', async (req, res) => {
   }
 });
 
+// Define a new route to update student data in the database
+app.put('/api/update-student', async (req, res) => {
+  const updatedStudent = req.body;
+
+  try {
+    // Find the student document in the database and update it
+    const student = await mongoose.model('Student').findOneAndUpdate(
+      { studentId: updatedStudent.studentId },
+      updatedStudent,
+      { new: true }
+    );
+
+    if (!student) {
+      throw new Error('Student not found');
+    }
+
+    res.status(200).json({
+      success: true,
+      message: 'Student data updated successfully!',
+      data: student
+    });
+  } catch (error) {
+    console.error('Error updating student data:', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'An error occurred while updating student data.'
+    });
+  }
+});
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
