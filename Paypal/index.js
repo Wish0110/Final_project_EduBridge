@@ -107,6 +107,11 @@ app.get('/script.js', (req, res) => {
     res.sendFile(process.cwd() + '/script.js');
 });
 
+app.get('/new_page.html', (req, res) => {
+    res.sendFile(process.cwd() + '/new_page.html');
+}
+);
+
 //PayPal Developer YouTube Video:
 //How to Retrieve an API Access Token (Node.js)
 //https://www.youtube.com/watch?v=HOkkbGSxmp4

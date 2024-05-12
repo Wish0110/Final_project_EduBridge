@@ -95,6 +95,4 @@ url_to_head(paypal_sdk_url + "?client-id=" + client_id + "&enable-funding=venmo&
 });
 
 // Add the goToSubmissionPage function here
-function goToSubmissionPage() {
-    window.location.href = "submission.html";
-  }
+// script.js
