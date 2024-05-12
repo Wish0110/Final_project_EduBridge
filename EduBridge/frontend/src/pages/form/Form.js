@@ -13,6 +13,7 @@ import Education from './pages/Education';
 import Employment from './pages/Employment';
 import PersonalStatement from './pages/PersonalStatement';
 import ReccomandationLetter from './pages/ReccomandationLetter/ReccomandationLetter';
+import SubmissionComplete from  './pages/submissionComplete';
 
 const Form = () => {
   return (
@@ -30,6 +31,7 @@ const Form = () => {
           <Route path="/Employment" element={<Employment />} />
           <Route path="/PersonalStatement" element={<PersonalStatement />} />
           <Route path="/ReccomandationLetter" element={<ReccomandationLetter />} />
+          <Route path="/SubmissionComplete" element={<SubmissionComplete />} />
         </Routes>
       </Sidebar>
     </div>

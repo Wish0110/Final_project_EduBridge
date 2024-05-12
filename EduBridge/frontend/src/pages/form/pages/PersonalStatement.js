@@ -14,9 +14,7 @@ const PersonalStatement = () => {
     setCharCount(value.length);
   }, [value]);
 
-  const handleApplicationFeeClick = () => {
-    window.location.href = 'http://localhost:4000';
-  };
+
 
   return (
     <Sidebar>
@@ -36,18 +34,7 @@ const PersonalStatement = () => {
 
         <div>
           <button type="submit">Save</button>
-        </div>
-        <label>
-          •After completing all the application steps, proceed to pay the application fee.<br />
-        </label>
-        <div>
-          <button type="button" onClick={handleApplicationFeeClick}>
-            Application Fee
-          </button>
-        </div>
-
-        
-        
+        </div>  
       </div>
     </Sidebar>
   );

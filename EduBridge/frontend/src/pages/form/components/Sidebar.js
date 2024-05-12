@@ -65,6 +65,11 @@ const Sidebar = ({ children }) => {
       name: 'Personal statement',
       icon: <FaRegChartBar />
     },
+    {
+      path: '/SubmissionComplete',
+      name: 'SubmissionComplete',
+      icon: <FaRegChartBar />
+    },
   ];
 
   const [selectedPage, setSelectedPage] = useState(null);
