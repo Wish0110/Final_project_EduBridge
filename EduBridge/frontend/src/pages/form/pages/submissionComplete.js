@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar';
 import { Link } from 'react-router-dom';
 import congrats from './form-imgs/celebration.webp';
 
+
 const SubmissionComplete = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
