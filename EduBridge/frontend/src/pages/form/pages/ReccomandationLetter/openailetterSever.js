@@ -1,9 +1,14 @@
+
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const OpenAI = require('openai');
 
 const app = express();
 const PORT = process.env.PORT || 3005;
+const openai = new OpenAI({
+  apiKey: "sk-proj-NwJF5CNaVp9ZQtWsOxfXT3BlbkFJxHaeIG1ywuQ8CBwqrLME"
+});
 
 app.use(cors({ // Apply CORS middleware
   origin: 'http://localhost:3000' // Allow requests from this origin
@@ -70,39 +75,59 @@ app.post('/api/fetch-student', async (req, res) => {
   }
 });
 
-app.post('/api/generate-letter', async (req, res) => {
-  try {
-    const studentData = req.body.studentData;
-
-    res.status(200).json({
-      success: true,
-      data: 
-      `
-Dear Sir/Madam,
-
-I am writing to recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
-
-During their time in my class, ${studentData.name} consistently demonstrated a strong work ethic and a deep understanding of the material. They were an active participant in class discussions and always eager to learn more. Their final project, related to ${studentData.Finalproject}, was one of the best I have ever seen in my career.
-
-In addition to their academic achievements, ${studentData.name} has also been involved in extracurricular activities such as ${studentData.sports} and ${studentData.extracurry}. They have shown great leadership skills and a willingness to take on new challenges.
-
-Unfortunately, ${studentData.name} has also had some issues with discipline, as indicated by ${studentData.Discipline}. However, I believe that these issues are not indicative of their true character and potential. I have seen ${studentData.name} grow and learn from their mistakes, and I am confident that they will continue to do so in the future.
-
-In conclusion, I highly recommend ${studentData.name} for any opportunity that requires a talented and dedicated individual. They have demonstrated a strong work ethic, a deep understanding of the material, and a willingness to take on new challenges. I am confident that they will continue to succeed in their future endeavors.
-
-Best regards,
-NSBM Green University, Faculty of ${studentData.faculty}
-      `
-    });
-  } catch (error) {
-    console.error('Error generating letter:', error);
-
-    res.status(500).json({
-      success: false,
-      message: 'An error occurred while generating the letter.'
-    });
-  }
-});
+    app.post('/api/generate-letter', async (req, res) => {
+        try {
+          const studentData = req.body.studentData;
+      
+          const response = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo',
+            messages: [{
+              "role": "system",
+              "content": "You are a helpful assistant that generates a letter of recommendation for a student based on the provided information."
+            },
+            {
+              "role": "user",
+              "content": `I want to write a letter of recommendation for a student named ${studentData.name} 
+              with the student ID ${studentData.studentId}. The student has completed a ${studentData.degree} degree with a GPA of 
+              ${studentData.gpa} and mention about class ${studentData.class}. They have also participated in ${studentData.sports} and
+              ${studentData.extracurry} and are part of the ${studentData.faculty} faculty. And also mention discipline record ${studentData.Discipline}. 
+              And reccomend for things with related ${studentData.Finalproject} and explain about project. Write like actual university 
+              recommendation letter letter bellow metion your roll who is generated letter.
+              Please generate the letter in the following format:
+          
+              Dear Sir/Madam,
+          
+              I am writing to recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and 
+              talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and 
+              I can confidently say that they are one of the most exceptional students I have ever had.
+              [Write the recommendation here with the student's name, student ID, faculty, degree, GPA, sports, and Discipline.
+              Make sure to write at least 3-4 paragraphs about the student's achievements, skills, and character and also have bad
+              things that should mention and explain like deciplene.
+          
+              Best regards,
+              NSBM Green University, Faculty of ${studentData.faculty}
+              `
+            },
+            {
+              "role": "user",
+              "content": "*This is Automatically generated letter based on the student recordes."
+            }]
+          });
+      
+          res.status(200).json({
+            success: true,
+            data: response.choices[0].message.content
+          });
+        } catch (error) {
+          console.error('Error generating letter:', error);
+      
+          res.status(500).json({
+            success: false,
+            message: 'An error occurred while generating the letter.' + error.message,
+            error: error
+          });
+        }
+      });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
@@ -151,3 +176,4 @@ rl.question('Enter student ID: ', async (studentId) => {
     console.error('Error fetching student data or generating letter:', error);
   }
 });
+

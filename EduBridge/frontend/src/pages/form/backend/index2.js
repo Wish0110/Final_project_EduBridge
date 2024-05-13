@@ -12,7 +12,7 @@ app.use(cors({ // Apply CORS middleware
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://wishhiranyaco:Wishmi99@cluster2.omhtgbh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://wishhiranyaco:Wishmi99@cluster1.omhtgbh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Define a new route to store student data in the database
 app.post('/api/store-student', async (req, res) => {
