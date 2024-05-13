@@ -76,6 +76,7 @@ const Contactandresidencydetails = () => {
     });
   };*/
 
+   /*
   const handleFormSubmission = async () => {
     // Create a new student object to store in the database
     const newStudent = {
@@ -83,7 +84,7 @@ const Contactandresidencydetails = () => {
       ...studentData
     };
 
-    try {
+   try {
       // Make a POST request to your MongoDB API to store the data
       const response = await axios.post('http://localhost:3006/api/store-student', newStudent);
 
@@ -95,7 +96,7 @@ const Contactandresidencydetails = () => {
     } catch (error) {
       console.error('Error storing student data:', error);
     }
-  };
+  };*/
 
   
 
@@ -121,7 +122,7 @@ const Contactandresidencydetails = () => {
           <option value="+94">Srilanka (+94)</option>
           <option value="other">Other (Please specify)</option>
         </select>
-        <input type="email" name="email" value={studentData.teleNumber || ''}/>
+        <input type="text" name="email" value={studentData.teleNumber || ''}/>
         </label>
       </div>
       )}

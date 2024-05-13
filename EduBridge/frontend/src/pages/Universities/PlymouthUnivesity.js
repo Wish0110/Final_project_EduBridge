@@ -34,7 +34,16 @@ const PlymouthUnivesity = () => {
         </button>
       </div>      
       
+      <img src="https://rest.jobs.ac.uk/enhanced/job/university-of-plymouth-resp-2018/images/top.jpg" alt="University of Plymouth" className="plymouthUni" />
+      <p className='unidecript'>
+          Plymouth University is a public research university based in Plymouth, England. <br />
+          Plymouth University is best for students interested in Marine Science and Engineering, Medicine, Earth Sciences, <br />
+          and Sustainability due to its world-renowned expertise in these areas.
+          
+        </p>
+
       <h1 className="degree-title">Course List</h1>
+      <div className="dividerforothers"></div>
       <ul className="degree-list-items">
         {courses.map((course, index) => (
           <li key={index} className="degree-item">

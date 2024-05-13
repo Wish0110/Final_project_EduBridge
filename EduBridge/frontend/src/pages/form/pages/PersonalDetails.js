@@ -50,7 +50,7 @@ const PersonalDetails = () => {
 
     try {
       // Make a POST request to your MongoDB API to store the data
-      const response = await axios.post('http://localhost:3006/api/store-student', newStudent);
+      const response = await axios.post('http://localhost:3007/api/store-student', newStudent);
 
       if (response.data.success) {
         console.log('Student data stored successfully!');

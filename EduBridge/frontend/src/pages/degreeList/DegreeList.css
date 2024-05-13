@@ -80,3 +80,14 @@
   .degree-link:hover {
     background-color: #ddd;
   }
+
+  .dividerforDegree{
+  position: absolute;
+  margin-left: 325px;
+  width: 150px;
+  height: 5px;
+  top: 380px ;
+  background-color: #617487;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }

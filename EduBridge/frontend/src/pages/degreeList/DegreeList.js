@@ -43,6 +43,7 @@ function DegreeList() {
         </button>
       </div>            
       <h1 className="degree-title">Degree List</h1>
+      <div className="dividerforDegree"></div>
       {isLoading && <p className="loading">Loading Degree...</p>}
       {error && <p className="error">Error: {error}</p>}
       {courses.length > 0 && (

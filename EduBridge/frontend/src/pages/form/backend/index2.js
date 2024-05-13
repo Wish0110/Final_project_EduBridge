@@ -2,9 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const mongoose = require('mongoose');
+const Student = require('./models/Student'); // Import the Student model
 
 const app = express();
-const PORT = process.env.PORT || 3006;
+const PORT = process.env.PORT || 3007;
 
 app.use(cors({ // Apply CORS middleware
   origin: 'http://localhost:3000' // Allow requests from this origin
@@ -20,32 +21,7 @@ app.post('/api/store-student', async (req, res) => {
 
   try {
     // Create a new student document in the database
-    const student = new mongoose.model('Student', {
-      studentId: String,
-      title: String,
-      gender: String,
-      name: String,
-      lastname: String,
-      prvName: String,
-      preferredName: String,
-      dateOfBirth: String,
-      mobileNumber: String,
-      email: String,
-      addressType: String,
-      addressLine1: String,
-      addressLine2: String,
-      addressLine3: String,
-      addressLine4: String,
-      country: String,
-      nominatedAccess: String,
-      nomineeName: String,
-      nomineeRelation: String,
-      nomineeAddressSame: String,
-      nomineeHomeAddress: String,
-      nomineeAddressType: String,
-      nomineeResidentialCategory: String,
-
-    })(newStudent);
+    const student = new Student(newStudent);
 
     await student.save();
 
@@ -64,35 +40,8 @@ app.post('/api/store-student', async (req, res) => {
 });
 
 // Define a new route to update student data in the database
-app.put('/api/update-student', async (req, res) => {
-  const updatedStudent = req.body;
 
-  try {
-    // Find the student document in the database and update it
-    const student = await mongoose.model('Student').findOneAndUpdate(
-      { studentId: updatedStudent.studentId },
-      updatedStudent,
-      { new: true }
-    );
 
-    if (!student) {
-      throw new Error('Student not found');
-    }
-
-    res.status(200).json({
-      success: true,
-      message: 'Student data updated successfully!',
-      data: student
-    });
-  } catch (error) {
-    console.error('Error updating student data:', error);
-
-    res.status(500).json({
-      success: false,
-      message: 'An error occurred while updating student data.'
-    });
-  }
-});
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
