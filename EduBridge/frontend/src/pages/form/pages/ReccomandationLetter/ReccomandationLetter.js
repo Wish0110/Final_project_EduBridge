@@ -4,6 +4,7 @@ import html2pdf from 'html2pdf.js';
 import 'url-polyfill';
 import './letter.css';
 import Sidebar from '../../components/Sidebar';
+import Logo from './nsbm (1).jpg';
 
 function ReccomandationLetter(){
   
@@ -124,6 +125,7 @@ function ReccomandationLetter(){
           <div className="letter-Page">
 
           <div letter-display>
+          <img src={Logo} alt="Logo" className="letter-logo" />
             <h2>Generated Letter</h2>
             
             <div className='PDF-View'>

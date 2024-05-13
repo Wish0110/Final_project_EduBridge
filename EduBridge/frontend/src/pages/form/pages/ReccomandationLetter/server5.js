@@ -74,6 +74,7 @@ app.post('/api/generate-letter', async (req, res) => {
   try {
     const studentData = req.body.studentData;
 
+    setTimeout(async () => {
     res.status(200).json({
       success: true,
       data: 
@@ -86,7 +87,9 @@ During their time in my class, ${studentData.name} consistently demonstrated a s
 
 In addition to their academic achievements, ${studentData.name} has also been involved in extracurricular activities such as ${studentData.sports} and ${studentData.extracurry}. They have shown great leadership skills and a willingness to take on new challenges.
 
-Unfortunately, ${studentData.name} has also had some issues with discipline, as indicated by ${studentData.Discipline}. However, I believe that these issues are not indicative of their true character and potential. I have seen ${studentData.name} grow and learn from their mistakes, and I am confident that they will continue to do so in the future.
+It is important to note that, ${studentData.name} ${studentData.Discipline}. However, I believe that these are not indicative of their true character and potential. Because it can change from day to day.  This information is written based on the past.
+
+I have seen ${studentData.name} grow and learn from their mistakes, and I am confident that they will continue to do so in the future.
 
 In conclusion, I highly recommend ${studentData.name} for any opportunity that requires a talented and dedicated individual. They have demonstrated a strong work ethic, a deep understanding of the material, and a willingness to take on new challenges. I am confident that they will continue to succeed in their future endeavors.
 
@@ -94,6 +97,7 @@ Best regards,
 NSBM Green University, Faculty of ${studentData.faculty}
       `
     });
+  }, 5000);
   } catch (error) {
     console.error('Error generating letter:', error);
 
