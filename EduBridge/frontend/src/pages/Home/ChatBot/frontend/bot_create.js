@@ -16,7 +16,9 @@ function Bot() {
 
   const hardcodedResponses = {
     "Hello": "Hello! How can I help you today?",
+    "plymouth university best for? ": "Marine science and engineering:Plymouth has a long history of maritime research and was awarded the Queen's Anniversary Prize in 2012 for its worldwide reputation in the field .",
     "What are the top universities in the UK to study?": "The top universities in the UK are 1. University of Cambridge, 2. University of Oxford, 3. Imperial College London, 4. University College London, and 5. London School of Economics and Political Science.",
+    "What are the top universities in the Australia to study?": "I can't directly tell you about Australian universities, since we're focusing on UK information. ",
     "Tell me about the University of Cambridge.": "The University of Cambridge is a public research university located in Cambridge, England. It is one of the oldest universities in the world and consistently ranks among the top universities in the UK and globally.",
     "What is unique about the University of Oxford?": "The University of Oxford is the oldest university in the English-speaking world and one of the most prestigious universities in the world. It has a unique tutorial-based teaching system and a strong focus on research.",
     "Which university is known for business and economics?": "The London School of Economics and Political Science (LSE) is known for its strong focus on business and economics. It is consistently ranked among the top universities in these fields both in the UK and globally.",

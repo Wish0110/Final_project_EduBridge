@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Nspot from './top.jpg';
 import './home.css';
+
+const handleApplicationFeeClick = () => {
+  window.location.href = 'http://localhost:9000/students';
+};
 
 const HomePage = () => {
   return (
@@ -22,9 +25,10 @@ const HomePage = () => {
       </div>
 
       <div className='slot slot4'>
-      <Link to="/students">
-        <button className="btn btn-danger">STUDENT PROFILE</button>
-      </Link>    
+        <button className="btn btn-danger"  onClick={handleApplicationFeeClick}
+>
+  STUDENT PROFILE
+  </button>
       </div>
       </div>
       </div>

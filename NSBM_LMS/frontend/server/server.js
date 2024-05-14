@@ -7,7 +7,7 @@ const app = express();
 // Connect to MongoDB
 const connectToMongoDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://wishhiranya:Wishmi99@cluster0.7vn9uie.mongodb.net/STUDENTS_RECORDS?retryWrites=true&w=majority&appName=Cluster0', {
+    await mongoose.connect('mongodb+srv://wishhiranya:Wishmi99@cluster0.7vn9uie.mongodb.net/studentrecords?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -41,7 +41,7 @@ app.get('/students', async (req, res) => {
 });
 
 // Start server
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 9000;
 connectToMongoDB().then(() => {
   app.listen(port, () => {
     console.log(`Server started on port ${port}`);
