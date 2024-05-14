@@ -4,7 +4,6 @@ import html2pdf from 'html2pdf.js';
 import 'url-polyfill';
 import './letter.css';
 import Sidebar from '../../components/Sidebar';
-import Logo from './nsbm (1).jpg';
 
 function ReccomandationLetter(){
   
@@ -57,7 +56,7 @@ function ReccomandationLetter(){
     
           // Add line breaks after every 7 words
           const lineBreaks = words.reduce((result, word, index) => {
-            if ((index + 1) % 7 === 0) {
+            if ((index + 10) % 11 === 0) {
               result.push(word, '\n');
             } else {
               result.push(word);
@@ -125,11 +124,10 @@ function ReccomandationLetter(){
           <div className="letter-Page">
 
           <div letter-display>
-          <img src={Logo} alt="Logo" className="letter-logo" />
+          
             <h2>Generated Letter</h2>
-            
             <div className='PDF-View'>
-            <pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
+            < pre id="letter-content" dangerouslySetInnerHTML={{ __html: generatedLetter }}></pre>
             </div>
             <h4>*This is Automatically generated letter based on the student recordes.</h4>
 

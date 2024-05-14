@@ -19,7 +19,7 @@ mongoose.connect('mongodb+srv://wishhiranyaco:Wishmi99@cluster2.omhtgbh.mongodb.
 app.post('/api/store-student', async (req, res) => {
   const newStudent = req.body;
 
-  try {
+try {
     // Create a new student document in the database
     const student = new Student(newStudent);
 

@@ -62,7 +62,6 @@ const PersonalDetails = () => {
     }
   };
 
-  
 
   return (
     <Sidebar>
@@ -226,6 +225,7 @@ const PersonalDetails = () => {
       </div>
 
       <button type="button" onClick={handleFormSubmission} disabled={!sectionComplete}>
+        
             Save Progress
           </button>
     </div>      

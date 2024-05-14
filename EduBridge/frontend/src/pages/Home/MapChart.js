@@ -193,7 +193,7 @@ const MapChart = () => {
                 {university.name === 'Plymouth University' && (
                   <Link to="/PlymouthUnivesity">
                     <button style={{
-                        backgroundColor: '#007bff',
+                        backgroundColor: '#617487',
                         color: '#fff',
                         border: 'none',
                         padding: '5px 10px',
@@ -205,7 +205,7 @@ const MapChart = () => {
               </div>
             ) : (
               <button style={{
-                backgroundColor: 'transparent',
+                backgroundColor: '#617487',
                 border: 'none',
                 padding: '5px 10px',
                 cursor: 'pointer',

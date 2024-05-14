@@ -6,6 +6,7 @@
   padding: 25px;
   background-color: aliceblue;
   border-radius: 15px;
+  color: black;
   margin: 50px;
 }
 
@@ -19,4 +20,32 @@
 .card {
   flex: 1 1 0px;
   margin: 10px;
+}
+
+.searchPageInstruct {
+  position: absolute;
+  top: 120px;
+  left: 60%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  height: 300px;
+  width: 500px;
+  margin-bottom: 2rem;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.searchPageInstruct:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.searchPageInstruct p {
+  margin: 30px;
+}
+
+.searchPageInstruct h3 {
+  margin: 30px;
+  color: #617487;
 }

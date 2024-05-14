@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const logoImage = '<img src="https://www.vu.edu.au/sites/default/files/nsbm-green-university-town.jpg" alt="Logo" className="letter-logo" width="auto" height="100" margin-left="100" ustify-content: "center"/>';
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -78,10 +79,16 @@ app.post('/api/generate-letter', async (req, res) => {
     res.status(200).json({
       success: true,
       data: 
-      `
-Dear Sir/Madam,
 
-I am writing to recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
+ `
+ ${logoImage}
+
+2024-05-15 
+NSBM Green University, 
+Faculty of ${studentData.faculty},
+
+Dear Sir/Madam,
+Writing this letter to recommend ${studentData.name} for any opportunity that requires a dedicated, hardworking, and talented individual. I have had the pleasure of teaching ${studentData.name} in my ${studentData.degree} course, and I can confidently say that they are one of the most exceptional students I have ever had.
 
 During their time in my class, ${studentData.name} consistently demonstrated a strong work ethic and a deep understanding of the material. They were an active participant in class discussions and always eager to learn more. Their final project, related to ${studentData.Finalproject}, was one of the best I have ever seen in my career.
 
