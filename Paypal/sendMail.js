@@ -3,8 +3,8 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'nmails6969@gmail.com',
-    pass: 'wqij frps qaxq mzln',
+    user: 'edubridgebywish@gmail.com',
+    pass: 'vbeo sopx gorm olzv',
   },
 });
 
@@ -13,7 +13,7 @@ async function main() {
   // send mail with defined transport object
   const info = await transporter.sendMail({
     from: 'p', // sender address
-    to: "plymouthuniversitydummy@gmail.com", // list of receivers
+    to: "wishhiranyaco@gmail.com", // list of receivers
     subject: "EduBridge Application Submission✔", // Subject line
     text: "Congradulations!!! Your Application Submited succesfully.", // plain text body
    // html: "<b>Hello world?</b>", // html body
