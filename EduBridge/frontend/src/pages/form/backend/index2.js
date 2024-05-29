@@ -39,7 +39,7 @@ try {
   }
 });
 
-// Define a new route to update student data in the  datbase
+// Define a new route to updated databse
 
 
 app.listen(PORT, () => {
